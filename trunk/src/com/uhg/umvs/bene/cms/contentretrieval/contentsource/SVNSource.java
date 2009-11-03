@@ -22,7 +22,7 @@ import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
-// using http as the access protocol, which is DAV-related?
+// SVN accessor, need to provide repository url, possibly the password and username and base path in the source tree to act as root.
 
 public class SVNSource implements ContentSource
 {

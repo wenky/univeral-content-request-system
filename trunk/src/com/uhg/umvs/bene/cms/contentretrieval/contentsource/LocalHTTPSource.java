@@ -1,6 +1,8 @@
 package com.uhg.umvs.bene.cms.contentretrieval.contentsource;
 
-
+// grab content from an http server or some other URL-connectable resource.
+// - useful for passthrus, as was the case with the Jackrabbit JCR jars conflicting with the jBOSS CMS jars
+//   so this was used to passthru to another webapp specifically dedicated to accessing the jBOSS CMS
 
 import java.io.BufferedReader;
 import java.io.IOException;
