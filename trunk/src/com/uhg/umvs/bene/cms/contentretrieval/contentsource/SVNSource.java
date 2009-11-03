@@ -1,5 +1,7 @@
 package com.uhg.umvs.bene.cms.contentretrieval.contentsource;
 
+import hidden.org.codehaus.plexus.util.IOUtil;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -80,11 +82,12 @@ public class SVNSource implements ContentSource
 
         String mimeType = props.getStringValue(SVNProperty.MIME_TYPE);
         resp.setContentType(mimeType);
-        try { 
+        try {
             OutputStream bufout = resp.getOutputStream();
             baos.writeTo(bufout);
             bufout.flush();
             bufout.close();
+            baos.close();
         } catch (IOException ioe) {
             throw new RuntimeException("SVNSource: IO exception writing file contents "+itempath+" from repo "+repositoryurl);            
         }

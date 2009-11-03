@@ -68,13 +68,12 @@ public class FTPSource implements ContentSource
             ftp.retrieveFile(itempath, baos);
             
             String replystring = ftp.getReplyString();
-            byte[] file = baos.toByteArray();
             
             //resp.setContentType("text/html");
             OutputStream output = resp.getOutputStream();
             baos.writeTo(output);
             output.flush();
-            output.close();
+            baos.close();
             ftp.logout();
             
         } catch (IOException ioe) {
