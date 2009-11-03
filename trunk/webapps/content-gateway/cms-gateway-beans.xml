@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <!-- JCR Repository -->
+	<bean id="jackrabbit-jcr-repository-factory" class="org.springmodules.jcr.jackrabbit.RepositoryFactoryBean">	
+	   <property name="configuration" value="file:C:/aaa-UHG-2009-TRICARE/jackrabbit-1.6.0-56048/jackrabbit/repository.xml" />
+	   <property name="homeDir" value="file:C:/aaa-UHG-2009-TRICARE/jackrabbit-1.6.0-56048/jackrabbit/" />
+	</bean>
+
+
+	<!-- File System Source -->
+	<bean id="cms-source-fs" class="com.uhg.umvs.bene.cms.contentretrieval.contentsource.FileSystemSource">
+		<property name="baseroot" value="C:/aaa-UHG-2009-TRICARE/zzz-cemfs-root/"/>
+	</bean>
+	
+	<!-- SVN Source -->
+	<bean id="cms-source-svn" class="com.uhg.umvs.bene.cms.contentretrieval.contentsource.SVNSource">
+		<property name="repositoryUrl" value="http://svn.uhc.com/svn/umvs_beneficiary_portal/beneficiary_portlet/trunk/workspace/"/>
+        <property name="username" value="USERNAMEUSERNAMEUSERNAMEUSERNAME"/>
+        <property name="password" value="PASSWORDPASSWORDPASSWORDPASSWORD"/>
+	</bean>
+
+	<!-- FTP Source -->
+	<bean id="cms-source-ftp" class="com.uhg.umvs.bene.cms.contentretrieval.contentsource.FTPSource">
+		<property name="server" value="ftp.wayne.edu"/>
+		<property name="basePath" value="/apache/"/>
+	</bean>
+
+    <!-- JCR Source -->
+	<bean id="cms-source-jcr" class="com.uhg.umvs.bene.cms.contentretrieval.contentsource.JCRSource">
+		<property name="contentNode" value="/jcr:content"/>
+		<property name="mimeTypeProperty" value="jcr:mimetype"/>
+        <property name="contentProperty" value="jcr:data"/>
+        <!-- the ref to jackrabbit-jcr-repository-factory returns the object type it is a factory for, not a ref to the factory bean  -->
+        <property name="contentRepository" ref="jackrabbit-jcr-repository-factory"/>
+	</bean>
+
+    <!--  jBoss CMS Source -->
+	<bean id="cms-source-jBoss-passthru" class="com.uhg.umvs.bene.cms.contentretrieval.contentsource.LocalHTTPSource">
+		<property name="localWebappName" value="/CRS-jb"/>
+	</bean>
+
+
+	
+	<bean id="tag-content-request-server" class="com.uhg.umvs.bene.cms.contentretrieval.ContentRequestServer">
+		<property name="sourceHandlers">
+			<list>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.SimpleHandler">
+					<property name="sourceName" value="CEM-FS"/>
+					<property name="contentSource" ref="cms-source-fs"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.SimpleHandler">
+					<property name="sourceName" value="CEM-SVN"/>
+					<property name="contentSource" ref="cms-source-svn"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.SimpleHandler">
+					<property name="sourceName" value="CEM-FTP"/>
+					<property name="contentSource" ref="cms-source-ftp"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.SimpleHandler">
+					<property name="sourceName" value="CEM-JCR"/>
+					<property name="contentSource" ref="cms-source-jcr"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.SimpleHandler">
+					<property name="sourceName" value="CEM-JBOSS"/>
+					<property name="contentSource" ref="cms-source-jBoss-passthru"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="direct-content-request-server" class="com.uhg.umvs.bene.cms.contentretrieval.ContentRequestServer">
+		<property name="sourceHandlers">
+			<list>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.ExtraPathHandler">
+					<property name="sourcePrefix" value="/fs/"/>
+					<property name="contentSource" ref="cms-source-fs"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.ExtraPathHandler">
+					<property name="sourcePrefix" value="/svn/"/>
+					<property name="contentSource" ref="cms-source-svn"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.ExtraPathHandler">
+					<property name="sourcePrefix" value="/ftp/"/>
+					<property name="contentSource" ref="cms-source-ftp"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.ExtraPathHandler">
+					<property name="sourcePrefix" value="/jcr"/> <!-- item key needs '/' at beginning -->
+					<property name="contentSource" ref="cms-source-jcr"/>
+				</bean>
+				<bean class="com.uhg.umvs.bene.cms.contentretrieval.requesthandler.ExtraPathHandler">
+					<property name="sourcePrefix" value="/jboss"/>
+					<property name="contentSource" ref="cms-source-jBoss-passthru"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
