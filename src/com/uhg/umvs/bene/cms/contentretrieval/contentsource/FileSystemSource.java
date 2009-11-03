@@ -14,6 +14,9 @@ import org.apache.commons.io.IOUtils;
 
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
+// gets resource/content item relative to a configured path on the local filesystem
+// - should be usable against Vignette Deployment Agent-placed content 
+
 public class FileSystemSource implements ContentSource
 {
     String baseroot;

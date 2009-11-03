@@ -23,6 +23,12 @@ import org.apache.commons.io.IOUtils;
 
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
+// gets content from a JCR content repository, likely a Jackrabbit one
+// need to configure the Repository, credentials, and workspace name
+// also, will need to set the content node name and the property that has the content on the content node
+// specifying the name of the content node's mime property is optional
+// optionally provide a base path to start from in the JCR tree
+
 public class JCRSource implements ContentSource
 {
     Repository contentrepository;

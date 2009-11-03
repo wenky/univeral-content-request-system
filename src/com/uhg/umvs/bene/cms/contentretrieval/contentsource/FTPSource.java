@@ -14,6 +14,9 @@ import org.apache.commons.net.ftp.FTPReply;
 
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
+// get content from an FTP server. need to configure a server. optionally provide username, password, 
+// and base path on the remote FTP filesystem from which to grab the resource 
+
 
 public class FTPSource implements ContentSource
 {

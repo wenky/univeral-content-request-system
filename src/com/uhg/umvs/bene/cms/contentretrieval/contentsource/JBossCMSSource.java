@@ -24,6 +24,9 @@ import org.jboss.portal.cms.model.File;
 
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
+// gets content from the JBoss CMS (a Jackrabbit CMS). Should be run from a webapp inside default/deploy/portal-server.sar/portal-cms.sar
+// otherwise the command factory doesn't seem to work very well...
+
 public class JBossCMSSource implements ContentSource
 {
     String cmsServiceObjectName = "portal:service=CMS";
