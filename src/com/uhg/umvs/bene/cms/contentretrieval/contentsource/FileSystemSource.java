@@ -10,6 +10,8 @@ import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
+
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
 public class FileSystemSource implements ContentSource
@@ -33,18 +35,9 @@ public class FileSystemSource implements ContentSource
             //byteArrayStream.writeTo(response.getOutputStream())
             try { 
                 BufferedInputStream fis = new BufferedInputStream(new FileInputStream(thefile));
-                OutputStream os = resp.getOutputStream();
-                int read = 0;
-                byte[] bytes = new byte[1024];
-           
-                //While there are still bytes in the file, read them and write them to our OutputStream
-                while((read = fis.read(bytes)) != -1){
-                   os.write(bytes,0,read);
-                }
-
-                //Clean resources
-                os.flush();
-                os.close();
+                IOUtils.copy(fis, resp.getOutputStream());
+                resp.getOutputStream().flush();
+                fis.close();
             } catch (IOException ioe) {
                 throw new RuntimeException("FSSource: Error reading file "+filepath+" to http response",ioe);
             }

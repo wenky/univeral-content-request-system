@@ -19,6 +19,8 @@ import javax.jcr.ValueFormatException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
+
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
 public class JCRSource implements ContentSource
@@ -110,25 +112,16 @@ public class JCRSource implements ContentSource
         
         InputStream contentstream;
         try {
-        contentstream = new BufferedInputStream(propitem.getStream());
+            contentstream = new BufferedInputStream(propitem.getStream());
         } catch (ValueFormatException vfe) {
             throw new RuntimeException("JCRSource: error in getting input stream from "+itempath,vfe);                                    
         } catch (RepositoryException re) {
             throw new RuntimeException("JCRSource: getting input stream for "+itempath+" threw RepositoryException",re);                        
         } 
         try { 
-            OutputStream os = resp.getOutputStream();
-            int read = 0;
-            byte[] bytes = new byte[1024];
-       
-            //While there are still bytes in the file, read them and write them to our OutputStream
-            while((read = contentstream.read(bytes)) != -1) {
-               os.write(bytes,0,read);
-            }
-    
-            //Clean resources
-            os.flush();
-            os.close();
+            IOUtils.copy(contentstream, resp.getOutputStream());
+            resp.getOutputStream().flush();       
+            contentstream.close();
         } catch (IOException ioe) {
             throw new RuntimeException("JCRSource: IOException writing "+itempath+" to response",ioe);                        
             

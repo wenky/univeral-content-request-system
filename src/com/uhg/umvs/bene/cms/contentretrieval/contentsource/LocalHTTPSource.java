@@ -2,18 +2,19 @@ package com.uhg.umvs.bene.cms.contentretrieval.contentsource;
 
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.hsqldb.lib.StringUtil;
 
 import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 
@@ -38,28 +39,23 @@ public class LocalHTTPSource implements ContentSource
             newurl += '?' + querystring;
         }
         
-        HttpClient client = new HttpClient();
-        HttpMethod method = new GetMethod(newurl);
-
         try {
+            URL theurl = new URL(newurl); 
+            URLConnection urlc = null;
             try {
-                client.executeMethod(method);
-            } catch (HttpException he) {
-                throw new RuntimeException("LocalHTTPSource: http error on url "+newurl,he);
+                urlc = theurl.openConnection();
+            } catch (MalformedURLException e) {     
+                throw new RuntimeException("LocalHTTPSource: bad content request url "+newurl,e);
             }
-            //String htmlpage = method.getResponseBodyAsString();            
-            //resp.getOutputStream().print(htmlpage);
-            //resp.getOutputStream().flush();
-            int read = 0;
-            byte[] bytes = new byte[1024];
-       
-            //While there are still bytes in the file, read them and write them to our OutputStream
-            InputStream contentstream = method.getResponseBodyAsStream();
-            OutputStream os = resp.getOutputStream();
-            while((read = contentstream.read(bytes)) != -1) {
-               os.write(bytes,0,read);
+            String contenttype = urlc.getContentType();
+            if (!StringUtil.isEmpty(contenttype)) {
+                resp.setContentType(contenttype);
             }
-            
+            BufferedReader in = new BufferedReader(new InputStreamReader(theurl.openStream()));             
+            IOUtils.copy(in, resp.getOutputStream());
+            resp.getOutputStream().flush();   
+            in.close();
+                        
         } catch (IOException ioe) {
             throw new RuntimeException("LocalHTTPSource: IO Error "+newurl,ioe);
         }

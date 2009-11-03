@@ -45,19 +45,10 @@ public class JBossCMSSource implements ContentSource
             
             InputStream contentstream = new BufferedInputStream(content.getStream());
             
-//            StringWriter writer = new StringWriter();
-//            IOUtils.copy(contentstream, writer);
-//            String theString = writer.toString();
-//            resp.getOutputStream().print(theString);
+            IOUtils.copy(contentstream, resp.getOutputStream());
+            resp.getOutputStream().flush();
+            contentstream.close();
             
-            OutputStream os = resp.getOutputStream();
-            int read = 0;
-            byte[] bytes = new byte[1024];       
-            while((read = contentstream.read(bytes)) != -1) {
-               os.write(bytes,0,read);
-            }
-            os.flush();
-            os.close();
         } catch (IOException ioe) {
             throw new RuntimeException("JBossCMSSource:: IO exception reading stream for item "+contentItem,ioe);
         } catch (MBeanProxyCreationException createerror) {

@@ -1,6 +1,11 @@
 package com.uhg.umvs.bene.cms.contentretrieval.taglib;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.jsp.JspException;
@@ -11,6 +16,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.io.IOUtils;
 
 public class ContentRetrievalTag implements Tag
 {
@@ -38,18 +44,21 @@ public class ContentRetrievalTag implements Tag
         String url = "http://"+req.getLocalName()+":"+req.getLocalPort()+filePath;
         
         try {
-            HttpClient client = new HttpClient();
-            HttpMethod method = new GetMethod(url);
-
-            client.executeMethod(method);
-            String htmlpage = method.getResponseBodyAsString();
             
-            pc.getOut().write(htmlpage);
+            URL theurl = new URL(url);            
+            URLConnection urlc = null;
+            try {
+                urlc = theurl.openConnection();
+            } catch (MalformedURLException e) {     
+                throw new RuntimeException("ContentRetrievalTag: bad content request url "+url,e);
+            }
+            BufferedReader in = new BufferedReader(new InputStreamReader(theurl.openStream()));             
+            IOUtils.copy(in, pc.getOut());
+            pc.getOut().flush();
+            in.close();
             
-        } catch (HttpException e) {
-            throw new RuntimeException("ContentRetrievalTag: http error on url "+url,e);
         } catch (IOException e) {
-            throw new RuntimeException("ContentRetrievalTag: IO error on url "+url,e);
+            throw new RuntimeException("ContentRetrievalTag: IO error retrievign content from content requesturl "+url,e);
         }
         return SKIP_BODY;
     }
