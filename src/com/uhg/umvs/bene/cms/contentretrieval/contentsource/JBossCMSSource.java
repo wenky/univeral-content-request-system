@@ -27,6 +27,14 @@ import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 // gets content from the JBoss CMS (a Jackrabbit CMS). Should be run from a webapp inside default/deploy/portal-server.sar/portal-cms.sar
 // otherwise the command factory doesn't seem to work very well...
 
+// reverse engineered from the OOTB CMSPortlet (org.jboss.portal.core.cms.ui.CMSPortlet in the portal-core-cms-lib.jar)
+//   -- the CMS bean ref is acquired in CMSPortlet via: CMS CMSService = (CMS)getPortletContext().getAttribute("CMS");
+//   -- ...how did I figure out the MBean? Is this portable across all nodes? example in org.jboss.portal.core.cms.servlet.CMSExportServlet
+//         but is that accessible in all load balancing nodes?
+//   -- MBean is configured in server/default/deploy/jboss-portal.sar/portal-cms.sar/META-INF/jboss-service.xml 
+
+
+
 public class JBossCMSSource implements ContentSource
 {
     String cmsServiceObjectName = "portal:service=CMS";
