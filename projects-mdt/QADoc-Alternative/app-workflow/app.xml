@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config>
+   <scope>
+      <application extends="app-medtronic/app.xml">
+          <!-- TSG: 
+          Override client_shutdown_session_timeout (from 60 seconds) so that when user leaves
+          Webtop for the Wizard, they can return after longer than 1 minute.
+          -->
+          <session_config>
+              <!-- Maximum number of user sessions. -1 denotes no session limit. -->
+              <max_sessions>-1</max_sessions>                
+              <!-- Timeout management settings. -->
+              <timeout_control>                
+                  <!-- Value of temporary timeout in seconds. This is the value set to the current user
+                  session during operations that may lead to client shutdown. -->
+                  <client_shutdown_session_timeout>1800</client_shutdown_session_timeout>
+              </timeout_control>
+          </session_config>
+      </application>
+   </scope>
+</config>
+ 

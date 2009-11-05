@@ -1,0 +1,753 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Util, DOM, CSS, Event, Screen, Sort Functions from JavascriptToolbox.com</title>
+
+
+	
+<link rel="stylesheet" type="text/css" href="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/css.css" media="all">
+<script type="text/javascript" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/main.js"></script></head><body>
+<table class="columns" border="0" cellspacing="0">
+<tbody><tr>
+	<td class="left" rowspan="2">
+		<div style="text-align: center;"><a href="http://www.javascripttoolbox.com/" title="Home"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/logo5.gif" alt="Logo"></a></div>
+
+		<div class="portlet">
+			<h5>Navigation</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/" title="Home">Home</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/" title="Libraries">Libraries</a>
+				<a href="http://www.javascripttoolbox.com/bestpractices/" title="Best Practices">Best Practices</a>
+				<a href="http://www.javascripttoolbox.com/support/" title="Support">Support</a>
+				<a href="http://www.javascripttoolbox.com/resources/" title="Javascript Resources">Resources / Links</a>
+				<a href="http://www.javascripttoolbox.com/search/" title="Javascript Knowledge Base Search">JS Knowledge Base</a>
+				<a href="http://www.javascripttoolbox.com/donate/" title="Donate To Support This Site">Donate!</a>
+				<a href="http://www.javascripttoolbox.com/aboutme/" title="About Me">About Me</a>
+				<a href="http://www.ajaxtoolbox.com/" title="AJAX" target="_blank">AJAX Toolbox</a>
+			</div>
+		</div>
+
+		<div class="portlet">
+			<h5>Libraries</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/lib/calendar/" title="">Calendar Popup</a>
+				<a href="http://www.javascripttoolbox.com/lib/checkboxgroup/" title="">Checkbox Group</a>
+				<a href="http://www.javascripttoolbox.com/lib/datadumper/" title="">Data Dumper</a>
+				<a href="http://www.javascripttoolbox.com/lib/validations/" title="">Data Validation</a>
+				<a href="http://www.javascripttoolbox.com/lib/date/" title="">Date Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/mktree/" title="">DHTML Tree</a>
+				<a href="http://www.javascripttoolbox.com/lib/dragiframe/" title="">Draggable Iframes</a>
+				<a href="http://www.javascripttoolbox.com/lib/dynamicoptionlist/" title="">Dependent Select Boxes</a>
+				<a href="http://www.javascripttoolbox.com/lib/form/" title="">Form Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/objectposition/" title="">Object Position</a>
+				<a href="http://www.javascripttoolbox.com/lib/optiontransfer/" title="">Option Transfer</a>
+				<a href="http://www.javascripttoolbox.com/lib/popup/" title="">Popups (In-Page DIV)</a>
+				<a href="http://www.javascripttoolbox.com/lib/selectbox/" title="">Selectbox Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/table/" title="">Table Sorting And Utils</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/util/" title="">Util/DOM/CSS/Event</a>
+			</div>
+		</div>
+
+		<h5>doctype [<a href="#" onclick="alert('Since some web browsers use the DOCTYPE of a document to switch between Quirks or Standards mode, some code may have different behavior depending on the DOCTYPE specified. These links allow pages to be tested using strict, loose, or no doctype at all for compatability testing.'); return false;" title="What's This?">?</a>]</h5>
+		[<a href="http://www.javascripttoolbox.com/lib/util/source.php?doctype=strict">strict</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/util/source.php?doctype=loose">loose</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/util/source.php?doctype=none">none</a>]
+
+	</td>
+	<td class="header" colspan="2">
+		<div id="searchbox"><form method="get" action="http://www.google.com/custom"><input name="domains" value="javascripttoolbox.com" type="hidden"><input class="search" name="q" size="15" maxlength="255" value="Search!" onclick="this.style.color='black';this.value='';" type="text"><input name="sa" value="go" type="submit"><input name="sitesearch" value="javascripttoolbox.com" type="hidden"><input name="client" value="pub-9155030588311591" type="hidden"><input name="forid" value="1" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input name="oe" value="ISO-8859-1" type="hidden"><input name="cof" value="GALT:#008000;GL:1;DIV:#AAAAAA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:C2DDF4;ALC:002BB8;LC:002BB8;T:000000;GFNT:AAAAAA;GIMP:AAAAAA;LH:50;LW:588;L:http://www.javascripttoolbox.com/search_header.gif;S:http://www.JavascriptToolbox.com/;FORID:1;" type="hidden"><input name="hl" value="en" type="hidden"></form></div>
+		<h1>Util, DOM, CSS, Event Functions</h1>	</td>
+</tr>
+<tr>
+	<td class="middle"><div class="corner cornerul"></div><div class="body">
+	<div class="tabContainer">
+	<div><a href="http://www.javascripttoolbox.com/lib/util/index.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/overview.gif" alt=""> Overview</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/documentation.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/documentation.gif" alt=""> Documentation</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/test.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/test.gif" alt=""> Test Cases</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/notes.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/notes.gif" alt=""> Notes</a></div>
+	<div class="selected"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/source.gif" alt=""> Source</div>
+</div>
+<div class="tabcontent"><br>
+
+
+
+<br>
+
+<table class="sourceDetails" cellspacing="0">
+<tbody><tr>
+	<td colspan="2" style="border: medium none ;">
+	<div class="tabContainer">
+	<div class="selected"><a href="http://www.javascripttoolbox.com/lib/util/source.php?view=source" title="Fully formatted code - Best for understanding and editing">Fully Commented Code</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/source.php?view=compact" title="Compact code - Best used for production because its size is smaller, but not suited for editing">Compacted</a></div>
+	</div>
+	</td>
+</tr>
+<tr>
+	<th>Source Type:</th><td>Fully formatted code - Best for understanding and editing</td>
+</tr>
+<tr>
+	<th>Source File:</th><td><a href="http://www.javascripttoolbox.com/libsource.php/util/source/util.js">util.js</a> (Right-click and "save as")</td>
+</tr>
+<tr>
+	<th>File size:</th><td>18k</td>
+</tr>
+</tbody></table>
+
+
+<div>
+<br>
+<img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/paypal1.gif">
+<img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/paypal2.gif">
+<br>
+PLEASE <a href="http://www.javascripttoolbox.com/donate/">SUPPORT THIS SITE!</a> Rather than charging money for this site, I rely on 
+<a href="http://www.javascripttoolbox.com/donate/">donations</a> from
+users to help support the site and offset development time. If you find
+this code useful or if it helped on your project, please consider
+donating. Any amount is appreciated! Thanks!
+</div>
+
+<pre id="source" class="source">/*===================================================================
+ Author: Matt Kruse
+ 
+ View documentation, examples, and source code at:
+     http://www.JavascriptToolbox.com/
+
+ NOTICE: You may use this code for any purpose, commercial or
+ private, without any further permission from the author. You may
+ remove this notice from your final code if you wish, however it is
+ appreciated by the author if at least the web site address is kept.
+
+ This code may NOT be distributed for download from script sites, 
+ open source CDs or sites, or any other distribution method. If you
+ wish you share this code with others, please direct them to the 
+ web site above.
+ 
+ Pleae do not link directly to the .js files on the server above. Copy
+ the files to your own server for use with your site or webapp.
+ ===================================================================*/
+/* ******************************************************************* */
+/*   UTIL FUNCTIONS                                                    */
+/* ******************************************************************* */
+var Util = {'$VERSION':1.06};
+
+// Util functions - these are GLOBAL so they
+// look like built-in functions.
+
+// Determine if an object is an array
+function isArray(o) {
+&nbsp;&nbsp;return (o!=null &amp;&amp; typeof(o)=="object" &amp;&amp; typeof(o.length)=="number" &amp;&amp; (o.length==0 || defined(o[0])));
+};
+
+// Determine if an object is an Object
+function isObject(o) {
+&nbsp;&nbsp;return (o!=null &amp;&amp; typeof(o)=="object" &amp;&amp; defined(o.constructor) &amp;&amp; o.constructor==Object &amp;&amp; !defined(o.nodeName));
+};
+
+// Determine if a reference is defined
+function defined(o) {
+&nbsp;&nbsp;return (typeof(o)!="undefined");
+};
+
+// Iterate over an array, object, or list of items and run code against each item
+// Similar functionality to Perl's map() function
+function map(func) {
+&nbsp;&nbsp;var i,j,o;
+&nbsp;&nbsp;var results = [];
+&nbsp;&nbsp;if (typeof(func)=="string") {
+&nbsp;&nbsp;&nbsp;&nbsp;func = new Function('$_',func);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;for (i=1; i&lt;arguments.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;o = arguments[i];
+&nbsp;&nbsp;&nbsp;&nbsp;if (isArray(o)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (j=0; j&lt;o.length; j++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = func(o[j]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (isObject(o)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (j in o) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = func(o[j]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = func(o);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return results;
+};
+
+// Set default values in an object if they are undefined
+function setDefaultValues(o,values) {
+&nbsp;&nbsp;if (!defined(o) || o==null) {
+&nbsp;&nbsp;&nbsp;&nbsp;o = {};
+&nbsp;&nbsp;}
+&nbsp;&nbsp;if (!defined(values) || values==null) {
+&nbsp;&nbsp;&nbsp;&nbsp;return o;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;for (var val in values) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (!defined(o[val])) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o[val] = values[val];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return o;
+};
+
+/* ******************************************************************* */
+/*   DEFAULT OBJECT PROTOTYPE ENHANCEMENTS                             */
+/* ******************************************************************* */
+// These functions add useful functionality to built-in objects
+Array.prototype.contains = function(o) {
+&nbsp;&nbsp;var i,l;
+&nbsp;&nbsp;if (!(l = this.length)) { return false; }
+&nbsp;&nbsp;for (i=0; i&lt;l; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (o==this[i]) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+}
+
+/* ******************************************************************* */
+/*   DOM FUNCTIONS                                                     */
+/* ******************************************************************* */
+var DOM = (function() { 
+&nbsp;&nbsp;var dom = {};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get a parent tag with a given nodename
+&nbsp;&nbsp;dom.getParentByTagName = function(o,tagNames) {
+&nbsp;&nbsp;&nbsp;&nbsp;if(o==null) { return null; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (isArray(tagNames)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tagNames = map("return $_.toUpperCase()",tagNames);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (o=o.parentNode) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (o.nodeName &amp;&amp; tagNames.contains(o.nodeName)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tagNames = tagNames.toUpperCase();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (o=o.parentNode) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (o.nodeName &amp;&amp; tagNames==o.nodeName) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Remove a node from its parent
+&nbsp;&nbsp;dom.removeNode = function(o) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (o!=null &amp;&amp; o.parentNode &amp;&amp; o.parentNode.removeChild) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// First remove all attributes which are func references, to avoid memory leaks
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var i in o) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(o[i])=="function") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o[i] = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.parentNode.removeChild(o);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return false;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Get the outer width in pixels of an object, including borders, padding, and margin
+&nbsp;&nbsp;dom.getOuterWidth = function(o) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(o.offsetWidth)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o.offsetWidth;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Get the outer height in pixels of an object, including borders, padding, and margin
+&nbsp;&nbsp;dom.getOuterHeight = function(o) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(o.offsetHeight)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o.offsetHeight;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Resolve an item, an array of items, or an object of items
+&nbsp;&nbsp;dom.resolve = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;var results = new Array();
+&nbsp;&nbsp;&nbsp;&nbsp;var i,j,o;
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i=0; i&lt;arguments.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var o = arguments[i];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (o==null) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arguments.length==1) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (typeof(o)=='string') {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (document.getElementById) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = document.getElementById(o);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (document.all) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = document.all[o];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arguments.length==1) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = o;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (isArray(o)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (j=0; j&lt;o.length; j++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = o[j];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (isObject(o)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (j in o) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = o[j];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (arguments.length==1) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[results.length] = o;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;  }
+&nbsp;&nbsp;  return results;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;dom.$ = dom.resolve;
+&nbsp;&nbsp;
+&nbsp;&nbsp;return dom;
+})();
+
+/* ******************************************************************* */
+/*   CSS FUNCTIONS                                                     */
+/* ******************************************************************* */
+var CSS = (function(){
+&nbsp;&nbsp;var css = {};
+
+&nbsp;&nbsp;// Convert an RGB string in the form "rgb (255, 255, 255)" to "#ffffff"
+&nbsp;&nbsp;css.rgb2hex = function(rgbString) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(rgbString)!="string" || !defined(rgbString.match)) { return null; }
+&nbsp;&nbsp;&nbsp;&nbsp;var result = rgbString.match(/^\s*rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*/);
+&nbsp;&nbsp;&nbsp;&nbsp;if (result==null) { return rgbString; }
+&nbsp;&nbsp;&nbsp;&nbsp;var rgb = +result[1] &lt;&lt; 16 | +result[2] &lt;&lt; 8 | +result[3]
+&nbsp;&nbsp;&nbsp;&nbsp;var hex = "";
+&nbsp;&nbsp;&nbsp;&nbsp;var digits = "0123456789abcdef";
+&nbsp;&nbsp;&nbsp;&nbsp;while(rgb!=0) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hex = digits.charAt(rgb&amp;0xf)+hex; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rgb&gt;&gt;&gt;=4; 
+&nbsp;&nbsp;&nbsp;&nbsp;} 
+&nbsp;&nbsp;&nbsp;&nbsp;while(hex.length&lt;6) { hex='0'+hex; }
+&nbsp;&nbsp;&nbsp;&nbsp;return "#" + hex;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Convert hyphen style names like border-width to camel case like borderWidth
+&nbsp;&nbsp;css.hyphen2camel = function(property) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (!defined(property) || property==null) { return null; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (property.indexOf("-")&lt;0) { return property; }
+&nbsp;&nbsp;&nbsp;&nbsp;var str = "";
+&nbsp;&nbsp;&nbsp;&nbsp;var c = null;
+&nbsp;&nbsp;&nbsp;&nbsp;var l = property.length;
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i=0; i&lt;l; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c = property.charAt(i);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str += (c!="-")?c:property.charAt(++i).toUpperCase();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return str;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Determine if an object or class string contains a given class.
+&nbsp;&nbsp;css.hasClass = function(obj,className) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (!defined(obj) || obj==null || !RegExp) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;var re = new RegExp("(^|\\s)" + className + "(\\s|$)");
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(obj)=="string") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return re.test(obj);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (typeof(obj)=="object" &amp;&amp; obj.className) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return re.test(obj.className);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return false;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Add a class to an object
+&nbsp;&nbsp;css.addClass = function(obj,className) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(obj)!="object" || obj==null || !defined(obj.className)) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (obj.className==null || obj.className=='') { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.className = className; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true; 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (css.hasClass(obj,className)) { return true; }
+&nbsp;&nbsp;&nbsp;&nbsp;obj.className = obj.className + " " + className;
+&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Remove a class from an object
+&nbsp;&nbsp;css.removeClass = function(obj,className) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(obj)!="object" || obj==null || !defined(obj.className) || obj.className==null) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (!css.hasClass(obj,className)) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;var re = new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+&nbsp;&nbsp;&nbsp;&nbsp;obj.className = obj.className.replace(re,' ');
+&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Fully replace a class with a new one
+&nbsp;&nbsp;css.replaceClass = function(obj,className,newClassName) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(obj)!="object" || obj==null || !defined(obj.className) || obj.className==null) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;css.removeClass(obj,className);
+&nbsp;&nbsp;&nbsp;&nbsp;css.addClass(obj,newClassName);
+&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get the currently-applied style of an object
+&nbsp;&nbsp;css.getStyle = function(o, property) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (o==null) { return null; }
+&nbsp;&nbsp;&nbsp;&nbsp;var val = null;
+&nbsp;&nbsp;&nbsp;&nbsp;var camelProperty = css.hyphen2camel(property);
+&nbsp;&nbsp;&nbsp;&nbsp;// Handle "float" property as a special case
+&nbsp;&nbsp;&nbsp;&nbsp;if (property=="float") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = css.getStyle(o,"cssFloat");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (val==null) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = css.getStyle(o,"styleFloat"); 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (o.currentStyle &amp;&amp; defined(o.currentStyle[camelProperty])) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = o.currentStyle[camelProperty];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (window.getComputedStyle) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = window.getComputedStyle(o,null).getPropertyValue(property);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (o.style &amp;&amp; defined(o.style[camelProperty])) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = o.style[camelProperty];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;// For color values, make the value consistent across browsers
+&nbsp;&nbsp;&nbsp;&nbsp;// Convert rgb() colors back to hex for consistency
+&nbsp;&nbsp;&nbsp;&nbsp;if (/^\s*rgb\s*\(/.test(val)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = css.rgb2hex(val);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;// Lowercase all #hex values
+&nbsp;&nbsp;&nbsp;&nbsp;if (/^#/.test(val)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = val.toLowerCase();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return val;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;css.get = css.getStyle;
+
+&nbsp;&nbsp;// Set a style on an object
+&nbsp;&nbsp;css.setStyle = function(o, property, value) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (o==null || !defined(o.style) || !defined(property) || property==null || !defined(value)) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (property=="float") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style["cssFloat"] = value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style["styleFloat"] = value;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (property=="opacity") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style['-moz-opacity'] = value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style['-khtml-opacity'] = value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style.opacity = value;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (defined(o.style.filter)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style.filter = "alpha(opacity=" + value*100 + ")";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.style[css.hyphen2camel(property)] = value;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;css.set = css.setStyle;
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get a unique ID which doesn't already exist on the page
+&nbsp;&nbsp;css.uniqueIdNumber=1000;
+&nbsp;&nbsp;css.createId = function(o) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(o) &amp;&amp; o!=null &amp;&amp; defined(o.id) &amp;&amp; o.id!=null &amp;&amp; o.id!="") { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return o.id;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;var id = null;
+&nbsp;&nbsp;&nbsp;&nbsp;while (id==null || document.getElementById(id)!=null) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id = "ID_"+(css.uniqueIdNumber++);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(o) &amp;&amp; o!=null &amp;&amp; (!defined(o.id)||o.id=="")) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.id = id;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return id;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;return css;
+})();
+
+/* ******************************************************************* */
+/*   EVENT FUNCTIONS                                                   */
+/* ******************************************************************* */
+
+var Event = (function(){
+&nbsp;&nbsp;var ev = {};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Resolve an event using IE's window.event if necessary
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;ev.resolve = function(e) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (!defined(e) &amp;&amp; defined(window.event)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e = window.event;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return e;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Add an event handler to a function
+&nbsp;&nbsp;// Note: Don't use 'this' within functions added using this method, since
+&nbsp;&nbsp;// the attachEvent and addEventListener models differ.
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;ev.add = function( obj, type, fn, capture ) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (obj.addEventListener) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.addEventListener( type, fn, capture );
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (obj.attachEvent) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.attachEvent( "on"+type, fn );
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return false;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Get the mouse position of an event
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;// PageX/Y, where they exist, are more reliable than ClientX/Y because 
+&nbsp;&nbsp;// of some browser bugs in Opera/Safari
+&nbsp;&nbsp;ev.getMouseX = function(e) {
+&nbsp;&nbsp;&nbsp;&nbsp;e = ev.resolve(e);
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(e.pageX)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return e.pageX;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(e.clientX)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return e.clientX+Screen.getScrollLeft();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;ev.getMouseY = function(e) {
+&nbsp;&nbsp;&nbsp;&nbsp;e = ev.resolve(e);
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(e.pageY)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return e.pageY;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(e.clientY)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return e.clientY+Screen.getScrollTop();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Stop the event from bubbling up to parent elements.
+&nbsp;&nbsp;// Two method names map to the same function
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;ev.cancelBubble = function(e) {
+&nbsp;&nbsp;&nbsp;&nbsp;e = ev.resolve(e);
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(e.stopPropagation)=="function") { e.stopPropagation(); } 
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(e.cancelBubble)) { e.cancelBubble = true; }
+&nbsp;&nbsp;};
+&nbsp;&nbsp;ev.stopPropagation = ev.cancelBubble;
+
+&nbsp;&nbsp;// Prevent the default handling of the event to occur
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;ev.preventDefault = function(e) {
+&nbsp;&nbsp;&nbsp;&nbsp;e = ev.resolve(e);
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(e.preventDefault)=="function") { e.preventDefault(); } 
+&nbsp;&nbsp;&nbsp;&nbsp;if (defined(e.returnValue)) { e.returnValue = false; }
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;return ev;
+})();
+
+/* ******************************************************************* */
+/*   SCREEN FUNCTIONS                                                  */
+/* ******************************************************************* */
+var Screen = (function() {
+&nbsp;&nbsp;var screen = {};
+
+&nbsp;&nbsp;// Get a reference to the body
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getBody = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.body) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.body;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.getElementsByTagName) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var bodies = document.getElementsByTagName("BODY");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (bodies!=null &amp;&amp; bodies.length&gt;0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return bodies[0];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Get the amount that the main document has scrolled from top
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getScrollTop = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.documentElement &amp;&amp; defined(document.documentElement.scrollTop) &amp;&amp; document.documentElement.scrollTop&gt;0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.documentElement.scrollTop;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.body &amp;&amp; defined(document.body.scrollTop)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.body.scrollTop;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get the amount that the main document has scrolled from left
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getScrollLeft = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.documentElement &amp;&amp; defined(document.documentElement.scrollLeft) &amp;&amp; document.documentElement.scrollLeft&gt;0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.documentElement.scrollLeft;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.body &amp;&amp; defined(document.body.scrollLeft)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.body.scrollLeft;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return null;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Util function to default a bad number to 0
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.zero = function(n) {
+&nbsp;&nbsp;&nbsp;&nbsp;return (!defined(n) || isNaN(n))?0:n;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;// Get the width of the entire document
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getDocumentWidth = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;var width = 0;
+&nbsp;&nbsp;&nbsp;&nbsp;var body = screen.getBody();
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.documentElement &amp;&amp; (!document.compatMode || document.compatMode=="CSS1Compat")) {
+&nbsp;&nbsp;&nbsp;&nbsp;    var rightMargin = parseInt(CSS.get(body,'marginRight'),10) || 0;
+&nbsp;&nbsp;&nbsp;&nbsp;    var leftMargin = parseInt(CSS.get(body,'marginLeft'), 10) || 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width = Math.max(body.offsetWidth + leftMargin + rightMargin, document.documentElement.clientWidth);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width =  Math.max(body.clientWidth, body.scrollWidth);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if (isNaN(width) || width==0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width = screen.zero(self.innerWidth);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return width;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get the height of the entire document
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getDocumentHeight = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;var body = screen.getBody();
+&nbsp;&nbsp;&nbsp;&nbsp;var innerHeight = (defined(self.innerHeight)&amp;&amp;!isNaN(self.innerHeight))?self.innerHeight:0;
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.documentElement &amp;&amp; (!document.compatMode || document.compatMode=="CSS1Compat")) {
+&nbsp;&nbsp;&nbsp;&nbsp;    var topMargin = parseInt(CSS.get(body,'marginTop'),10) || 0;
+&nbsp;&nbsp;&nbsp;&nbsp;    var bottomMargin = parseInt(CSS.get(body,'marginBottom'), 10) || 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return Math.max(body.offsetHeight + topMargin + bottomMargin, document.documentElement.clientHeight, document.documentElement.scrollHeight, screen.zero(self.innerHeight));
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return Math.max(body.scrollHeight, body.clientHeight, screen.zero(self.innerHeight));
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get the width of the viewport (viewable area) in the browser window
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getViewportWidth = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;if (document.documentElement &amp;&amp; (!document.compatMode || document.compatMode=="CSS1Compat")) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.documentElement.clientWidth;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (document.compatMode &amp;&amp; document.body) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.body.clientWidth;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return screen.zero(self.innerWidth);
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;// Get the height of the viewport (viewable area) in the browser window
+&nbsp;&nbsp;// --------------------------------------------------------------------
+&nbsp;&nbsp;screen.getViewportHeight = function() {
+&nbsp;&nbsp;&nbsp;&nbsp;if (!window.opera &amp;&amp; document.documentElement &amp;&amp; (!document.compatMode || document.compatMode=="CSS1Compat")) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.documentElement.clientHeight;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else if (document.compatMode &amp;&amp; !window.opera &amp;&amp; document.body) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return document.body.clientHeight;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return screen.zero(self.innerHeight);
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;return screen;
+})();var Sort = (function(){
+&nbsp;&nbsp;var sort = {};
+&nbsp;&nbsp;sort.AlphaNumeric = function(a,b) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (a==b) { return 0; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (a&lt;b) { return -1; }
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;sort.Default = sort.AlphaNumeric;
+&nbsp;&nbsp;
+&nbsp;&nbsp;sort.NumericConversion = function(val) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(val)!="number") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(val)=="string") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = parseFloat(val.replace(/,/g,''));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (isNaN(val) || val==null) { val=0; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return val;
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;sort.Numeric = function(a,b) {
+&nbsp;&nbsp;&nbsp;&nbsp;return sort.NumericConversion(a)-sort.NumericConversion(b);
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;sort.IgnoreCaseConversion = function(val) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (val==null) { val=""; }
+&nbsp;&nbsp;&nbsp;&nbsp;return (""+val).toLowerCase();
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;sort.IgnoreCase = function(a,b) {
+&nbsp;&nbsp;&nbsp;&nbsp;return sort.AlphaNumeric(sort.IgnoreCaseConversion(a),sort.IgnoreCaseConversion(b));
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;sort.CurrencyConversion = function(val) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(val)=="string") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val = val.replace(/^[^\d\.]/,'');
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return sort.NumericConversion(val);
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;sort.Currency = function(a,b) {
+&nbsp;&nbsp;&nbsp;&nbsp;return sort.Numeric(sort.CurrencyConversion(a),sort.CurrencyConversion(b));
+&nbsp;&nbsp;};
+&nbsp;&nbsp;
+&nbsp;&nbsp;sort.DateConversion = function(val) {
+&nbsp;&nbsp;&nbsp;&nbsp;// inner util function to parse date formats
+&nbsp;&nbsp;&nbsp;&nbsp;function getdate(str) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// inner util function to convert 2-digit years to 4
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function fixYear(yr) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yr = +yr;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (yr&lt;50) { yr += 2000; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (yr&lt;100) { yr += 1900; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return yr;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var ret;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// YYYY-MM-DD
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (ret=str.match(/(\d{2,4})-(\d{1,2})-(\d{1,2})/)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (fixYear(ret[1])*10000) + (ret[2]*100) + (+ret[3]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// MM/DD/YY[YY] or MM-DD-YY[YY]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (ret=str.match(/(\d{1,2})[\/-](\d{1,2})[\/-](\d{2,4})/)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (fixYear(ret[3])*10000) + (ret[1]*100) + (+ret[2]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 99999999; // So non-parsed dates will be last, not first
+&nbsp;&nbsp;&nbsp;&nbsp;};
+&nbsp;&nbsp;&nbsp;&nbsp;return getdate(val);
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;sort.Date = function(a,b) {
+&nbsp;&nbsp;&nbsp;&nbsp;return sort.Numeric(sort.DateConversion(a),sort.DateConversion(b));
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;return sort;
+})();
+
+</pre>
+	</div>
+	</div>
+	</td>
+	<td class="right" id="googleAds">
+		<script type="text/javascript">
+		google_ad_client = "pub-9155030588311591";
+		google_ad_width = 120;
+		google_ad_height = 600;
+		google_ad_format = "120x600_as";
+		google_color_border = "000000";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "000000";
+		google_color_text = "000000";
+		</script>
+		<script type="text/javascript" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/show_ads.js"></script><iframe name="google_ads_frame" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+	</td>
+</tr>
+<tr>
+	<td class="footer" colspan="3"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/bullet-bolt.gif" alt="Logo">&nbsp;All Contents Copyright © <a href="http://www.mattkruse.com/">Matt Kruse</a></td>
+</tr></tbody></table>
+
+</body></html>

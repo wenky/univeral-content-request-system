@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Lister                                       -->
+<!-- Module                                                                -->
+<!-- File           rejectworkflowtask_component.xml                                           -->
+<!-- Description                             -->
+<!-- Created on     March 30, 2002                 -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.11 $                                          -->
+<!-- Modified on    $Date: 2006/01/31 18:08:12 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope mrcsworkflow="mrcs">
+      <component id="rejectworkflowtask" extends="rejectworkflowtask:webcomponent\config\library\workflow\taskmanager\rejectworkflowtask_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for rejecting of a workflow task
+            (only manual workflow tasks can be rejected).
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <reject>/mrcs/pages/rejectesgn.jsp</reject>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+
+         <class>com.medtronic.documentum.mrcs.client.RejectWFT</class>
+ 		 <nlsbundle>com.medtronic.documentum.mrcs.eSignNlsProp</nlsbundle>
+
+         <helpcontextid>rejectworkflowtask</helpcontextid>
+      </component>
+
+   </scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: rejectwft_component.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.11 $
+ Modified on    $Date: 2006/01/31 18:08:12 $
+
+***********************************************************************
+-->
+
+

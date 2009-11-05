@@ -1,0 +1,423 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>zzz-exp-trimpath.html</title>
+    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script type='text/javascript' src='/webtop2/dwr/interface/Gateway.js'></script>
+    <script type='text/javascript' src='/webtop2/dwr/engine.js'></script>
+    <!--  jquery, trimquery, json libraries -->
+    <script type="text/javascript" src="./jquery-latest.regexp.js"></script>
+    <script type="text/javascript" src="./json4jquery.js"></script>
+    <script type="text/javascript" src="./trimpath-query-1.0.38.js"></script>
+
+
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+            font-size: 9pt;
+            font-family: Lucida Grande, sans-serif;
+            
+        }
+
+        table.SortableTableBody
+        {
+            /*width: 100%;*/
+            margin: 0;
+            padding: 0;
+            border-spacing: 0;
+            border-collapse: collapse;
+            border: 0;
+            position: absolute;
+            /*table-layout: fixed;*/
+        }
+        
+        table.SortableTableHeader
+        {
+            /*width: 100%;*/
+            margin: 0;
+            padding: 0;
+            border-spacing: 0;
+            border-collapse: collapse;
+            border: 0;
+            /*position:absolute;*/
+            /*table-layout: fixed;*/
+            /*position: fixed;*/
+            /*position: expression("absolute");*/
+            /*top: expression(eval(document.body.scrollTop));*/
+        }
+        
+        td.SortableTableBodyTD
+        {
+            padding: 1px 5px 1px 5px;
+            height: 17px;
+            font-size: 9pt;
+            font-family: Lucida Grande, sans-serif;
+            overflow: hidden; /*CEM*/
+            white-space: nowrap;
+        }
+                
+        th.SortableTableHeaderTH
+        {
+            padding: 1px 5px 1px 5px;
+            height: 17px;
+            font-size: 9pt;
+            font-family: Lucida Grande, sans-serif;
+            text-align: left;
+            border-bottom: solid 1px #bbb;
+            background: #ddd;
+            overflow: hidden; /*CEM*/
+            white-space: nowrap;
+        }
+        
+    </style>
+    
+    <script type="text/javascript">
+      // TO USE THIS OBJECT:
+      // - create a div in your HTML body where it goes
+      // - declare a global javascript var for the SortableTable object
+      // - instantiate, i.e: var globalvar = new SortableTable(divid,globalvarname);
+      //   -- divid parameter is the id for the div the table will be created in your HTML body
+      //   -- globalvarname is the name of the global variable you declared in step 2 above, so we can generate onclick() handlers to reference this object
+      // - call InitData(dataset) on the response from a doQuery executed through DWR
+      // - call Initialize() on the object to generate the table
+      
+      // define SortableTable javascript object template    
+      function SortableTable(divid,globalvarname)
+      {
+        this.div = divid;             // id attribute of the div where the table's HTML will be generated
+        this.varname = globalvarname; // in order to generate html onclick handlers, need to know the name of the global var that holds this object...
+        this.colselectdiv = this.div + "_colselect";
+        this.filterdiv = this.div + "_filter";
+        this.datatablediv = this.div + "_datatable";
+        this.sortedcolumn = null;
+        this.sortedtype = null;
+        this.indrag = false;
+        // TODO displayed column toggles
+        // TODO column formatting
+        
+        this.InitData = function (dataset) {
+            // COMPUTE the necessary UPPERcased sorting columns...
+            var first = true;
+            for (var d=0; d < dataset.results.length; d++)
+            {
+              var curdata = dataset.results[d];
+              for (var c=0; c < dataset.columns.length; c++)
+              {
+                if (first) dataset.metadata[dataset.columns[c].name+"_UPPER"] = { type:"String" }; // add column to metadata defn
+                curdata[dataset.columns[c].name+"_UPPER"] = (""+curdata[dataset.columns[c].name]).toUpperCase();
+              }
+              first = false;
+            }
+            this.origdata = dataset; 
+            this.data = dataset;
+          }
+        
+        this.Initialize = function() {
+            var thediv = $("#"+this.div);
+            thediv.empty();
+            thediv.append("<hr><div id='"+this.colselectdiv+"'></div><hr>");
+            thediv.append("<div id='"+this.filterdiv+"'></div><hr>");
+            thediv.append("<div id='"+this.datatablediv+"'></div>");
+            this.GenerateColumnSelectDiv();
+            this.GenerateFilterDiv();
+            this.GenerateDataTableDiv();
+          }
+        
+          this.GenerateFilterDiv = function() {
+            var columns = "Column: <select id='"+this.div+"_filterselect"+"'>";
+            for (var c=0; c < this.data.columns.length; c++)
+            {
+              columns += "<option value='"+this.data.columns[c].name+"'>"+this.data.columns[c].name;
+            }
+            columns += "</select> value: <input id='"+this.div+"_filtervalue"+"' type='text'>";
+            columns += " <input type='submit' name='filter' value='filter' onclick='"+this.varname+".Filter()'> <a href='#' onclick='"+this.varname+".Unfilter(); return false;'>unfilter</a>";
+            //alert("filterdiv: "+columns);
+            $("#"+this.filterdiv).append(columns);
+          }
+          
+        this.GenerateColumnSelectDiv = function() {
+            var columns = "";
+            var first = true;
+            for (var c=0; c < this.data.columns.length; c++)
+            {
+              if (first) first = false; else columns += " | ";
+              columns += "<input type='checkbox' id='"+this.div+"_hidecolumn_"+this.data.columns[c].name+"'>" + this.data.columns[c].name;
+            }
+            columns += "<input type='submit' name='Hide' value='Hide' onclick='"+this.varname+".HideColumns()'>";
+            //alert ("columndiv -- " + $.toJSON(columns));
+            $("#"+this.colselectdiv).append(columns);
+          }
+          
+        this.HideColumns = function() {
+            for (var c=0; c < this.data.columns.length; c++)
+            {              
+              //alert("#"+this.div+"_hidecolumn_"+this.data.columns[c].name);
+              var hideval = $("#"+this.div+"_hidecolumn_"+this.data.columns[c].name).attr("checked");
+              //alert("hideval: "+hideval);
+              if (hideval) this.data.columns[c].hidden = true; else this.data.columns[c].hidden = false;
+            }
+            this.GenerateDataTableDiv();
+          }
+
+        this.GenerateDataTableDiv = function() {
+//var sttime = (new Date()).getTime();
+//var timecheck = "top "+((new Date()).getTime()-sttime)+"\n";
+            $("#"+this.datatablediv).empty();
+//var timecheck = "div emptied "+((new Date()).getTime()-sttime)+"\n";
+            // column selector div's html...
+            var columnheaders = ""; 
+            var first = true;
+            for (var c=0; c < this.data.columns.length; c++)
+            {
+              if (this.data.columns[c].hidden != true) {
+                if (first) 
+                  first = false; 
+                else 
+                  columnheaders += "<th nowrap style='cursor: move;'></th>"; // resizing handlers will be added at the bottom...
+                columnheaders += "<th nowrap class='SortableTableHeaderTH'>"+this.data.columns[c].name+"<img src='./wdk/theme/documentum/icons/sort/sortDown.gif' onclick='"+this.varname+".SortByColumn(\""+this.data.columns[c].name+"\");'></th>";
+              }
+            }
+            //var headertable = "<table id='"+this.datatablediv+"_header' class='SortableTableHeader'>"+columnheaders+"</table>";
+//timecheck += "headertable generated "+((new Date()).getTime()-sttime)+"\n";
+            //$("#"+this.datatablediv).append(headertable);
+//timecheck += "headertable added to div "+((new Date()).getTime()-sttime)+"\n";
+    
+            // data div's html...
+            var table = "<table id='"+this.datatablediv+"_data' class='SortableTableBody'>";
+            table += "<tr>"+columnheaders+"</tr>";
+            //table += "<tr class='SortableTableBodyHiddenTR'>"+hiddenheaders+"</tr>";
+            for (var d=0; d < this.data.results.length; d++)
+            {
+              var datarow = (d%2 == 0 ? "<tr>" : "<tr style='background:#eee;'>");
+              first = true;              
+              for (var dc =0; dc < this.data.columns.length; dc++)
+              {
+                if (this.data.columns[dc].hidden != true) {
+                  if (first) first = false; else datarow += "<td nowrap></td>";
+                  datarow += "<td nowrap class='SortableTableBodyTD'>" + this.data.results[d][this.data.columns[dc].name] + "</td>";
+                }
+              }
+              datarow += "</tr>";
+              table += datarow;
+            }
+            table += "</table>";
+            //alert ("table -- " + $.toJSON(table));        
+//timecheck += "datatable generated "+((new Date()).getTime()-sttime)+"\n";
+            $("#"+this.datatablediv).append(table);
+//timecheck += "datatable added to div "+((new Date()).getTime()-sttime)+"\n";
+            
+            // add column resizing divs and handlers to header row. 
+            var dtdiv = document.getElementById(this.datatablediv);
+            dtdiv.SortableTable = this;
+            dtdiv.onmouseup = ColumnGrabberMouseUp;
+            //dtdiv.onmousemove = ColumnGrabberMouseMove;
+            var headerrow = document.getElementById(this.datatablediv+"_data").rows[0]; // we'll use this reference in the table column resizing too
+            first = true;
+            for (var hc=0; hc < headerrow.cells.length; hc++)
+            {
+              if (hc % 2 == 1) {
+                var sizer = document.createElement("div");
+                sizer.innerHTML = "<b>|</b>";
+                sizer.SortableTable = this;
+                sizer.ColumnToResize = hc-1;
+                // todo: event handlers...
+                sizer.onmousedown = ColumnGrabberMouseDown;
+                headerrow.cells[hc].appendChild(sizer);
+              }
+            }
+            // ?DisableSelections?
+//timecheck += "added handlers to headerrow "+((new Date()).getTime()-sttime)+"\n";
+            
+            
+            // fix table column widths on header table and/or data table (we'll need to DOM this, jquery is too weird for this operation)
+            //var firstrow = document.getElementById(this.datatablediv+"_data").rows[0];
+            //for (var cellc=0; cellc < firstrow.cells.length; cellc++)
+            //{
+            //  var datawidth = firstrow.cells[cellc].offsetWidth;
+            //  var headerwidth = headerrow.cells[cellc].offsetWidth;
+            //  //alert("width: "+datawidth + " " + headerwidth);
+            //  var width = (datawidth > headerwidth ? datawidth : headerwidth);
+            //  //headerrow.cells[cellc].style.width = width+"px";
+            //  headerrow.cells[cellc].width = width;
+            //  //firstrow.cells[cellc].style.width = width+"px";
+            //  firstrow.cells[cellc].width = width;
+            //}
+//timecheck += "columns matched/resized "+((new Date()).getTime()-sttime)+"\n";
+//alert(timecheck);
+          }
+          
+        this.SortByColumn = function(columnname)
+        {
+          var schemadata = { dataobjects : this.origdata.metadata };
+//alert ("schema -- " + $.toJSON(schemadata));        
+          var datatosort = { dataobjects : this.data.results };
+//alert ("datatosort -- " + $.toJSON(datatosort));        
+          var querylang = TrimPath.makeQueryLang(schemadata);
+          if (this.sortedcolumn == columnname && this.sortedtype == 'ASC')
+            this.sortedtype = 'DESC';
+          else
+            this.sortedtype = 'ASC';
+          this.sortedcolumn = columnname;
+          var selstatement = "";
+          if (this.sortedtype == 'DESC') 
+            selstatement = "SELECT dataobjects.* FROM dataobjects ORDER BY dataobjects."+columnname+"_UPPER DESC";
+          else
+            selstatement = "SELECT dataobjects.* FROM dataobjects ORDER BY dataobjects."+columnname+"_UPPER ASC";
+//alert ("selstatement -- " + selstatement);        
+          var statement = querylang.parseSQL(selstatement);
+          var filtered = statement.filter(datatosort);
+          this.data = { columns : this.origdata.columns, metadata : this.origdata.metadata, results : filtered };
+          this.GenerateDataTableDiv();
+        }
+        
+        this.Filter = function()
+        {
+          var filtercolumn = $("#"+this.div+"_filterselect").val();
+          var filtervalue = $("#"+this.div+"_filtervalue").val();
+          //alert("filt: " +filtercolumn+ " "+filtervalue);
+          var schemadata = { dataobjects : this.origdata.metadata };
+          var datatofilter = { dataobjects : this.data.results };
+          var querylang = TrimPath.makeQueryLang(schemadata);
+          var selstatement = "SELECT dataobjects.* FROM dataobjects WHERE RLIKE ('"+filtervalue+"',dataobjects."+filtercolumn+")";
+          var statement = querylang.parseSQL(selstatement);
+          var filtered = statement.filter(datatofilter);
+          this.data = { columns : this.origdata.columns, metadata : this.origdata.metadata, results : filtered };
+          this.GenerateDataTableDiv();
+        }
+        
+        this.Unfilter = function()
+        {
+          this.data.results = this.origdata.results;
+          this.GenerateDataTableDiv();
+        }
+
+      }
+      
+        function ColumnGrabberMouseDown(event)
+        {
+            if (!event) event = window.event;
+            //$("#mousedowndiv").empty();$("#mousedowndiv").append("MMD - "+event.clientX);                            
+            
+            // if MouseDown and we are indrag (which shouldn't happen in theory...), pass to MouseUp to end drag sequence
+            if (this.SortableTable.indrag) {
+              this.SortableTable.ColumnGrabberMouseUp(event);
+            } else {
+              // start the dragging action sequence, flag that we are in dragging mode on this table
+              this.SortableTable.indrag = true;
+              // set the column we are dragging
+              this.SortableTable.dragcolumn = this.ColumnToResize;
+              // store the column's ClientX
+              this.SortableTable.origcolumnX = event.clientX;
+              this.SortableTable.origwidth = document.getElementById(this.SortableTable.datatablediv+"_data").rows[0].cells[this.SortableTable.dragcolumn].offsetWidth;
+            }
+            return true;
+        }
+        
+        function ColumnGrabberMouseUp(event)
+        {
+            if (!event) event = window.event;
+            //$("#mouseupdiv").empty();$("#mouseupdiv").append("MMU - "+event.clientX);
+            // end the column dragging sequence
+            if (this.SortableTable.indrag) {
+              this.SortableTable.indrag = false;
+              // compute the final column size based on delta
+              var finalX = event.clientX;
+              var delta = finalX - this.SortableTable.origcolumnX;
+              // set column width - we'll try JQuery first
+              var ColToResize = document.getElementById(this.SortableTable.datatablediv+"_data").rows[0].cells[this.SortableTable.dragcolumn];
+              var oWidth = this.SortableTable.origwidth;
+              if (oWidth + delta < 0) oWidth = 0; else oWidth = oWidth + delta;
+              ColToResize.width = oWidth;
+              // match the data column
+              //var DataCol = document.getElementById(this.SortableTable.datatablediv+"_data").rows[0].cells[this.SortableTable.dragcolumn];
+              //DataCol.width = oWidth;
+              // double-check that the offsetwidths match. if they don't, re-impose correct width matching...
+              //if (DataCol.offsetWidth != ColToResize.offsetWidth)
+              //  DataCol.offsetWidth > ColToResize.offsetWidth ? ColToResize.width = DataCol.offsetWidth : DataCol.width = ColToResize.offsetWidth;
+            }
+            return true;
+        }
+        
+        function ColumnGrabberMouseMove(event)
+        {
+            // dynamically resizes the column row as a visual aid...
+            //$("#mousemovediv").empty();$("#mousemovediv").append("MMM - "+event.clientX);
+            if (!event) event = window.event;
+            // end the column dragging sequence
+            if (this.SortableTable.indrag) {
+              // compute the final column size based on delta
+              var finalX = event.clientX;
+              var delta = finalX - this.SortableTable.origcolumnX;
+              // set column width - we'll try JQuery first
+              var ColToResize = document.getElementById(this.SortableTable.datatablediv+"_header").rows[0].cells[this.SortableTable.dragcolumn];
+              var oWidth = this.SortableTable.origwidth;
+              if (oWidth + delta < 0) oWidth = 0; else oWidth = oWidth + delta;
+              ColToResize.width = oWidth;
+            }
+            return true;
+        }
+      
+      
+    </script>
+    
+    <script type="text/javascript">
+
+      // useful jqueries lookups:
+      //  $('div[@id*=]') <-- select nodes containing that substring in their ids...
+      //  $('#id') <-- get specifically id'd node
+      $(document).ready(
+        function(){
+          // Your code here
+        }
+      );
+    </script>
+
+    <script type="text/javascript">
+    
+      var querydata;      
+      function doquery(widget) 
+      {
+        var dqlquery = $('#'+widget).val();
+        var paramap = {'query' : dqlquery };
+        Gateway.call("mradmin","mr1996","MRCS_Dev","com.medtronic.documentum.ajax.doQuery",paramap, 
+          function(response)
+          {
+            // RESPONSE HANDLER...
+            //alert ("DWR response -- " + $.toJSON(response));
+            //$("#JSONresponse").empty();
+            //$("#JSONresponse").append($.toJSON(response));
+            querydata = new SortableTable("mysortable","querydata");
+            querydata.InitData(response);
+            querydata.Initialize();
+          }
+        );
+      }
+      
+    </script>
+    
+    
+  </head>
+  
+  <body>
+     Query: <input type ="text" size="100" id="dql" value="select * from m_mrcsnpp_document"> <input type="submit" name="Submit" value="submit" onclick="doquery('dql');"><br>
+     <hr>
+     <div id="mousedowndiv"></div>
+     <div id="mousedowndtdiv"></div>
+     <div id="mouseupdiv"></div>
+     <div id="mousemovediv"></div>
+     
+     <div id="mysortable">
+     </div>
+     
+     <div id="JSONresponse">
+     </div>
+      
+  </body>
+</html>

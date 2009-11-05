@@ -1,0 +1,55 @@
+<div id="dctm-tree">
+<script type="text/javascript">
+
+  var rootnode = new Ext.tree.AsyncTreeNode( 
+    {
+       id: 1, 
+       text: 'mqadoc_test',
+       dctmdata: {r_object_id:'getcabinetlist'}
+    });
+
+  function dctmFolderTreeInit(divname) 
+  {
+    // jquery test
+    //$('#'+divname).append('<b>HiThere</b><div id="loginform"></div><br>');
+    
+    var treePanel = new Ext.tree.TreePanel({
+      id: 'dctm-tree',
+      title: 'DCTM Folders',
+
+      height: 300,
+      minSize: 150,
+      autoScroll: true,
+      containerScroll: true,
+      
+      // tree-specific configs:
+      rootVisible: true,
+      lines: false,
+      //singleExpand: true,
+      useArrows: true,
+      
+      // lazy node loader plugin:        
+      loader: new Ext.tree.TreeLoader({
+          dataUrl:'[actions][dctm-foldertree][data][subfolderlist]'
+      }),
+            
+      root: rootnode 
+    });
+    
+    // setup beforeload: pass current node's objectid to the node loader
+    treePanel.loader.on("beforeload", function (treeloaderplugin, node) 
+      { 
+        this.baseParams.parentfolderid = node.attributes.dctmdata.r_object_id; 
+      },  
+      treePanel.loader );    
+    // TODO set click events on nodes folder nodes are show-contents, document nodes are show-properties
+    
+    treePanel.render(divname);
+    
+  }
+  
+  divInit("dctm-tree",dctmFolderTreeInit,"dctm-tree");
+
+  
+</script>
+</div>

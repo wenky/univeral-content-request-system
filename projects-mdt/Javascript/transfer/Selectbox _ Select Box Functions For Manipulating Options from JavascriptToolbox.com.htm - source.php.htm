@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Selectbox / Select Box Functions For Manipulating Options from JavascriptToolbox.com</title>
+
+
+	
+<link rel="stylesheet" type="text/css" href="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/css.css" media="all">
+<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/main.js"></script></head><body>
+<table class="columns" border="0" cellspacing="0">
+<tbody><tr>
+	<td class="left" rowspan="2">
+		<div style="text-align: center;"><a href="http://www.javascripttoolbox.com/" title="Home"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/logo5.gif" alt="Logo"></a></div>
+
+		<div class="portlet">
+			<h5>Navigation</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/" title="Home">Home</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/" title="Libraries">Libraries</a>
+				<a href="http://www.javascripttoolbox.com/bestpractices/" title="Best Practices">Best Practices</a>
+				<a href="http://www.javascripttoolbox.com/support/" title="Support">Support</a>
+				<a href="http://www.javascripttoolbox.com/resources/" title="Javascript Resources">Resources / Links</a>
+				<a href="http://www.javascripttoolbox.com/search/" title="Javascript Knowledge Base Search">JS Knowledge Base</a>
+				<a href="http://www.javascripttoolbox.com/donate/" title="Donate To Support This Site">Donate!</a>
+				<a href="http://www.javascripttoolbox.com/aboutme/" title="About Me">About Me</a>
+				<a href="http://www.ajaxtoolbox.com/" title="AJAX" target="_blank">AJAX Toolbox</a>
+			</div>
+		</div>
+
+		<div class="portlet">
+			<h5>Libraries</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/lib/calendar/" title="">Calendar Popup</a>
+				<a href="http://www.javascripttoolbox.com/lib/checkboxgroup/" title="">Checkbox Group</a>
+				<a href="http://www.javascripttoolbox.com/lib/datadumper/" title="">Data Dumper</a>
+				<a href="http://www.javascripttoolbox.com/lib/validations/" title="">Data Validation</a>
+				<a href="http://www.javascripttoolbox.com/lib/date/" title="">Date Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/mktree/" title="">DHTML Tree</a>
+				<a href="http://www.javascripttoolbox.com/lib/dragiframe/" title="">Draggable Iframes</a>
+				<a href="http://www.javascripttoolbox.com/lib/dynamicoptionlist/" title="">Dependent Select Boxes</a>
+				<a href="http://www.javascripttoolbox.com/lib/form/" title="">Form Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/objectposition/" title="">Object Position</a>
+				<a href="http://www.javascripttoolbox.com/lib/optiontransfer/" title="">Option Transfer</a>
+				<a href="http://www.javascripttoolbox.com/lib/popup/" title="">Popups (In-Page DIV)</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/selectbox/" title="">Selectbox Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/table/" title="">Table Sorting And Utils</a>
+				<a href="http://www.javascripttoolbox.com/lib/util/" title="">Util/DOM/CSS/Event</a>
+			</div>
+		</div>
+
+		<h5>doctype [<a href="#" onclick="alert('Since some web browsers use the DOCTYPE of a document to switch between Quirks or Standards mode, some code may have different behavior depending on the DOCTYPE specified. These links allow pages to be tested using strict, loose, or no doctype at all for compatability testing.'); return false;" title="What's This?">?</a>]</h5>
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/source.php?doctype=strict">strict</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/source.php?doctype=loose">loose</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/source.php?doctype=none">none</a>]
+
+	</td>
+	<td class="header" colspan="2">
+		<div id="searchbox"><form method="get" action="http://www.google.com/custom"><input name="domains" value="javascripttoolbox.com" type="hidden"><input class="search" name="q" size="15" maxlength="255" value="Search!" onclick="this.style.color='black';this.value='';" type="text"><input name="sa" value="go" type="submit"><input name="sitesearch" value="javascripttoolbox.com" type="hidden"><input name="client" value="pub-9155030588311591" type="hidden"><input name="forid" value="1" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input name="oe" value="ISO-8859-1" type="hidden"><input name="cof" value="GALT:#008000;GL:1;DIV:#AAAAAA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:C2DDF4;ALC:002BB8;LC:002BB8;T:000000;GFNT:AAAAAA;GIMP:AAAAAA;LH:50;LW:588;L:http://www.javascripttoolbox.com/search_header.gif;S:http://www.JavascriptToolbox.com/;FORID:1;" type="hidden"><input name="hl" value="en" type="hidden"></form></div>
+		<h1>Selectbox Utility Functions</h1>	</td>
+</tr>
+<tr>
+	<td class="middle"><div class="corner cornerul"></div><div class="body">
+	<div class="tabContainer">
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/index.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/overview.gif" alt=""> Overview</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/examples.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/examples.gif" alt=""> Examples</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/documentation.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/documentation.gif" alt=""> Documentation</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/test.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/test.gif" alt=""> Test Cases</a></div>
+	<div class="selected"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/source.gif" alt=""> Source</div>
+</div>
+<div class="tabcontent"><br>
+
+
+
+<br>
+
+<table class="sourceDetails" cellspacing="0">
+<tbody><tr>
+	<td colspan="2" style="border: medium none ;">
+	<div class="tabContainer">
+	<div class="selected"><a href="http://www.javascripttoolbox.com/lib/selectbox/source.php?view=source" title="Fully formatted code - Best for understanding and editing">Fully Commented Code</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/source.php?view=compact" title="Compact code - Best used for production because its size is smaller, but not suited for editing">Compacted</a></div>
+	</div>
+	</td>
+</tr>
+<tr>
+	<th>Source Type:</th><td>Fully formatted code - Best for understanding and editing</td>
+</tr>
+<tr>
+	<th>Source File:</th><td><a href="http://www.javascripttoolbox.com/libsource.php/selectbox/source/selectbox.js">selectbox.js</a> (Right-click and "save as")</td>
+</tr>
+<tr>
+	<th>File size:</th><td>6k</td>
+</tr>
+</tbody></table>
+
+
+<div>
+<br>
+<img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/paypal1.gif">
+<img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/paypal2.gif">
+<br>
+PLEASE <a href="http://www.javascripttoolbox.com/donate/">SUPPORT THIS SITE!</a> Rather than charging money for this site, I rely on 
+<a href="http://www.javascripttoolbox.com/donate/">donations</a> from
+users to help support the site and offset development time. If you find
+this code useful or if it helped on your project, please consider
+donating. Any amount is appreciated! Thanks!
+</div>
+
+<pre id="source" class="source">/*===================================================================
+ Author: Matt Kruse
+ 
+ View documentation, examples, and source code at:
+     http://www.JavascriptToolbox.com/
+
+ NOTICE: You may use this code for any purpose, commercial or
+ private, without any further permission from the author. You may
+ remove this notice from your final code if you wish, however it is
+ appreciated by the author if at least the web site address is kept.
+
+ This code may NOT be distributed for download from script sites, 
+ open source CDs or sites, or any other distribution method. If you
+ wish you share this code with others, please direct them to the 
+ web site above.
+ 
+ Pleae do not link directly to the .js files on the server above. Copy
+ the files to your own server for use with your site or webapp.
+ ===================================================================*/
+var Selectbox = new Object();
+Selectbox.$VERSION = 1.0;
+
+Selectbox.hasOptions = function(obj) {
+&nbsp;&nbsp;return (obj!=null &amp;&amp; typeof(obj.options)!="undefined" &amp;&amp; obj.options!=null);
+}
+
+Selectbox.selectUnselectMatchingOptions = function(obj,regex,which,only) {
+&nbsp;&nbsp;if (window.RegExp) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (!this.hasOptions(obj)) { return false; }
+&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(only)=="undefined" || only==null) { var only = false; }
+&nbsp;&nbsp;&nbsp;&nbsp;var re = new RegExp(regex);
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i=0; i&lt;obj.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (re.test(obj.options[i].text)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.options[i].selected = (which=="select");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (only) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.options[i].selected = (which=="unselect");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return false;
+}
+
+Selectbox.selectOptions = function(obj,regex) {
+&nbsp;&nbsp;return this.selectUnselectMatchingOptions(obj,regex,"select",false);
+}
+
+Selectbox.selectOnlyOptions = function(obj,regex) {
+&nbsp;&nbsp;return this.selectUnselectMatchingOptions(obj,regex,"select",true);
+}
+
+Selectbox.unselectOptions = function(obj,regex) {
+&nbsp;&nbsp;return this.selectUnselectMatchingOptions(obj,regex,"unselect",false);
+}
+
+Selectbox.sort = function(obj) {
+&nbsp;&nbsp;var o = new Array();
+&nbsp;&nbsp;if (!this.hasOptions(obj)) { return false; }
+&nbsp;&nbsp;for (var i=0; i&lt;obj.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;o[o.length] = new Option( obj.options[i].text, obj.options[i].value, obj.options[i].defaultSelected, obj.options[i].selected) ;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;if (o.length==0) { return true; }
+&nbsp;&nbsp;o = o.sort( 
+&nbsp;&nbsp;&nbsp;&nbsp;function(a,b) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((a.text+"") &lt; (b.text+"")) { return -1; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((a.text+"") &gt; (b.text+"")) { return 1; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+&nbsp;&nbsp;&nbsp;&nbsp;} 
+&nbsp;&nbsp;);
+
+&nbsp;&nbsp;for (var i=0; i&lt;o.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;obj.options[i] = new Option(o[i].text, o[i].value, o[i].defaultSelected, o[i].selected);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.selectAllOptions = function(obj) {
+&nbsp;&nbsp;if (!this.hasOptions(obj)) { return false; }
+&nbsp;&nbsp;for (var i=0; i&lt;obj.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;obj.options[i].selected = true;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.moveSelectedOptions = function(from,to) {
+&nbsp;&nbsp;if (!this.hasOptions(from)) { return false; }
+&nbsp;&nbsp;// Unselect matching options, if required
+&nbsp;&nbsp;if (arguments.length&gt;3) {
+&nbsp;&nbsp;&nbsp;&nbsp;var regex = arguments[3];
+&nbsp;&nbsp;&nbsp;&nbsp;if (regex != "") {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!this.unselectOptions(from,regex)) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;// Move them over
+&nbsp;&nbsp;for (var i=0; i&lt;from.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;var o = from.options[i];
+&nbsp;&nbsp;&nbsp;&nbsp;if (o.selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!this.hasOptions(to)) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var index = 0; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var index=to.options.length; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to.options[index] = new Option(o.text, o.value, false, false);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;// Delete them from original
+&nbsp;&nbsp;for (var i=(from.options.length-1); i&gt;=0; i--) {
+&nbsp;&nbsp;&nbsp;&nbsp;var o = from.options[i];
+&nbsp;&nbsp;&nbsp;&nbsp;if (o.selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from.options[i] = null;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;if ((arguments.length&lt;3) || (arguments[2])) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.sort(from);
+&nbsp;&nbsp;&nbsp;&nbsp;this.sort(to);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;from.selectedIndex = -1;
+&nbsp;&nbsp;to.selectedIndex = -1;
+
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.copySelectedOptions = function(from,to) {
+&nbsp;&nbsp;if (!this.hasOptions(from)) { return false; }
+&nbsp;&nbsp;var options = new Object();
+&nbsp;&nbsp;if (this.hasOptions(to)) {
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i=0; i&lt;to.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options[to.options[i].value] = to.options[i].text;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;for (var i=0; i&lt;from.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;var o = from.options[i];
+&nbsp;&nbsp;&nbsp;&nbsp;if (o.selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (typeof(options[o.value])=="undefined" || options[o.value]==null || options[o.value]!=o.text) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!this.hasOptions(to)) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var index = 0; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var index=to.options.length; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to.options[index] = new Option( o.text, o.value, false, false);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;if ((arguments.length&lt;3) || (arguments[2]==true)) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.sort(to);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;from.selectedIndex = -1;
+&nbsp;&nbsp;to.selectedIndex = -1;
+
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.moveAllOptions = function(from,to) {
+&nbsp;&nbsp;this.selectAllOptions(from);
+&nbsp;&nbsp;if (arguments.length==2) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.moveSelectedOptions(from,to);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;else if (arguments.length==3) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.moveSelectedOptions(from,to,arguments[2]);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;else if (arguments.length==4) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.moveSelectedOptions(from,to,arguments[2],arguments[3]);
+&nbsp;&nbsp;}
+}
+
+Selectbox.copyAllOptions = function(from,to) {
+&nbsp;&nbsp;this.selectAllOptions(from);
+&nbsp;&nbsp;if (arguments.length==2) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.copySelectedOptions(from,to);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;else if (arguments.length==3) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.copySelectedOptions(from,to,arguments[2]);
+&nbsp;&nbsp;}
+}
+
+Selectbox.swapOptions = function(obj,i,j) {
+&nbsp;&nbsp;if (!this.hasOptions(obj)) { return false; }
+&nbsp;&nbsp;var o = obj.options;
+&nbsp;&nbsp;if (i&lt;0 || i&gt;=o.length || j&lt;0 || j&gt;=o.length) { return false; }
+&nbsp;&nbsp;var i_selected = o[i].selected;
+&nbsp;&nbsp;var j_selected = o[j].selected;
+&nbsp;&nbsp;var temp = new Option(o[i].text, o[i].value, o[i].defaultSelected, o[i].selected);
+&nbsp;&nbsp;var temp2= new Option(o[j].text, o[j].value, o[j].defaultSelected, o[j].selected);
+&nbsp;&nbsp;o[i] = temp2;
+&nbsp;&nbsp;o[j] = temp;
+&nbsp;&nbsp;o[i].selected = j_selected;
+&nbsp;&nbsp;o[j].selected = i_selected;
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.moveOptionUp = function(obj) {
+&nbsp;&nbsp;if (!this.hasOptions(obj)) { return false; }
+&nbsp;&nbsp;for (i=0; i&lt;obj.options.length; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (obj.options[i].selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (i&gt;0 &amp;&amp; !obj.options[i-1].selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.swapOptions(obj,i,i-1);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.options[i-1].selected = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.moveOptionDown = function(obj) {
+&nbsp;&nbsp;if (!this.hasOptions(obj)) { return false; }
+&nbsp;&nbsp;for (i=obj.options.length-1; i&gt;=0; i--) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (obj.options[i].selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (i != (obj.options.length-1) &amp;&amp; ! obj.options[i+1].selected) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.swapOptions(obj,i,i+1);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.options[i+1].selected = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;return true;
+}
+
+Selectbox.removeSelectedOptions = function(from) { 
+&nbsp;&nbsp;if (!this.hasOptions(from)) { return false; }
+&nbsp;&nbsp;if (from.type=="select-one" &amp;&amp; from.selectedIndex&gt;=0) {
+&nbsp;&nbsp;&nbsp;&nbsp;from.options[from.selectedIndex] = null;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;else {
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i=(from.options.length-1); i&gt;=0; i--) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var o=from.options[i]; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (o.selected) { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from.options[i] = null; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;from.selectedIndex = -1; 
+} 
+
+Selectbox.removeAllOptions = function(from) { 
+&nbsp;&nbsp;if (!this.hasOptions(from)) { return false; }
+&nbsp;&nbsp;for (var i=(from.options.length-1); i&gt;=0; i--) { 
+&nbsp;&nbsp;&nbsp;&nbsp;from.options[i] = null; 
+&nbsp;&nbsp;} 
+&nbsp;&nbsp;from.selectedIndex = -1; 
+&nbsp;&nbsp;return true;
+} 
+
+Selectbox.addOption = function(obj,text,value,selected) {
+&nbsp;&nbsp;if (obj!=null &amp;&amp; obj.options!=null) {
+&nbsp;&nbsp;&nbsp;&nbsp;obj.options[obj.options.length] = new Option(text, value, false, selected);
+&nbsp;&nbsp;}
+}
+</pre>
+	</div>
+	</div>
+	</td>
+	<td class="right" id="googleAds">
+		<script type="text/javascript">
+		google_ad_client = "pub-9155030588311591";
+		google_ad_width = 120;
+		google_ad_height = 600;
+		google_ad_format = "120x600_as";
+		google_color_border = "000000";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "000000";
+		google_color_text = "000000";
+		</script>
+		<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/show_ads.js"></script><iframe name="google_ads_frame" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+	</td>
+</tr>
+<tr>
+	<td class="footer" colspan="3"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20source.php_files/bullet-bolt.gif" alt="Logo">&nbsp;All Contents Copyright © <a href="http://www.mattkruse.com/">Matt Kruse</a></td>
+</tr></tbody></table>
+
+
+</body></html>

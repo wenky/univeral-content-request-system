@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         annotate                                                -->
+<!-- File           annotate_component.xml                                  -->
+<!-- Description    annotate dm_document Component Definition               -->
+<!-- Created on     November 29 2001                                       -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.10 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:52 $                            -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope type="m_mrcs_document">
+
+      <!-- annotate component definition -->
+      <component id="annotate">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            You can use the annotate component to allow users to do the following:
+            1. Check in previously checked-out components.
+            2. Set various properties, such as version numbering, locking, and format.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+            <param name='versionLabel' required='false'></param>
+            <param name='format' required='false'></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/Annotate.jsp</start>
+         </pages>
+
+         <!-- Component Behavior  <class>com.documentum.webcomponent.library.annotate.annotate</class>-->
+         <class>com.medtronic.documentum.mrcs.client.MrcsAnnotate</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.annotateNlsProp</nlsbundle>
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>annotate</helpcontextid>
+
+      </component>
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_annotate_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:52 $
+
+***********************************************************************
+-->
+
+
+

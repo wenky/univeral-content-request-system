@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: taskmgrstreamline                                          -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $Revision: 1.1 $ -->
+<!-- Modified on $Date: 2006/10/18 15:14:47 $ -->
+
+<config version='1.0'>
+   <scope>
+   
+      <component id="taskmgrstreamline" extends="taskmgrstreamline:webtop/config/taskmgrstreamline_component.xml">
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'></param>
+         </params>
+
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/taskManagerDrilldown.jsp</start>
+         </pages>
+
+         <class>com.documentum.webtop.webcomponent.taskmanager.TaskManagerStreamline</class>
+
+         <showusertimeandcost>false</showusertimeandcost> 
+      </component>
+      
+   </scope>
+   
+</config>

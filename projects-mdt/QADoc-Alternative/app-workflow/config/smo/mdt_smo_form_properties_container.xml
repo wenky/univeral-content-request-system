@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Properties                                             -->
+<!-- File           properties_component.xml                               -->
+<!-- Description    Generic Properties Component Definition                -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                         -->
+<!-- Modified on    $Date: 2009/01/09 23:35:16 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   
+   <!-- generic version with base functionality -->
+   <scope type="mdt_smo_form_man_adm,mdt_smo_form_man_doc,mdt_smo_form_min3">
+      <component id="properties" extends="properties:app-workflow/config/mdt_form_properties_container.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Properties component:  Container component that embeds the 
+            attributes, permissions, and history components.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='component' required='true'></param>
+            <param name='objectId' required='true'></param>
+         </params>
+         
+         <!-- Component Layout -->
+         <pages>
+             <filter clientenv='not appintg'>
+                 <start>/webcomponent/library/properties/properties.jsp</start>
+             </filter>
+             <filter clientenv='appintg'>
+                 <start>/webcomponent/library/properties/appintgproperties.jsp</start>
+             </filter>
+         </pages>
+         
+         <!-- Component Behaviour -->
+         <class>com.documentum.webcomponent.library.properties.Properties</class>
+         <nlsbundle>com.documentum.webcomponent.library.properties.PropertiesNlsProp</nlsbundle>
+         
+         <!-- If this component supports failover/replication, the failoverenabled needs to be set to true-->
+         <failoverenabled>true</failoverenabled>
+
+         <!-- Contained components -->
+         <contains>
+            <component>attributes</component>
+            <component>permissions</component>
+            <component>qadoc_relationships</component>
+            <component>mdtformdocuments</component>
+            <component>mdtsupportingdocuments</component>
+            <component>history</component>
+         </contains>
+
+         <!-- Components listed here are first in line to commit their changes and in the order of the listing -->
+         <commitorder>
+            <component>permissions</component>
+         </commitorder>
+
+         <helpcontextid>properties</helpcontextid>
+
+         <setrepositoryfromobjectid>true</setrepositoryfromobjectid>
+
+      </component>
+   </scope>
+</config>
+
+<!-- 
+ -->

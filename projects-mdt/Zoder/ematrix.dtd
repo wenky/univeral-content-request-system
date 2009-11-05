@@ -1,0 +1,1084 @@
+<!ENTITY ematrixProductDtd "eMatriXML version 10.7.0.0">
+<!ENTITY % ematrix-string "(#PCDATA)">
+<!ENTITY % ematrix-integer "(#PCDATA)">
+<!ENTITY % ematrix-real "(#PCDATA)">
+<!ENTITY % ematrix-boolean "(#PCDATA)">
+<!ENTITY % ematrix-datetime "(#PCDATA)">
+<!ENTITY % ematrix-base64 "(#PCDATA)">
+<!ELEMENT ematrix
+  (creationProperties?,
+  vault*,
+  index*,
+  location*,
+  site*,
+  store*,
+  server*,
+  role*,
+  group*,
+  person*,
+  association*,
+  accessRule*,
+  program*,
+  attributeDef*,
+  type*,
+  relationshipDef*,
+  format*,
+  policy*,
+  report*,
+  form*,
+  process*,
+  page*,
+  resource*,
+  command*,
+  menu*,
+  inquiry*,
+  table*,
+  channel*,
+  portal*,
+  interfaceType*,
+  businessObject*,
+  workflow*,
+  expressionObject*,
+  dimension*
+   )>
+<!-- back off using namespace until spec is agreed upon
+   <!ATTLIST ematrix xmlns CDATA #FIXED "urn:matrixoneCom:ematrixml">
+-->
+
+<!ELEMENT adminRef (adminType, adminName)>
+<![INCLUDE[
+  <!ELEMENT adminType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST adminRef adminType
+    (accessRule|association|attributeDef|channel|expression|form|format|group|
+     location|person|policy|portal|process|program|relationshipDef|
+     report|role|server|site|store|type|vault|index|expressionObject|dimension) #REQUIRED>
+]]>
+<!ELEMENT adminName %ematrix-string;>
+<!ELEMENT accessRuleRef %ematrix-string;>
+<!ELEMENT associationRef %ematrix-string;>
+<!ELEMENT attributeDefRef %ematrix-string;>
+<!ELEMENT typeRef %ematrix-string;>
+<!ELEMENT businessObjectRef
+  (objectType, objectName, objectRevision?, vaultRef?)>
+<!ELEMENT interfaceTypeRef %ematrix-string;>
+<!ELEMENT formatRef %ematrix-string;>
+<!ELEMENT fromFormatRef %ematrix-string;>
+<!ELEMENT groupRef %ematrix-string;>
+<!ELEMENT locationRef %ematrix-string;>
+<!ELEMENT policyRef %ematrix-string;>
+<!ELEMENT processRef %ematrix-string;>
+<!ELEMENT programRef %ematrix-string;>
+<!ELEMENT relationshipDefRef %ematrix-string;>
+<!ELEMENT roleRef %ematrix-string;>
+<!ELEMENT serverRef %ematrix-string;>
+<!ELEMENT siteRef %ematrix-string;>
+<!ELEMENT stateDefRef %ematrix-string;>
+<!ELEMENT storeRef %ematrix-string;>
+<!ELEMENT userRef %ematrix-string;>
+<!ELEMENT vaultRef %ematrix-string;>
+<!ELEMENT objectName %ematrix-string;>
+<!ELEMENT objectType %ematrix-string;>
+<!ELEMENT objectRevision %ematrix-string;>
+
+<!ELEMENT creationProperties (release, datetime, event, dtdInfo)>
+<!ELEMENT release %ematrix-string;>
+<!ELEMENT datetime %ematrix-datetime;>
+<![INCLUDE[
+  <!ELEMENT event %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST creationProperties event
+    (export|checkin|checkout|removeFile|changeOwner|modifyAttribute|
+     modifyDescription|promote|demote|enable|disable|override|schedule|
+     approve|reject|ignore|create|revision|lock|unlock|freeze|thaw|
+     connect|disconnect|changeName|changePolicy|changeType|changeVault|
+     connection|movedOid|removedOid|custom|purge|grant|revoke|startActivity|
+     finishActivity|suspendActivity|resumeActivity|overrideActivity|
+     reassignActivity|stopActivity|startWorkflow|finishWorkflow|
+     stopWorkflow|suspendWorkflow|resumeWorkflow|reassignWorkflow|
+     autoSuspendWorkflow,removeinterface,addinterface) #REQUIRED>
+]]>
+<!ELEMENT dtdInfo %ematrix-string;>
+
+<!ELEMENT adminProperties
+  (name, creationInfo?, modificationInfo?, description?, hidden?, icon?,
+   propertyList?)>
+<!ELEMENT name %ematrix-string;>
+<!ELEMENT description %ematrix-string;>
+<!ELEMENT hidden EMPTY>
+<!ELEMENT icon %ematrix-base64;>
+<!ELEMENT propertyList (property+)>
+<!ATTLIST propertyList count CDATA #REQUIRED>
+<!ELEMENT property (name, adminRef?, value?, flags)>
+<!ELEMENT value %ematrix-string;>
+<!ELEMENT flags %ematrix-integer;>
+
+<!ELEMENT accessRule
+  (adminProperties, ownerAccess?, publicAccess?, userAccessList?)>
+<!ATTLIST accessRule id CDATA #IMPLIED>
+<!ELEMENT ownerAccess (access)>
+<!ELEMENT access
+  (all|none|(readAccess?, modifyAccess?, deleteAccess?, checkoutAccess?,
+   checkinAccess?, lockAccess?, unlockAccess?, changeOwnerAccess?,
+   createAccess?, promoteAccess?, demoteAccess?, enableAccess?,
+   disableAccess?, overrideAccess?, scheduleAccess?, reviseAccess?,
+   changeVaultAccess?, changeNameAccess?, changePolicyAccess?,
+   changeTypeAccess?, fromConnectAccess?, toConnectAccess?,
+   fromDisconnectAccess?, toDisconnectAccess?, freezeAccess?,
+   thawAccess?, executeAccess?, modifyFormAccess?, viewFormAccess?,
+   grantAccess?, showAccess?, revokeAccess?))>
+<!ELEMENT all EMPTY>
+<!ELEMENT none EMPTY>
+<!ELEMENT readAccess EMPTY>
+<!ELEMENT modifyAccess EMPTY>
+<!ELEMENT deleteAccess EMPTY>
+<!ELEMENT checkoutAccess EMPTY>
+<!ELEMENT checkinAccess EMPTY>
+<!ELEMENT lockAccess EMPTY>
+<!ELEMENT unlockAccess EMPTY>
+<!ELEMENT changeOwnerAccess EMPTY>
+<!ELEMENT createAccess EMPTY>
+<!ELEMENT promoteAccess EMPTY>
+<!ELEMENT demoteAccess EMPTY>
+<!ELEMENT enableAccess EMPTY>
+<!ELEMENT disableAccess EMPTY>
+<!ELEMENT overrideAccess EMPTY>
+<!ELEMENT scheduleAccess EMPTY>
+<!ELEMENT reviseAccess EMPTY>
+<!ELEMENT changeVaultAccess EMPTY>
+<!ELEMENT changeNameAccess EMPTY>
+<!ELEMENT changePolicyAccess EMPTY>
+<!ELEMENT changeTypeAccess EMPTY>
+<!ELEMENT fromConnectAccess EMPTY>
+<!ELEMENT toConnectAccess EMPTY>
+<!ELEMENT fromDisconnectAccess EMPTY>
+<!ELEMENT toDisconnectAccess EMPTY>
+<!ELEMENT freezeAccess EMPTY>
+<!ELEMENT thawAccess EMPTY>
+<!ELEMENT executeAccess EMPTY>
+<!ELEMENT modifyFormAccess EMPTY>
+<!ELEMENT viewFormAccess EMPTY>
+<!ELEMENT grantAccess EMPTY>
+<!ELEMENT showAccess EMPTY>
+<!ELEMENT revokeAccess EMPTY>
+<!ELEMENT adminAccess
+  (all|none|(attributeDefAccess?, typeAccess?, relationshipDefAccess?,
+   formatAccess?, personAccess?, groupAccess?, roleAccess?,
+   associationAccess?, policyAccess?, programAccess?, wizardAccess?,
+   reportAccess?, formAccess?, ruleAccess?, relationshipruleAccess?,
+   propertyAccess?, siteAccess?, storeAccess?, vaultAccess?, serverAccess?,
+   locationAccess?, processAccess?, portalAccess?, expressionObjectAccess?,
+   pageAccess?, resourceAccess?, menuAccess?, inquiryAccess?, tableAccess?))>
+<!ELEMENT attributeDefAccess EMPTY>
+<!ELEMENT typeAccess EMPTY>
+<!ELEMENT relationshipDefAccess EMPTY>
+<!ELEMENT formatAccess EMPTY>
+<!ELEMENT personAccess EMPTY>
+<!ELEMENT groupAccess EMPTY>
+<!ELEMENT roleAccess EMPTY>
+<!ELEMENT associationAccess EMPTY>
+<!ELEMENT policyAccess EMPTY>
+<!ELEMENT programAccess EMPTY>
+<!ELEMENT wizardAccess EMPTY>
+<!ELEMENT reportAccess EMPTY>
+<!ELEMENT formAccess EMPTY>
+<!ELEMENT ruleAccess EMPTY>
+<!ELEMENT propertyAccess EMPTY>
+<!ELEMENT siteAccess EMPTY>
+<!ELEMENT storeAccess EMPTY>
+<!ELEMENT vaultAccess EMPTY>
+<!ELEMENT serverAccess EMPTY>
+<!ELEMENT locationAccess EMPTY>
+<!ELEMENT processAccess EMPTY>
+<!ELEMENT relationshipruleAccess EMPTY>
+<!ELEMENT portalAccess EMPTY>
+<!ELEMENT expressionObjectAccess EMPTY>
+<!ELEMENT pageAccess EMPTY>
+<!ELEMENT resourceAccess EMPTY>
+<!ELEMENT menuAccess EMPTY>
+<!ELEMENT inquiryAccess EMPTY>
+<!ELEMENT tableAccess EMPTY>
+<!ELEMENT publicAccess (access)>
+<!ELEMENT userAccessList (userAccess+)>
+<!ATTLIST userAccessList count CDATA #REQUIRED>
+<!ELEMENT userAccess (userRef, access, expressionFilter?)>
+
+<!ELEMENT visibleUserList (userRef+)>
+<!ATTLIST visibleUserList count CDATA #REQUIRED>
+
+<!ELEMENT association
+(adminProperties, definition?, queryList?, webreportList?, dataObjectList?, channelList?, portalList?,
+     cueList?, filterList?, tipList?, toolsetList?, setList?, tableList?,
+     viewList?)>
+<!ATTLIST association id CDATA #IMPLIED>
+<!ELEMENT definition %ematrix-string;>
+
+<!ELEMENT queryList (query+)>
+<!ATTLIST queryList count CDATA #REQUIRED>
+<!ELEMENT query (name, queryStatement, visibleUserList?, creationInfo?, modificationInfo?,
+                  hidden?, propertyList?)>
+<!ELEMENT queryStatement
+  (vaultPattern, typePattern, expandType?, ownerPattern, namePattern,
+     revisionPattern, whereClause?)>
+<!ELEMENT vaultPattern %ematrix-string;>
+<!ELEMENT typePattern %ematrix-string;>
+<!ELEMENT expandType EMPTY>
+<!ELEMENT ownerPattern %ematrix-string;>
+<!ELEMENT namePattern %ematrix-string;>
+<!ELEMENT revisionPattern %ematrix-string;>
+<!ELEMENT whereClause %ematrix-string;>
+<!ELEMENT cueList (cue+)>
+<!ATTLIST cueList count CDATA #REQUIRED>
+<!ELEMENT cue
+  (name, active?, zlevel, targetType, queryStatement, foregroundColor?,
+     highlightColor?, fontName?, lineStyle?, visibleUserList?, creationInfo?,
+      modificationInfo?, hidden?, propertyList?)>
+<!ELEMENT active EMPTY>
+<![INCLUDE[
+  <!ELEMENT zlevel %ematrix-integer;>
+]]>
+<![IGNORE[
+  <!ATTLIST cue zlevel (-1|0|1) #REQUIRED>
+]]>
+<![INCLUDE[
+  <!ELEMENT targetType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST cue targetType (objects|relationships|omni) #REQUIRED>
+]]>
+<!ELEMENT color %ematrix-string;>
+<!ELEMENT highlightColor %ematrix-string;>
+<!ELEMENT fontName %ematrix-string;>
+<![INCLUDE[
+  <!ELEMENT lineStyle %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST cue lineStyle (solid|bold|dashed|dotted) #IMPLIED>
+]]>
+<!ELEMENT filterList (filter+)>
+<!ATTLIST filterList count CDATA #REQUIRED>
+<!ELEMENT filter
+  (name, active?, traverseForewards?, traverseBackwards?, targetType,
+   queryStatement, visibleUserList?, creationInfo?, modificationInfo?, hidden?, 
+   propertyList?)>
+<!ELEMENT traverseForewards EMPTY>
+<!ELEMENT traverseBackwards EMPTY>
+<!ELEMENT tipList (tip+)>
+<!ATTLIST tipList count CDATA #REQUIRED>
+<!ELEMENT tip
+  (name, active?, targetType, queryStatement, expression?, visibleUserList?,
+   creationInfo?, modificationInfo?, hidden?, propertyList?)>
+<!ELEMENT expression %ematrix-string;>
+<!ELEMENT toolsetList (toolset+)>
+<!ATTLIST toolsetList count CDATA #REQUIRED>
+<!ELEMENT toolset
+  (name, active?, visibleUserList?, creationInfo?, modificationInfo?, hidden?,
+    propertyList?)>
+<!ELEMENT setList (set+)>
+<!ATTLIST setList count CDATA #REQUIRED>
+<!ELEMENT set (name, businessObjectRefList?, visibleUserList?, creationInfo?,
+               modificationInfo?, hidden?, propertyList?)>
+<!ELEMENT businessObjectRefList (businessObjectRef+)>
+<!ATTLIST businessObjectRefList count CDATA #REQUIRED>
+<!ELEMENT tableList (table+)>
+<!ATTLIST tableList count CDATA #REQUIRED>
+<!ELEMENT table (adminProperties, derivedtable?,columnList?, visibleUserList?)>
+<!ATTLIST table id CDATA #IMPLIED>
+<!ELEMENT derivedtable %ematrix-string;>
+<!ELEMENT columnList (column+)>
+<!ATTLIST columnList count CDATA #REQUIRED>
+<!ELEMENT column
+  (derivedfield?,label?, expression?, usesBusinessObject?, usesRelationship?,
+   geometry, editable?, hidden?, scale?, name?, href?, alt?, rangeHref?,
+   updateUrl?, sortProgram?, sortType?, global?, fieldUserList?, fieldSettingList?,fieldOrder?)>
+<!ELEMENT derivedfield %ematrix-string;>
+<!ELEMENT label %ematrix-string;>
+<!ELEMENT usesBusinessObject EMPTY>
+<!ELEMENT usesRelationship EMPTY>
+<!ELEMENT geometry
+  (absoluteX?, absoluteY?, xLocation, yLocation, width, height,
+   minWidth?, minHeight?, autoWidth?, autoHeight?)>
+<!ELEMENT absoluteX EMPTY>
+<!ELEMENT absoluteY EMPTY>
+<!ELEMENT xLocation %ematrix-real;>
+<!ELEMENT yLocation %ematrix-real;>
+<!ELEMENT minWidth %ematrix-real;>
+<!ELEMENT minHeight %ematrix-real;>
+<!ELEMENT autoWidth EMPTY>
+<!ELEMENT autoHeight EMPTY>
+<!ELEMENT editable EMPTY>
+<!ELEMENT scale %ematrix-integer;>
+<!ELEMENT rangeHref %ematrix-string;>
+<!ELEMENT updateUrl %ematrix-string;>
+<!ELEMENT sortProgram %ematrix-string;>
+<!ELEMENT sortType %ematrix-integer;>
+<!ELEMENT fieldOrder %ematrix-integer;>
+<!ELEMENT global EMPTY>
+<!ELEMENT fieldUserList (user+)>
+<!ATTLIST fieldUserList count CDATA #REQUIRED>
+<!ELEMENT user %ematrix-string;>
+
+<!ELEMENT viewList (view+)>
+<!ATTLIST viewList count CDATA #REQUIRED>
+<!ELEMENT view (name, visibleUserList?, creationInfo?, modificationInfo?, hidden?,
+                propertyList?)>
+
+<!ELEMENT webreportList (webreport+)>
+<!ATTLIST webreportList count CDATA #REQUIRED>
+<!ELEMENT webreport
+  (name, description?, webreportReporttype?, appliestoBus?, appliestoRel?,
+   webreportCheckAccess?, searchcriteria?, notes?, webreportGroupbyList?,
+   webreportDataList?, webreportSummaryList?, webreportMainResultIndex?,
+   webreportResultList?, visibleUserList?, creationInfo?, modificationInfo?, hidden?,
+   propertyList?)>
+<!ELEMENT webreportReporttype %ematrix-string;>
+<!ELEMENT appliestoBus %ematrix-boolean;>
+<!ELEMENT appliestoRel %ematrix-boolean;>
+<!ELEMENT webreportCheckAccess %ematrix-boolean;>
+<!ELEMENT searchcriteria %ematrix-string;>
+<!ELEMENT notes %ematrix-string;>
+<!ELEMENT webreportGroupbyList (webreportGroupby+)>
+<!ATTLIST webreportGroupbyList count CDATA #REQUIRED>
+<!ELEMENT webreportGroupby
+  (expressionObjectRef?, expression?, label?, appliestoBus?, appliestoRel?,
+   webreportGroupbyMaxGroupings?)>
+<!ELEMENT expressionObjectRef %ematrix-string;>
+<!ELEMENT webreportGroupbyMaxGroupings %ematrix-integer;>
+<!ELEMENT webreportDataList (webreportData+)>
+<!ATTLIST webreportDataList count CDATA #REQUIRED>
+<!ELEMENT webreportData
+  (expressionObjectRef?, expression?, label?, appliestoBus?, appliestoRel?)>
+<!ELEMENT webreportSummaryList (webreportSummary+)>
+<!ATTLIST webreportSummaryList count CDATA #REQUIRED>
+<!ELEMENT webreportSummary
+  (name, appliestoBus?, appliestoRel?, webreportGroupbyRefList?, webreportDataRefList?)>
+<!ELEMENT webreportGroupbyRefList (webreportGroupbyRef+)>
+<!ATTLIST webreportGroupbyRefList count CDATA #REQUIRED>
+<!ELEMENT webreportGroupbyRef %ematrix-integer;>
+<!ELEMENT webreportDataRefList (webreportDataRef+)>
+<!ATTLIST webreportDataRefList count CDATA #REQUIRED>
+<!ELEMENT webreportDataRef %ematrix-integer;>
+<!ELEMENT webreportMainResultIndex %ematrix-integer;>
+<!ELEMENT webreportResultList (webreportResult+)>
+<!ATTLIST webreportResultList count CDATA #REQUIRED>
+<!ELEMENT webreportResult
+  (webreportResultIndex, webreportResultCreated?, webreportResultCreator?,
+  webreportResultDuration, webreportResultLocked?, webreportResultHidden?,
+  webreportResultCurrent?, webreportResultFull?, appliestoBus?, appliestoRel?,
+  label?, description?, webreportResultXml?)>
+<!ELEMENT webreportResultIndex %ematrix-integer;>
+<!ELEMENT webreportResultCreated (datetime)>
+<!ELEMENT webreportResultCreator %ematrix-string;>
+<!ELEMENT webreportResultDuration %ematrix-integer;>
+<!ELEMENT webreportResultLocked %ematrix-boolean;>
+<!ELEMENT webreportResultHidden %ematrix-boolean;>
+<!ELEMENT webreportResultCurrent %ematrix-boolean;>
+<!ELEMENT webreportResultFull %ematrix-boolean;>
+<!ELEMENT webreportResultXml %ematrix-string;>
+<!ELEMENT dataObjectList (dataObject+)>
+<!ATTLIST dataObjectList count CDATA #REQUIRED>
+<!ELEMENT dataObject 
+  (name, description?, typePattern?, value?, visibleUserList?, creationInfo?,
+     modificationInfo?, hidden?, propertyList? )>
+<!ELEMENT attributeDef 
+  (adminProperties, primitiveType, accessRuleRef?, multiline?,
+   rangeList?, defaultValue?, triggerList?, rangeProgram?, dimensionRef?)>
+<!ATTLIST attributeDef id CDATA #IMPLIED>
+<![INCLUDE[
+  <!ELEMENT primitiveType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST attributeDef primitiveType
+    (integer|real|string|datetime|boolean|unknown) #REQUIRED>
+]]>
+<!ELEMENT multiline EMPTY>
+<!ELEMENT rangeList (range+)>
+<!ATTLIST rangeList count CDATA #REQUIRED>
+<!ELEMENT range
+  (rangeType, rangeValue?, includingValue?, rangeSecondValue?,
+   includingSecondValue?)>
+<![INCLUDE[
+  <!ELEMENT rangeType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST range rangeType
+    (equal|notequal|lessthan|lessthanequal|greaterthan|greaterthanequal|match|
+     notmatch|smatch|notsmatch|between|programrange) #REQUIRED>
+]]>
+<!ELEMENT rangeValue %ematrix-string;>
+<!ELEMENT includingValue EMPTY>
+<!ELEMENT rangeSecondValue %ematrix-string;>
+<!ELEMENT includingSecondValue EMPTY>
+<!ELEMENT defaultValue %ematrix-string;>
+<!ELEMENT triggerList (trigger+)>
+<!ATTLIST triggerList count CDATA #REQUIRED>
+<!ELEMENT trigger (triggerName, programRef, inputArguments?)>
+<!ELEMENT triggerName %ematrix-string;>
+<!ELEMENT inputArguments %ematrix-string;>
+<!ELEMENT rangeProgram (programRef, inputArguments?)>
+
+<!ELEMENT businessObject
+  (objectType, objectName, objectRevision, vaultRef, icon?, policyRef,
+   owner, granted?,grantedList?,description?, creationInfo, modificationInfo,
+   interfaceTypeRefList?, locker?, reservation?, attributeList?, stateList?,
+   revisions?, historyList?, fromRelationshipList?, toRelationshipList?,
+   vcfileList?, vcfolderList?, hadFiles?, storeType?, folderList?, unitRef?)>
+<!ATTLIST businessObject id CDATA #IMPLIED>
+<!ELEMENT owner (userRef)>
+<!ELEMENT grantedList (granted+)>
+<!ATTLIST grantedList count CDATA #REQUIRED>
+<!ELEMENT granted (grantee, grantor, granteeAccess, wantsSignature?, grantKey?)>
+<!ELEMENT grantee (userRef)>
+<!ELEMENT grantor (userRef)>
+<!ELEMENT granteeAccess (access)>
+<!ELEMENT wantsSignature EMPTY>
+<!ELEMENT grantKey %ematrix-string;>
+<!ELEMENT creationInfo (datetime)>
+<!ELEMENT modificationInfo (datetime)>
+<!ELEMENT locker (userRef)>
+<!ELEMENT attributeList (attribute+)>
+<!ATTLIST attributeList count CDATA #REQUIRED>
+<!ELEMENT interfaceTypeRefList (interfaceTypeRef+)>
+<!ATTLIST interfaceTypeRefList count CDATA #REQUIRED>
+<!ELEMENT attribute (name, (integer|real|string|datetime|boolean|unknown), unitRef?)>
+<!ELEMENT integer %ematrix-integer;>
+<!ELEMENT real %ematrix-real;>
+<!ELEMENT string %ematrix-string;>
+<!ELEMENT boolean %ematrix-boolean;>
+<!ELEMENT unknown %ematrix-string;>
+<!ELEMENT reservation (userRef, startDate, comment?)>
+<!ELEMENT stateList (state+)>
+<!ATTLIST stateList count CDATA #REQUIRED>
+<!ELEMENT state (name, current?, stateStatus?, actualInfo?, scheduledInfo?,
+                 revisionable?, versionable?, startDate?, endDate?,
+                 stateDuration?, signatureList?)>
+<!ELEMENT current EMPTY>
+<![INCLUDE[
+  <!ELEMENT stateStatus %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST state stateStatus (overridden|disabled|enabled) #IMPLIED>
+]]>
+<!ELEMENT actualInfo (datetime)>
+<!ELEMENT scheduledInfo (datetime)>
+<!ELEMENT startDate (datetime)>
+<!ELEMENT endDate (datetime)>
+<!ELEMENT stateDuration %ematrix-integer;>
+<!ELEMENT revisionable EMPTY>
+<!ELEMENT versionable EMPTY>
+<!ELEMENT signatureList (signature+)>
+<!ATTLIST signatureList count CDATA #REQUIRED>
+<!ELEMENT signature (name, signed?)>
+<!ELEMENT signed (userRef, signatureType?, comment?, valid?)>
+<![INCLUDE[
+  <!ELEMENT signatureType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST signed signatureType (approved|rejected|ignored) #IMPLIED>
+]]>
+<!ELEMENT comment %ematrix-string;>
+<!ELEMENT valid EMPTY>
+<!ELEMENT revisions (total, previousRevision?, nextRevision?)>
+<!ELEMENT total %ematrix-integer;>
+<!ELEMENT previousRevision (businessObjectRef)>
+<!ELEMENT nextRevision (businessObjectRef)>
+<!ELEMENT historyList (history+)>
+<!ATTLIST historyList count CDATA #REQUIRED>
+<!ELEMENT history
+  (datetime, agent, event, stateName?, tag?, formatRef?, fileName?,
+   signatureName?, comment?, previousRevision?, relationshipName?,
+   fromObject?, toObject?, name?, value?, owner?, description?,
+   objectType?, objectName?, objectRevision?, vaultRef?, policyRef?,
+   grantor?,grantee?, wantsSignature?, granteeAccess?,
+   replaces?, replacesRevision?, targetType?, objectId?, for?,
+   fromFormatRef?, toFileName?)>
+<!ELEMENT agent %ematrix-string;>
+<!ELEMENT stateName %ematrix-string;>
+<!ELEMENT fileName %ematrix-string;>
+<!ELEMENT signatureName %ematrix-string;>
+<!ELEMENT relationshipName %ematrix-string;>
+<!ELEMENT fromObject (businessObjectRef)>
+<!ELEMENT toObject (businessObjectRef)>
+<!ELEMENT tag %ematrix-string;>
+<!ELEMENT replaces %ematrix-string;>
+<!ELEMENT replacesRevision %ematrix-string;>
+<!ELEMENT objectId %ematrix-string;>
+<!ELEMENT for (userRef)>
+<!ELEMENT toFileName %ematrix-string;>
+<!ELEMENT toRelationshipList (relationship+)>
+<!ATTLIST toRelationshipList count CDATA #REQUIRED>
+<!ELEMENT fromRelationshipList (relationship+)>
+<!ATTLIST fromRelationshipList count CDATA #REQUIRED>
+<!ELEMENT relationship (relationshipDefRef, relatedObject, attributeList?, reservation?)>
+<!ELEMENT relatedObject (businessObjectRef)>
+<!ELEMENT hadFiles EMPTY>
+<!ELEMENT folderList (folder+)>
+<!ATTLIST folderList count CDATA #REQUIRED>
+<!ELEMENT folder (formatRef, fileList?)>
+<!ELEMENT fileList ((file|directory)*)>
+<!ATTLIST fileList count CDATA #REQUIRED>
+<!ELEMENT file
+  (storeFilename, storeFileAlias?, diskFilename, fileContent?, mode?, uid?, gid?, size?,
+   storeRef?, locationRef?)>
+<!ELEMENT directory
+  (storeFilename, storeFileAlias?, diskFilename, mode?, uid?, gid?, size?, storeRef?,
+   locationRef?, fileList?)>
+<!ELEMENT storeFilename %ematrix-string;>
+<!ELEMENT storeFileAlias %ematrix-string;>
+<!ELEMENT diskFilename %ematrix-string;>
+<!ELEMENT fileContent %ematrix-base64;>
+<!ELEMENT mode %ematrix-string;>
+<!ELEMENT uid %ematrix-string;>
+<!ELEMENT gid %ematrix-string;>
+<!ELEMENT size %ematrix-integer;>
+<!ELEMENT vcfileList ((vcfile)*)>
+<!ATTLIST vcfileList count CDATA #REQUIRED>
+<!ELEMENT vcfile
+  (pathName, specifierType, specifier, qualifier?, config?, complete?, storeRef?, formatRef?)>
+<!ELEMENT vcfolderList ((vcfolder)*)>
+<!ATTLIST vcfolderList count CDATA #REQUIRED>
+<!ELEMENT vcfolder (pathName, config?, complete?, storeRef?, formatRef?)>
+<!ELEMENT specifierType %ematrix-integer;>
+<!ELEMENT specifier %ematrix-string;>
+<!ELEMENT qualifier %ematrix-string;>
+<!ELEMENT config %ematrix-string;>
+<!ELEMENT complete %ematrix-boolean;>
+
+<!ELEMENT form
+  (adminProperties, accessRuleRef?, webform?, height, width, header, footer,
+   leftMargin, rightMargin, foregroundColor?, backgroundColor?,
+   typeRefList?, fieldList?)>
+<!ATTLIST form id CDATA #IMPLIED>
+<!ELEMENT webform EMPTY>
+<!ELEMENT height %ematrix-real;>
+<!ELEMENT width %ematrix-real;>
+<!ELEMENT header %ematrix-real;>
+<!ELEMENT footer %ematrix-real;>
+<!ELEMENT leftMargin %ematrix-real;>
+<!ELEMENT rightMargin %ematrix-real;>
+<!ELEMENT foregroundColor %ematrix-string;>
+<!ELEMENT backgroundColor %ematrix-string;>
+<!ELEMENT typeRefList (typeRef+)>
+<!ATTLIST typeRefList count CDATA #REQUIRED>
+
+<!ELEMENT fieldList (field+)>
+<!ATTLIST fieldList count CDATA #REQUIRED>
+<!ELEMENT field
+  (fieldType, fieldName?,
+   fieldNumber?, fieldValue?, usesBusinessObject?, usesRelationship?,
+   label?, description?,
+   fontName?, editable?, multiline?,
+   geometry, border?, foregroundColor?, backgroundColor?,
+   scale?, name?, href?, alt?, rangeHref?,
+   updateUrl?, sortProgram?, sortType?, global?, fieldUserList?, fieldSettingList?)>
+<![INCLUDE[
+  <!ELEMENT fieldType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST field fieldType (label|select|column|raphic|image|icon) #REQUIRED>
+]]>
+<!ELEMENT fieldNumber %ematrix-integer;>
+<!ELEMENT fieldValue %ematrix-string;>
+<!ELEMENT fieldName %ematrix-string;>
+<!ELEMENT border EMPTY>
+<!ELEMENT fieldSettingList (fieldSetting+)>
+<!ATTLIST fieldSettingList count CDATA #REQUIRED>
+<!ELEMENT fieldSetting (fieldSettingName, fieldSettingValue)>
+<!ELEMENT fieldSettingName %ematrix-string;>
+<!ELEMENT fieldSettingValue %ematrix-string;>
+
+<!ELEMENT format
+  (adminProperties, version?, mimeType?, fileSuffix?, viewCommand?, editCommand?,
+   printCommand?, fileCreator?, fileType?)>
+<!ATTLIST format id CDATA #IMPLIED>
+<!ELEMENT version %ematrix-string;>
+<!ELEMENT fileSuffix %ematrix-string;>
+<!ELEMENT viewCommand %ematrix-string;>
+<!ELEMENT editCommand %ematrix-string;>
+<!ELEMENT printCommand %ematrix-string;>
+<!ELEMENT fileCreator %ematrix-string;>
+<!ELEMENT fileType %ematrix-string;>
+
+<!ELEMENT group
+  (adminProperties, parentGroup?, homeSite?, queryList?, webreportList?, dataObjectList?,
+  channelList?, portalList?, cueList?, filterList?, tipList?, toolsetList?,
+  setList?, tableList?, viewList?)>
+<!ATTLIST group id CDATA #IMPLIED>
+<!ELEMENT parentGroup (groupRef+)>
+<!ATTLIST parentGroup count CDATA #REQUIRED>
+
+<!ELEMENT location
+  (adminProperties, hostName?, pathName, userName?, password?, passwordEncrypted?,
+   protocol?, port?, permission?, searchUrl?, singleDirectory?)>
+<!ATTLIST location id CDATA #IMPLIED>
+<!ELEMENT hostName %ematrix-string;>
+<!ELEMENT pathName %ematrix-string;>
+<!ELEMENT userName %ematrix-string;>
+<!ELEMENT protocol %ematrix-string;>
+<!ELEMENT port %ematrix-string;>
+<!ELEMENT permission %ematrix-string;>
+<!ELEMENT searchUrl %ematrix-string;>
+<!ELEMENT singleDirectory EMPTY>
+
+<!ELEMENT page (adminProperties, mimeType, creationInfo?, modificationInfo?,
+                pageContent)>
+<!ATTLIST page id CDATA #IMPLIED>
+<!ELEMENT mimeType %ematrix-string;>
+<!ELEMENT pageContent %ematrix-string;>
+
+<!ELEMENT person
+  (adminProperties, fullName?, address?, phone?, fax?, email?,
+   wantsIconMail?, wantsEmail?, fullUser?, businessAdministrator?,
+   systemAdministrator?, inactive?, applicationsOnly?, trusted?,
+   passwordChangeRequired?, passwordNeverExpires?, homeVault?, homeSite?,
+   access?, adminAccess?,
+   assignmentList?, queryList?, webreportList?, dataObjectList?, channelList?, portalList?, cueList?,
+   filterList?, tipList?, toolsetList?, password?, passwordModification?, setList?,
+   mailList?, taskList?, tableList?, viewList?)>
+<!ATTLIST person id CDATA #IMPLIED>
+<!ELEMENT fullName %ematrix-string;>
+<!ELEMENT address %ematrix-string;>
+<!ELEMENT phone %ematrix-string;>
+<!ELEMENT fax %ematrix-string;>
+<!ELEMENT email %ematrix-string;>
+<!ELEMENT wantsIconMail EMPTY>
+<!ELEMENT wantsEmail EMPTY>
+<!ELEMENT fullUser EMPTY>
+<!ELEMENT businessAdministrator EMPTY>
+<!ELEMENT systemAdministrator EMPTY>
+<!ELEMENT applicationsOnly EMPTY>
+<!ELEMENT inactive EMPTY>
+<!ELEMENT trusted EMPTY>
+<!ELEMENT passwordChangeRequired EMPTY>
+<!ELEMENT passwordNeverExpires EMPTY>
+<!ELEMENT homeVault (vaultRef)>
+<!ELEMENT homeSite (siteRef)>
+<!ELEMENT assignmentList (assignment+)>
+<!ATTLIST assignmentList count CDATA #REQUIRED>
+<!ELEMENT assignment (groupRef?, roleRef?)>
+<!ELEMENT password %ematrix-base64;>
+<!ELEMENT passwordEncrypted %ematrix-base64;>
+<!ELEMENT passwordModification (datetime)>
+<!ELEMENT mailList (mail+)>
+<!ATTLIST mailList count CDATA #REQUIRED>
+<!ELEMENT mail
+  (datetime, businessObjectRefList?, toList?, ccList?, from, subject?,
+   message?)>
+<!ELEMENT toList (userRef+)>
+<!ATTLIST toList count CDATA #REQUIRED>
+<!ELEMENT ccList (userRef+)>
+<!ATTLIST ccList count CDATA #REQUIRED>
+<!ELEMENT from (userRef)>
+<!ELEMENT subject %ematrix-string;>
+<!ELEMENT message %ematrix-string;>
+<!ELEMENT taskList (task+)>
+<!ATTLIST taskList count CDATA #REQUIRED>
+<!ELEMENT task
+  (datetime, interactive?, automated?, processRef, activityDefName,
+   activityName, toList?)>
+<!ELEMENT interactive EMPTY>
+<!ELEMENT automated EMPTY>
+<!ELEMENT activityDefName %ematrix-string;>
+<!ELEMENT activityName %ematrix-string;>
+
+<!ELEMENT policy
+  (adminProperties, sequence, storeRef?, typeRefList?, formatRefList?,
+   defaultFormat?, enforceLocking?, allowAllTypes?, allowAllFormats?,
+   stateDefList?)>
+<!ATTLIST policy id CDATA #IMPLIED>
+<!ELEMENT sequence %ematrix-string;>
+<!ELEMENT formatRefList (formatRef+)>
+<!ATTLIST formatRefList count CDATA #REQUIRED>
+<!ELEMENT defaultFormat (formatRef)>
+<!ELEMENT enforceLocking EMPTY>
+<!ELEMENT allowAllTypes EMPTY>
+<!ELEMENT allowAllFormats EMPTY>
+<!ELEMENT stateDefList (stateDef+)>
+<!ATTLIST stateDefList count CDATA #REQUIRED>
+<!ELEMENT stateDef
+  (name?, icon?, revisionable?, versionable?, autoPromotion?,
+   checkoutHistory?, routeMessage?, routeUser?, notifyMessage?,
+   notifyUserList?, notifyAllSigners?, actionProgram?, checkProgram?,
+   ownerAccess?, publicAccess?, userAccessList?, signatureDefList?,
+   triggerList?)>
+<!ELEMENT autoPromotion EMPTY>
+<!ELEMENT checkoutHistory EMPTY>
+<!ELEMENT routeMessage %ematrix-string;>
+<!ELEMENT routeUser (userRef)>
+<!ELEMENT notifyMessage %ematrix-string;>
+<!ELEMENT notifyUserList (userRef+)>
+<!ATTLIST notifyUserList count CDATA #REQUIRED>
+<!ELEMENT notifyAllSigners EMPTY>
+<!ELEMENT actionProgram (programRef, inputArguments?)>
+<!ELEMENT checkProgram (programRef, inputArguments?)>
+<!ELEMENT signatureDefList (signatureDef+)>
+<!ATTLIST signatureDefList count CDATA #REQUIRED>
+<!ELEMENT signatureDef
+  (name, approveUserList?, rejectUserList?, ignoreUserList?,
+   expressionFilter?, stateDefRef?)>
+<!ELEMENT approveUserList (userRef+)>
+<!ATTLIST approveUserList count CDATA #REQUIRED>
+<!ELEMENT rejectUserList (userRef+)>
+<!ATTLIST rejectUserList count CDATA #REQUIRED>
+<!ELEMENT ignoreUserList (userRef+)>
+<!ATTLIST ignoreUserList count CDATA #REQUIRED>
+<!ELEMENT expressionFilter %ematrix-string;>
+
+<!ELEMENT process
+  (adminProperties, height?, width?, autoStart?, attributeDefRefList?,
+   triggerList?, nodeDefList?, linkDefList?)>
+<!ATTLIST process id CDATA #IMPLIED>
+<!ELEMENT autoStart EMPTY>
+<!ELEMENT nodeDefList (nodeDef+)>
+<!ATTLIST nodeDefList count CDATA #REQUIRED>
+<!ELEMENT nodeDef
+  (nodeType, parentName?, name, description?, xLocation, yLocation,
+   attributeDefRefList?, triggerList?, assignee?, programRefList?,
+   instructions?, priority?, duration?, rate?, programRef?, inputArguments?)>
+<![INCLUDE[
+  <!ELEMENT nodeType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST nodeDef nodeType
+    (processNode|interactiveNode|orNode|andNode|automatedNode|abortNode|
+     startNode|endNode) #REQUIRED>
+]]>
+<!ELEMENT parentName %ematrix-string;>
+<!ELEMENT assignee (userRef)>
+<!ELEMENT programRefList (programRef+)>
+<!ATTLIST programRefList count CDATA #REQUIRED>
+<!ELEMENT instructions %ematrix-string;>
+<!ELEMENT priority %ematrix-real;>
+<!ELEMENT duration %ematrix-real;>
+<!ELEMENT rate %ematrix-real;>
+<!ELEMENT linkDefList (linkDef+)>
+<!ATTLIST linkDefList count CDATA #REQUIRED>
+<!ELEMENT linkDef
+  (fromNodeName, toNodeName, transitionCondition?)>
+<!ELEMENT fromNodeName %ematrix-string;>
+<!ELEMENT toNodeName %ematrix-string;>
+<!ELEMENT transitionCondition %ematrix-string;>
+
+<!ELEMENT program
+  (adminProperties, accessRuleRef?, code, mqlProgram?, needsContext?,
+   usesInterface?, wizard?, frameList?, deferred?, downloadable?, mqlPipe?,
+   pooled?, userRef?, javaProgram?)>
+<!ATTLIST program id CDATA #IMPLIED>
+<!ELEMENT code %ematrix-string;>
+<!ELEMENT mqlProgram EMPTY>
+<!ELEMENT needsContext EMPTY>
+<!ELEMENT usesInterface EMPTY>
+<!ELEMENT wizard EMPTY>
+<!ELEMENT frameList (frame+)>
+<!ATTLIST frameList count CDATA #REQUIRED>
+<!ELEMENT frame
+  (adminProperties, masterFrame?, statusFrame?, editorUnits?,
+   prologueProgram?, epilogueProgram?, height, width, header?, footer?,
+   leftMargin?, rightMargin?, foregroundColor?, backgroundColor?,
+   widgetList?)>
+<!ATTLIST frame id CDATA #IMPLIED>
+<!ELEMENT masterFrame EMPTY>
+<!ELEMENT statusFrame EMPTY>
+<![INCLUDE[
+  <!ELEMENT editorUnits %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST frame editorUnits (points|inches|picas) #REQUIRED>
+]]>
+<!ELEMENT prologueProgram (programRef, inputArguments?)>
+<!ELEMENT epilogueProgram (programRef, inputArguments?)>
+<!ELEMENT widgetList (widget+)>
+<!ATTLIST widgetList count CDATA #REQUIRED>
+<!ELEMENT widget
+  (widgetType, widgetName, widgetNumber?, widgetValue?, widgetValue2?,
+   commandProgram?, title?, fontName?, multiline?, editable?, upload?, scrollable?,
+   passwordProtected?, loadProgram?, validateProgram?, observerProgram?, geometry, border?,
+   foregroundColor?, backgroundColor?)>
+<![INCLUDE[
+  <!ELEMENT widgetType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST widget widgetType
+    (label|textbox|listbox|combobox|radiogroup|togglegroup|button|
+    image) #REQUIRED>
+]]>
+<!ELEMENT widgetName %ematrix-string;>
+<!ELEMENT widgetNumber %ematrix-integer;>
+<!ELEMENT widgetValue %ematrix-string;>
+<!ELEMENT widgetValue2 %ematrix-string;>
+<!ELEMENT commandProgram (programRef, inputArguments?)>
+<!ELEMENT title %ematrix-string;>
+<!ELEMENT scrollable EMPTY>
+<!ELEMENT passwordProtected EMPTY>
+<!ELEMENT loadProgram (programRef, inputArguments?)>
+<!ELEMENT validateProgram (programRef, inputArguments?)>
+<!ELEMENT observerProgram (programRef, inputArguments?)>
+<!ELEMENT deferred EMPTY>
+<!ELEMENT downloadable EMPTY>
+<!ELEMENT mqlPipe EMPTY>
+<!ELEMENT pooled EMPTY>
+<!ELEMENT javaProgram EMPTY>
+<!ELEMENT upload EMPTY>
+
+<!ELEMENT relationshipDef
+  (adminProperties, accessRuleRef?, fromSide, toSide,
+   attributeDefRefList?, triggerList?, preventDuplicates?)>
+<!ELEMENT fromSide
+  (meaning?, cardinality, revisionAction, cloneAction,
+   typeRefList?, propagateModify?, propagateConnection?)>
+<!ELEMENT toSide
+  (meaning?, cardinality, revisionAction, cloneAction,
+   typeRefList?, propagateModify?, propagateConnection?)>
+<!ATTLIST relationshipDef id CDATA #IMPLIED>
+<!ELEMENT meaning %ematrix-string;>
+<![INCLUDE[
+  <!ELEMENT cardinality %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST fromSide cardinality (1|n) #REQUIRED>
+  <!ATTLIST toSide cardinality (1|n) #REQUIRED>
+]]>
+<![INCLUDE[
+  <!ELEMENT revisionAction %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST fromSide revisionAction (none|float|replicate) #REQUIRED>
+  <!ATTLIST toSide revisionAction (none|float|replicate) #REQUIRED>
+]]>
+<![INCLUDE[
+  <!ELEMENT cloneAction %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST fromSide cloneAction (none|float|replicate) #REQUIRED>
+  <!ATTLIST toSide cloneAction (none|float|replicate) #REQUIRED>
+]]>
+<!ELEMENT propagateModify EMPTY>
+<!ELEMENT propagateConnection EMPTY>
+<!ELEMENT preventDuplicates EMPTY>
+
+<!ELEMENT report
+  (adminProperties, height, width, header, footer, leftMargin, rightMargin,
+   displayRuler?, reportFieldList?)>
+<!ATTLIST report id CDATA #IMPLIED>
+<!ELEMENT displayRuler EMPTY>
+<!ELEMENT reportFieldList (reportField+)>
+<!ATTLIST reportFieldList count CDATA #REQUIRED>
+<!ELEMENT reportField
+  (reportFieldType, calculatedType?, fieldValue?, outputType?, geometry,
+   expressionFilter?, associatedLabel?)>
+<![INCLUDE[
+  <!ELEMENT reportFieldType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST reportField reportFieldType
+    (string|datetime|expression|calculated) #REQUIRED>
+]]>
+<![INCLUDE[
+  <!ELEMENT calculatedType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST reportField calculatedType
+    (none|sum|average|count|mean|stddeviation) #REQUIRED>
+]]>
+<![INCLUDE[
+  <!ELEMENT outputType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST reportField outputType
+    (none|firstpage|lastpage|perpage|perline|pervalue|resetfirstpage|
+    resetlastpage|resetperpage|resetperline|resetpervalue) #REQUIRED>
+]]>
+<!ELEMENT filterValue %ematrix-string;>
+<!ELEMENT associatedLabel (fieldValue?, outputType?, geometry)>
+
+<!ELEMENT resource (adminProperties, mimeType, creationInfo?, modificationInfo?,
+                    fileContent)>
+<!ATTLIST resource id CDATA #IMPLIED>
+
+<!ELEMENT inquiry (adminProperties, code, pattern, fmt)>
+<!ATTLIST inquiry id CDATA #IMPLIED>
+<!ELEMENT pattern %ematrix-string;>
+<!ELEMENT fmt %ematrix-string;>
+
+
+<!ELEMENT role
+  (adminProperties, parentRole?, homeSite?, queryList?, webreportList?, dataObjectList?,
+   channelList?, portalList?, cueList?, filterList?, tipList?, toolsetList?,
+   setList?, tableList?, viewList?)>
+<!ATTLIST role id CDATA #IMPLIED>
+<!ELEMENT parentRole (roleRef+)>
+<!ATTLIST parentRole count CDATA #REQUIRED>
+
+<!ELEMENT foreign EMPTY>
+
+<!ELEMENT server
+  (adminProperties, userName?, password?, connectString?, timezone?,
+   vaultConnectionList?, storeConnectionList?, foreign?)>
+<!ATTLIST server id CDATA #IMPLIED>
+<!ELEMENT connectString %ematrix-string;>
+<![INCLUDE[
+  <!ELEMENT timezone %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST datetime timezone
+    (GMT-12|GMT-11|HST|HDT|GMT-10|YST|YDT|GMT-9|PST|PDT|GMT-8|MST|MDT|GMT-7|
+     CST|CDT|GMT-6|EST|EDT|GMT-5|AST|ADT|GMT-4|GMT-3|GMT-2|GMT-1|GMT|
+     MET|MET DST|GMTplus1|EET|EET DST|GMTplus2|GMTplus3|GMTplus4|GMTplus5|
+     GMTplus6|GMTplus7|WST|GMTplus8|JST|GMTplus9|GMTplus10|GMTplus11|NZST|
+     NZDT|GMTplus12) #REQUIRED>
+]]>
+<!ELEMENT vaultConnectionList (vaultConnection+)>
+<!ATTLIST vaultConnectionList count CDATA #REQUIRED>
+<!ELEMENT vaultConnection (vaultRef, connectionType)>
+<!ELEMENT connectionType %ematrix-string;>
+<!ELEMENT storeConnectionList (storeConnection+)>
+<!ATTLIST storeConnectionList count CDATA #REQUIRED>
+<!ELEMENT storeConnection (storeRef, connectionType)>
+
+<!ELEMENT site (adminProperties)>
+<!ATTLIST site id CDATA #IMPLIED>
+
+<!ELEMENT store
+  (adminProperties, storeType, hostName?, pathName?, hashedFilenames?,
+   encrypted?, singleDirectory?, userName?, password?, passwordEncrypted?, protocol?, port?, tablespace?,
+   indexspace?, permission?, locked?, version?, locationRefList?, searchUrl?)>
+<!ATTLIST store id CDATA #IMPLIED>
+<![INCLUDE[
+  <!ELEMENT storeType %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST store storeType (ingested|captured|tracked) #REQUIRED>
+]]>
+<!ELEMENT hashedFilenames EMPTY>
+<!ELEMENT encrypted EMPTY>
+<!ELEMENT locked EMPTY>
+<!ELEMENT tablespace %ematrix-string;>
+<!ELEMENT indexspace %ematrix-string;>
+<!ELEMENT locationRefList (locationRef+)>
+<!ATTLIST locationRefList count CDATA #REQUIRED>
+
+<!ELEMENT type
+  (adminProperties, abstract?, derivedFrom?, attributeDefRefList?,
+   methodList?, triggerList?)>
+<!ATTLIST type id CDATA #IMPLIED>
+<!ELEMENT abstract EMPTY>
+<!ELEMENT derivedFrom (typeRefList+)>
+<!ELEMENT attributeDefRefList (attributeDefRef+)>
+<!ATTLIST attributeDefRefList count CDATA #REQUIRED>
+<!ELEMENT methodList (programRef+)>
+<!ATTLIST methodList count CDATA #REQUIRED>
+
+<!ELEMENT vault
+  (adminProperties, hostName?, pathName?, size?, permission?, tablespace?,
+   indexspace?, serverRef?, interface?, map?)>
+<!ATTLIST vault id CDATA #IMPLIED>
+<!ELEMENT interface %ematrix-string;>
+<!ELEMENT map %ematrix-string;>
+
+<!ELEMENT index
+  (adminProperties, unique?, attributeDefRefList?)>
+<!ATTLIST index id CDATA #IMPLIED>
+<!ELEMENT unique EMPTY>
+
+<!ELEMENT workflow
+  (processRef, name, vaultRef, icon?, description?, nodeType, owner?,
+   creationInfo, modificationInfo, nodeStatus?, attributeList?,
+   historyList?, businessObjectRefList?, nodeList?)>
+<!ATTLIST workflow id CDATA #IMPLIED>
+<!ELEMENT nodeList (node+)>
+<!ATTLIST nodeList count CDATA #REQUIRED>
+<!ELEMENT node
+  (name, nodeType, owner?, creationInfo, modificationInfo, nodeStatus?,
+   attributeList?, historyList?, businessObjectRefList?, duration?,
+   nodeList?, userRefList?)>
+<![INCLUDE[
+  <!ELEMENT nodeStatus %ematrix-string;>
+]]>
+<![IGNORE[
+  <!ATTLIST node nodeStatus
+    (activated|completed|suspended|resumed|overridden|aborted|
+     autoSuspended) #REQUIRED>
+]]>
+<!ELEMENT userRefList (userRef+)>
+<!ATTLIST userRefList count CDATA #REQUIRED>
+
+<!ELEMENT command
+  (adminProperties, label, input, href, alt, code, userRefList?)>
+<!ATTLIST command id CDATA #IMPLIED>
+<!ELEMENT input %ematrix-string;>
+<!ELEMENT href %ematrix-string;>
+<!ELEMENT alt %ematrix-string;>
+
+<!ELEMENT menu
+  (adminProperties, label, input, href, alt,  commandRefList?, menuRefList?)>
+<!ATTLIST menu id CDATA #IMPLIED>
+<!ELEMENT commandRefList (commandRef+)>
+<!ATTLIST commandRefList count CDATA #REQUIRED>
+<!ELEMENT menuRefList (menuRef+)>
+<!ATTLIST menuRefList count CDATA #REQUIRED>
+
+<!ELEMENT channel
+  (adminProperties, label, href, alt, height, commandRefList?, webreportRefList?,
+   dataObjectRefList?, visibleUserList?)>
+<!ATTLIST channel id CDATA #IMPLIED>
+<!ELEMENT channelList (channel+)>
+<!ATTLIST channelList count CDATA #REQUIRED>
+<!ELEMENT webreportRefList (webreportRef+)>
+<!ATTLIST webreportRefList count CDATA #REQUIRED>
+<!ELEMENT dataObjectRefList (dataObjectRef+)>
+<!ATTLIST dataObjectRefList count CDATA #REQUIRED>
+
+<!ELEMENT portal
+  (adminProperties, label, href, alt, channelRefList?, visibleUserList?)>
+<!ATTLIST portal id CDATA #IMPLIED>
+<!ELEMENT channelRefList (channelRef+)>
+<!ATTLIST channelRefList count CDATA #REQUIRED>
+<!ELEMENT portalList (portal+)>
+<!ATTLIST portalList count CDATA #REQUIRED>
+
+<!ELEMENT interfaceType
+  (adminProperties, abstract?, derivedFromInterface?, attributeDefRefList?,
+   methodList?, typeRefList?, allowAllTypes?)>
+<!ATTLIST interfaceType id CDATA #IMPLIED>
+<!ELEMENT derivedFromInterface (interfaceTypeRefList+)>
+
+<!ELEMENT expressionObject
+  (adminProperties, expression)>
+<!ATTLIST expressionObject id CDATA #IMPLIED>
+
+<!ELEMENT commandRef
+  (name, order)>
+<!ELEMENT order %ematrix-integer;>
+
+<!ELEMENT menuRef
+  (name, order)>
+
+<!ELEMENT channelRef
+  (name, portalRow, portalColumn)>
+<!ELEMENT portalRow %ematrix-integer;>
+<!ELEMENT portalColumn %ematrix-integer;>
+
+<!ELEMENT webreportRef
+  (name, order)>
+
+<!ELEMENT dataObjectRef
+  (name, order)>
+
+<!ELEMENT dimension
+  (adminProperties, unitList?)>
+<!ATTLIST dimension id CDATA #IMPLIED>
+<!ELEMENT unitRefList (unitRef+)>
+<!ATTLIST unitRefList count CDATA #REQUIRED>
+<!ELEMENT unitList (unit+)>
+<!ATTLIST unitList count CDATA #REQUIRED>
+<!ELEMENT unit
+  (adminProperties, unitLabel, unitMultiplier, unitOffset, unitDefault?)>
+<!ATTLIST unit id CDATA #IMPLIED>
+<!ELEMENT unitRef %ematrix-string;>
+<!ELEMENT dimensionRef %ematrix-string;>
+<!ELEMENT unitLabel %ematrix-string;>
+<!ELEMENT unitMultiplier %ematrix-string;>
+<!ELEMENT unitOffset %ematrix-string;>
+<!ELEMENT unitDefault EMPTY>

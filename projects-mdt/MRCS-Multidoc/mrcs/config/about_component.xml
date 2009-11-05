@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $ -->
+<!-- Modified on    $Date: 2006/04/28 15:59:16 $ -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   
+   <!-- this component has unqualified scope -->
+   <scope>
+      
+      <!-- the About WebTop component definition -->
+      <component id="about" extends="about:webtop/config/about_component.xml">
+         
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Webtop About component: Displays product name and version information.
+         </desc>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/about.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.documentum.webtop.webcomponent.about.About</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.AboutNlsProp</nlsbundle>
+         
+         <!-- Component specific Configuration -->
+         
+      </component>
+      
+   </scope>
+</config>

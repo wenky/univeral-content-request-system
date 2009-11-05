@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001-2003.                             -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Actions                                                -->
+<!-- File           generic_actions.xml                                    -->
+<!-- Description    Folder Generic Actions Definition                      -->
+<!-- Created on     19 September 2001                                      -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.11 $                                          -->
+<!-- Modified on    $Date: 2007/12/18 22:02:58 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+
+      <!-- list of container actions to display -->
+      <actionlist id="container-actions"  extends="container-actions:webcomponent/config/actions/generic_actions.xml">
+         <!-- action id and nlsid to display -->
+         <action id='properties' nlsid='MSG_PROPERTIES'/>
+         <action id='newdocument' nlsid='MSG_NEW_FILE'/>
+         <action id='newprocess' nlsid='MSG_NEW_PROCESS' showifdisabled='false'/>
+         <action id='newxforms' nlsid='MSG_NEW_XFORMS' showifdisabled='false'/>
+         <action id='newfolder' nlsid='MSG_NEW_FOLDER'/>
+         <action id='newcabinet' nlsid='MSG_NEW_CABINET' showifdisabled='false'/>
+         <action id='delete' nlsid='MSG_DELETE'/>
+         <action id='subscribe' nlsid='MSG_SUBSCRIBE' showifdisabled='false'/>
+         <action id='unsubscribe' nlsid='MSG_UNSUBSCRIBE' showifdisabled='false'/>
+         <action id='import' nlsid='MSG_IMPORT' showifdisabled='false'/>
+         <action id='addtoclipboard' nlsid='MSG_ADD_TO_CLIPBOARD'/>
+         <!--<action id='move' nlsid='MSG_MOVE_FILE'/>
+         <action id='copy' nlsid='MSG_COPY_FILE'/>-->
+         <action id='link' nlsid='MSG_LINK_FILE'/>
+         <action id='sendlocator' nlsid='MSG_SEND_LOCATOR' showifdisabled='false'/>
+         <action id='viewclipboard' nlsid='MSG_VIEW_CLIP'/>
+         <action id='startworkflownotemplate' nlsid='MSG_START_WORKFLOW_FULL'/>
+      </actionlist>
+
+      <!-- Preferences -->
+      <action id="preferences">
+         <params>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>general_preferences</component>
+            <container>preferences</container>
+         </execution>
+      </action>
+
+      <!-- View clipboard -->
+      <action id="viewclipboard">
+         <params>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.environment.actions.ViewClipboardPrecondition">
+            </precondition>
+         </preconditions>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>clipboard</component>
+         </execution>
+      </action>
+
+      <!-- Workflow availability -->
+      <action id="workflowavailability">
+         <params>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>workflowavailability</component>
+            <container>dialogcontainer</container>
+         </execution>
+      </action>
+
+      <!-- Workflow status list style -->
+      <action id="workflowstatuslist">
+         <params>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>workflowstatuslist</component>
+         </execution>
+      </action>
+
+      <!-- Workflow status drilldown style -->
+      <action id="workflowstatusdrilldown">
+         <params>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>workflowstatusdrilldown</component>
+         </execution>
+      </action>
+
+      <!-- Workflow report main settings -->
+      <action id="reportmainsettings">
+         <params>
+            <param name='filter' required='true'></param>
+            <param name='overdueOnly' required='true'></param>
+            <param name='userName' required='true'></param>
+            <param name='documentId' required='false'></param>
+            <param name='templateId' required='false'></param>
+            <param name='overdueDays' required='false'></param>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>reportmainsettings</component>
+            <container>combocontainer</container>
+         </execution>
+      </action>
+
+      <!-- Save Search -->
+      <action id="savesearch">
+         <params>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>savesearch</component>
+            <container>combocontainer</container>
+         </execution>
+      </action>
+
+      <!-- General search action added for startup action -->
+      <action id="search">
+         <params>
+            <!-- the query string when querytype is not 'string'  -->
+            <!-- or the search strings when querytype is 'string' -->
+            <param name="query" required="true"></param>
+            <param name="queryType" required="false"></param>
+            <param name="ranking" required="false"></param>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>search</component>
+         </execution>
+      </action>
+
+      <action id="showjobstatus">
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+             <component>jobstatus</component>
+         </execution>
+      </action>
+
+      <action id="showjobstatushistory">
+         <params>
+             <param name="jobId" required="true"></param>
+             <param name="jobName" required="true"></param>
+         </params>
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+             <component>jobstatushistory</component>
+             <container>dialogcontainer</container>
+         </execution>
+      </action>
+
+      <action id="abortjob">
+          <params>
+              <param name="jobId" required="true"></param>
+          </params>
+          <preconditions>
+              <precondition class="com.documentum.webcomponent.library.async.JobAbortPrecondition"/>
+          </preconditions>
+          <execution class="com.documentum.web.formext.action.LaunchComponent">
+              <component>jobabort</component>
+              <container>dialogcontainer</container>
+          </execution>
+      </action>
+
+
+<!-- MRCS Customization -->
+<action id='startworkflownotemplate' notdefined="true"/>
+</scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_generic_actions.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.11 $
+ Modified on    $Date: 2007/12/18 22:02:58 $
+
+***********************************************************************
+-->
+
+
+
+

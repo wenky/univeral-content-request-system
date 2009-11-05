@@ -1,0 +1,681 @@
+<?xml version="1.0"?>
+<DocbaseItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="docbase_objects.xsd">
+    <Groups>
+    </Groups>
+        
+    <ACLs>                    
+    </ACLs>
+    
+    <!-- dependencies:
+
+            groups
+            acls
+            core docapp (sequence type, value assistance type)
+
+     -->
+    
+    <Folders>
+        <Folder><FolderName>SMO</FolderName> <FolderType>dm_cabinet</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath/> </Folder>    
+        <Folder><FolderName>Forms</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO</FolderPath> </Folder>    
+
+        <!-- rqmts doc folder structure: of course folder acls are completely undesigned -->
+        <Folder><FolderName>References</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO</FolderPath> </Folder>
+        <Folder><FolderName>SMO Projects</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO</FolderPath> </Folder>
+        <Folder><FolderName>USG</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO</FolderPath> </Folder>        
+        <!-- Quality Documents -->
+        <Folder><FolderName>Quality Documents</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO</FolderPath> </Folder>
+        <Folder><FolderName>BQMM</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>DPP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>EQP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>FL</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>FRM</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>IIP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>LBP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>TID</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>TVS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <!-- MFG and subfolders -->
+        <Folder><FolderName>MFG</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Documents</FolderPath> </Folder>
+        <Folder><FolderName>MTF</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents/MFG</FolderPath> </Folder>
+        <Folder><FolderName>OPL</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents/MFG</FolderPath> </Folder>
+        <Folder><FolderName>POD</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents/MFG</FolderPath> </Folder>
+        <Folder><FolderName>PTS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents/MFG</FolderPath> </Folder>
+        <Folder><FolderName>TRN</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Documents/MFG</FolderPath> </Folder>
+        <!-- Quality Records -->
+        <Folder><FolderName>Quality Records</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO</FolderPath> </Folder>
+        <Folder><FolderName>AMD</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>ASS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>CAR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>CER</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>EHS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>JDSC</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>MPP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>PHR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>PSR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>STE</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <!-- Quality Records/CEA -->
+        <Folder><FolderName>CEA</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>CEA1996</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA1997</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA1998</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA1999</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2000</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2001</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2002</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2003</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2004</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2005</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2006</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <Folder><FolderName>CEA2007</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/CEA</FolderPath> </Folder>
+        <!-- Quality Records/DAS -->
+        <Folder><FolderName>DAS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>CIS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/DAS</FolderPath> </Folder>
+        <Folder><FolderName>IOM</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/DAS</FolderPath> </Folder>
+        <!-- Quality Records/INC -->
+        <Folder><FolderName>INC</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>RIE</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/INC</FolderPath> </Folder>
+        <Folder><FolderName>SIE</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/INC</FolderPath> </Folder>
+        <!-- Quality Records/PRR -->
+        <Folder><FolderName>PRR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>PRR Record Activities</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/PRR</FolderPath> </Folder>
+        <!-- Quality Records/SMF -->
+        <Folder><FolderName>SMF</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>FRM001455</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>PEC</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SAS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SCR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SIR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SMFxxxxxx</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SSR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>StAR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SVP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SVR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SWA</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SWD</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SWDP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SWRN</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SWRR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <Folder><FolderName>SWUC</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SMF</FolderPath> </Folder>
+        <!-- Quality Records/SUP -->
+        <Folder><FolderName>SUP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>AUP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SUP</FolderPath> </Folder>
+        <Folder><FolderName>AUR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SUP</FolderPath> </Folder>
+        <Folder><FolderName>Old_QSL</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SUP</FolderPath> </Folder>
+        <Folder><FolderName>PSP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SUP</FolderPath> </Folder>
+        <Folder><FolderName>PSR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SUP</FolderPath> </Folder>
+        <Folder><FolderName>SLA</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/SUP</FolderPath> </Folder>
+        <!-- Quality Records/TRS -->
+        <Folder><FolderName>TRS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>EJB</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/TRS</FolderPath> </Folder>
+        <Folder><FolderName>PVS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/TRS</FolderPath> </Folder>
+        <!-- Quality Records/VAL -->
+        <Folder><FolderName>VAL</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_root_fld</ACL> <FolderPath>/SMO/Quality Records</FolderPath> </Folder>
+        <Folder><FolderName>ETR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>FMEA</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>IQP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>IQR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>OQP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>OQR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>PCS</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>PMC</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>PQP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>PQR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>PVP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>PVR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>SVP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>SVR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>TCC</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>TCP</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>TCR</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>TED</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+        <Folder><FolderName>TRB</FolderName> <FolderType>dm_folder</FolderType> <ACL>mdt_qad_smo_doc_fld</ACL> <FolderPath>/SMO/Quality Records/VAL</FolderPath> </Folder>
+         
+    </Folders>
+    
+    <DocbaseObjects>
+    
+        <!--  admin folders  -->
+    
+        <DocbaseObject>
+            <ObjectName>Admin-MDT</ObjectName>
+            <ObjectType>dm_folder</ObjectType>
+            <PermissionSet>mdt_qad_smo_admin</PermissionSet>
+            <FolderPath>/SMO</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>Sequences</ObjectName>
+            <ObjectType>dm_folder</ObjectType>
+            <PermissionSet>mdt_qad_smo_admin</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>Value Assistance</ObjectName>
+            <ObjectType>dm_folder</ObjectType>
+            <PermissionSet>mdt_qad_smo_admin</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+    
+        <!--  sequences  -->
+    
+        <DocbaseObject>
+            <ObjectName>mdt_smo_doc_sequence</ObjectName>
+            <ObjectType>mdt_sequence</ObjectType>
+            <PermissionSet>mdt_qad_smo_sequence</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Sequences</FolderPath>
+            <Properties>
+                <entry>
+                    <string>m_sequence_number</string>
+                    <PropertyValue>
+                        <Repeating>false</Repeating>
+                        <Values>
+                            <string>0</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>mdt_smo_rec_sequence</ObjectName>
+            <ObjectType>mdt_sequence</ObjectType>
+            <PermissionSet>mdt_qad_smo_sequence</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Sequences</FolderPath>
+            <Properties>
+                <entry>
+                    <string>m_sequence_number</string>
+                    <PropertyValue>
+                        <Repeating>false</Repeating>
+                        <Values>
+                            <string>0</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        
+        <!--  pick lists  -->
+        
+        <DocbaseObject>
+            <ObjectName>smo_qrec_lock_qatype_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qrec_rev_qatype_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_rev' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_rev</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>smo_qrec_qdoc_qatype_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+                    
+        <DocbaseObject>
+            <ObjectName>smo_training_type_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qad_training_type' and mdt_object_type = 'mdt_qad_document' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_document</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qad_training_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>smo_department_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qad_department' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_product</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>smo_qrec_product_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_product' and mdt_object_type = 'mdt_qad_smo_qrec' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_product</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>smo_qrec_qa_subtype_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_subtype' and mdt_object_type = 'mdt_qad_smo_qrec' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_subtype</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_technology_name_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_technology_name' and mdt_object_type = 'mdt_qad_smo_qrec' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_technology_name</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qrec_capa_category_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_capa_category' and mdt_object_type = 'mdt_qad_smo_qrec' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_capa_category</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qrec_completion_status_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_completion_status' and mdt_object_type = 'mdt_qad_smo_qrec' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_completion_status</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_process_category_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_process_category' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_process_category</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_process_owner_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_process_owner' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_process_owner</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_process_performer_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_process_performer' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_process_performer</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_sub_process_ref_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_sub_process_ref' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_sub_process_ref</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_process_input_element_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_process_input_element' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_process_input_element</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_process_output_element_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_process_output_element' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_process_output_element</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_process_metrics_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_process_metrics' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_process_metrics</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>smo_qdoc_specific_definitions_list</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_specific_definitions' and mdt_object_type = 'mdt_qad_smo_qdoc' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qdoc</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_specific_definitions</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>POD</string>
+                            <string>POD2</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>        
+
+        <!--  config objects (metadata only, config xml still needs to be assigned) -->
+
+        <DocbaseObject>
+            <ObjectName>QAD SMO-Config</ObjectName>
+            <ObjectType>mdt_appcfg_xstream</ObjectType>
+            <PermissionSet>mdt_qad_smo_admin_config</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+                <entry><string>m_application</string><PropertyValue><Repeating>false</Repeating><Values><string>qad_smo</string></Values></PropertyValue></entry>
+                <entry><string>m_zzz_uid</string><PropertyValue><Repeating>false</Repeating><Values><string>ecsadmin</string></Values></PropertyValue></entry>
+                <entry><string>m_zzz_pcred</string><PropertyValue><Repeating>false</Repeating><Values><string>spring2005</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>m_types</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>mdt_qad_smo_qdoc</string>
+                            <string>mdt_qad_smo_qrec_lock</string>
+                            <string>mdt_qad_smo_qrec_rev</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+                <entry>
+                    <string>m_alias_classnames</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>com.medtronic.ecm.documentum.common.MdtPlugin</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+                <entry>
+                    <string>m_alias_displaynames</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>Plugin</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>        
+
+        <DocbaseObject>
+            <ObjectName>ApprovalEmailTemplate</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>AbortEmailTemplate</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>ObsoleteEmailTemplate</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>EffectiveEmailTemplate</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+
+
+    </DocbaseObjects>
+    
+</DocbaseItems>

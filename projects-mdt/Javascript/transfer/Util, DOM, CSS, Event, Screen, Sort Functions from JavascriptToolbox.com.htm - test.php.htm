@@ -1,0 +1,575 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Util, DOM, CSS, Event, Screen, Sort Functions from JavascriptToolbox.com</title>
+
+
+	
+<link rel="stylesheet" type="text/css" href="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/css.css" media="all">
+<script type="text/javascript" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/main.js"></script>	<script type="text/javascript" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/util.js"></script></head><body>
+<table class="columns" border="0" cellspacing="0">
+<tbody><tr>
+	<td class="left" rowspan="2">
+		<div style="text-align: center;"><a href="http://www.javascripttoolbox.com/" title="Home"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/logo5.gif" alt="Logo"></a></div>
+
+		<div class="portlet">
+			<h5>Navigation</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/" title="Home">Home</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/" title="Libraries">Libraries</a>
+				<a href="http://www.javascripttoolbox.com/bestpractices/" title="Best Practices">Best Practices</a>
+				<a href="http://www.javascripttoolbox.com/support/" title="Support">Support</a>
+				<a href="http://www.javascripttoolbox.com/resources/" title="Javascript Resources">Resources / Links</a>
+				<a href="http://www.javascripttoolbox.com/search/" title="Javascript Knowledge Base Search">JS Knowledge Base</a>
+				<a href="http://www.javascripttoolbox.com/donate/" title="Donate To Support This Site">Donate!</a>
+				<a href="http://www.javascripttoolbox.com/aboutme/" title="About Me">About Me</a>
+				<a href="http://www.ajaxtoolbox.com/" title="AJAX" target="_blank">AJAX Toolbox</a>
+			</div>
+		</div>
+
+		<div class="portlet">
+			<h5>Libraries</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/lib/calendar/" title="">Calendar Popup</a>
+				<a href="http://www.javascripttoolbox.com/lib/checkboxgroup/" title="">Checkbox Group</a>
+				<a href="http://www.javascripttoolbox.com/lib/datadumper/" title="">Data Dumper</a>
+				<a href="http://www.javascripttoolbox.com/lib/validations/" title="">Data Validation</a>
+				<a href="http://www.javascripttoolbox.com/lib/date/" title="">Date Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/mktree/" title="">DHTML Tree</a>
+				<a href="http://www.javascripttoolbox.com/lib/dragiframe/" title="">Draggable Iframes</a>
+				<a href="http://www.javascripttoolbox.com/lib/dynamicoptionlist/" title="">Dependent Select Boxes</a>
+				<a href="http://www.javascripttoolbox.com/lib/form/" title="">Form Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/objectposition/" title="">Object Position</a>
+				<a href="http://www.javascripttoolbox.com/lib/optiontransfer/" title="">Option Transfer</a>
+				<a href="http://www.javascripttoolbox.com/lib/popup/" title="">Popups (In-Page DIV)</a>
+				<a href="http://www.javascripttoolbox.com/lib/selectbox/" title="">Selectbox Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/table/" title="">Table Sorting And Utils</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/util/" title="">Util/DOM/CSS/Event</a>
+			</div>
+		</div>
+
+		<h5>doctype [<a href="#" onclick="alert('Since some web browsers use the DOCTYPE of a document to switch between Quirks or Standards mode, some code may have different behavior depending on the DOCTYPE specified. These links allow pages to be tested using strict, loose, or no doctype at all for compatability testing.'); return false;" title="What's This?">?</a>]</h5>
+		[<a href="http://www.javascripttoolbox.com/lib/util/test.php?doctype=strict">strict</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/util/test.php?doctype=loose">loose</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/util/test.php?doctype=none">none</a>]
+
+	</td>
+	<td class="header" colspan="2">
+		<div id="searchbox"><form method="get" action="http://www.google.com/custom"><input name="domains" value="javascripttoolbox.com" type="hidden"><input class="search" name="q" size="15" maxlength="255" value="Search!" onclick="this.style.color='black';this.value='';" type="text"><input name="sa" value="go" type="submit"><input name="sitesearch" value="javascripttoolbox.com" type="hidden"><input name="client" value="pub-9155030588311591" type="hidden"><input name="forid" value="1" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input name="oe" value="ISO-8859-1" type="hidden"><input name="cof" value="GALT:#008000;GL:1;DIV:#AAAAAA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:C2DDF4;ALC:002BB8;LC:002BB8;T:000000;GFNT:AAAAAA;GIMP:AAAAAA;LH:50;LW:588;L:http://www.javascripttoolbox.com/search_header.gif;S:http://www.JavascriptToolbox.com/;FORID:1;" type="hidden"><input name="hl" value="en" type="hidden"></form></div>
+		<h1>Util, DOM, CSS, Event Functions</h1>	</td>
+</tr>
+<tr>
+	<td class="middle"><div class="corner cornerul"></div><div class="body">
+	<div class="tabContainer">
+	<div><a href="http://www.javascripttoolbox.com/lib/util/index.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/overview.gif" alt=""> Overview</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/documentation.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/documentation.gif" alt=""> Documentation</a></div>
+	<div class="selected"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/test.gif" alt=""> Test Cases</div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/notes.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/notes.gif" alt=""> Notes</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/util/source.php"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/source.gif" alt=""> Source</a></div>
+</div>
+<div class="tabcontent"><br>
+
+
+
+
+<p>Successful tests will be green, unsuccessful tests will be red.</p>
+
+<h2>Global Functions</h2>
+
+<h3>isArray</h3>
+<script type="text/javascript">
+var result = (isArray([])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #1 : isArray([])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (isArray([1])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #2 : isArray([1])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (isArray([1,2,3])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #3 : isArray([1,2,3])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isArray({'a':'b'})); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #4 : !isArray({'a':'b'})<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isArray({'length':99})); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #5 : !isArray({'length':99})<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isArray('test')); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #6 : !isArray('test')<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isArray(null)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #7 : !isArray(null)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>isObject</h3>
+<script type="text/javascript">
+var result = (isObject({})); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #8 : isObject({})<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (isObject({'a':'b'})); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #9 : isObject({'a':'b'})<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isObject([])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #10 : !isObject([])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isObject('test')); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #11 : !isObject('test')<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isObject(null)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #12 : !isObject(null)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!isObject(document.getElementsByTagName('DIV')[0])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #13 : !isObject(document.getElementsByTagName('DIV')[0])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>defined</h3>
+<script type="text/javascript">
+var defined1;
+var defined2=null;</script>
+<pre class="code">var defined1;
+var defined2=null;</pre>
+
+
+<script type="text/javascript">
+var result = (defined(null)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #14 : defined(null)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!defined(defined1)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #15 : !defined(defined1)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (defined(defined2)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #16 : defined(defined2)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>map</h3>
+<script type="text/javascript">
+var str = "";</script>
+<pre class="code">var str = "";</pre>
+<script type="text/javascript">
+var result = (map('str+=$_','a','b',['c','d'],{'value1':'e','value2':'f'}) && (str=='abcdef')); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #17 : map('str+=$_','a','b',['c','d'],{'value1':'e','value2':'f'}) &amp;&amp; (str=='abcdef')<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (map('return $_.toLowerCase()',['A','B','C']).join('-')=='a-b-c'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #18 : map('return $_.toLowerCase()',['A','B','C']).join('-')=='a-b-c'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (map('return $_.toUpperCase()','test')=='TEST'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #19 : map('return $_.toUpperCase()','test')=='TEST'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>setDefaultValues</h3>
+<script type="text/javascript">
+var o = {'a':true,'b':99};</script>
+<pre class="code">var o = {'a':true,'b':99};</pre>
+<script type="text/javascript">
+var result = (setDefaultValues(o,{'a':false}).a==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #20 : setDefaultValues(o,{'a':false}).a==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (setDefaultValues(o,{'b':0}).b==99); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #21 : setDefaultValues(o,{'b':0}).b==99<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (setDefaultValues(o,{'c':'test'}).c=='test'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #22 : setDefaultValues(o,{'c':'test'}).c=='test'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (setDefaultValues(o,null)==o); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #23 : setDefaultValues(o,null)==o<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h2>DOM</h2>
+
+<pre class="code"><div id="div1" style="height: 200px; width: 200px; background-color: red;">div1<div id="div2" style="height: 125px; width: 125px; background-color: blue;">div2<div id="div3" style="height: 50px; width: 50px; background-color: green;">div3</div></div></div>
+</pre>
+
+<h3>DOM.getParentByTagName</h3>
+<script type="text/javascript">
+var result = (DOM.getParentByTagName(DOM.resolve('div2'),'DIV').id=='div1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #24 : DOM.getParentByTagName(DOM.resolve('div2'),'DIV').id=='div1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.getParentByTagName(DOM.resolve('div1'),'BODY')==Screen.getBody()); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #25 : DOM.getParentByTagName(DOM.resolve('div1'),'BODY')==Screen.getBody()<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.getParentByTagName(DOM.resolve('div1'),'JUNK')==null); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #26 : DOM.getParentByTagName(DOM.resolve('div1'),'JUNK')==null<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>DOM.removeNode</h3>
+<script type="text/javascript">
+var result = (DOM.removeNode(DOM.resolve('div4'))==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #27 : DOM.removeNode(DOM.resolve('div4'))==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.resolve('div4')==null); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #28 : DOM.resolve('div4')==null<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>DOM.getOuterWidth</h3>
+
+<h3>DOM.getOuterHeight</h3>
+
+<h3>DOM.resolve</h3>
+<script type="text/javascript">
+var result = (DOM.resolve('div1')==document.getElementById('div1')); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #29 : DOM.resolve('div1')==document.getElementById('div1')<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.resolve(document.getElementById('div1'))==document.getElementById('div1')); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #30 : DOM.resolve(document.getElementById('div1'))==document.getElementById('div1')<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.resolve([document.getElementById('div1'),document.getElementById('div2')])[1]==document.getElementById('div2')); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #31 : DOM.resolve([document.getElementById('div1'),document.getElementById('div2')])[1]==document.getElementById('div2')<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h2>CSS</h2>
+
+<pre class="code"><div id="div5" class="div div2" style="height: 200px; width: 200px; background-color: rgb(255, 255, 255); color: rgb(170, 170, 170);">div5<div class="" id="div6" style="height: 125px; width: 125px; background-color: blue;">div6<div id="div7" style="height: 50px; width: 50px; background-color: green;">div7<div id="div8" style="height: 20px; width: 20px; background-color: yellow;">div8</div></div></div></div>
+</pre>
+
+<h3>CSS.rgb2hex</h3>
+<script type="text/javascript">
+var result = (CSS.rgb2hex('rgb (255, 0, 0)')=='#ff0000'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #32 : CSS.rgb2hex('rgb (255, 0, 0)')=='#ff0000'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.rgb2hex('rgb(255,255,16)')=='#ffff10'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #33 : CSS.rgb2hex('rgb(255,255,16)')=='#ffff10'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.rgb2hex('rgb (junk, 255, 16)')=='rgb (junk, 255, 16)'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #34 : CSS.rgb2hex('rgb (junk, 255, 16)')=='rgb (junk, 255, 16)'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.rgb2hex(null)==null); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #35 : CSS.rgb2hex(null)==null<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.rgb2hex({})==null); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #36 : CSS.rgb2hex({})==null<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.hyphen2camel</h3>
+<script type="text/javascript">
+var result = (CSS.hyphen2camel()==null); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #37 : CSS.hyphen2camel()==null<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hyphen2camel(null)==null); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #38 : CSS.hyphen2camel(null)==null<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hyphen2camel('color')=='color'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #39 : CSS.hyphen2camel('color')=='color'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hyphen2camel('border-width')=='borderWidth'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #40 : CSS.hyphen2camel('border-width')=='borderWidth'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hyphen2camel('background-color')=='backgroundColor'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #41 : CSS.hyphen2camel('background-color')=='backgroundColor'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hyphen2camel('list-style-type')=='listStyleType'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #42 : CSS.hyphen2camel('list-style-type')=='listStyleType'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.hasClass</h3>
+<script type="text/javascript">
+var result = (CSS.hasClass(null,'test')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #43 : CSS.hasClass(null,'test')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass('','test')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #44 : CSS.hasClass('','test')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass('test','test')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #45 : CSS.hasClass('test','test')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass('test1 test2 test3','test')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #46 : CSS.hasClass('test1 test2 test3','test')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass('test1 test2 test test3','test')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #47 : CSS.hasClass('test1 test2 test test3','test')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #48 : CSS.hasClass(DOM.resolve('div5'),'div')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div2')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #49 : CSS.hasClass(DOM.resolve('div5'),'div2')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div3')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #50 : CSS.hasClass(DOM.resolve('div5'),'div3')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.addClass</h3>
+<script type="text/javascript">
+var result = (CSS.addClass(null,'test')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #51 : CSS.addClass(null,'test')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.addClass(DOM.resolve('div6'),'div')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #52 : CSS.addClass(DOM.resolve('div6'),'div')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.addClass(DOM.resolve('div6'),'div')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #53 : CSS.addClass(DOM.resolve('div6'),'div')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.addClass(DOM.resolve('div5'),'div2')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #54 : CSS.addClass(DOM.resolve('div5'),'div2')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.resolve('div6').className=='div'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #55 : DOM.resolve('div6').className=='div'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.removeClass</h3>
+<script type="text/javascript">
+var result = (CSS.removeClass(null,'')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #56 : CSS.removeClass(null,'')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.removeClass(DOM.resolve('div6'),'div')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #57 : CSS.removeClass(DOM.resolve('div6'),'div')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div6'),'div')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #58 : CSS.hasClass(DOM.resolve('div6'),'div')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.replaceClass</h3>
+<script type="text/javascript">
+var result = (CSS.replaceClass(DOM.resolve('div5'),'div2','div3')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #59 : CSS.replaceClass(DOM.resolve('div5'),'div2','div3')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div3')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #60 : CSS.hasClass(DOM.resolve('div5'),'div3')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div2')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #61 : CSS.hasClass(DOM.resolve('div5'),'div2')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.replaceClass(DOM.resolve('div5'),'div3','div2')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #62 : CSS.replaceClass(DOM.resolve('div5'),'div3','div2')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div3')==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #63 : CSS.hasClass(DOM.resolve('div5'),'div3')==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.hasClass(DOM.resolve('div5'),'div2')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #64 : CSS.hasClass(DOM.resolve('div5'),'div2')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.getStyle</h3>
+<script type="text/javascript">
+var result = (CSS.getStyle(DOM.resolve('div8'),'color')=='#aaaaaa'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #65 : CSS.getStyle(DOM.resolve('div8'),'color')=='#aaaaaa'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.getStyle(DOM.resolve('div5'),'height')=='200px'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #66 : CSS.getStyle(DOM.resolve('div5'),'height')=='200px'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.getStyle(DOM.resolve('div5'),'background-color')=='#ff0000'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #67 : CSS.getStyle(DOM.resolve('div5'),'background-color')=='#ff0000'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.setStyle</h3>
+<script type="text/javascript">
+var result = (CSS.setStyle(null)==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #68 : CSS.setStyle(null)==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.setStyle(document)==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #69 : CSS.setStyle(document)==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.setStyle(document,null)==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #70 : CSS.setStyle(document,null)==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.setStyle(DOM.resolve('div5'),'background-color','#ffffff')==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #71 : CSS.setStyle(DOM.resolve('div5'),'background-color','#ffffff')==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.getStyle(DOM.resolve('div5'),'background-color')=='#ffffff'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #72 : CSS.getStyle(DOM.resolve('div5'),'background-color')=='#ffffff'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>CSS.createId</h3>
+<pre class="code"><div id="createIdContainer" style="border: 1px solid black; padding: 5px;">
+	id="createIdContainer"
+	<div id="ID_1002" style="border: 1px solid black; padding: 5px;">no id</div>
+</div>
+</pre>
+
+<script type="text/javascript">
+var result = (CSS.createId()=='ID_1000'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #73 : CSS.createId()=='ID_1000'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.createId(null)=='ID_1001'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #74 : CSS.createId(null)=='ID_1001'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.createId(DOM.resolve('createIdContainer'))=='createIdContainer'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #75 : CSS.createId(DOM.resolve('createIdContainer'))=='createIdContainer'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (CSS.createId(DOM.resolve('createIdContainer').getElementsByTagName('DIV')[0])=='ID_1002'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #76 : CSS.createId(DOM.resolve('createIdContainer').getElementsByTagName('DIV')[0])=='ID_1002'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (DOM.resolve('createIdContainer').getElementsByTagName('DIV')[0].id=='ID_1002'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #77 : DOM.resolve('createIdContainer').getElementsByTagName('DIV')[0].id=='ID_1002'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h2>Event</h2>
+
+<h3>Event.resolve</h3>
+
+<p>No tests</p>
+
+<h3>Event.add</h3>
+
+<p>These tests require user interaction</p>
+
+<div id="event_add" style="border: 1px solid black;">
+Events will be dynamically added to this object.<br>
+onmouseover = turn the background yellow<br>
+onmouseout = turn the background white<br>
+onclick = show an alert message
+	<div id="event_add_inner" style="border: 1px solid red; margin: 20px;">This is an inner DIV. Clicking here will alert, but the outer alert will not fire because the event will be cancelled</div>
+</div>
+<script type="text/javascript">
+Event.add( DOM.resolve('event_add'), "mouseover", function() { this.style.backgroundColor='yellow'; } );
+Event.add( DOM.resolve('event_add'), "mouseout", function() { this.style.backgroundColor='white'; } );
+Event.add( DOM.resolve('event_add'), "click", function() { alert('Outer DIV clicked!'); } );
+Event.add( DOM.resolve('event_add_inner'), "click", function(e) { alert('Inner DIV clicked!'); Event.cancelBubble(e); } );
+</script>
+
+
+<h3>Event.getMouseX</h3>
+
+<p>No tests</p>
+
+<h3>Event.getMouseY</h3>
+
+<p>No tests</p>
+
+<h3>Event.cancelBubble</h3>
+
+<p>No tests</p>
+
+<h3>Event.stopPropagation</h3>
+
+<p>No tests</p>
+
+<h2>Screen</h2>
+
+<h3>Screen.getBody</h3>
+
+<script type="text/javascript">
+var result = (Screen.getBody() == document.getElementsByTagName('BODY')[0]); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #78 : Screen.getBody() == document.getElementsByTagName('BODY')[0]<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>Screen.getScrollTop</h3>
+
+<p>No tests</p>
+
+<h3>Screen.getScrollLeft</h3>
+
+<p>No tests</p>
+
+<h3>Screen.getDocumentWidth</h3>
+
+<p>No tests</p>
+
+<h3>Screen.getDocumentHeight</h3>
+
+<p>No tests</p>
+
+<h3>Screen.getViewportWidth</h3>
+
+<p>No tests</p>
+
+<h3>Screen.getViewportHeight</h3>
+
+<p>No tests</p>
+
+<h2>Sort</h2>
+
+<h3>Sort.AlphaNumeric</h3>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric(null,null)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #79 : Sort.AlphaNumeric(null,null)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric('a',null)==1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #80 : Sort.AlphaNumeric('a',null)==1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric('a','b')==-1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #81 : Sort.AlphaNumeric('a','b')==-1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric('a','A')==1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #82 : Sort.AlphaNumeric('a','A')==1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric(1,9)==-1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #83 : Sort.AlphaNumeric(1,9)==-1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric(null,null)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #84 : Sort.AlphaNumeric(null,null)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.AlphaNumeric(null,null)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #85 : Sort.AlphaNumeric(null,null)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>Sort.Numeric</h3>
+
+<script type="text/javascript">
+var result = (Sort.Numeric(1,9)<0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #86 : Sort.Numeric(1,9)&lt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Numeric(0,0)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #87 : Sort.Numeric(0,0)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Numeric(-1,-2)>0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #88 : Sort.Numeric(-1,-2)&gt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Numeric('1,234','1,235')<0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #89 : Sort.Numeric('1,234','1,235')&lt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Numeric('10 camels','5 camels')>0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #90 : Sort.Numeric('10 camels','5 camels')&gt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Numeric('junk',0)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #91 : Sort.Numeric('junk',0)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Numeric('junk',1)<0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #92 : Sort.Numeric('junk',1)&lt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>Sort.IgnoreCase</h3>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase(null,null)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #93 : Sort.IgnoreCase(null,null)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase('a',null)==1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #94 : Sort.IgnoreCase('a',null)==1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase('a','b')==-1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #95 : Sort.IgnoreCase('a','b')==-1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase('a','A')==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #96 : Sort.IgnoreCase('a','A')==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase(1,9)==-1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #97 : Sort.IgnoreCase(1,9)==-1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase(null,null)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #98 : Sort.IgnoreCase(null,null)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase(null,null)==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #99 : Sort.IgnoreCase(null,null)==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.IgnoreCase('JavaScript','JAVAscript')==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #100 : Sort.IgnoreCase('JavaScript','JAVAscript')==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>Sort.Currency</h3>
+
+<script type="text/javascript">
+var result = (Sort.Currency('$1.45','$1.50')<0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #101 : Sort.Currency('$1.45','$1.50')&lt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Currency('$1.99',null)>0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #102 : Sort.Currency('$1.99',null)&gt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Currency('$ .99','1')<0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #103 : Sort.Currency('$ .99','1')&lt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h3>Sort.Date</h3>
+
+<script type="text/javascript">
+var result = (Sort.Date('2000-01-01','1/1/2000')==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #104 : Sort.Date('2000-01-01','1/1/2000')==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Date('2001-01-01','1/1/2000')>0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #105 : Sort.Date('2001-01-01','1/1/2000')&gt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Date('junk','1/1/2000')>0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #106 : Sort.Date('junk','1/1/2000')&gt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Date('99-01-01','1/1/1999')==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #107 : Sort.Date('99-01-01','1/1/1999')==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (Sort.Date('01-02-1998','1/1/99')>0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #108 : Sort.Date('01-02-1998','1/1/99')&gt;0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+	</div>
+	</div>
+	</td>
+	<td class="right" id="googleAds">
+		<script type="text/javascript">
+		google_ad_client = "pub-9155030588311591";
+		google_ad_width = 120;
+		google_ad_height = 600;
+		google_ad_format = "120x600_as";
+		google_color_border = "000000";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "000000";
+		google_color_text = "000000";
+		</script>
+		<script type="text/javascript" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/show_ads.js"></script><iframe name="google_ads_frame" src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+	</td>
+</tr>
+<tr>
+	<td class="footer" colspan="3"><img src="Util,%20DOM,%20CSS,%20Event,%20Screen,%20Sort%20Functions%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/bullet-bolt.gif" alt="Logo">&nbsp;All Contents Copyright © <a href="http://www.mattkruse.com/">Matt Kruse</a></td>
+</tr></tbody></table>
+
+</body></html>

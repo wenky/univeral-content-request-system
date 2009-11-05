@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+      <component id="mdtsupportingdocuments" extends="objectgrid:/webcomponent/config/navigation/objectgrid/objectgrid_component.xml">
+      
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+            <param name="folderId" required="false"/>
+            <param name="objectIds" required="false"/>
+            <param name='componentArgs' required='false'></param>
+         </params>
+         
+         <!-- Component Layouts -->
+         <pages>
+            <start>/app-workflow/pages/mdt_form_supporting_documents.jsp</start>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtFormSupportingDocuments</class>
+         <nlsbundle>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtFormSupportingDocumentsNlsProp</nlsbundle>
+         
+      </component>
+   </scope>
+</config>

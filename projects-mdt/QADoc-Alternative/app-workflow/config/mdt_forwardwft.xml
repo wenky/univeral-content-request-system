@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope>
+      <component id="forwardworkflowtask">
+         <desc>
+            Forwards manual workflow tasks. It is invoked from the taskmanager 
+            component. 
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+         </params>
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <!--  forward>/webcomponent/library/workflow/taskmanager/forward.jsp</forward -->
+            <forward>/app-workflow/pages/mdt_forwardwft.jsp</forward>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+         <filter entitlement='not collaboration'>
+              <!-- class>com.documentum.webcomponent.library.workflow.taskmanager.ForwardWorkflowTask</class -->
+              <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtForwardTask</class>
+         </filter>
+         <filter entitlement='collaboration'>
+                <class>com.documentum.webcomponent.library.workflow.taskmanager.ForwardRoomWorkflowTask</class>
+         </filter>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.taskmanager.ForwardWorkflowTaskNlsProp</nlsbundle>
+         <helpcontextid>forwardworkflowtask</helpcontextid>
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* objectId                             (Required) ID of the workflow task 
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

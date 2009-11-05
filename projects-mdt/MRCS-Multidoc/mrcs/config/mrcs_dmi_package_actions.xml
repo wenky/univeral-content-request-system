@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component:                                                            -->
+<!-- Scope: dmi_package                                                    -->
+
+<!-- Revision    $Revision: 1.10 $ -->
+<!-- Modified on $Date: 2006/01/12 22:42:48 $ -->
+
+<config version='1.0'>
+   <scope type="dmi_package">
+
+      <!-- Add Attachment action -->
+      <action id="addattachment" extends="addattachment:webcomponent/config/actions/dmi_package_actions.xml" />
+
+      <!-- Remove Attachment action
+      <action id="removeattachment" extends="removeattachment:webcomponent/config/actions/dmi_package_actions.xml"/>
+
+      Remove Start Workflow Attachment action 
+      <action id="removestartwfattachment" extends="removestartwfattachment:webcomponent/config/actions/dmi_package_actions.xml"/>
+	  -->
+
+      <!-- edittasknote action -->
+      <action id="edittasknote"  extends="edittasknote:webcomponent/config/actions/dmi_package_actions.xml"/>
+
+      <!-- editstartwfnote action - this can only be used with start workflow realm -->
+      <action id="editstartwfnote" extends="editstartwfnote:webcomponent/config/actions/dmi_package_actions.xml"/>
+
+<action id='removeattachment' notdefined="true"/>
+
+<action id='removestartwfattachment' notdefined="true"/>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_dmi_package_actions.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:48 $
+
+***********************************************************************
+-->
+
+

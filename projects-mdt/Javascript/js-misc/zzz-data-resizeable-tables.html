@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mailboxHeader, #mailboxContents
+        {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border-spacing: 0;
+            border-collapse: collapse;
+            border: 0;
+            table-layout: fixed;
+        }
+        
+        #mailboxHeader
+        {
+            position: fixed;
+            position: expression("absolute");
+            top: expression(eval(document.body.scrollTop));
+        }
+        
+        #mailboxHeader th, #mailboxContents td
+        {
+            padding: 1px 5px 1px 5px;
+            height: 17px;
+            font-size: 9pt;
+            font-family: Lucida Grande, sans-serif;
+        }
+        
+        #mailboxHeader th
+        {
+            text-align: left;
+            border-bottom: solid 1px #bbb;
+            background: #ddd;
+        }
+        
+        .columnGrabber
+        {
+            position: fixed;
+            position: expression("absolute");
+            top: 0;
+            top: expression(eval(document.body.scrollTop));
+            width: 8px;
+            height: 100%;
+            margin-left: -4px;
+            cursor: move;
+            background-image: url(20040710.columngrabber.gif);
+            background-position: bottom;
+            background-repeat: repeat-y;
+        }
+    </style>
+    <script type="text/javascript">
+        var unifieddata = { columnnames : ["subject","from","date"],
+                            minwidth : 0.05,
+                            curwidths : [0.40,0.40,0.20],
+                            headercells : new Array(3),
+                            bodycells : new Array(3) };
+        
+        
+        var kColumns = new Array("subject", "from", "date");
+        var kMinColumnWidth = 0.05;
+        
+        var currentColumnWidths = new Array(0.40, 0.40, 0.20);
+        var columnHeaderCells = new Array(kColumns.length);
+        var columnBodyCells = new Array(kColumns.length);
+        
+        var currentMailboxID;
+        
+        function InstallColumnHandlers(mailboxID)
+        {
+            // first we load the column cells
+            for (var i=0; i < kColumns.length; i++)
+            {
+                columnHeaderCells[i] = document.getElementById(kColumns[i] + "Header");
+                columnBodyCells[i] = document.getElementById(kColumns[i] + "Dummy");
+            }
+            
+            UpdateColumns(true);
+            
+            // create the gabber divs
+            var currentGrabberOffset = 0;
+            
+            for (var i=0; i < kColumns.length - 1; i++)
+            {
+                currentGrabberOffset += currentColumnWidths[i];
+                var grabber = document.createElement("div");
+                
+                grabber.className = "columnGrabber";
+                grabber.style.left = Math.round(currentGrabberOffset * 100) + "%";
+                
+                grabber.leftColumn = i;
+                grabber.rightColumn = i + 1;
+                grabber.inDrag = false;
+                
+                grabber.onmousedown = ColumnGrabberMouseDown;
+                grabber.onmouseup = ColumnGrabberMouseUp;
+                grabber.onmousemove = ColumnGrabberMouseMove;
+                
+                document.body.appendChild(grabber);
+            }
+            
+            DisableSelections(document.body);
+        }
+        
+        
+        function ColumnGrabberMouseDown(event)
+        {
+            if (!event) event = window.event;
+            
+            if (this.inDrag) this.onmouseup(event);
+            
+            this.inDrag = true;
+            
+            this.totalWidth = document.body.clientWidth;
+            
+            // figure out how much we can go to the left and right
+            this.minOffset = 0;
+            for (var i=0; i < this.leftColumn; i++)
+                this.minOffset += currentColumnWidths[i];
+            this.maxOffset = this.minOffset +
+                             currentColumnWidths[this.leftColumn] + 
+                             currentColumnWidths[this.rightColumn];
+            this.minOffset += kMinColumnWidth;
+            this.maxOffset -= kMinColumnWidth;
+            
+            // widen the div so that the mouse doesn't escape even when moving quickly
+            this.savedWidth = this.style.width;
+            this.style.width = "100%";
+            this.savedMarginLeft = this.style.marginLeft;
+            this.style.marginLeft = "0px";
+            this.savedLeft = this.style.left;
+            this.style.left = "0";
+            this.savedBackgroundPosition = this.style.backgroundPosition;
+            
+            this.onmousemove(event);
+                
+            return true;
+        }
+        
+        function ColumnGrabberMouseUp()
+        {
+            if (this.inDrag)
+            {
+                this.inDrag = false;
+                
+                this.style.width = this.savedWidth;
+                this.style.marginLeft = this.savedMarginLeft;
+                this.style.backgroundPosition = this.savedBackgroundPosition;
+                this.style.left = this.savedLeft;
+                
+                UpdateColumns(true);
+            }
+            
+            return true;
+        }
+        
+        function ColumnGrabberMouseMove(event)
+        {
+            if (!event) event = window.event;
+            
+            if (this.inDrag)
+            {
+                var newOffset = event.clientX/this.totalWidth;
+                
+                if (newOffset < this.minOffset || newOffset > this.maxOffset) return;
+                
+                var leftColumnOffset = 0;
+                for (var i=0; i < this.leftColumn; i++)
+                    leftColumnOffset += currentColumnWidths[i];
+                var rightColumnOffset = leftColumnOffset +
+                                        currentColumnWidths[this.leftColumn] +
+                                        currentColumnWidths[this.rightColumn];
+                                        
+                currentColumnWidths[this.leftColumn] = newOffset - leftColumnOffset;
+                currentColumnWidths[this.rightColumn] = rightColumnOffset - newOffset;
+                
+                this.style.backgroundPosition = Math.round(newOffset * 100) + "% 0%";
+                this.savedLeft = Math.round(newOffset * 100) + "%";
+                
+                UpdateColumns(false);
+            }
+            
+            return true;
+        }
+        
+        function UpdateColumns(fullUpdate)
+        {
+            var total = 0;
+            for (var i=0; i < kColumns.length - 1; i++)
+            {
+                var width = Math.round(currentColumnWidths[i] * 100);
+                total += width;
+                columnHeaderCells[i].style.width = width + "%";
+                if (fullUpdate) columnBodyCells[i].style.width = width + "%";
+            }
+            
+            columnHeaderCells[kColumns.length - 1].style.width = (100 - total) + "%";
+            if (fullUpdate)  columnBodyCells[kColumns.length - 1].style.width = (100 - total) + "%";
+        }
+        
+        function DisableSelections(node)
+        {
+            // CSS3 draft way
+            if (typeof node.style.userSelect == "string")
+                node.style.userSelect = "none";
+            
+            // mozilla extension
+            if (typeof node.style.MozUserSelect == "string")
+                node.style.MozUserSelect = "none";
+                
+            // msie/safari extension
+            if(typeof node.onselectstart != "undefined")
+                node.onselectstart = DisabledHandler;
+        }
+    </script>
+    <title>Mailbox Contents</title>
+
+</head>
+<body>
+    <table id="mailboxHeader">
+    <tr>
+        <th id="subjectHeader">Subject</th>
+        <th id="fromHeader">From</th>
+        <th id="dateHeader">Date</th>
+    </tr>
+    </table>
+    
+    <table id="mailboxContents">
+        <tr id="dummyRow">
+            <td id="subjectDummy">&nbsp;</td>
+            <td id="fromDummy">&nbsp;</td>
+            <td id="dateDummy">&nbsp;</td>
+        </tr>
+        <tr><td>zebra</td><td>"Maxine "</td><td>1089177692</td></tr>
+
+        <tr><td>YUZIH Account Re-validation</td><td>"[rcjx Ebay Team ]"</td><td>1089406477</td></tr>
+        <tr><td>Yutgesowm Re: Prescripti0n Refill Reminders</td><td>"otto toadvine"</td><td>1089233295</td></tr>
+        <tr><td>Your reservations for Flight# 6616 London England</td><td>"A Better Life--rubdolsp"</td><td>1089232245</td></tr>
+        <tr><td>Your reservations for Flight# 5953 Hawaii</td><td>"A Better Life--mxcc"</td><td>1089232240</td></tr>
+
+        <tr><td>Your reservations for Flight# 5856 London England</td><td>"A Better Life--garp"</td><td>1089232265</td></tr>
+        <tr><td>You'll find that someone you need right here . Take me out for dinner please  ,. .  keyed delano</td><td>"Samuel Rogers"</td><td>1089312539</td></tr>
+        <tr><td>You have successfully unsubscribed!</td><td>Control Engineering</td><td>1089215181</td></tr>
+        <tr><td>you doing, jeering at</td><td>"Spangler"</td><td>1089319382</td></tr>
+
+        <tr><td>Ynfgjgg H'y_d_roc_0_d_0`n_e - Order Meds From Home Now </td><td>"kirk katheder"</td><td>1089310352</td></tr>
+        <tr><td>Ybycupu Get V~i_c_o`dine - no prior prescripti0n needed</td><td>"reginald olton"</td><td>1089385977</td></tr>
+        <tr><td>Xoyc Great deals</td><td>"bryce voss"</td><td>1089310348</td></tr>
+        <tr><td>Wwgsa prescripti0n refill request</td><td>"manual collaer"</td><td>1089371516</td></tr>
+
+        <tr><td>Wswweyqrq here is the Rx informati0n you re.quested</td><td>"kendall kudlacik"</td><td>1089385969</td></tr>
+        <tr><td>Wnka Prescripti0n Center</td><td>"dustin kraham"</td><td>1089411917</td></tr>
+        <tr><td>Who Hit the Most Career Homeruns as an Outfielder? See Below.</td><td></td><td>1089209615</td></tr>
+        <tr><td>Virus Detected by Network Associates, Inc. Webshield SMTP V4.5 MR1a</td><td>postmaster@trusecure.com</td><td>1089412447</td></tr>
+
+        <tr><td>View the June eSolutions Today!</td><td></td><td>1089215079</td></tr>
+        <tr><td>Urydtshsf we value you`</td><td>"ray folsom"</td><td>1089312611</td></tr>
+        <tr><td>Unsubscribe successful. </td><td>Tech Mail</td><td>1089391306</td></tr>
+        <tr><td>Txgbyv Pain Management Resources </td><td>"mohammed garnett"</td><td>1089233276</td></tr>
+
+        <tr><td>Ttkojmc medical news</td><td>"rusty teesdale"</td><td>1089233267</td></tr>
+        <tr><td>Re: There was no drunken</td><td>"Aileen Myers"</td><td>1089406183</td></tr>
+        <tr><td>Re: The poet had wasted</td><td>"Brandie Morales"</td><td>1089386538</td></tr>
+        <tr><td>Re: The man in the</td><td>"Kerr"</td><td>1089339325</td></tr>
+
+        <tr><td>Re: So you see,' the</td><td>"Andrade"</td><td>1089388094</td></tr>
+        <tr><td>sinusoid</td><td>Leonor</td><td>1089318318</td></tr>
+        <tr><td>Rwwvi bvy V~i_c_o`din, 0nly available for 24 hours</td><td>"lawerence westfall"</td><td>1089386003</td></tr>
+        <tr><td>Rw i couldn't wait to show this to you</td><td>"elvin munger"</td><td>1089411916</td></tr>
+
+        <tr><td>Rsovrpukii V~i_c_o`din - Order Meds From Home Now hfeeqhffd pb</td><td>"johnathon yamada"</td><td>1089444685</td></tr>
+        <tr><td>Rjwi d`iscoun`t Prescr'iptions</td><td>"neal kilmer"</td><td>1089312615</td></tr>
+        <tr><td>revving</td><td>Brock</td><td>1089358951</td></tr>
+        <tr><td>Returned mail: User unknown</td><td>Mail Delivery Subsystem</td><td>1089481926</td></tr>
+
+        <tr><td>Residence Basis Point Process</td><td>"Gamma General"</td><td>1089318625</td></tr>
+        <tr><td>Re: Request Processed</td><td>"Spencer Miller"</td><td>1089386618</td></tr>
+        <tr><td>Request details</td><td>"Deandre Bynum"</td><td>1089431568</td></tr>
+        <tr><td>Request Complete</td><td>"Jeri Otero"</td><td>1089405564</td></tr>
+
+        <tr><td>Request Complete</td><td>"Lacey Battle"</td><td>1089388034</td></tr>
+        <tr><td>Qytwft your Rx informati0n is included.</td><td>"taylor romanoski"</td><td>1089310372</td></tr>
+        <tr><td>Quark Xpress 6 Passport ukn Multilanguage</td><td>"Shauna Meadows"</td><td>1089202004</td></tr>
+        <tr><td>Qbh No doctors visit needed.</td><td>"mike niedecken"</td><td>1089318150</td></tr>
+
+        <tr><td>providential</td><td>June Kemp</td><td>1089449157</td></tr>
+        <tr><td>postoperative</td><td>Glen Dillard</td><td>1089358922</td></tr>
+        <tr><td>pony</td><td>Grimes</td><td>1089318313</td></tr>
+        <tr><td>Ovxdm bvy V~i_c_o`din, 1 day sale</td><td>"kory friesen"</td><td>1089455544</td></tr>
+
+        <tr><td>Nw Real Val1um...X.Anax...0vernite To Your D00r  Best Prices</td><td>"buck cubias"</td><td>1089413740</td></tr>
+        <tr><td>Nnctd Now m0re products</td><td>"willie riordan"</td><td>1089385996</td></tr>
+        <tr><td>Nkulb Prescripti0n c0nvenience </td><td>"carol archacki"</td><td>1089385975</td></tr>
+        <tr><td>Ngjv Value Rx</td><td>"jude toporek"</td><td>1089449613</td></tr>
+
+        <tr><td>never</td><td>"Bianca "</td><td>1089177688</td></tr>
+        <tr><td>MS Project 2003 ir Professional</td><td>"Rod Cooke"</td><td>1089233152</td></tr>
+        <tr><td>Lxu Pain Relievers V~i_c_o`din H'y_d_roc_0_d_0`n_e Lortab Norco </td><td>"lincoln sonstroem"</td><td>1089312884</td></tr>
+        <tr><td>Lqw my brother was raving about this, so i tried it</td><td>"jerome glasgow"</td><td>1089444684</td></tr>
+
+        <tr><td>Lqtsp Now Open!</td><td>"jamison robello"</td><td>1089312611</td></tr>
+        <tr><td>Looking for Ms. Carolyn Brown, American English Teacher </td><td>"Ohashi"</td><td>1089211071</td></tr>
+        <tr><td>Looking for a hot date tonight, tomorrow, or next week? snob</td><td>"Tonia Daniels"</td><td>1089256187</td></tr>
+        <tr><td>Largest firm in the nation collecting on judgments-learn new career</td><td>"abel allen"</td><td>1089449035</td></tr>
+
+        <tr><td>KPDVM look to the attachment</td><td>"[dfpg Ebay Team ]"</td><td>1089299748</td></tr>
+        <tr><td>Kmb do it for you</td><td>"haywood osuch"</td><td>1089242326</td></tr>
+        <tr><td>KKS Mail News Vol.234</td><td>???? ???????</td><td>1089187274</td></tr>
+        <tr><td>Jsuykbrv V~i_c_o`din Now</td><td>"cary stowell"</td><td>1089371493</td></tr>
+
+        <tr><td>Jdfvgr Need V~i_c_o`din For Pain?   </td><td>"danilo kazanowski"</td><td>1089385989</td></tr>
+        <tr><td>Ixwttpywf R x infornation</td><td>"will woock"</td><td>1089312605</td></tr>
+        <tr><td>Iphcnm we can help</td><td>"robert steiner"</td><td>1089320729</td></tr>
+        <tr><td>Insure the Best possible Income</td><td>"patrick richardson"</td><td>1089453861</td></tr>
+
+        <tr><td>re:I63603666</td><td>"Therese Ash"</td><td>1089354150</td></tr>
+        <tr><td>I hope we can help you feel better</td><td>"Terry Suarez"</td><td>1089232084</td></tr>
+        <tr><td>i got your e-mail...</td><td>"Kerns"</td><td>1089254601</td></tr>
+        <tr><td>Hwp Get V~i_c_o`dine - no prior prescripti0n needed</td><td>"sid roby"</td><td>1089233266</td></tr>
+
+        <tr><td>Hug.e in.vestor A.LERT - GDNO w.ill be ho.t on 8.th of J.uly</td><td>Sara Escobar</td><td>1089299528</td></tr>
+        <tr><td>Hlofmt this is a real hit</td><td>"lester parris"</td><td>1089310349</td></tr>
+        <tr><td>Hkbdbr di.scoun.t prescripti0ns</td><td>"claudio gann"</td><td>1089455541</td></tr>
+        <tr><td>hi, is it really you?</td><td>"Culver Gracie"</td><td>1089295943</td></tr>
+
+        <tr><td>hi</td><td>"avocate Trenton"</td><td>1089292781</td></tr>
+        <tr><td>hey</td><td>"Joey Early"</td><td>1089219738</td></tr>
+        <tr><td>Re: Help for anything that Ail's you....</td><td>"Gertrude "</td><td>1089380991</td></tr>
+        <tr><td>he had chosen not</td><td>"Lessie Reece"</td><td>1089373465</td></tr>
+
+        <tr><td>Hbpc Rx informati0n</td><td>"garfield singh"</td><td>1089431302</td></tr>
+        <tr><td>Gga Prescripti0n Z0ne</td><td>"johnathan urmeneta"</td><td>1089310343</td></tr>
+        <tr><td>GDNO - Ho.t Ne.ws - The sto.ck w.ill go cr.azy on Thurs.day</td><td>"Lucas Godwin"</td><td>1089299474</td></tr>
+        <tr><td>Gdgc bvy Lortab Pain Pills Now No Prescripti0n Required</td><td>"numbers woytowicz"</td><td>1089233280</td></tr>
+
+        <tr><td>Foc f.r.ee H'y_d_roc_0_d_0`n_e Prescripti0ns, no doctor fees</td><td>"gustavo flamio"</td><td>1089258131</td></tr>
+        <tr><td>Fo No doctors visit needed.</td><td>"chris joung"</td><td>1089233286</td></tr>
+        <tr><td>Fgjpeqnvhg Re: Your Ref1ll For Your Rx 0rder  0vernite To Your D00r</td><td>"lino overton"</td><td>1089376773</td></tr>
+        <tr><td>Dufkwvcpyh welcome to our store</td><td>"carson rennix"</td><td>1089371490</td></tr>
+
+        <tr><td>Dkbvyuowe bvy V~i_c_o`din 0n1ine today, overnight ship.ping</td><td>"ethan duty"</td><td>1089242321</td></tr>
+        <tr><td>dip</td><td>Bradford</td><td>1089358985</td></tr>
+        <tr><td>Dfryl Your Rx 0rder Is Ready For Ref1ll  0vernite To Your D00r</td><td>"virgilio roque"</td><td>1089376779</td></tr>
+        <tr><td>Ddwxiyftin re: time to reorder V~i_c_o`din</td><td>"dallas kulow"</td><td>1089411915</td></tr>
+
+        <tr><td>Dba Lortab. bvy Lortab, V~i_c_o`din, H'y_d_roc_0_d_0`n_e 0n1ine.</td><td>"john lahren"</td><td>1089310372</td></tr>
+        <tr><td>Credit Card processing rates-TOO HIGH?   </td><td>"Tim R"</td><td>1089226099</td></tr>
+        <tr><td>Covbosyylp Time To Ref1ll Your Prescription</td><td>"buddy sheldon"</td><td>1089413742</td></tr>
+        <tr><td>conclude</td><td>Dale</td><td>1089318311</td></tr>
+
+        <tr><td>come and check me out .. you wont regret it </td><td>"Rachel Cho"</td><td>1089405820</td></tr>
+        <tr><td>Cleetbi Ref1ll  Your Rx 0rder</td><td>"eloy roesser"</td><td>1089245020</td></tr>
+        <tr><td>Cia,lis inexpen:sive killers now online</td><td>"Rubin Skinner"</td><td>1089231542</td></tr>
+        <tr><td>caution</td><td>Bernadine</td><td>1089358979</td></tr>
+
+        <tr><td>can you come check me out</td><td>"Orozco Rachel"</td><td>1089405798</td></tr>
+        <tr><td>camp</td><td>Denise Joyner</td><td>1089318239</td></tr>
+        <tr><td>C0rel Draw taeon Graphics Suite 11     </td><td>"Katrina Crabtree"</td><td>1089224123</td></tr>
+        <tr><td>Bi.g Tradi.ng Al.ert for - GDNO - su.per st.ock pic.k </td><td>Maureen Yazzie</td><td>1089301666</td></tr>
+
+        <tr><td>aW5mb6OsxPq6w6Oh1tDN4rrP18rG+7O11fvB98b3vLC159fTsvrGt8/uxL/N</td><td>sszb2003-2@77168.com</td><td>1089245175</td></tr>
+        <tr><td>Aw!esome M:ortg:age for you -- snoipmq</td><td>"Emery Aragon"</td><td>1089328575</td></tr>
+        <tr><td>assurance a H 6</td><td>"Tomas Cummins"</td><td>1089442689</td></tr>
+        <tr><td>Re: As the steps died</td><td>"Tisha Chase"</td><td>1089426957</td></tr>
+
+        <tr><td>Agsrjrxav V~i_c_o`din: Cheap Prices</td><td>"garret keliiholokai"</td><td>1089449610</td></tr>
+        <tr><td>afresh</td><td>Hunter Meier</td><td>1089318294</td></tr>
+    </table>
+    <script type="text/javascript">InstallColumnHandlers();</script>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!-- ********************************************************************* -->
+<!-- Filename:    $Workfile: checkin_component.xml$                        -->
+<!-- Description: QADoc Checkin component                                  -->
+<!-- Revision:    $Revision: 1.2 $                                         -->
+<!-- Modified on: $Date: 2009/01/15 22:58:12 $                             -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <!-- note that this component should not be scoped for entitlement -->
+   <scope type="mdt_qad_doc">
+      <component id="checkin" extends="checkin:/webcomponent/config/library/contenttransfer/checkin/checkin_component.xml">
+         <desc>
+            Change check in behavior for QADoc.
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+            <param name="vdmRootObjectId" required="false"/>
+            <param name="nodeId" required="false"/>
+         </params>
+         <class>com.documentum.webcomponent.library.contenttransfer.checkin.UcfCheckin</class>
+         <nlsbundle>com.documentum.webcomponent.library.contenttransfer.checkin.CheckinNlsProp</nlsbundle>
+         <init-controls>
+            <!-- MJH: QADoc 2.0.2 remove major, same and branch version from the checkin interface -->
+            <control name="sameversion" type="com.documentum.web.form.control.Radio">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="sameversionnum" type="com.documentum.web.form.control.Label">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="majorversion" type="com.documentum.web.form.control.Radio">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="majorversionnum" type="com.documentum.web.form.control.Label">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="oleScanPanel" type="com.documentum.web.form.control.Panel">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="oleScanEnable" type="com.documentum.web.form.control.Checkbox">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            
+            <control name="minorversion" type="com.documentum.web.form.control.Radio">
+               <init-property>
+                  <property-name>value</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+            </control>
+            <control name="format" type="com.documentum.web.form.control.Panel">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="formatlist" type="com.documentum.web.form.control.databound.DataDropDownList">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="retainlock" type="com.documentum.web.form.control.Checkbox">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="makecurrent" type="com.documentum.web.form.control.Checkbox">
+               <init-property>
+                  <property-name>value</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <control name="keeplocalfilepanel" type="com.documentum.web.form.control.Panel">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+            <!-- for attribute value this doesn't work, e.g., "fulltext" -->
+            <control name="checkinfromfile" type="com.documentum.web.form.control.Checkbox">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+            </control>
+            <control name="filebrowselabel" type="com.documentum.web.form.control.Label">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+            </control>
+            <control name="filebrowse" type="com.documentum.web.form.control.FileBrowse">
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+            </control>
+         </init-controls>
+      </component>
+   </scope>
+</config>
+

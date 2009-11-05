@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ ******************************************************************************
+ *
+ * 1994, 2004 Documentum, a division of EMC Corporation.  All 
+ * rights reserved. Confidential Property of Documentum, a 
+ * division of EMC Corp.
+ *
+ ******************************************************************************
+ *
+ * Project        WDK 5.3
+ * Description
+ * Created on     July 22, 2004
+ * Tab width      3
+ *
+ ******************************************************************************
+ *
+ * PVCS Maintained Data
+ *
+ * Revision       $Revision: 1.2 $
+ * Modified on    $Date: 2007/03/23 21:00:04 $
+ *
+ ******************************************************************************
+-->
+<config version='1.0'>
+   <scope>
+      <component id="mrcsimport">
+         <ucfrequired/>
+         <params>
+            <!-- objectId provides id of folder for import -->
+            <param name="objectId" required="true"/>
+            <param name="filenameWithPath" required="true"/>
+            <param name="localFilePath" required="false"/>
+            <param name="parentPath" required="false"/>
+            <param name="docbaseType" required="false"/>
+            <param name="isDirectory" required="false"/>
+            <param name="baseDocbaseType" required="false"/>
+            <param name="format" required="false"/>
+            <param name="defaultAttributesValues" required="false"/>
+         </params>
+         <pages>
+            <!--  start>/webcomponent/library/contenttransfer/importcontent/importContent.jsp</start -->
+            <start>/mrcs/pages/MrcsImportContent/MrcsImportContent.jsp</start>
+            <folder>/webcomponent/library/contenttransfer/importcontent/importFolder.jsp</folder>
+            <!-- custom doctype screens -->
+            <UserSpecified>/mrcs/pages/MrcsImportContent/screenA.jsp</UserSpecified>
+         </pages>
+         <!--  class>com.documentum.webcomponent.library.contenttransfer.importcontent.ImportContent</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsImportContentUCF</class>
+<!-- Modified by Sujeet on 03/23/2007 to solve the Issue found by Michael Wallach -->
+<!-- The Issue was when trying to Import a Document, Tooltip was not Displyaing correctly -->
+<!-- nlsbundle>com.documentum.webcomponent.library.contenttransfer.importcontent.ImportContentNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsImportContentNlsProp</nlsbundle>
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>import</helpcontextid>
+         <service>
+            <processor-class>com.documentum.web.contentxfer.impl.ImportProcessor</processor-class>
+         </service>
+         <init-controls>
+            <control name="xmlCategoryListLabel" type="com.documentum.web.form.control.Label">
+               <init-property>
+                  <property-name>enabled</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>true</property-value>
+               </init-property>
+            </control>
+            <control name="xmlCategoryList" type="com.documentum.web.form.control.databound.DataDropDownList">
+               <init-property>
+                  <property-name>enabled</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+               <init-property>
+                  <property-name>visible</property-name>
+                  <property-value>false</property-value>
+               </init-property>
+            </control>
+         </init-controls>
+
+         <!-- base type for document docbase types to be retrieved  -->
+         <!-- Accepted values: dm_sysobject or its sub types -->
+         <document-docbase-base-type>dm_document</document-docbase-base-type>
+         <!-- default selected document type -->
+         <!-- Accepted values: <document-docbase-base-type> value or its sub types -->
+         <document-docbase-type>dm_document</document-docbase-type>
+
+         <folder-docbase-type>dm_folder</folder-docbase-type>
+         
+         <!-- if false the file extension does not become part of the object name -->
+         <preserve-file-extension>true</preserve-file-extension>
+      </component>
+   </scope>
+</config>

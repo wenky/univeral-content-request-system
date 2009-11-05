@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        QADoc 2.0                                              -->
+<!-- Module         Relationships                                          -->
+<!-- File           relationships_component.xml                            -->
+<!-- Description    WebTop Relationships Component Definition              -->
+<!-- Created on     21 August 2008                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                       -->
+<!-- Modified on    $Date: 2008/08/22 16:43:00 $                           -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope>
+      <component id="relationships" extends="relationships:/webtop/config/relationships_component.xml">
+         <desc>
+            Extends the WDK relationships component and lists the sysobjects 
+            to which the source sysobject has a relationship (dm_relation 
+            object). 
+         </desc>
+         <pages>
+            <classic>/app-qad/pages/relationships_classic.jsp</classic>
+         </pages>
+         <class>com.documentum.webtop.webcomponent.relationships.Relationships</class>
+         <nlsbundle>com.medtronic.ecm.documentum.qad.RelationshipsNlsProp</nlsbundle>
+         <columns>
+            <!-- attributes for dm_sysobject type -->
+            <!-- DO NOT add repeating attributes to this list -->
+            <column attribute="title">true</column>
+	    <column attribute="r_content_size">true</column>
+            <column attribute="r_modify_date">false</column>
+            <column attribute="a_content_type">false</column>
+            <column attribute="owner_name">false</column>
+            <column attribute="r_lock_owner">false</column>
+            <column attribute="r_object_type">false</column>
+            <column attribute="r_creation_date">false</column>
+            <column attribute="r_modifier">false</column>
+            <column attribute="r_access_date">false</column>
+            <column attribute="group_name">false</column>
+            <column attribute="r_creator_name">false</column>
+            <!-- attributes for dm_relation type -->
+            <column attribute="relation_name">true</column>
+            <column attribute="permanent_link">true</column>
+            <column attribute="description">false</column>
+            <column attribute="effective_date">false</column>
+            <column attribute="expiration_date">false</column>
+            <!-- columns not related to any docbase object attributes -->
+            <column attribute="path" is_docbase_object_attr="false">true</column>
+            <column attribute="is_source_parent" is_docbase_object_attr="false">true</column>
+         </columns>
+
+	<properties>
+	   <view-in-wizard>aw_psi</view-in-wizard>
+	   <hide-object-types></hide-object-types>
+	   <show-hidden-objects>false</show-hidden-objects>
+	</properties>
+
+
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* objectId                             Required. ID of the sysobject for which 
+                                        to locate relationships 
+*/
+#
+# Elements
+/* <showfilters>                        Set to true to show the objectfilters 
+                                        drop-down control 
+*/
+/* <objectfilters>                      Contains filters that define which 
+                                        objects should be shown in the objects 
+                                        selection list. 
+*/
+/* <objectfilter>                       Specifies a filter for the items that 
+                                        are displayed. Contains <label>, 
+                                        <showfolders>, <type>, <showallversions> 
+*/
+/* <label>                              Displays a label for the filter such as 
+                                        Folders or All. Can contain a string or 
+                                        <nlsid>. 
+*/
+/* <objectfilter>.<showfolders> |       To show folders only, set <showfolders> 
+     <type>                             to true and <type> to null (no value). 
+                                        To show objects only, set <showfolders> 
+                                        to false and <type> to dm_sysobject. To 
+                                        show all, set <showfolders> to true and 
+                                        <type> to dm_sysobject. <type> can take 
+                                        any value that is a valid Documentum 
+                                        type. 
+*/
+/* <objectfilter>.<showallversions>     To add a versions column, set 
+                                        <showallversions> to true. 
+*/
+/* <columns>.<loadinvisibleattribute>   Uncomment this element and set to true 
+                                        to get invisible attribute values for 
+                                        use in your component. The invisible 
+                                        attributes can then be passed by 
+                                        configuring a column in the <columns> 
+                                        element.
+*/
+/* <columns><column>                    Specifies columns to show or hide 
+*/
+/* <column><attribute>                  <attribute> sets the attribute to be 
+                                        displayed in the column. 
+*/
+/* <attribute><label>                   The value of <label> sets a label for 
+                                        the column. 
+*/
+/* <column><attribute><visible>         Set <visible> to true to show the 
+                                        column. 
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--
+      -->

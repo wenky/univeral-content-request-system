@@ -1,0 +1,135 @@
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="http://cmieln1-d7:8080/webtop/">
+    
+    <title>Ext dm_document properties page</title>
+    
+    <meta http-equiv="pragma" content="no-cache">
+
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <!--
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    -->
+    <script type="text/javascript" src="http://cmieln1-d7:8080/webtop//extjs2-introspection/jquery-1.2.1-regex.js"></script>
+    <script type="text/javascript" src="http://cmieln1-d7:8080/webtop//extjs2-introspection/ext-2.0/adapter/jquery/jquery-plugins.js"></script>
+    <script type="text/javascript" src="http://cmieln1-d7:8080/webtop//extjs2-introspection/ext-2.0/adapter/jquery/ext-jquery-adapter.js"></script>
+
+    <script type="text/javascript" src="http://cmieln1-d7:8080/webtop//extjs2-introspection/ext-2.0/ext-all.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cmieln1-d7:8080/webtop//extjs2-introspection/ext-2.0/resources/css/ext-all.css">
+    <!--  json4jquery - note: extensive problems with DATETIMEs js "objects" ... -->
+    <script type="text/javascript" src="http://cmieln1-d7:8080/webtop//extjs2-introspection/json4jquery.js"></script>
+    
+    <script type="text/javascript">
+      var showlogin = false;
+      function handleNoSession()
+      {
+        showlogin = true;
+      }
+
+      // ready processors for jquery + ext --> should go in the init
+      Ext.onReady(function() {readyToGo();});
+      function readyToGo() // called when both jquery and ext have called their respective ready functions
+      {
+        alert("r2g - call genform");
+        generateForm();
+      }
+    </script>
+    
+    <script type="text/javascript">
+      function generateForm()       
+      {
+        alert("generateForm - top");
+        var bodyref = Ext.getBody();
+        
+        
+        // here we go with the ext-js stuff
+        var form = new Ext.FormPanel(
+        {
+          id: 'properties',
+          title: 'Properties for QADoc Reference',
+          frame: true, labelAlign: 'left', bodyStyle: 'padding:5px', width:750, layout: 'column',
+          items: 
+          [{
+              title: 'Props',
+              columnwidth: 1.0, xtype: 'fieldset', labelwidth: 90,   
+              autoheight: true, border: false, renderTo: bodyref,
+              bodyStyle: (Ext.isIE ? 'padding:0 0 5px 15px;' : 'padding:10px 15px;'),
+              style: {
+                "margin-left": "10px", // when you add custom margin in IE 6...
+                "margin-right": Ext.isIE6 ? (Ext.isStrict ? "-10px" : "-13px") : "0"  // you have to adjust for it somewhere else
+              },
+              
+              defaultType: 'textfield', defaults: {width:140},
+              items: 
+              [                  {
+                     name: 'object_name',
+                     fieldlabel: 'object_name',
+                     value: 'QADoc Reference'
+                  } 
+                
+                  
+                  ,{
+                     name: 'r_object_type',
+                     fieldlabel: 'r_object_type',
+                     value: 'dm_cabinet'
+                  } 
+                
+                  
+                  ,{
+                     name: 'title',
+                     fieldlabel: 'title',
+                     value: ''
+                  } 
+                
+                  
+                  ,{
+                     name: 'subject',
+                     fieldlabel: 'subject',
+                     value: ''
+                  } 
+                
+                  
+                  ,{
+                     name: 'authors',
+                     fieldlabel: 'authors',
+                     value: ''
+                  } 
+                
+                  
+                  ,{
+                     name: 'keywords',
+                     fieldlabel: 'keywords',
+                     value: ''
+                  } 
+                
+                  
+                  ,{
+                     name: 'r_object_id',
+                     fieldlabel: 'r_object_id',
+                     value: '0c017f4480006a6e'
+                  } 
+                
+              ]
+          }]
+        });
+      
+        
+              
+      }
+    </script>
+
+  </head>
+  
+  <body>
+    <p>Experiment with Ext-JS forms and DCTM</p>  
+  </body>
+</html>

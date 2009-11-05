@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- CEM: defining actions in here and then their placement in app-workflow/config/mdt_menu_body.jsp seems to work well -->
+
+<config version='1.0'>
+   <scope>
+      <action id="mdtReassignTaskContainer">
+         <preconditions>
+            <precondition class="com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskPrecondition">
+            </precondition>
+         </preconditions>
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>mdtReassignTaskFrom</component>
+            <component>mdtTasksTobeReassigned</component>
+            <container>mdtReassignTaskContainer</container>
+         </execution>
+      </action>
+      <action id="smoreleaseimmediately">
+        <params>
+            <param name="objectId" required="true"></param>            
+        </params>
+        <execution class="com.medtronic.ecm.documentum.core.webtop.ExecuteScheduledJob">
+        </execution>         
+      </action>    
+
+   </scope>
+
+</config>
+
+

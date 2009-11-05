@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<DocbaseItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="docbase_objects.xsd">
+    <Groups>
+    </Groups>
+        
+    <ACLs>                    
+    </ACLs>
+    
+    <!-- dependencies:
+
+            groups
+            acls
+            core docapp (sequence type, value assistance type)
+
+     -->
+    
+    <DocbaseObjects>
+    
+    
+        <!--  sequences  -->
+    
+        <DocbaseObject>
+            <ObjectName>mdt_smo_form_sequence</ObjectName>
+            <ObjectType>mdt_sequence</ObjectType>
+            <PermissionSet>mdt_qad_smo_sequence</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Sequences</FolderPath>
+            <Properties>
+                <entry>
+                    <string>m_sequence_number</string>
+                    <PropertyValue>
+                        <Repeating>false</Repeating>
+                        <Values>
+                            <string>0</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+                
+        <!--  pick lists  -->
+        <DocbaseObject>
+            <ObjectName>Reasons-Manudoc-RA</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[RA] New Process Rollout</string>
+                            <string>[RA] Minor Update</string>
+                            <string>[RA] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>    
+        <DocbaseObject>
+            <ObjectName>Reasons-Manudoc-Author</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[Author] New Process Rollout</string>
+                            <string>[Author] Minor Update</string>
+                            <string>[Author] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Manudoc-Oper</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[Oper] New Process Rollout</string>
+                            <string>[Oper] Minor Update</string>
+                            <string>[Oper] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Manudoc-DocCtrl</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[DocCtrl] New Process Rollout</string>
+                            <string>[DocCtrl] Minor Update</string>
+                            <string>[DocCtrl] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Manudoc-QA</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[QA] New Process Rollout</string>
+                            <string>[QA] Minor Update</string>
+                            <string>[QA] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+
+        <DocbaseObject>
+            <ObjectName>Reasons-Adm-DocCtrl</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[DocCtrl] New Process Rollout</string>
+                            <string>[DocCtrl] Minor Update</string>
+                            <string>[DocCtrl] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Adm-QA</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[QA] New Process Rollout</string>
+                            <string>[QA] Minor Update</string>
+                            <string>[QA] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Min3-QA</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[QA] New Process Rollout</string>
+                            <string>[QA] Minor Update</string>
+                            <string>[QA] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Obs-Author</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[Author] Superseding Process</string>
+                            <string>[Author] CAPA</string>
+                            <string>[Author] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Obs-DocCtrl</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[DocCtrl] Superseding Process</string>
+                            <string>[DocCtrl] CAPA</string>
+                            <string>[DocCtrl] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Obs-QA</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[QA] Superseding Process</string>
+                            <string>[QA] CAPA</string>
+                            <string>[QA] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Reasons-Rec-QA</ObjectName>
+            <ObjectType>mdt_value_assistance</ObjectType>
+            <PermissionSet>mdt_qad_smo_value_asst</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT/Value Assistance</FolderPath>
+            <Properties>
+                <!--  SELECT mdt_property_value FROM mdt_value_assistance WHERE mdt_property_name = 'm_qa_type' and mdt_object_type = 'mdt_qad_smo_qrec_lock' -->
+                <entry><string>mdt_object_type</string><PropertyValue><Repeating>false</Repeating><Values><string>mdt_qad_smo_qrec_lock</string></Values></PropertyValue></entry>
+                <entry><string>mdt_property_name</string><PropertyValue><Repeating>false</Repeating><Values><string>m_qa_type</string></Values></PropertyValue></entry>
+                <entry>
+                    <string>mdt_property_value</string>
+                    <PropertyValue>
+                        <Repeating>true</Repeating>
+                        <Values>
+                            <string>[QA] Superseding Process</string>
+                            <string>[QA] CAPA</string>
+                            <string>[QA] Other</string>
+                        </Values>
+                    </PropertyValue>
+                </entry>
+            </Properties>
+        </DocbaseObject>
+        
+        <!-- CR templates -->
+        
+        <DocbaseObject>
+            <ObjectName>Form-ADM-CR-Template</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Form-MANUDOC-CR-Template</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Form-MIN3-CR-Template</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+        <DocbaseObject>
+            <ObjectName>Form-OBS-CR-Template</ObjectName>
+            <ObjectType>dm_document</ObjectType>
+            <PermissionSet>mdt_qad_smo_email_tmp</PermissionSet>
+            <FolderPath>/SMO/Admin-MDT</FolderPath>
+            <Properties>
+            </Properties>
+        </DocbaseObject>
+
+
+
+    </DocbaseObjects>
+    
+</DocbaseItems>

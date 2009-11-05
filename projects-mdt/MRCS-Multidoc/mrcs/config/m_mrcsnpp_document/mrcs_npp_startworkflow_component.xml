@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope type="m_mrcsnpp_document">
+
+      <!-- locator for installed subscribed workflow templates -->
+      <component id="mrcsinstalledwftemplatelocator" extends="allwftemplatelocator:webcomponent/config/library/locator/wftemplatelocators_component.xml">
+         <!-- Component specific Configuration -->
+
+         <!-- Component Layout -->
+         <!--
+         <pages>
+         	<start>/mrcs/pages/MrcsWorkflowTemplateLocator.jsp</start>
+         </pages>
+         -->
+
+         <!-- Component Behavior -->
+
+		 <class>com.medtronic.documentum.mrcs.client.NPPWorkflowTemplateLocator</class>
+         <nlsbundle>com.documentum.webcomponent.library.locator.SysObjectLocatorNlsProp</nlsbundle>
+
+		 <!--
+         <columns>
+            <column attribute='r_version_label' >true</column>
+         </columns>
+
+         <objecttype>dm_process</objecttype>
+         <allversionsvisible>true</allversionsvisible>
+         -->
+         <!-- define the views for root, container, and flatlist -->
+         <!--
+         <views>
+            <view applyto='flatlist'>
+               <queryfiltersets>
+                  <queryfilterset>
+                     <queryfilter>
+                        <attributefilters>
+                           <attributefilter>
+                              <attribute>object_name</attribute>
+                              <predicate>co</predicate>
+                              <value dqlformatted='false' casesensitive='true'>mrcs_</value>
+                           </attributefilter>
+                         </attributefilters>
+                     </queryfilter>
+                  </queryfilterset>
+               </queryfiltersets>
+            </view>
+         </views>
+		 -->
+      </component>
+
+      <!-- locator container -->
+      <component id="startworkflowtemplatelocatorcontainer" extends="startworkflowtemplatelocatorcontainer:webcomponent/config/library/workflow/startworkflow/startworkflowtemplatelocatorcontainer_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Container used by the workflow template locator. The component contains
+            logic allowing to launch start workflow operation after selecting
+            the workflow template.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <!-- id of start workflow component to use to start workflow -->
+            <param name="startworkflowId" required="true"/>
+            <param name="objectId" required="false"/>
+            <param name="componentArgs" required="false"/>
+         </params>
+
+         <!-- Component Layout -->
+
+         <!-- Component Behavior -->
+         <class>com.documentum.webcomponent.library.workflow.startworkflow.StartWorkflowTemplateLocatorContainer</class>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.startworkflow.StartWorkflowTemplateLocatorContainerNlsProp</nlsbundle>
+
+         <!-- Contained components -->
+         <contains>
+            <component>mrcsinstalledwftemplatelocator</component>
+         </contains>
+      </component>
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_npp_startworkflow_component.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.1 $
+ Modified on    $Date: 2006/02/09 23:03:45 $
+
+***********************************************************************
+-->
+
+

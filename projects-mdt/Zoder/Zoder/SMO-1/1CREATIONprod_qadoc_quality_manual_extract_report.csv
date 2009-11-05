@@ -1,0 +1,43 @@
+rid,object_name,r_object_type,r_is_virtual_doc,r_immutable_flag,,acl_name,qa_type,r_resume_state,r_current_state,previous_state_nb,review_date,approval_date,effectivity_date,r_policy_id,lifecylename
+09186af580046a38,QSM,quality_manual,0,0,0,retired,,-1,6,5,,3/18/2002 16:16,3/19/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800733a1,QSM,quality_manual,0,0,0,retired,QSM,-1,6,5,4/1/2003 8:35,4/4/2003 10:49,4/4/2003 10:49,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008b7d7,QSM,quality_manual,0,0,0,retired,QSM,-1,6,5,3/16/2004 10:49,3/17/2004 10:00,3/17/2004 10:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580091de6,QSM,quality_manual,0,0,0,retired,QSM,-1,6,5,6/14/2004 15:21,6/21/2004 15:04,6/21/2004 15:04,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa7c0,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,3/15/2005 14:54,3/22/2005 15:06,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bbffe,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bc331,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bc3ec,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800be858,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bf381,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bf47a,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bf491,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bfd63,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bfddc,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bfef8,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800bff24,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800c0044,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800c0938,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800c0b56,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800c65fb,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800de36a,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,11/2/2005 16:27,11/9/2005 10:58,11/10/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580125a2f,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580139073,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58015afce,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,5/1/2006 8:02,5/2/2006 11:08,5/2/2006 11:08,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801a0594,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801a1eb2,EHSM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801b0269,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,8/30/2006 17:21,9/11/2006 15:49,9/11/2006 15:49,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801b0de5,EHSM,quality_manual,0,0,1,in_redaction,BQMM,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801fccc3,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,12/18/2006 17:06,12/20/2006 10:40,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580255ef2,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,4/18/2007 15:26,4/25/2007 10:21,4/27/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802ce827,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,10/8/2007 12:18,10/10/2007 13:50,10/10/2007 13:50,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58031edbb,BQMM,quality_manual,0,0,0,retired,BQMM,-1,6,5,2/11/2008 14:15,2/20/2008 17:34,2/21/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58034fd98,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580350cf0,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803759c1,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803c0c8a,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803c220f,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803d93be,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e4acf,BQMM,quality_manual,0,1,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e94cb,BQMM,quality_manual,0,0,0,in_redaction,BQMM,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803eab79,BQMM,quality_manual,0,0,1,released,BQMM,-1,5,4,10/24/2008 16:37,11/5/2008 23:08,11/10/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803f9cae,BQMM,quality_manual,0,0,1,released,BQMM,-1,5,4,10/24/2008 16:37,11/5/2008 23:08,11/10/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle

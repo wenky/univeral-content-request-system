@@ -1,0 +1,964 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Selectbox / Select Box Functions For Manipulating Options from JavascriptToolbox.com</title>
+
+
+	
+<link rel="stylesheet" type="text/css" href="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/css.css" media="all">
+<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/main.js"></script>	<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/selectbox.js"></script></head><body>
+<table class="columns" border="0" cellspacing="0">
+<tbody><tr>
+	<td class="left" rowspan="2">
+		<div style="text-align: center;"><a href="http://www.javascripttoolbox.com/" title="Home"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/logo5.gif" alt="Logo"></a></div>
+
+		<div class="portlet">
+			<h5>Navigation</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/" title="Home">Home</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/" title="Libraries">Libraries</a>
+				<a href="http://www.javascripttoolbox.com/bestpractices/" title="Best Practices">Best Practices</a>
+				<a href="http://www.javascripttoolbox.com/support/" title="Support">Support</a>
+				<a href="http://www.javascripttoolbox.com/resources/" title="Javascript Resources">Resources / Links</a>
+				<a href="http://www.javascripttoolbox.com/search/" title="Javascript Knowledge Base Search">JS Knowledge Base</a>
+				<a href="http://www.javascripttoolbox.com/donate/" title="Donate To Support This Site">Donate!</a>
+				<a href="http://www.javascripttoolbox.com/aboutme/" title="About Me">About Me</a>
+				<a href="http://www.ajaxtoolbox.com/" title="AJAX" target="_blank">AJAX Toolbox</a>
+			</div>
+		</div>
+
+		<div class="portlet">
+			<h5>Libraries</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/lib/calendar/" title="">Calendar Popup</a>
+				<a href="http://www.javascripttoolbox.com/lib/checkboxgroup/" title="">Checkbox Group</a>
+				<a href="http://www.javascripttoolbox.com/lib/datadumper/" title="">Data Dumper</a>
+				<a href="http://www.javascripttoolbox.com/lib/validations/" title="">Data Validation</a>
+				<a href="http://www.javascripttoolbox.com/lib/date/" title="">Date Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/mktree/" title="">DHTML Tree</a>
+				<a href="http://www.javascripttoolbox.com/lib/dragiframe/" title="">Draggable Iframes</a>
+				<a href="http://www.javascripttoolbox.com/lib/dynamicoptionlist/" title="">Dependent Select Boxes</a>
+				<a href="http://www.javascripttoolbox.com/lib/form/" title="">Form Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/objectposition/" title="">Object Position</a>
+				<a href="http://www.javascripttoolbox.com/lib/optiontransfer/" title="">Option Transfer</a>
+				<a href="http://www.javascripttoolbox.com/lib/popup/" title="">Popups (In-Page DIV)</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/selectbox/" title="">Selectbox Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/table/" title="">Table Sorting And Utils</a>
+				<a href="http://www.javascripttoolbox.com/lib/util/" title="">Util/DOM/CSS/Event</a>
+			</div>
+		</div>
+
+		<h5>doctype [<a href="#" onclick="alert('Since some web browsers use the DOCTYPE of a document to switch between Quirks or Standards mode, some code may have different behavior depending on the DOCTYPE specified. These links allow pages to be tested using strict, loose, or no doctype at all for compatability testing.'); return false;" title="What's This?">?</a>]</h5>
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?doctype=strict">strict</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?doctype=loose">loose</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?doctype=none">none</a>]
+
+	</td>
+	<td class="header" colspan="2">
+		<div id="searchbox"><form method="get" action="http://www.google.com/custom"><input name="domains" value="javascripttoolbox.com" type="hidden"><input class="search" name="q" size="15" maxlength="255" value="Search!" onclick="this.style.color='black';this.value='';" type="text"><input name="sa" value="go" type="submit"><input name="sitesearch" value="javascripttoolbox.com" type="hidden"><input name="client" value="pub-9155030588311591" type="hidden"><input name="forid" value="1" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input name="oe" value="ISO-8859-1" type="hidden"><input name="cof" value="GALT:#008000;GL:1;DIV:#AAAAAA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:C2DDF4;ALC:002BB8;LC:002BB8;T:000000;GFNT:AAAAAA;GIMP:AAAAAA;LH:50;LW:588;L:http://www.javascripttoolbox.com/search_header.gif;S:http://www.JavascriptToolbox.com/;FORID:1;" type="hidden"><input name="hl" value="en" type="hidden"></form></div>
+		<h1>Selectbox Utility Functions</h1>	</td>
+</tr>
+<tr>
+	<td class="middle"><div class="corner cornerul"></div><div class="body">
+	<div class="tabContainer">
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/index.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/overview.gif" alt=""> Overview</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/examples.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/examples.gif" alt=""> Examples</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/documentation.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/documentation.gif" alt=""> Documentation</a></div>
+	<div class="selected"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/test.gif" alt=""> Test Cases</div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/source.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/source.gif" alt=""> Source</a></div>
+</div>
+<div class="tabcontent"><br>
+
+
+
+
+<p>These test cases setup select elements in one state, then use calls
+to the Selectbox object to modify their state, then verify that those
+changes were done successfully. Successful tests will be green,
+unsuccessful tests will be red.</p>
+
+<form name="tests" action="test.php">
+
+<h2>Selectbox.hasOptions</h2>
+
+<em>Test Case #1</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=1">test alone</a>]<br><br><select name="hasOptions2"><option value="opt">Option</option></select>
+<script type="text/javascript">
+var result = (Selectbox.hasOptions(document.forms['tests'].elements['hasOptions2'])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #1 : Selectbox.hasOptions(document.forms['tests'].elements['hasOptions2'])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h2>Selectbox.selectOptions</h2>
+
+<em>Test Case #2</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=2">test alone</a>]<br><br><select name="selectOptions1">
+	<option value="option1">option1</option>
+	<option value="option2">option2</option>
+	<option value="option3">option3</option>
+	<option value="option4">option4</option>
+	<option value="option5">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectOptions(document.forms['tests'].elements['selectOptions1'],"option3");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions1'].selectedIndex==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #2 : document.forms['tests'].elements['selectOptions1'].selectedIndex==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #3</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=3">test alone</a>]<br><br><select name="selectOptions2">
+	<option value="option1">option1</option>
+	<option value="option2">option2</option>
+	<option value="option3">option3</option>
+	<option value="option4">option4</option>
+	<option value="option5">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectOptions(document.forms['tests'].elements['selectOptions2'],"\\w5");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions2'].selectedIndex==4); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #3 : document.forms['tests'].elements['selectOptions2'].selectedIndex==4<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #4</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=4">test alone</a>]<br><br><select name="selectOptions3" multiple="true" size="5">
+	<option value="abc">abc</option>
+	<option value="bcd" selected="selected">bcd</option>
+	<option value="cde">cde</option>
+	<option value="def">def</option>
+	<option value="efg">efg</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectOptions(document.forms['tests'].elements['selectOptions3'],/d/);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions3'].options[0].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #4 : document.forms['tests'].elements['selectOptions3'].options[0].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions3'].options[1].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #5 : document.forms['tests'].elements['selectOptions3'].options[1].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions3'].options[2].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #6 : document.forms['tests'].elements['selectOptions3'].options[2].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions3'].options[3].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #7 : document.forms['tests'].elements['selectOptions3'].options[3].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOptions3'].options[4].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #8 : document.forms['tests'].elements['selectOptions3'].options[4].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.selectOnlyOptions</h2>
+
+<em>Test Case #5</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=5">test alone</a>]<br><br><select name="selectOnlyOptions1" multiple="true" size="5">
+	<option value="option1">option1</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="option3">option3</option>
+	<option value="option4">option4</option>
+	<option value="option5">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectOnlyOptions(document.forms['tests'].elements['selectOnlyOptions1'],"option3");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions1'].options[0].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #9 : document.forms['tests'].elements['selectOnlyOptions1'].options[0].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions1'].options[1].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #10 : document.forms['tests'].elements['selectOnlyOptions1'].options[1].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions1'].options[2].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #11 : document.forms['tests'].elements['selectOnlyOptions1'].options[2].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions1'].options[3].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #12 : document.forms['tests'].elements['selectOnlyOptions1'].options[3].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions1'].options[4].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #13 : document.forms['tests'].elements['selectOnlyOptions1'].options[4].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #6</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=6">test alone</a>]<br><br><select name="selectOnlyOptions2" multiple="true" size="5">
+	<option value="option1" selected="selected">option1</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="option3">option3</option>
+	<option value="option4">option4</option>
+	<option value="option5">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectOnlyOptions(document.forms['tests'].elements['selectOnlyOptions2'],"\\w5");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions2'].options[0].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #14 : document.forms['tests'].elements['selectOnlyOptions2'].options[0].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions2'].options[1].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #15 : document.forms['tests'].elements['selectOnlyOptions2'].options[1].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions2'].options[2].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #16 : document.forms['tests'].elements['selectOnlyOptions2'].options[2].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions2'].options[3].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #17 : document.forms['tests'].elements['selectOnlyOptions2'].options[3].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions2'].options[4].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #18 : document.forms['tests'].elements['selectOnlyOptions2'].options[4].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #7</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=7">test alone</a>]<br><br><select name="selectOnlyOptions3" multiple="true" size="5">
+	<option value="abc">abc</option>
+	<option value="bcd" selected="selected">bcd</option>
+	<option value="cde">cde</option>
+	<option value="def">def</option>
+	<option value="efg" selected="selected">efg</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectOnlyOptions(document.forms['tests'].elements['selectOnlyOptions3'],/d/);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions3'].options[0].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #19 : document.forms['tests'].elements['selectOnlyOptions3'].options[0].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions3'].options[1].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #20 : document.forms['tests'].elements['selectOnlyOptions3'].options[1].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions3'].options[2].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #21 : document.forms['tests'].elements['selectOnlyOptions3'].options[2].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions3'].options[3].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #22 : document.forms['tests'].elements['selectOnlyOptions3'].options[3].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectOnlyOptions3'].options[4].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #23 : document.forms['tests'].elements['selectOnlyOptions3'].options[4].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.unselectOptions</h2>
+
+<em>Test Case #8</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=8">test alone</a>]<br><br><select name="unselectOptions1" multiple="true" size="5">
+	<option value="option1">option1</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="option3" selected="selected">option3</option>
+	<option value="option4">option4</option>
+	<option value="option5">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.unselectOptions(document.forms['tests'].elements['unselectOptions1'],"option");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions1'].options[0].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #24 : document.forms['tests'].elements['unselectOptions1'].options[0].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions1'].options[1].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #25 : document.forms['tests'].elements['unselectOptions1'].options[1].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions1'].options[2].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #26 : document.forms['tests'].elements['unselectOptions1'].options[2].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions1'].options[3].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #27 : document.forms['tests'].elements['unselectOptions1'].options[3].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions1'].options[4].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #28 : document.forms['tests'].elements['unselectOptions1'].options[4].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #9</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=9">test alone</a>]<br><br><select name="unselectOptions2" multiple="true" size="5">
+	<option value="option1" selected="selected">option1</option>
+	<option value="optionx" selected="selected">optionx</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="optionx" selected="selected">optionx</option>
+	<option value="option3" selected="selected">option3</option>
+</select>
+<script type="text/javascript">
+Selectbox.unselectOptions(document.forms['tests'].elements['unselectOptions2'],"\\w\\d");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions2'].options[0].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #29 : document.forms['tests'].elements['unselectOptions2'].options[0].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions2'].options[1].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #30 : document.forms['tests'].elements['unselectOptions2'].options[1].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions2'].options[2].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #31 : document.forms['tests'].elements['unselectOptions2'].options[2].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions2'].options[3].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #32 : document.forms['tests'].elements['unselectOptions2'].options[3].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions2'].options[4].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #33 : document.forms['tests'].elements['unselectOptions2'].options[4].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #10</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=10">test alone</a>]<br><br><select name="unselectOptions3" multiple="true" size="5">
+	<option value="abc" selected="selected">abc</option>
+	<option value="bcd" selected="selected">bcd</option>
+	<option value="cde" selected="selected">cde</option>
+	<option value="def" selected="selected">def</option>
+	<option value="efg" selected="selected">efg</option>
+</select>
+<script type="text/javascript">
+Selectbox.unselectOptions(document.forms['tests'].elements['unselectOptions3'],/d/);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions3'].options[0].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #34 : document.forms['tests'].elements['unselectOptions3'].options[0].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions3'].options[1].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #35 : document.forms['tests'].elements['unselectOptions3'].options[1].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions3'].options[2].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #36 : document.forms['tests'].elements['unselectOptions3'].options[2].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions3'].options[3].selected==false); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #37 : document.forms['tests'].elements['unselectOptions3'].options[3].selected==false<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['unselectOptions3'].options[4].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #38 : document.forms['tests'].elements['unselectOptions3'].options[4].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.sort</h2>
+
+<em>Test Case #11</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=11">test alone</a>]<br><br><select name="sort1" multiple="true" size="5">
+	<option value="a1">a1</option>
+	<option value="a2">a2</option>
+	<option value="a3">a3</option>
+	<option value="a4">a4</option>
+	<option value="a5">a5</option>
+</select>
+<script type="text/javascript">
+Selectbox.sort(document.forms['tests'].elements['sort1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort1'].options[0].value=='a1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #39 : document.forms['tests'].elements['sort1'].options[0].value=='a1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort1'].options[1].value=='a2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #40 : document.forms['tests'].elements['sort1'].options[1].value=='a2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort1'].options[2].value=='a3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #41 : document.forms['tests'].elements['sort1'].options[2].value=='a3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort1'].options[3].value=='a4'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #42 : document.forms['tests'].elements['sort1'].options[3].value=='a4'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort1'].options[4].value=='a5'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #43 : document.forms['tests'].elements['sort1'].options[4].value=='a5'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #12</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=12">test alone</a>]<br><br><select name="sort2" multiple="true" size="5">
+	<option value="Adam">Adam</option>
+	<option value="Brian">Brian</option>
+	<option value="Chad">Chad</option>
+	<option value="David">David</option>
+	<option value="Ethan">Ethan</option>
+</select>
+<script type="text/javascript">
+Selectbox.sort(document.forms['tests'].elements['sort2']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort2'].options[0].value=='Adam'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #44 : document.forms['tests'].elements['sort2'].options[0].value=='Adam'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort2'].options[1].value=='Brian'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #45 : document.forms['tests'].elements['sort2'].options[1].value=='Brian'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort2'].options[2].value=='Chad'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #46 : document.forms['tests'].elements['sort2'].options[2].value=='Chad'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort2'].options[3].value=='David'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #47 : document.forms['tests'].elements['sort2'].options[3].value=='David'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['sort2'].options[4].value=='Ethan'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #48 : document.forms['tests'].elements['sort2'].options[4].value=='Ethan'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.selectAllOptions</h2>
+
+<em>Test Case #13</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=13">test alone</a>]<br><br><select name="selectAllOptions1" multiple="true" size="5">
+	<option value="option1">option1</option>
+	<option value="option2">option2</option>
+	<option value="option3">option3</option>
+	<option value="option4">option4</option>
+	<option value="option5">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.selectAllOptions(document.forms['tests'].elements['selectAllOptions1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectAllOptions1'].options[0].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #49 : document.forms['tests'].elements['selectAllOptions1'].options[0].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectAllOptions1'].options[1].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #50 : document.forms['tests'].elements['selectAllOptions1'].options[1].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectAllOptions1'].options[2].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #51 : document.forms['tests'].elements['selectAllOptions1'].options[2].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectAllOptions1'].options[3].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #52 : document.forms['tests'].elements['selectAllOptions1'].options[3].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['selectAllOptions1'].options[4].selected==true); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #53 : document.forms['tests'].elements['selectAllOptions1'].options[4].selected==true<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.moveSelectedOptions</h2>
+
+<em>Test Case #14</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=14">test alone</a>]<br><br><select name="moveSelectedOptions1" multiple="true" size="3">
+	<option value="option1">option1</option>
+	
+	<option value="option3">option3</option>
+</select>
+<select name="moveSelectedOptions12" multiple="true" size="3">
+	<option value="option2">option2</option>
+<option value="option3">option3</option></select>
+<script type="text/javascript">
+Selectbox.moveSelectedOptions(document.forms['tests'].elements['moveSelectedOptions1'],document.forms['tests'].elements['moveSelectedOptions12']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions1'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #54 : document.forms['tests'].elements['moveSelectedOptions1'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions1'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #55 : document.forms['tests'].elements['moveSelectedOptions1'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions1'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #56 : document.forms['tests'].elements['moveSelectedOptions1'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions12'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #57 : document.forms['tests'].elements['moveSelectedOptions12'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions12'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #58 : document.forms['tests'].elements['moveSelectedOptions12'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions12'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #59 : document.forms['tests'].elements['moveSelectedOptions12'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #15</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=15">test alone</a>]<br><br><select name="moveSelectedOptions2" multiple="true" size="3">
+	<option value="option3">option3</option>
+	
+	<option value="option1">option1</option>
+</select>
+<select name="moveSelectedOptions22" multiple="true" size="3">
+	<option value="option3">option3</option>
+<option value="option2">option2</option></select>
+<script type="text/javascript">
+Selectbox.moveSelectedOptions(document.forms['tests'].elements['moveSelectedOptions2'],document.forms['tests'].elements['moveSelectedOptions22'],false);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions2'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #60 : document.forms['tests'].elements['moveSelectedOptions2'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions2'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #61 : document.forms['tests'].elements['moveSelectedOptions2'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions2'].options[1].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #62 : document.forms['tests'].elements['moveSelectedOptions2'].options[1].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions22'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #63 : document.forms['tests'].elements['moveSelectedOptions22'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions22'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #64 : document.forms['tests'].elements['moveSelectedOptions22'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions22'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #65 : document.forms['tests'].elements['moveSelectedOptions22'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #16</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=16">test alone</a>]<br><br><select name="moveSelectedOptions3" multiple="true" size="3">
+	<option value="option3" selected="selected">option3</option>
+	
+	<option value="option1" selected="selected">option1</option>
+</select>
+<select name="moveSelectedOptions32" multiple="true" size="3">
+	<option value="option3">option3</option>
+<option value="option2">option2</option></select>
+<script type="text/javascript">
+Selectbox.moveSelectedOptions(document.forms['tests'].elements['moveSelectedOptions3'],document.forms['tests'].elements['moveSelectedOptions32'],false,"option[13]");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions3'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #66 : document.forms['tests'].elements['moveSelectedOptions3'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions3'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #67 : document.forms['tests'].elements['moveSelectedOptions3'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions3'].options[1].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #68 : document.forms['tests'].elements['moveSelectedOptions3'].options[1].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions32'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #69 : document.forms['tests'].elements['moveSelectedOptions32'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions32'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #70 : document.forms['tests'].elements['moveSelectedOptions32'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveSelectedOptions32'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #71 : document.forms['tests'].elements['moveSelectedOptions32'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.copySelectedOptions</h2>
+
+<em>Test Case #17</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=17">test alone</a>]<br><br><select name="copySelectedOptions1" multiple="true" size="3">
+	<option value="option3">option3</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="option1">option1</option>
+</select>
+<select name="copySelectedOptions12" multiple="true" size="3">
+	<option value="option2">option2</option>
+<option value="option3">option3</option></select>
+<script type="text/javascript">
+Selectbox.copySelectedOptions(document.forms['tests'].elements['copySelectedOptions1'],document.forms['tests'].elements['copySelectedOptions12']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions1'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #72 : document.forms['tests'].elements['copySelectedOptions1'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions12'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #73 : document.forms['tests'].elements['copySelectedOptions12'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions12'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #74 : document.forms['tests'].elements['copySelectedOptions12'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions12'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #75 : document.forms['tests'].elements['copySelectedOptions12'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #18</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=18">test alone</a>]<br><br><select name="copySelectedOptions2" multiple="true" size="3">
+	<option value="option3">option3</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="option1">option1</option>
+</select>
+<select name="copySelectedOptions22" multiple="true" size="3">
+	<option value="option3">option3</option>
+<option value="option2">option2</option></select>
+<script type="text/javascript">
+Selectbox.copySelectedOptions(document.forms['tests'].elements['copySelectedOptions2'],document.forms['tests'].elements['copySelectedOptions22'],false);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions2'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #76 : document.forms['tests'].elements['copySelectedOptions2'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions22'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #77 : document.forms['tests'].elements['copySelectedOptions22'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions22'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #78 : document.forms['tests'].elements['copySelectedOptions22'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions22'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #79 : document.forms['tests'].elements['copySelectedOptions22'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #19</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=19">test alone</a>]<br><br><select name="copySelectedOptions3" multiple="true" size="3">
+	<option value="option3" selected="selected">option3</option>
+	<option value="option2" selected="selected">option2</option>
+	<option value="option1" selected="selected">option1</option>
+</select>
+<select name="copySelectedOptions32" multiple="true" size="3">
+	<option value="option3">option3</option>
+<option value="option2">option2</option><option value="option1">option1</option></select>
+<script type="text/javascript">
+Selectbox.copySelectedOptions(document.forms['tests'].elements['copySelectedOptions3'],document.forms['tests'].elements['copySelectedOptions32'],false);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions3'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #80 : document.forms['tests'].elements['copySelectedOptions3'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions32'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #81 : document.forms['tests'].elements['copySelectedOptions32'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions32'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #82 : document.forms['tests'].elements['copySelectedOptions32'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions32'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #83 : document.forms['tests'].elements['copySelectedOptions32'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copySelectedOptions32'].options[2].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #84 : document.forms['tests'].elements['copySelectedOptions32'].options[2].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h2>Selectbox.moveAllOptions</h2>
+
+<em>Test Case #20</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=20">test alone</a>]<br><br><select name="moveAllOptions1" multiple="true" size="3">
+	
+	
+	
+</select>
+<select name="moveAllOptions12" multiple="true" size="3">
+	<option value="option1">option1</option>
+<option value="option2">option2</option><option value="option3">option3</option><option value="option3">option3</option></select>
+<script type="text/javascript">
+Selectbox.moveAllOptions(document.forms['tests'].elements['moveAllOptions1'],document.forms['tests'].elements['moveAllOptions12']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions1'].options.length==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #85 : document.forms['tests'].elements['moveAllOptions1'].options.length==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions12'].options.length==4); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #86 : document.forms['tests'].elements['moveAllOptions12'].options.length==4<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions12'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #87 : document.forms['tests'].elements['moveAllOptions12'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions12'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #88 : document.forms['tests'].elements['moveAllOptions12'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions12'].options[2].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #89 : document.forms['tests'].elements['moveAllOptions12'].options[2].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions12'].options[3].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #90 : document.forms['tests'].elements['moveAllOptions12'].options[3].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #21</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=21">test alone</a>]<br><br><select name="moveAllOptions2" multiple="true" size="3">
+	
+	
+	
+</select>
+<select name="moveAllOptions22" multiple="true" size="3">
+	<option value="option3">option3</option>
+<option value="option3">option3</option><option value="option2">option2</option><option value="option1">option1</option></select>
+<script type="text/javascript">
+Selectbox.moveAllOptions(document.forms['tests'].elements['moveAllOptions2'],document.forms['tests'].elements['moveAllOptions22'],false);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions2'].options.length==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #91 : document.forms['tests'].elements['moveAllOptions2'].options.length==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions22'].options.length==4); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #92 : document.forms['tests'].elements['moveAllOptions22'].options.length==4<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions22'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #93 : document.forms['tests'].elements['moveAllOptions22'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions22'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #94 : document.forms['tests'].elements['moveAllOptions22'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions22'].options[2].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #95 : document.forms['tests'].elements['moveAllOptions22'].options[2].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions22'].options[3].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #96 : document.forms['tests'].elements['moveAllOptions22'].options[3].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #22</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=22">test alone</a>]<br><br><select name="moveAllOptions3" multiple="true" size="3">
+	
+	
+	<option selected="selected" value="option1">option1</option>
+</select>
+<select name="moveAllOptions32" multiple="true" size="3">
+	<option value="option2">option2</option>
+<option value="option3">option3</option><option value="option3">option3</option></select>
+<script type="text/javascript">
+Selectbox.moveAllOptions(document.forms['tests'].elements['moveAllOptions3'],document.forms['tests'].elements['moveAllOptions32'],true,"option1");
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions3'].options.length==1); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #97 : document.forms['tests'].elements['moveAllOptions3'].options.length==1<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions32'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #98 : document.forms['tests'].elements['moveAllOptions32'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions3'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #99 : document.forms['tests'].elements['moveAllOptions3'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions32'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #100 : document.forms['tests'].elements['moveAllOptions32'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions32'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #101 : document.forms['tests'].elements['moveAllOptions32'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveAllOptions32'].options[2].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #102 : document.forms['tests'].elements['moveAllOptions32'].options[2].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.copyAllOptions</h2>
+
+<em>Test Case #23</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=23">test alone</a>]<br><br><select name="copyAllOptions1" multiple="true" size="3">
+	<option value="option3">option3</option>
+	<option value="option2">option2</option>
+	<option value="option1">option1</option>
+</select>
+<select name="copyAllOptions12" multiple="true" size="3">
+	<option value="option1">option1</option>
+<option value="option2">option2</option><option value="option3">option3</option></select>
+<script type="text/javascript">
+Selectbox.copyAllOptions(document.forms['tests'].elements['copyAllOptions1'],document.forms['tests'].elements['copyAllOptions12']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions1'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #103 : document.forms['tests'].elements['copyAllOptions1'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions12'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #104 : document.forms['tests'].elements['copyAllOptions12'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions1'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #105 : document.forms['tests'].elements['copyAllOptions1'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions12'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #106 : document.forms['tests'].elements['copyAllOptions12'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions12'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #107 : document.forms['tests'].elements['copyAllOptions12'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions12'].options[2].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #108 : document.forms['tests'].elements['copyAllOptions12'].options[2].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #24</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=24">test alone</a>]<br><br><select name="copyAllOptions2" multiple="true" size="3">
+	<option value="option3">option3</option>
+	<option value="option2">option2</option>
+	<option value="option1">option1</option>
+</select>
+<select name="copyAllOptions22" multiple="true" size="3">
+	<option value="option3">option3</option>
+<option value="option2">option2</option><option value="option1">option1</option></select>
+<script type="text/javascript">
+Selectbox.copyAllOptions(document.forms['tests'].elements['copyAllOptions2'],document.forms['tests'].elements['copyAllOptions22'],false);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions2'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #109 : document.forms['tests'].elements['copyAllOptions2'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions22'].options.length==3); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #110 : document.forms['tests'].elements['copyAllOptions22'].options.length==3<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions2'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #111 : document.forms['tests'].elements['copyAllOptions2'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions22'].options[0].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #112 : document.forms['tests'].elements['copyAllOptions22'].options[0].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions22'].options[1].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #113 : document.forms['tests'].elements['copyAllOptions22'].options[1].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['copyAllOptions22'].options[2].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #114 : document.forms['tests'].elements['copyAllOptions22'].options[2].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<h2>Selectbox.swapOptions</h2>
+
+<em>Test Case #25</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=25">test alone</a>]<br><br><select name="swapOptions1" multiple="true" size="3">
+	<option value="option1">option1</option>
+	<option value="option3">option3</option>
+	<option value="option2">option2</option>
+</select>
+<script type="text/javascript">
+var result = (!Selectbox.swapOptions(document.forms['tests'].elements['swapOptions1'],-1,1)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #115 : !Selectbox.swapOptions(document.forms['tests'].elements['swapOptions1'],-1,1)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (!Selectbox.swapOptions(document.forms['tests'].elements['swapOptions1'],0,5)); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #116 : !Selectbox.swapOptions(document.forms['tests'].elements['swapOptions1'],0,5)<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+Selectbox.swapOptions(document.forms['tests'].elements['swapOptions1'],0,1);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['swapOptions1'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #117 : document.forms['tests'].elements['swapOptions1'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['swapOptions1'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #118 : document.forms['tests'].elements['swapOptions1'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+Selectbox.swapOptions(document.forms['tests'].elements['swapOptions1'],0,2);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['swapOptions1'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #119 : document.forms['tests'].elements['swapOptions1'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['swapOptions1'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #120 : document.forms['tests'].elements['swapOptions1'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.moveOptionUp</h2>
+
+<em>Test Case #26</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=26">test alone</a>]<br><br><select name="moveOptionUp1" size="3">
+	<option selected="selected" value="option1">option1</option>
+	<option value="option3">option3</option>
+	<option value="option2">option2</option>
+</select>
+<script type="text/javascript">
+Selectbox.moveOptionUp(document.forms['tests'].elements['moveOptionUp1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp1'].options[1].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #121 : document.forms['tests'].elements['moveOptionUp1'].options[1].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp1'].options[2].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #122 : document.forms['tests'].elements['moveOptionUp1'].options[2].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+Selectbox.moveOptionUp(document.forms['tests'].elements['moveOptionUp1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp1'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #123 : document.forms['tests'].elements['moveOptionUp1'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp1'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #124 : document.forms['tests'].elements['moveOptionUp1'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #27</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=27">test alone</a>]<br><br><select name="moveOptionUp2" multiple="true" size="3">
+	<option selected="selected" value="option2">option2</option>
+	<option selected="selected" value="option3">option3</option>
+	<option selected="selected" value="option5">option5</option>
+	<option value="option1">option1</option>
+	<option value="option4">option4</option>
+</select>
+<script type="text/javascript">
+Selectbox.moveOptionUp(document.forms['tests'].elements['moveOptionUp2']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #125 : document.forms['tests'].elements['moveOptionUp2'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #126 : document.forms['tests'].elements['moveOptionUp2'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[2].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #127 : document.forms['tests'].elements['moveOptionUp2'].options[2].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[3].value=='option5'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #128 : document.forms['tests'].elements['moveOptionUp2'].options[3].value=='option5'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[4].value=='option4'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #129 : document.forms['tests'].elements['moveOptionUp2'].options[4].value=='option4'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+Selectbox.moveOptionUp(document.forms['tests'].elements['moveOptionUp2']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #130 : document.forms['tests'].elements['moveOptionUp2'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #131 : document.forms['tests'].elements['moveOptionUp2'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[2].value=='option5'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #132 : document.forms['tests'].elements['moveOptionUp2'].options[2].value=='option5'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[3].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #133 : document.forms['tests'].elements['moveOptionUp2'].options[3].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionUp2'].options[4].value=='option4'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #134 : document.forms['tests'].elements['moveOptionUp2'].options[4].value=='option4'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+<h2>Selectbox.moveOptionDown</h2>
+
+<em>Test Case #28</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=28">test alone</a>]<br><br><select name="moveOptionDown1" size="3">
+	<option value="option2">option2</option>
+	<option value="option1">option1</option>
+	<option selected="selected" value="option3">option3</option>
+</select>
+<script type="text/javascript">
+Selectbox.moveOptionDown(document.forms['tests'].elements['moveOptionDown1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown1'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #135 : document.forms['tests'].elements['moveOptionDown1'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown1'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #136 : document.forms['tests'].elements['moveOptionDown1'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+Selectbox.moveOptionDown(document.forms['tests'].elements['moveOptionDown1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown1'].options[1].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #137 : document.forms['tests'].elements['moveOptionDown1'].options[1].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown1'].options[2].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #138 : document.forms['tests'].elements['moveOptionDown1'].options[2].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #29</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=29">test alone</a>]<br><br><select name="moveOptionDown2" multiple="true" size="3">
+	<option value="option1">option1</option>
+	<option value="option4">option4</option>
+	<option selected="selected" value="option2">option2</option>
+	<option selected="selected" value="option3">option3</option>
+	<option value="option5" selected="selected">option5</option>
+</select>
+<script type="text/javascript">
+Selectbox.moveOptionDown(document.forms['tests'].elements['moveOptionDown2']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown2'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #139 : document.forms['tests'].elements['moveOptionDown2'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown2'].options[1].value=='option4'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #140 : document.forms['tests'].elements['moveOptionDown2'].options[1].value=='option4'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown2'].options[2].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #141 : document.forms['tests'].elements['moveOptionDown2'].options[2].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown2'].options[3].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #142 : document.forms['tests'].elements['moveOptionDown2'].options[3].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['moveOptionDown2'].options[4].value=='option5'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #143 : document.forms['tests'].elements['moveOptionDown2'].options[4].value=='option5'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+
+<h2>Selectbox.removeSelectedOptions</h2>
+
+<em>Test Case #30</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=30">test alone</a>]<br><br><select name="removeSelectedOptions1" size="3">
+	
+	<option value="option2">option2</option>
+	<option value="option3">option3</option>
+</select>
+<script type="text/javascript">
+Selectbox.removeSelectedOptions(document.forms['tests'].elements['removeSelectedOptions1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeSelectedOptions1'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #144 : document.forms['tests'].elements['removeSelectedOptions1'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeSelectedOptions1'].options[0].value=='option2'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #145 : document.forms['tests'].elements['removeSelectedOptions1'].options[0].value=='option2'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeSelectedOptions1'].options[1].value=='option3'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #146 : document.forms['tests'].elements['removeSelectedOptions1'].options[1].value=='option3'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #31</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=31">test alone</a>]<br><br><select name="removeSelectedOptions2" multiple="true" size="3">
+	<option value="option1">option1</option>
+	
+	
+	<option value="option4">option4</option>
+	
+</select>
+<script type="text/javascript">
+Selectbox.removeSelectedOptions(document.forms['tests'].elements['removeSelectedOptions2']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeSelectedOptions2'].options.length==2); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #147 : document.forms['tests'].elements['removeSelectedOptions2'].options.length==2<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeSelectedOptions2'].options[0].value=='option1'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #148 : document.forms['tests'].elements['removeSelectedOptions2'].options[0].value=='option1'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeSelectedOptions2'].options[1].value=='option4'); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #149 : document.forms['tests'].elements['removeSelectedOptions2'].options[1].value=='option4'<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+<em>Test Case #32</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=32">test alone</a>]<br><br><select name="removeSelectedOptions3" size="3">
+	<option value="option1">option1</option>
+	<option value="option2">option2</option>
+	<option value="option3">option3</option>
+</select>
+<script type="text/javascript">
+var result = (!Selectbox.removeSelectedOptions(document.forms['tests'].elements['removeSelectedOptions3'])); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #150 : !Selectbox.removeSelectedOptions(document.forms['tests'].elements['removeSelectedOptions3'])<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+
+<h2>Selectbox.removeAllOptions</h2>
+
+<em>Test Case #33</em> [<a href="http://www.javascripttoolbox.com/lib/selectbox/test.php?case=33">test alone</a>]<br><br><select name="removeAllOptions1" size="3">
+	
+	
+	
+</select>
+<script type="text/javascript">
+Selectbox.removeAllOptions(document.forms['tests'].elements['removeAllOptions1']);
+</script>
+<script type="text/javascript">
+var result = (document.forms['tests'].elements['removeAllOptions1'].options.length==0); 
+if (result) { document.write('<pre class="goodcode">'); } else { document.write('<pre class="badcode">'); }</script><pre class="goodcode">Test #151 : document.forms['tests'].elements['removeAllOptions1'].options.length==0<script type="text/javascript">document.write('<'+'/pre>')</script></pre>
+
+
+</form>
+
+
+	</div>
+	</div>
+	</td>
+	<td class="right" id="googleAds">
+		<script type="text/javascript">
+		google_ad_client = "pub-9155030588311591";
+		google_ad_width = 120;
+		google_ad_height = 600;
+		google_ad_format = "120x600_as";
+		google_color_border = "000000";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "000000";
+		google_color_text = "000000";
+		</script>
+		<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/show_ads.js"></script><iframe name="google_ads_frame" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+	</td>
+</tr>
+<tr>
+	<td class="footer" colspan="3"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20test.php_files/bullet-bolt.gif" alt="Logo">&nbsp;All Contents Copyright © <a href="http://www.mattkruse.com/">Matt Kruse</a></td>
+</tr></tbody></table>
+
+</body></html>

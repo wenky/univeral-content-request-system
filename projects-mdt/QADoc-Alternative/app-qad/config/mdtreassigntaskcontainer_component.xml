@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Reassign Task Container                                -->
+<!-- File           mdtreassigntaskcontainer_component.xml                 -->
+<!-- Description    Reassign Task Container Component Definition           -->
+<!-- Created on     May 20 2008                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope>
+      <component id="mdtReassignTaskContainer">
+         <desc>
+         	Reassign Task from one user to other
+         </desc>
+         <!--
+         <params>
+            <param name="component" required="true"/>
+            <param name="editAfterCreate" required="false"/>
+            <param name="contentType" required="false"/>
+         </params>
+         -->
+         <pages>
+               <start>/app-qad/reassigntask/mdtReassignTaskContainer.jsp</start>
+         </pages>
+
+         <contains>
+            <component requiresVisit="true">mdtReassignTaskFrom</component>
+            <component requiresVisit="true">mdtTasksTobeReassigned</component>
+            <component requiresVisit="true">mdtReassignTaskTo</component>
+	        <component requiresVisit="true">mdtReassignTaskConfirmation</component>
+         </contains>
+
+         <class>com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskContainer</class>
+         <nlsbundle>com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskNlsProp</nlsbundle>
+
+		<numberedtabs>false</numberedtabs>
+
+      </component>
+   </scope>
+</config>

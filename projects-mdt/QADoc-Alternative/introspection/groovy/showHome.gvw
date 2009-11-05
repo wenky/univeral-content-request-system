@@ -1,0 +1,2 @@
+//out.write(com.medtronic.ecm.documentum.introspection.GroovyIntrospection.include("Menu.gvw",bindingmap));
+out.write("home");

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope>
+      <component id="rejectworkflowtask">
+         <desc>
+            Displays a UI to allow the user to reject manual workflow tasks. -- MDT override that includes reject reason
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+         </params>
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <reject>/app-workflow/pages/mdt_rejectwft.jsp</reject>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+         <filter entitlement="not collaboration" >
+            <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtRejectTask</class>
+         </filter>
+         <filter entitlement="collaboration" >
+               <class>com.documentum.webcomponent.library.workflow.taskmanager.RejectRoomWorkflowTask</class>
+         </filter>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.taskmanager.RejectWorkflowTaskNlsProp</nlsbundle>
+         <helpcontextid>rejectworkflowtask</helpcontextid>
+      </component>
+   </scope>
+</config>

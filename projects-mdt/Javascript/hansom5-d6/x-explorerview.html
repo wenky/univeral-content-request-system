@@ -1,0 +1,246 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>x-explorerview.html</title>
+    
+    <!-- Webtop classes -->
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/dragdrop.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/richtexteditor.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/webforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/xforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/tahoe/css/webforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/webtop/theme/tahoe/css/webtop.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/webtop/theme/documentum/css/webtop.css" type="text/css">
+    <!-- DWR includes -->
+    <script type='text/javascript' src='/webtop2/dwr/interface/Gateway.js'></script>
+    <script type='text/javascript' src='/webtop2/dwr/engine.js'></script>
+    <!--  jquery, trimquery, json libraries -->
+    <script type="text/javascript" src="./jquery-latest.regexp.js"></script>
+    <script type="text/javascript" src="./json4jquery.js"></script>
+    <script type="text/javascript" src="./trimpath-query-1.0.38.js"></script>
+    <!--  table resize -->
+    <script type="text/javascript" src="/webtop2/tableresize.js"></script>
+    <!--  session key extract/redirect -->
+    <script type="text/javascript">
+      // session utils (requires session applet div/footer!)
+      var sessionkey = (""+window.location).replace(/(.*)session\=([0-9]*)(.*)/,"$2");
+      var user,pass,base; 
+      $(document).ready( function()
+        { 
+          // append the footer session applet div...
+          $("body").append("<div><applet id='localsession' codebase='applet' code='com.medtronic.documentum.ajax.LocalSession.class' width=0 height=0 mayscript></applet></div>");
+          if (document.applets["localsession"].getSession(sessionkey) == null) { window.location = "./x-login.html"; return; }
+          user = getSessionString("user"); // convert JavaObject string to a JS String
+          pass = getSessionString("pass"); // convert JavaObject string to a JS String
+          base = getSessionString("base"); // convert JavaObject string to a JS String
+          initthepage();
+        }
+      );
+
+      // session conversion utilities (will make this a lib...)
+      function getSessionString(key) { return ""+document.applets["localsession"].getKey(sessionkey,key); }
+      function setSessionString(key,value) { document.applets["localsession"].setKey(sessionkey,key,value); }
+      function getSessionObject(key) 
+      {
+        var jsontxt = getSessionString(key);
+        var evalobj = eval('('+jsontxt+')'); 
+        return evalobj;
+      }
+      function setSessionObject(key,value) 
+      {
+        var jsontxt = $.toJSON(value);
+        setSessionString(key,jsontxt);
+      }
+    </script>
+    
+    <!--  folder tree initialization -->
+    <script type="text/javascript">
+      // page-specific routines go here...
+      var foldertree; // global object for the data/state of the folder tree
+      function initthepage() {
+        // get folder tree status from session
+        foldertree = getSessionObject("foldertree");
+        if (foldertree == null) {
+          // get base cabinet list
+          Gateway.getCabinetList(user,pass,base, 
+            function(data)
+            {
+              // set state values...
+              for (var i=0; i < data.length; i++)
+              {
+                data[i].depth = 0;
+                data[i].current = false;
+                data[i].expanded = false;
+                data[i].parent = "";
+              }
+              setSessionObject("foldertree",data);
+              foldertree = data;
+              initTree();
+            } 
+          );
+        } else {
+          // init tree with existing folder tree
+          initTree();
+        }
+      }
+      
+      function initTree()
+      {      
+        for (var i=0; i< foldertree.length; i++)
+        {
+          var newfolder = "";
+          newfolder += "<div id='"+foldertree[i].r_object_id+"'>";
+          // spacers...
+          for (var j=0; j<foldertree[i].depth; j++) 
+          {
+            newfolder += "<img src='./wdk/theme/documentum/images/tree/S.gif'>";
+          }
+          if (foldertree[i].expanded) {
+            newfolder += "<img id='plus-"+foldertree[i].r_object_id+"' src='./wdk/theme/documentum/images/tree/Tminus.gif' onclick='collapse(\""+foldertree[i].r_object_id+"\");'>";
+          } else {          
+            var explink = "<img id='plus-"+foldertree[i].r_object_id+"' src='./wdk/theme/documentum/images/tree/Tplus.gif' onclick='expand(\""+foldertree[i].r_object_id+"\");'>";
+            newfolder += explink;
+          }
+          newfolder += "<span class='treetext' onclick='listfilesforfolder(\""+foldertree[i].r_object_id+"\");'><img src='./wdk/theme/documentum/icons/type/t_dm_folder_16.gif'>"+foldertree[i].object_name+"</span></div>";
+          $("#foldertree").append(newfolder);
+        }
+      }
+      
+      function collapse(objectid) 
+      {
+        // iterate through the id list
+
+        for (var i=0; i < foldertree.length;)
+        {
+          // check if this is the folder item (conserve an array iteration here)
+          if (""+foldertree[i].r_object_id == ""+objectid)
+          {
+            foldertree[i].expanded = false;
+            $("#plus-"+foldertree[i].r_object_id).attr("src","./wdk/theme/documentum/images/tree/Tplus.gif");
+            $("#plus-"+foldertree[i].r_object_id).attr("onclick","expand(\""+foldertree[i].r_object_id+"\");");
+          }
+          // check if current item is a child of the collapsing folder
+          if (foldertree[i].parent.match(objectid) != null)
+          {
+            // delete the div
+            $("#"+foldertree[i].r_object_id).remove();
+            // remove from the list
+            foldertree.splice(i,1); // since this removes one from the list, no need to iterate...
+          } else {
+            i++; // iterate since we didn't remove anything
+          }
+        }
+        setSessionObject("foldertree",foldertree);
+      }
+      
+      function expand(objectid) 
+      {
+        // now let's get the subfolders for this list
+        Gateway.getFolderList(user,pass,base,objectid,
+          function(data)
+          {
+            var expandingfolderindex = -1;
+            for (var i=0; i < foldertree.length; i++)
+            {
+              if (""+foldertree[i].r_object_id == ""+objectid)
+              {
+                expandingfolderindex = i;
+              }
+            }
+            // set state values...
+            var insertionpoint = expandingfolderindex+1;
+            var appendtext = "";
+            for (var i=0; i < data.length; i++)
+            {
+              // prep data for insertion into array
+              data[i].depth = foldertree[expandingfolderindex].depth+1;
+              data[i].current = false;
+              data[i].expanded = false;
+              data[i].parent = (foldertree[expandingfolderindex].parent == null ? foldertree[expandingfolderindex].r_object_id : foldertree[expandingfolderindex].parent+","+foldertree[expandingfolderindex].r_object_id);
+              // inserting into data array...
+              foldertree.splice(insertionpoint,0,data[i]);
+              insertionpoint++;
+              // append new div to the folder list in the proper place
+              var newfolder = "";
+              newfolder += "<div id='"+data[i].r_object_id+"'>";
+              // spacers...
+              for (var j=0; j<data[i].depth; j++) 
+              {
+                newfolder += "<img src='./wdk/theme/documentum/images/tree/S.gif'>";
+              }
+              if (data[i].expanded) {
+                newfolder += "<img id='plus-"+data[i].r_object_id+"' src='./wdk/theme/documentum/images/tree/Tminus.gif' onclick='collapse(\""+data[i].r_object_id+"\");'>";
+              } else {          
+                newfolder += "<img id='plus-"+data[i].r_object_id+"' src='./wdk/theme/documentum/images/tree/Tplus.gif' onclick='expand(\""+data[i].r_object_id+"\");'>";
+              }
+              newfolder += "<img src='./wdk/theme/documentum/icons/type/t_dm_folder_16.gif'><span class='treetext'>"+data[i].object_name+"</span></div>";
+              appendtext += newfolder;
+            }            
+            $("#"+objectid).append(appendtext);
+            foldertree[expandingfolderindex].expanded = true;
+            $("#plus-"+objectid).attr("src","./wdk/theme/documentum/images/tree/Tminus.gif");
+            $("#plus-"+objectid).attr("onclick","collapse(\""+objectid+"\");");
+            setSessionObject("foldertree",foldertree);
+          } 
+        );
+      }
+      
+    </script>
+
+    <!--  file lsit code -->
+    
+    <script type="text/javascript">
+      var toggle = false;
+      var combinedlist = [];
+      var foldercontents;
+      function listfilesforfolder(folderid)
+      {
+        // get folder list
+        Gateway.getDirectoryContents(user,pass,base,folderid,
+          function (data) {
+            foldercontents = data;
+            var folderhtml = "<table>";
+            // TODO column headers/labels
+            for (var i=0; i < foldercontents.folders.length; i++)
+            {
+              folderhtml += "<tr>";
+              for (var j=0; j < foldercontents.foldercolumns.length; j++)
+              {
+                if (foldercontents.foldercolumns[j].selected) {
+                  var columnname = foldercontents.foldercolumns[j].column;
+                  folderhtml += "<td>" + foldercontents.folders[i][columnname] + "</td>";
+                }
+              }
+              folderhtml += "</tr>";
+            }
+            var folderhtml = "</table>";
+            $("#folderdetail").empty().append(folderhtml);
+          }
+        );
+      }
+    </script>
+    
+  </head>
+  
+  <body id="expbody">
+    <!-- main layout table -->
+    <table id="explorerlayout" border="0">
+      <thead><th align="right" id="treecolumn"><span id="treecolumnspan"><img src='./eitherway.gif'></span></th><th></th></thead>
+      <tr>
+        <td id="foldertree" ></td>
+        <td id="folderdetail"></td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+        // initialize resizeable layout for folder tree
+        $("#expbody").mouseup(columnMouseUp);
+        $("#expbody").mousemove(columnMouseMove);
+        $("#treecolumnspan").css({cursor:"move"});
+        $("#treecolumnspan").mousedown(columnMouseDown);
+        // can't figure out how to jQuery these...offsetWidth isn't working as an attr or as css
+        var column = document.getElementById("treecolumn");
+        if (column.offsetWidth < minWidth) column.style.width = minWidth; else column.style.width = column.offsetWidth;
+    </script>
+  </body>
+</html>

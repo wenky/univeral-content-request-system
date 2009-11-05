@@ -1,0 +1,253 @@
+<ematrix>
+<businessObject>
+  <objectType>mdt_qad_doc</objectType>
+  <objectName>QAD-00010033--testlcplugins1</objectName>
+  <objectRevision>1</objectRevision>
+  <vaultRef>sandbox6</vaultRef>
+  <policyRef>dm_451e6663800039bc</policyRef>
+  <owner>
+    <userRef>tstpreset1</userRef>
+  </owner>
+  <attributeList count="2">
+    <attribute>
+      <name>mmm_legacy_permission</name>
+      <string>dm_451e6663800039bc</string>
+    </attribute>
+    <attribute>
+      <name>mmm_document_title</name>
+      <string></string>
+    </attribute>
+  </attributeList>
+  <revisions>
+    <total>3</total>
+    <nextRevision>
+      <businessObjectRef>
+        <objectName>QAD-00010033--testlcplugins1</objectName>
+        <objectType>mdt_qad_doc</objectType>
+        <vaultRef>sandbox6</vaultRef>
+        <objectRevision>2</objectRevision>
+      </businessObjectRef>
+    </nextRevision>
+  </revisions>
+  <historyList count="21">
+    <history>
+      <datetime>4/9/2008 4:28:09 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_attach</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:31:33 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:31:56 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:37:38 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:40:04 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:40:12 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:43:07 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:43:15 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:44:36 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:44:46 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:49:49 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:49:57 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:50:44 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:50:50 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:53:28 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:55:15 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:58:15 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 4:58:26 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 5:12:06 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 5:13:28 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_promote</event>
+      <stateName>In-Review</stateName>
+    </history>
+    <history>
+      <datetime>4/9/2008 5:13:52 PM</datetime>
+      <agent>Business Policy</agent>
+      <event>dm_bp_demote</event>
+      <stateName>In-Progress</stateName>
+    </history>
+  </historyList>
+  <stateList count="1">
+    <state>
+      <name>In-Progress</name>
+      <actualInfo/>
+      <versionable/>
+    </state>
+  </stateList>
+</businessObject>
+<businessObject>
+  <objectType>mdt_qad_doc</objectType>
+  <objectName>QAD-00010033--testlcplugins1</objectName>
+  <objectRevision>2</objectRevision>
+  <vaultRef>sandbox6</vaultRef>
+  <policyRef>dm_451e6663800039bc</policyRef>
+  <owner>
+    <userRef>tstpreset1</userRef>
+  </owner>
+  <attributeList count="2">
+    <attribute>
+      <name>mmm_legacy_permission</name>
+      <string>dm_451e6663800039bc</string>
+    </attribute>
+    <attribute>
+      <name>mmm_document_title</name>
+      <string>Version 1.2</string>
+    </attribute>
+  </attributeList>
+  <revisions>
+    <total>3</total>
+    <nextRevision>
+      <businessObjectRef>
+        <objectName>QAD-00010033--testlcplugins1</objectName>
+        <objectType>mdt_qad_doc</objectType>
+        <vaultRef>sandbox6</vaultRef>
+        <objectRevision>3</objectRevision>
+      </businessObjectRef>
+    </nextRevision>
+    <previousRevision>
+      <businessObjectRef>
+        <objectName>QAD-00010033--testlcplugins1</objectName>
+        <objectType>mdt_qad_doc</objectType>
+        <vaultRef>sandbox6</vaultRef>
+        <objectRevision>1</objectRevision>
+      </businessObjectRef>
+    </previousRevision>
+  </revisions>
+  <stateList count="1">
+    <state>
+      <name>In-Progress</name>
+      <actualInfo/>
+      <versionable/>
+    </state>
+  </stateList>
+</businessObject>
+<businessObject>
+  <objectType>mdt_qad_doc</objectType>
+  <objectName>QAD-00010033--testlcplugins1</objectName>
+  <objectRevision>3</objectRevision>
+  <vaultRef>sandbox6</vaultRef>
+  <policyRef>dm_451e6663800039bc</policyRef>
+  <owner>
+    <userRef>tstpreset1</userRef>
+  </owner>
+  <attributeList count="2">
+    <attribute>
+      <name>mmm_legacy_permission</name>
+      <string>dm_451e6663800039bc</string>
+    </attribute>
+    <attribute>
+      <name>mmm_document_title</name>
+      <string>Version 1.2</string>
+    </attribute>
+  </attributeList>
+  <revisions>
+    <total>3</total>
+    <previousRevision>
+      <businessObjectRef>
+        <objectName>QAD-00010033--testlcplugins1</objectName>
+        <objectType>mdt_qad_doc</objectType>
+        <vaultRef>sandbox6</vaultRef>
+        <objectRevision>2</objectRevision>
+      </businessObjectRef>
+    </previousRevision>
+  </revisions>
+  <stateList count="1">
+    <state>
+      <name>In-Progress</name>
+      <actualInfo/>
+      <versionable/>
+    </state>
+  </stateList>
+</businessObject>
+
+</ematrix>

@@ -1,0 +1,44 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+IDfSession dctmsess = dctmaccess.accessSession();
+String docid = request.getParameter("id");
+IDfSysObject doc = (IDfSysObject)dctmsess.getObject(new DfId(docid));
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+
+
+out.write """
+Version Tree for document: ${doc.getObjectName()}<br>
+Document ID: ${docid}<br>
+Version: ${doc.getVersionLabels().getImplicitVersionLabel()}<br>
+"""
+String html = "";
+try {
+    html +="<table border=1><tr><td><b>objid</b></td><td><b>version</b></td><td><b>modified</b></td><td><b>labels</b></td><td><b>state</b></td></tr>";    
+    List results = DctmUtils.execQuery(dctmsess,"SELECT r_object_id FROM dm_document(ALL) where i_chronicle_id = '${doc.getChronicleId().getId()}' order by r_object_id desc");
+    results.each { resultmap -> 
+        String curid = resultmap["r_object_id"]
+        IDfSysObject curdoc = (IDfSysObject)dctmsess.getObject(new DfId(curid));
+        String objlink = "${baselink}&id=${curid}'>${curid}</a>";
+
+        String lockowner = doc.getLockOwner();
+        lockowner = (null == lockowner||"".equals(lockowner)?"":" (Locked by ${lockowner}");
+        
+        boolean first = true;
+        String labels = "";
+        for (int i=0; i < curdoc.getVersionLabelCount(); i++) {
+            if (first) first = false; else labels += ", ";
+            labels += curdoc.getVersionLabel(i);
+        }
+        
+        html += "<tr><td>${objlink}</td><td>${curdoc.getVersionLabels().getImplicitVersionLabel()}${lockowner}</td><td>${curdoc.getModifier()} (${curdoc.getModifyDate().asString(IDfTime.DF_TIME_PATTERN18)})</td><td>${labels}</td><td>${curdoc.getCurrentStateName()}</td></tr>";                
+    }
+    html += "</table>";
+} catch (Exception e) {
+    html = "Document Version Tree Error";
+}
+
+out.write "${html}"

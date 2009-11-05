@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!-- (c) Copyright 2002-2005. EMC Corporation.  All Rights Reserved.       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         NewFolderContainer                                     -->
+<!-- File           newfoldercontainer_component.xml                       -->
+<!-- Description    New Folder Container Component Definition              -->
+<!-- Created on     April 24, 2002                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 5$                                          -->
+<!-- Modified on    $Date: 7/12/2005 10:13:52 AM$                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+   
+      <component id="mrcsseteffectivedatecontainer" extends="dialogcontainer:wdk/config/dialogcontainer_component.xml">
+      
+         <!-- Component Contract -->
+         <params>
+            <param name='component' required='true'></param>
+            <param name="componentArgs" required="true"></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/setEffectiveDateContainer.jsp</start>
+         </pages>
+      
+         <!-- Contained components -->
+         <contains>
+            <component requiresVisit='true'>mrcsseteffectivedate</component>
+         </contains>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.QADocSetEffectiveDateExtContainer</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.seteffectivedate.MRCSSetEffectiveDateContainerNlsProp</nlsbundle>
+
+      </component>
+      
+   </scope>
+
+</config>

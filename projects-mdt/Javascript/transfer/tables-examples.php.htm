@@ -1,0 +1,999 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Table Sorting, Filtering, Etc from JavascriptToolbox.com</title>
+
+
+	
+<link rel="stylesheet" type="text/css" href="tables-examples.php_files/css.css" media="all">
+<script type="text/javascript" src="tables-examples.php_files/main.js"></script><script type="text/javascript" src="tables-examples.php_files/toggleDiv.js"></script><style type="text/css">
+DIV.toggle { position:absolute; visibility:hidden; }
+</style>
+
+<script type="text/javascript" src="tables-examples.php_files/table.js"></script>
+<style type="text/css">
+table.example {
+	border:1px solid black;
+	border-collapse:collapse;
+}
+table.example th, table.example td {
+	border:1px solid #aaaaaa;
+	padding: 2px 15px 2px 15px;
+}
+table.example tr.alternate {
+	background-color:#ffffcc;
+}
+table.example thead th {
+	background-color:#ccccff;
+}
+table.example tfoot td {
+	background-color:#ffccff;
+}
+table.example th.sortable {
+	cursor:pointer;
+}
+table.example th.TableSortedAscending {
+	background-image:url("sorted_up.gif");
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+table.example th.TableSortedDescending {
+	background-image:url("sorted_down.gif");
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+table.example th.TableFiltered {
+	background-image:url("filter.gif");
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+a.sortlink {
+	text-decoration:none;
+	padding-left:25px;
+	font-family:courier;
+}
+</style></head><body>
+
+<table class="columns" border="0" cellspacing="0">
+<tbody><tr>
+	<td class="left" rowspan="2">
+		<div style="text-align: center;"><a href="http://www.javascripttoolbox.com/" title="Home"><img src="tables-examples.php_files/logo5.gif" alt="Logo"></a></div>
+
+		<div class="portlet">
+			<h5>Navigation</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/" title="Home">Home</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/" title="Libraries">Libraries</a>
+				<a href="http://www.javascripttoolbox.com/bestpractices/" title="Best Practices">Best Practices</a>
+				<a href="http://www.javascripttoolbox.com/support/" title="Support">Support</a>
+				<a href="http://www.javascripttoolbox.com/resources/" title="Javascript Resources">Resources / Links</a>
+				<a href="http://www.javascripttoolbox.com/search/" title="Javascript Knowledge Base Search">JS Knowledge Base</a>
+				<a href="http://www.javascripttoolbox.com/donate/" title="Donate To Support This Site">Donate!</a>
+				<a href="http://www.javascripttoolbox.com/aboutme/" title="About Me">About Me</a>
+				<a href="http://www.ajaxtoolbox.com/" title="AJAX" target="_blank">AJAX Toolbox</a>
+			</div>
+		</div>
+
+		<div class="portlet">
+			<h5>Libraries</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/lib/calendar/" title="">Calendar Popup</a>
+				<a href="http://www.javascripttoolbox.com/lib/checkboxgroup/" title="">Checkbox Group</a>
+				<a href="http://www.javascripttoolbox.com/lib/datadumper/" title="">Data Dumper</a>
+				<a href="http://www.javascripttoolbox.com/lib/validations/" title="">Data Validation</a>
+				<a href="http://www.javascripttoolbox.com/lib/date/" title="">Date Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/mktree/" title="">DHTML Tree</a>
+				<a href="http://www.javascripttoolbox.com/lib/dragiframe/" title="">Draggable Iframes</a>
+				<a href="http://www.javascripttoolbox.com/lib/dynamicoptionlist/" title="">Dependent Select Boxes</a>
+				<a href="http://www.javascripttoolbox.com/lib/form/" title="">Form Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/objectposition/" title="">Object Position</a>
+				<a href="http://www.javascripttoolbox.com/lib/optiontransfer/" title="">Option Transfer</a>
+				<a href="http://www.javascripttoolbox.com/lib/popup/" title="">Popups (In-Page DIV)</a>
+				<a href="http://www.javascripttoolbox.com/lib/selectbox/" title="">Selectbox Functions</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/table/" title="">Table Sorting And Utils</a>
+				<a href="http://www.javascripttoolbox.com/lib/util/" title="">Util/DOM/CSS/Event</a>
+			</div>
+		</div>
+
+		<h5>doctype [<a href="#" onclick="alert('Since some web browsers use the DOCTYPE of a document to switch between Quirks or Standards mode, some code may have different behavior depending on the DOCTYPE specified. These links allow pages to be tested using strict, loose, or no doctype at all for compatability testing.'); return false;" title="What's This?">?</a>]</h5>
+		[<a href="http://www.javascripttoolbox.com/lib/table/examples.php?doctype=strict">strict</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/table/examples.php?doctype=loose">loose</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/table/examples.php?doctype=none">none</a>]
+
+	</td>
+	<td class="header" colspan="2">
+		<div id="searchbox"><form method="get" action="http://www.google.com/custom"><input name="domains" value="javascripttoolbox.com" type="hidden"><input class="search" name="q" size="15" maxlength="255" value="Search!" onclick="this.style.color='black';this.value='';" type="text"><input name="sa" value="go" type="submit"><input name="sitesearch" value="javascripttoolbox.com" type="hidden"><input name="client" value="pub-9155030588311591" type="hidden"><input name="forid" value="1" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input name="oe" value="ISO-8859-1" type="hidden"><input name="cof" value="GALT:#008000;GL:1;DIV:#AAAAAA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:C2DDF4;ALC:002BB8;LC:002BB8;T:000000;GFNT:AAAAAA;GIMP:AAAAAA;LH:50;LW:588;L:http://www.javascripttoolbox.com/search_header.gif;S:http://www.JavascriptToolbox.com/;FORID:1;" type="hidden"><input name="hl" value="en" type="hidden"></form></div>
+		<h1>Table Sorting, Filtering, Etc - <span class="beta_tag">BETA!</span></h1>	</td>
+</tr>
+<tr>
+	<td class="middle"><div class="corner cornerul"></div><div class="body">
+	<div class="tabContainer">
+	<div><a href="http://www.javascripttoolbox.com/lib/table/index.php"><img src="tables-examples.php_files/overview.gif" alt=""> Overview</a></div>
+	<div class="selected"><img src="tables-examples.php_files/examples.gif" alt=""> Examples</div>
+	<div><a href="http://www.javascripttoolbox.com/lib/table/documentation.php"><img src="tables-examples.php_files/documentation.gif" alt=""> Documentation</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/table/notes.php"><img src="tables-examples.php_files/notes.gif" alt=""> Notes</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/table/source.php"><img src="tables-examples.php_files/source.gif" alt=""> Source</a></div>
+</div>
+<div class="tabcontent"><br>
+
+
+
+
+<h2>Client-Side Table Sorting Basic Example</h2>
+
+<p>
+Click on column headers to sort by the column. Sorting is done within
+the two tbody sections, not across them, and the header and footer are
+not changed.
+</p>
+<a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code">&lt;th class="TableSortedAscending sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Numeric,'rowShade':'alternate'})"&gt;Index&lt;/th&gt;
+&lt;th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Numeric,'rowShade':'alternate'})"&gt;Numeric&lt;/th&gt;
+&lt;th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Default,'rowShade':'alternate'})"&gt;Text&lt;/th&gt;
+&lt;th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Currency,'rowShade':'alternate'})"&gt;Currency&lt;/th&gt;
+&lt;th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Date,'rowShade':'alternate'})"&gt;Date&lt;/th&gt;
+&lt;th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Default,'rowShade':'alternate'})"&gt;Checkbox&lt;/th&gt;</pre>
+</div>
+<br><br>
+
+<table class="example">
+<thead>
+	<tr>
+<th class="TableSortedAscending sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Numeric,'rowShade':'alternate'})">Index</th>
+<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Numeric,'rowShade':'alternate'})">Numeric</th>
+<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Default,'rowShade':'alternate'})">Text</th>
+<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Currency,'rowShade':'alternate'})">Currency</th>
+<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Date,'rowShade':'alternate'})">Date</th>
+<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Default,'rowShade':'alternate'})">Checkbox</th>	</tr>
+</thead>
+<thead>
+	<tr>
+		<th colspan="6">tbody #1</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>0</td>
+		<td>129.7</td>
+		<td>Bill</td>
+		<td>$2.23</td>
+		<td>2006-12-29</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>1</td>
+		<td>472.2</td>
+		<td>Joe</td>
+		<td>$22.74</td>
+		<td>2006-12-11</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>261.1</td>
+		<td>Bob</td>
+		<td>$36.54</td>
+		<td>2009-01-15</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>3</td>
+		<td>530.2</td>
+		<td>Matt</td>
+		<td>$60.44</td>
+		<td>2008-04-03</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>224.7</td>
+		<td>Mark</td>
+		<td>$52.04</td>
+		<td>2008-12-07</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>5</td>
+		<td>486.9</td>
+		<td>Tom</td>
+		<td>$70.44</td>
+		<td>2008-12-17</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>429.3</td>
+		<td>Jake</td>
+		<td>$87.64</td>
+		<td>2009-04-02</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>7</td>
+		<td>879.2</td>
+		<td>Greg</td>
+		<td>$24.84</td>
+		<td>2008-09-24</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>840.8</td>
+		<td>Adam</td>
+		<td>$17.64</td>
+		<td>2009-07-18</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>9</td>
+		<td>604.9</td>
+		<td>Steve</td>
+		<td>$87.14</td>
+		<td>2007-03-19</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+</tbody>
+<thead>
+	<tr>
+		<th colspan="6">tbody #2</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>10</td>
+		<td>486.9</td>
+		<td>George</td>
+		<td>$0.13</td>
+		<td>2007-04-13</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>11</td>
+		<td>542.8</td>
+		<td>John</td>
+		<td>$47.34</td>
+		<td>2007-12-31</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>583.6</td>
+		<td>Phil</td>
+		<td>$73.44</td>
+		<td>2009-02-25</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>13</td>
+		<td>286</td>
+		<td>Jack</td>
+		<td>$26.44</td>
+		<td>2007-11-25</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>740.2</td>
+		<td>Paul</td>
+		<td>$48.94</td>
+		<td>2009-07-19</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>15</td>
+		<td>408.7</td>
+		<td>Rob</td>
+		<td>$97.64</td>
+		<td>2008-08-10</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>85.6</td>
+		<td>Walt</td>
+		<td>$40.54</td>
+		<td>2008-03-19</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>17</td>
+		<td>854.5</td>
+		<td>Nathan</td>
+		<td>$28.44</td>
+		<td>2008-12-31</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td>458.9</td>
+		<td>Dan</td>
+		<td>$12.54</td>
+		<td>2009-07-22</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+	<tr class="alternate">
+		<td>19</td>
+		<td>319.7</td>
+		<td>Jeff</td>
+		<td>$73.04</td>
+		<td>2009-02-23</td>
+		<td><input name="cb" value="1" type="checkbox"></td>
+	</tr>
+</tbody>
+<tfoot>
+	<tr>
+		<td>tfoot</td>
+		<td>tfoot</td>
+		<td>tfoot</td>
+		<td>tfoot</td>
+		<td>tfoot</td>
+		<td>tfoot</td>
+	</tr>
+</tfoot>
+</table>
+
+<h2>Client-Side Sorting With Large Table</h2>
+
+<p>
+See the <a href="http://www.javascripttoolbox.com/lib/table/example_big_table.php">Client-Side Sorting With 500 Rows</a> example to see how fast it sorts on your computer.
+</p>
+
+<h2>Rowspan/Colspan Correction</h2>
+
+<p>When cells span rows or columns, their cellIndex property is
+misleading. A cell may be the first td in a row, but actually occupy
+the second position in the table "grid" because a cell in a row above
+it has a rowspan &gt; 1. Since the column to sort is calculated
+automatically based on the cell clicked, the correct column index must
+be computed rather than relying blindly on the cellIndex property of
+the clicked cell. The example below demonstrates this complex
+requirement.
+</p>
+
+<table class="example">
+<thead>
+	<tr>
+		<th colspan="5">Rowspan/Colspan Correction</th>
+	</tr>
+	<tr>
+		<th class="TableSortedAscending sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Numeric,'rowShade':'alternate'})" rowspan="2">Index</th>
+		<th colspan="2">First Two Columns</th>
+		<th colspan="2">Second Two Columns</th>
+	</tr>
+	<tr>
+		<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Numeric,'rowShade':'alternate'})">Numeric</th>
+		<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Default,'rowShade':'alternate'})">Text</th>
+		<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Currency,'rowShade':'alternate'})">Currency</th>
+		<th class="sortable" title="Click here to sort" onclick="Table.sort(this,{'sortType':Sort.Date,'rowShade':'alternate'})">Date</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>0</td>
+		<td>444.4</td>
+		<td>Bill</td>
+		<td>$21.74</td>
+		<td>2009-02-24</td>
+	</tr>
+	<tr class="alternate">
+		<td>1</td>
+		<td>590.9</td>
+		<td>Joe</td>
+		<td>$76.04</td>
+		<td>2007-06-25</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>964</td>
+		<td>Bob</td>
+		<td>$34.34</td>
+		<td>2009-10-22</td>
+	</tr>
+	<tr class="alternate">
+		<td>3</td>
+		<td>702.1</td>
+		<td>Matt</td>
+		<td>$62.94</td>
+		<td>2007-06-24</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>43.8</td>
+		<td>Mark</td>
+		<td>$36.94</td>
+		<td>2009-01-10</td>
+	</tr>
+	<tr class="alternate">
+		<td>5</td>
+		<td>905.7</td>
+		<td>Tom</td>
+		<td>$77.84</td>
+		<td>2008-12-13</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>471.6</td>
+		<td>Jake</td>
+		<td>$86.34</td>
+		<td>2007-01-24</td>
+	</tr>
+	<tr class="alternate">
+		<td>7</td>
+		<td>913.2</td>
+		<td>Greg</td>
+		<td>$71.84</td>
+		<td>2007-12-19</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>602.2</td>
+		<td>Adam</td>
+		<td>$17.74</td>
+		<td>2008-05-12</td>
+	</tr>
+	<tr class="alternate">
+		<td>9</td>
+		<td>466.9</td>
+		<td>Steve</td>
+		<td>$49.64</td>
+		<td>2007-07-04</td>
+	</tr>
+</tbody>
+</table>
+
+<h2>Client-Side Table Filtering</h2>
+
+<p>Client-side table filtering works by scanning each row in the table
+and matching it against the criteria passed into the filter. Filter
+values are stored, so adding or removing another filter maintains any
+other filters that still apply.
+</p>
+
+<table class="example">
+<thead>
+	<tr>
+		<th colspan="4">Table Filtering</th>
+	</tr>
+	<tr>
+		<th class="filterable">Index</th>
+		<th class="filterable">Number</th>
+		<th class="filterable">Name</th>
+		<th class="filterable">Amount</th>
+	</tr>
+	<tr>
+		<th>Filter:</th>
+		<th><select onchange="Table.filter(this,this,{rowShade:'alternate'})"><option value="">All</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></th>
+		<th><select onchange="Table.filter(this,this,{rowShade:'alternate'})"><option value="">All</option><option value="Bill">Bill</option><option value="Joe">Joe</option><option value="Bob">Bob</option><option value="Matt">Matt</option><option value="Mark">Mark</option><option value="Tom">Tom</option><option value="Jake">Jake</option><option value="Greg">Greg</option><option value="Adam">Adam</option></select></th>
+		<th><select onchange="Table.filter(this,this,{rowShade:'alternate'})"><option value="">All</option><option value="/\$0/">&lt; $1</option><option value="/\$1/">&gt;= $1</option></select></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>0</td>
+		<td>0</td>
+		<td>Bill</td>
+		<td>$0.43</td>
+	</tr>
+	<tr class="alternate">
+		<td>1</td>
+		<td>1</td>
+		<td>Joe</td>
+		<td>$1.93</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>2</td>
+		<td>Bob</td>
+		<td>$0.93</td>
+	</tr>
+	<tr class="alternate">
+		<td>3</td>
+		<td>3</td>
+		<td>Matt</td>
+		<td>$1.93</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>4</td>
+		<td>Mark</td>
+		<td>$1.13</td>
+	</tr>
+	<tr class="alternate">
+		<td>5</td>
+		<td>0</td>
+		<td>Tom</td>
+		<td>$0.43</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>1</td>
+		<td>Jake</td>
+		<td>$0.33</td>
+	</tr>
+	<tr class="alternate">
+		<td>7</td>
+		<td>2</td>
+		<td>Greg</td>
+		<td>$1.03</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>3</td>
+		<td>Bill</td>
+		<td>$1.13</td>
+	</tr>
+	<tr class="alternate">
+		<td>9</td>
+		<td>4</td>
+		<td>Joe</td>
+		<td>$0.23</td>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td>0</td>
+		<td>Bob</td>
+		<td>$0.43</td>
+	</tr>
+	<tr class="alternate">
+		<td>11</td>
+		<td>1</td>
+		<td>Matt</td>
+		<td>$0.33</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>2</td>
+		<td>Mark</td>
+		<td>$0.63</td>
+	</tr>
+	<tr class="alternate">
+		<td>13</td>
+		<td>3</td>
+		<td>Tom</td>
+		<td>$0.53</td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>4</td>
+		<td>Jake</td>
+		<td>$1.13</td>
+	</tr>
+	<tr class="alternate">
+		<td>15</td>
+		<td>0</td>
+		<td>Greg</td>
+		<td>$0.03</td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>1</td>
+		<td>Bill</td>
+		<td>$0.33</td>
+	</tr>
+	<tr class="alternate">
+		<td>17</td>
+		<td>2</td>
+		<td>Joe</td>
+		<td>$0.63</td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td>3</td>
+		<td>Bob</td>
+		<td>$1.43</td>
+	</tr>
+	<tr class="alternate">
+		<td>19</td>
+		<td>4</td>
+		<td>Matt</td>
+		<td>$1.23</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>0</td>
+		<td>Mark</td>
+		<td>$0.43</td>
+	</tr>
+	<tr class="alternate">
+		<td>21</td>
+		<td>1</td>
+		<td>Tom</td>
+		<td>$1.53</td>
+	</tr>
+	<tr>
+		<td>22</td>
+		<td>2</td>
+		<td>Jake</td>
+		<td>$1.13</td>
+	</tr>
+	<tr class="alternate">
+		<td>23</td>
+		<td>3</td>
+		<td>Greg</td>
+		<td>$1.83</td>
+	</tr>
+	<tr>
+		<td>24</td>
+		<td>4</td>
+		<td>Bill</td>
+		<td>$0.23</td>
+	</tr>
+	<tr class="alternate">
+		<td>25</td>
+		<td>0</td>
+		<td>Joe</td>
+		<td>$0.33</td>
+	</tr>
+	<tr>
+		<td>26</td>
+		<td>1</td>
+		<td>Bob</td>
+		<td>$0.23</td>
+	</tr>
+	<tr class="alternate">
+		<td>27</td>
+		<td>2</td>
+		<td>Matt</td>
+		<td>$1.23</td>
+	</tr>
+	<tr>
+		<td>28</td>
+		<td>3</td>
+		<td>Mark</td>
+		<td>$1.23</td>
+	</tr>
+	<tr class="alternate">
+		<td>29</td>
+		<td>4</td>
+		<td>Tom</td>
+		<td>$1.13</td>
+	</tr>
+	<tr>
+		<td>30</td>
+		<td>0</td>
+		<td>Jake</td>
+		<td>$1.63</td>
+	</tr>
+	<tr class="alternate">
+		<td>31</td>
+		<td>1</td>
+		<td>Greg</td>
+		<td>$1.63</td>
+	</tr>
+	<tr>
+		<td>32</td>
+		<td>2</td>
+		<td>Bill</td>
+		<td>$1.03</td>
+	</tr>
+	<tr class="alternate">
+		<td>33</td>
+		<td>3</td>
+		<td>Joe</td>
+		<td>$0.53</td>
+	</tr>
+	<tr>
+		<td>34</td>
+		<td>4</td>
+		<td>Bob</td>
+		<td>$1.53</td>
+	</tr>
+</tbody>
+</table>
+
+
+<h2>Table Row Shading</h2>
+
+<p>If a table has alternate rows highlighted and it is sorted,
+filtered, or otherwise manipulated, the sorted row colors can be mixed
+up. This function simply re-shades rows by applying a class name to
+each odd row and removing it from each even row.
+</p>
+
+<a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code">&lt;th colspan="5" onclick="Table.shadeOddRows(this,'alternate')" style="cursor:pointer"&gt;
+   Row Shading&lt;br&gt;
+   &lt;b&gt;&lt;span style="background-color:yellow;"&gt;
+   (Click here to shade alternate rows in this table)&lt;/span&gt;&lt;/b&gt;
+&lt;/th&gt;</pre>
+</div>
+<br><br>
+
+<table class="example">
+<thead>
+	<tr>
+<th colspan="5" onclick="Table.shadeOddRows(this,'alternate')" style="cursor: pointer;">
+   Row Shading<br>
+   <b><span style="background-color: yellow;">
+   (Click here to shade alternate rows in this table)</span></b>
+</th>	</tr>
+	<tr>
+		<th>Index</th>
+		<th>Numeric</th>
+		<th>Text</th>
+		<th>Currency</th>
+		<th>Date</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>0</td>
+		<td>40.6</td>
+		<td>Bill</td>
+		<td>$45.14</td>
+		<td>2009-08-25</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>536.2</td>
+		<td>Joe</td>
+		<td>$98.84</td>
+		<td>2009-12-12</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>733.8</td>
+		<td>Bob</td>
+		<td>$15.44</td>
+		<td>2007-09-28</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>975.2</td>
+		<td>Matt</td>
+		<td>$69.04</td>
+		<td>2007-09-29</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>122.2</td>
+		<td>Mark</td>
+		<td>$0.43</td>
+		<td>2009-11-18</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>740.8</td>
+		<td>Tom</td>
+		<td>$18.14</td>
+		<td>2009-02-05</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>272.6</td>
+		<td>Jake</td>
+		<td>$7.53</td>
+		<td>2009-06-20</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>406.5</td>
+		<td>Greg</td>
+		<td>$14.74</td>
+		<td>2008-03-19</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>7.3</td>
+		<td>Adam</td>
+		<td>$71.54</td>
+		<td>2007-08-25</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td>811</td>
+		<td>Steve</td>
+		<td>$22.44</td>
+		<td>2008-06-17</td>
+	</tr>
+</tbody>
+</table>
+
+<h2>Client-Side Table Paging</h2>
+
+<p>Although paging through results or records is usually done by making
+a trip back to the server, it can sometimes be helpful to page through
+results on the client side.
+</p>
+
+<a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code"></pre>
+</div>
+<br><br>
+
+<table class="example" id="page">
+<thead>
+	<tr>
+		<th>Index</th>
+		<th>Name</th>
+		<th>Date</th>
+	</tr>
+</thead>
+<tbody>
+	<tr class="alterlate">
+		<td>0</td>
+		<td>Bill</td>
+		<td>2008-07-28</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>Joe</td>
+		<td>2007-08-27</td>
+	</tr>
+	<tr class="alterlate">
+		<td>2</td>
+		<td>Bob</td>
+		<td>2009-11-21</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Matt</td>
+		<td>2008-03-27</td>
+	</tr>
+	<tr class="alterlate">
+		<td>4</td>
+		<td>Mark</td>
+		<td>2009-05-09</td>
+	</tr>
+	<tr style="display: none;">
+		<td>5</td>
+		<td>Tom</td>
+		<td>2009-11-07</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>6</td>
+		<td>Jake</td>
+		<td>2008-03-14</td>
+	</tr>
+	<tr style="display: none;">
+		<td>7</td>
+		<td>Greg</td>
+		<td>2008-07-05</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>8</td>
+		<td>Adam</td>
+		<td>2007-03-04</td>
+	</tr>
+	<tr style="display: none;">
+		<td>9</td>
+		<td>Steve</td>
+		<td>2009-02-15</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>10</td>
+		<td>George</td>
+		<td>2008-06-06</td>
+	</tr>
+	<tr style="display: none;">
+		<td>11</td>
+		<td>John</td>
+		<td>2009-05-11</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>12</td>
+		<td>Phil</td>
+		<td>2006-11-20</td>
+	</tr>
+	<tr style="display: none;">
+		<td>13</td>
+		<td>Jack</td>
+		<td>2008-10-25</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>14</td>
+		<td>Paul</td>
+		<td>2009-05-15</td>
+	</tr>
+	<tr style="display: none;">
+		<td>15</td>
+		<td>Rob</td>
+		<td>2009-12-14</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>16</td>
+		<td>Walt</td>
+		<td>2007-12-30</td>
+	</tr>
+	<tr style="display: none;">
+		<td>17</td>
+		<td>Nathan</td>
+		<td>2009-12-10</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>18</td>
+		<td>Dan</td>
+		<td>2009-01-24</td>
+	</tr>
+	<tr style="display: none;">
+		<td>19</td>
+		<td>Jeff</td>
+		<td>2008-11-10</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>20</td>
+		<td>Bill</td>
+		<td>2007-01-05</td>
+	</tr>
+	<tr style="display: none;">
+		<td>21</td>
+		<td>Joe</td>
+		<td>2008-07-20</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>22</td>
+		<td>Bob</td>
+		<td>2006-12-24</td>
+	</tr>
+	<tr style="display: none;">
+		<td>23</td>
+		<td>Matt</td>
+		<td>2007-06-24</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>24</td>
+		<td>Mark</td>
+		<td>2009-12-12</td>
+	</tr>
+	<tr style="display: none;">
+		<td>25</td>
+		<td>Tom</td>
+		<td>2007-01-01</td>
+	</tr>
+	<tr style="display: none;" class="alterlate">
+		<td>26</td>
+		<td>Jake</td>
+		<td>2009-09-29</td>
+	</tr>
+	<tr style="display: none;">
+		<td>27</td>
+		<td>Greg</td>
+		<td>2007-08-12</td>
+	</tr>
+</tbody>
+<tfoot>
+	<td colspan="3">
+		<a href="#" onclick="Table.pagePrevious(document.getElementById('page'),5); return false;">&lt;&lt;&nbsp;Previous</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.page(document.getElementById('page'),0,5); return false;">1</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.page(document.getElementById('page'),1,5); return false;">2</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.page(document.getElementById('page'),2,5); return false;">3</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.page(document.getElementById('page'),3,5); return false;">4</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.page(document.getElementById('page'),4,5); return false;">5</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.page(document.getElementById('page'),5,5); return false;">6</a>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" onclick="Table.pageNext(document.getElementById('page'),5); return false;">Next&nbsp;&gt;&gt;
+	</a></td>
+</tfoot>
+</table>
+
+	</div>
+	</div>
+	</td>
+	<td class="right" id="googleAds">
+		<script type="text/javascript">
+		google_ad_client = "pub-9155030588311591";
+		google_ad_width = 120;
+		google_ad_height = 600;
+		google_ad_format = "120x600_as";
+		google_color_border = "000000";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "000000";
+		google_color_text = "000000";
+		</script>
+		<script type="text/javascript" src="tables-examples.php_files/show_ads.js"></script><iframe name="google_ads_frame" src="tables-examples.php_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+	</td>
+</tr>
+<tr>
+	<td class="footer" colspan="3"><img src="tables-examples.php_files/bullet-bolt.gif" alt="Logo">&nbsp;All Contents Copyright © <a href="http://www.mattkruse.com/">Matt Kruse</a></td>
+</tr></tbody></table>
+
+
+</body></html>

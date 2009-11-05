@@ -1,0 +1,114 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+IDfSession dctmsess = dctmaccess.accessSession();
+IDfPersistentObject userobj = dctmsess.getObject(new DfId(id));
+
+String html = "";
+try {
+    if (userobj instanceof IDfGroup) {
+        IDfGroup group = (IDfGroup)userobj;
+        html += "Group Name: "+group.getGroupName() + "<BR>";
+        html += "Group Members:<BR>";
+        for (int i=0; i < group.getUsersNamesCount(); i++)
+        {
+            if (i!=0) html += " - ";
+            String name = group.getUsersNames(i);
+            IDfUser subuser = dctmsess.getUser(name);
+            if (subuser != null) {
+                String osname = "";
+                if (subuser.isGroup())
+                    html += "<img src='../wdk/theme/documentum/icons/type/t_dm_group_16.gif' length=16 width=16 border=0>";
+                else {
+                    html += "<img src='../wdk/theme/documentum/icons/type/t_dm_user_16.gif' length=16 width=16 border=0>";
+                    osname = " ["+subuser.getUserOSName()+"]";
+                }
+                
+                html += baselink+"&id="+subuser.getObjectId().getId()+"'>"+name+"</a>"+osname;
+            }
+        }
+        // groups they belong to?
+        html += "<hr>";
+        html += "Group Membership:<br>";
+        html += GenerateQueryTable.call(dctmaccess,baseurl,credurl,"SELECT r_object_id, group_name, group_address, description FROM dm_group WHERE any groups_names = '"+group.getGroupName()+"' order by group_name"); 
+        html += "<hr>";
+    } else if (userobj instanceof IDfUser && ((IDfUser)userobj).isGroup()) {
+        // since a group is sometimes returned as an IDfUser, we need to do this crap
+        IDfGroup group = dctmsess.getGroup(((IDfUser)userobj).getUserName());
+        html += "Group Name: "+group.getGroupName() + "<BR>";
+        html += "Group Members:<BR>";
+        for (int i=0; i < group.getUsersNamesCount(); i++)
+        {
+            if (i!=0) html += " - ";
+            String name = group.getUsersNames(i);
+            IDfUser subuser = dctmsess.getUser(name);
+            if (subuser != null) {
+                String osname = "";
+                if (subuser.isGroup())
+                    html += "<img src='../wdk/theme/documentum/icons/type/t_dm_group_16.gif' length=16 width=16 border=0>";
+                else {
+                    html += "<img src='../wdk/theme/documentum/icons/type/t_dm_user_16.gif' length=16 width=16 border=0>";
+                    osname = " ["+subuser.getUserOSName()+"]";
+                }
+                
+                html += baselink+"&id="+subuser.getObjectId().getId()+"'>"+name+"</a>"+osname;
+            }
+        }
+        // groups they belong to?
+        html += "<hr>";
+        html += "Group Membership:<br>";
+        html += GenerateQueryTable.call(dctmaccess,baseurl,credurl,"SELECT r_object_id, group_name, group_address, description FROM dm_group WHERE any groups_names = '"+group.getGroupName()+"' order by group_name"); 
+        html += "<hr>";
+        
+    } else {
+        IDfUser user = (IDfUser)userobj;
+        html += "Username: "+user.getUserName() + "<BR>";
+        html += "OSName: "+user.getUserOSName()+"<BR>";
+        if (user.getUserState() == IDfUser.DF_USER_INACTIVE) html += "<font color='RED'>DISABLED</font><br>";
+        if (user.getUserState() == IDfUser.DF_USER_LOCKED)   html += "<font color='RED'>LOCKED</font><br>";
+        if (user.getUserState() == IDfUser.DF_USER_LOCKED_INACTIVE) html += "<font color='RED'>LOCKED and DISABLED</font><br>";
+        html += "<hr>";
+        html += "Privleges: <b>";
+        switch(user.getUserPrivileges())
+        {
+            case IDfUser.DF_PRIVILEGE_NONE : html += "NONE (0)"; break;
+            case IDfUser.DF_PRIVILEGE_CREATE_TYPE : html += "Create Type (1)"; break;
+            case IDfUser.DF_PRIVILEGE_CREATE_CABINET : html += "Create Cabinet (2)"; break;
+            case IDfUser.DF_PRIVILEGE_CREATE_GROUP : html += "Create Group (4)"; break;
+            case IDfUser.DF_PRIVILEGE_SYSADMIN : html += "System Administrator (8)"; break;
+            case IDfUser.DF_PRIVILEGE_SUPERUSER : html += "<font color='RED'>SuperUser (16)</font>"; break;
+        }
+        html += "</b><BR>";
+        user.getUserXPrivileges();
+        html += "Extended Privleges: <b>";
+        boolean trigger = false; String sep = ""; 
+        if ((user.getUserXPrivileges() & IDfUser.DF_XPRIVILEGE_VIEW_AUDIT) > 0) { html += "View Audit"; trigger = true; }
+        if ((user.getUserXPrivileges() & IDfUser.DF_XPRIVILEGE_CONFIG_AUDIT) > 0) { if (trigger) sep = " - "; html += sep+"Config Audit"; trigger = true; }
+        if ((user.getUserXPrivileges() & IDfUser.DF_XPRIVILEGE_PURGE_AUDIT) > 0) { if (trigger) sep = " - "; html += sep+"Purge Audit"; }
+        html += "</b><BR>";
+        String clientcapability = "unknown client capability";
+        switch(user.getClientCapability()){
+            case IDfUser.DF_CAPABILITY_NONE         : clientcapability = "none"; break;
+            case IDfUser.DF_CAPABILITY_CONSUMER     : clientcapability = "Consumer"; break;
+            case IDfUser.DF_CAPABILITY_CONTRIBUTOR  : clientcapability = "Contributor"; break;
+            case IDfUser.DF_CAPABILITY_COORDINATOR  : clientcapability = "Coordinator"; break;
+            case IDfUser.DF_CAPABILITY_SYSTEM_ADMIN : clientcapability = "System Administrator"; break;
+        }
+        html += "Client Capability: <b>"+clientcapability+" ("+user.getClientCapability()+")</b><BR>";
+        html += "<hr>";
+        html += "Default Group: "+user.getUserGroupName()+"<BR>"; 
+        html += "Default ACL: "+user.getString("acl_name")+"<BR>";
+        // PRIVLEDGES
+        // extended privledges
+        html += "<hr>";
+        html += "Group Membership:<br>";
+        html += GenerateQueryTable.call(dctmaccess,baseurl,credurl,"SELECT r_object_id, group_name, group_address, description FROM dm_group WHERE any users_names = '"+user.getUserName()+"' order by group_name"); 
+        html += "<hr>";
+        
+    }
+} catch (DfException e) { html = "User/Group lookup error"; }
+
+out.write(html);

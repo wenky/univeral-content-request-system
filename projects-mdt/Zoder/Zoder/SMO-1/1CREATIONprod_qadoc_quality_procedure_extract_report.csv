@@ -1,0 +1,374 @@
+rid,object_name,r_object_type,r_is_virtual_doc,r_immutable_flag,,acl_name,qa_type,r_resume_state,r_current_state,previous_state_nb,review_date,approval_date,effectivity_date,r_policy_id,lifecylename
+09186af580001380,QSP0911,quality_procedure,0,0,0,retired,,-1,6,5,,3/21/2000 0:00,3/22/2000 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580001e1d,QSP1501,quality_procedure,0,0,0,retired,QSP,-1,6,5,,3/3/2000 0:00,3/4/2000 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580001e5a,QSP1101,quality_procedure,0,0,0,retired,,-1,6,5,,4/5/2000 0:00,4/6/2000 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580001e93,QSP0102,quality_procedure,0,0,0,retired,QSP,-1,6,5,,4/4/2001 0:00,4/5/2001 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580001eae,QSP1201,quality_procedure,0,0,0,retired,QSP,-1,6,5,,1/29/2001 0:00,1/30/2001 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580001ebc,QSP0101,quality_procedure,0,0,0,retired,QSP,-1,6,5,,4/6/2001 0:00,4/9/2001 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580001ebe,QSP0502,quality_procedure,0,0,0,retired,QSP,-1,6,5,,1/31/2001 0:00,1/31/2001 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580007922,QSP1001,quality_procedure,0,0,0,retired,QSP,-1,6,5,,5/31/2001 16:45,5/31/2001 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58003f567,QSP1802,quality_procedure,0,0,1,retired,,-1,6,5,,2/5/2002 15:29,2/6/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800489b7,QSP0902,quality_procedure,0,0,1,retired,QSP,-1,6,5,,3/25/2002 14:17,3/26/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800489c3,QSP0904,quality_procedure,0,0,0,retired,QSP,-1,6,5,,3/25/2002 14:15,3/26/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580049177,QSP0501,quality_procedure,0,0,0,retired,,-1,6,5,,3/26/2002 13:12,3/27/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800491f7,QSP1304,quality_procedure,0,0,1,retired,QSP,-1,6,5,,3/25/2002 14:22,3/26/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580049205,QSP0901,quality_procedure,0,0,0,retired,,-1,6,5,,3/25/2002 14:17,3/26/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580049d8b,QSP1801,quality_procedure,0,0,0,retired,,-1,6,5,,3/28/2002 14:06,4/2/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004bd41,QSP0908,quality_procedure,0,0,0,retired,,-1,6,5,,4/3/2002 15:49,4/4/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004cd92,QSP2001,quality_procedure,0,0,1,retired,QSP,-1,6,5,,4/9/2002 13:05,4/10/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004ea36,QSP0907,quality_procedure,0,0,1,retired,QSP,-1,6,5,,4/19/2002 10:27,4/22/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004eda5,QSP1302,quality_procedure,0,0,0,retired,,-1,6,5,,4/17/2002 13:29,4/18/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004edbe,QSP1701,quality_procedure,0,0,0,retired,QSP,-1,6,5,,4/18/2002 10:37,4/19/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004edd1,QSP1303,quality_procedure,0,0,0,retired,,-1,6,5,,4/17/2002 13:29,4/18/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004f17e,QSP0801,quality_procedure,0,0,1,retired,QSP,-1,6,5,,4/18/2002 10:37,4/19/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004f19c,QSP0903,quality_procedure,0,0,1,retired,QSP,-1,6,5,,4/18/2002 10:37,4/19/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004f531,QSP1305,quality_procedure,0,0,1,retired,QSP,-1,6,5,,4/19/2002 10:26,4/22/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004f924,QSP0909,quality_procedure,0,0,0,retired,,-1,6,5,,4/19/2002 10:27,4/22/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004f968,QSP1401,quality_procedure,0,0,0,retired,,-1,6,5,,4/19/2002 10:25,4/22/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004fdc0,QSP0601,quality_procedure,0,0,0,retired,QSP,-1,6,5,,4/19/2002 17:30,4/22/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58004fe49,QSP1502,quality_procedure,0,0,0,retired,QSP,-1,6,5,,4/22/2002 13:41,4/23/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580052d3a,QSP0906,quality_procedure,0,0,0,retired,QSP,-1,6,5,,5/6/2002 10:48,5/7/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580054252,QSP1301,quality_procedure,0,0,0,retired,,-1,6,5,,5/16/2002 8:20,5/17/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58005af9f,QSP1601,quality_procedure,0,0,0,retired,,-1,6,5,,7/25/2002 10:23,7/26/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580061547,QSP0504,quality_procedure,0,0,0,retired,QSP,-1,6,5,,9/12/2002 13:58,9/13/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580063fb3,QSP0912,quality_procedure,0,0,0,retired,QSP,-1,6,5,,10/7/2002 7:42,10/7/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800647c9,QSP0910,quality_procedure,0,0,0,retired,QSP,-1,6,5,,10/11/2002 14:33,10/14/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580065620,QSP0602,quality_procedure,0,0,0,retired,QSP,-1,6,5,,10/30/2002 13:10,10/31/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580067929,QSP0301,quality_procedure,0,0,0,retired,QSP,-1,6,5,,11/29/2002 15:02,4/23/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580067942,QSP0201,quality_procedure,0,0,0,retired,,-1,6,5,,11/29/2002 16:20,4/23/2002 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58006f9d0,QSP1801,quality_procedure,0,0,0,retired,QSP,-1,6,5,2/14/2003 12:20,2/17/2003 8:06,2/17/2003 8:06,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58006fa30,QSP0501,quality_procedure,0,0,0,retired,QSP,-1,6,5,2/12/2003 20:13,2/14/2003 15:49,2/17/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58006fc4c,QSP1301,quality_procedure,0,0,0,retired,QSP,-1,6,5,2/24/2003 10:36,3/4/2003 9:47,3/10/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580070615,QSP0911,quality_procedure,0,0,0,retired,QSP,-1,6,5,2/17/2003 15:43,2/18/2003 15:24,2/19/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580070657,QSP1601,quality_procedure,0,0,1,retired,QSP,-1,6,5,2/17/2003 19:13,2/18/2003 13:51,2/19/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800722d8,QSP1101,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/11/2003 15:59,3/11/2003 17:54,3/12/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580072bf8,QSP0908,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/20/2003 10:18,3/21/2003 10:07,3/27/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580072ccd,QSP1301,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/21/2003 11:30,3/26/2003 14:42,3/27/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800741dd,QSP1401,quality_procedure,0,0,0,retired,QSP,-1,6,5,4/7/2003 14:21,4/8/2003 13:08,4/9/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580074239,QSP0201,quality_procedure,0,0,0,retired,QSP,-1,6,5,4/7/2003 19:17,4/8/2003 13:07,4/9/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580076da1,QSP1501,quality_procedure,0,0,0,retired,QSP,-1,6,5,5/26/2003 12:13,6/6/2003 12:16,6/6/2003 12:16,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58007744e,QSP1302,quality_procedure,0,0,1,retired,QSP,-1,6,5,6/6/2003 16:13,6/10/2003 16:59,6/10/2003 16:59,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580077af1,QSP1501,quality_procedure,0,0,0,retired,QSP,-1,3,2,6/11/2003 8:31,,6/11/2003 10:27,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580078b88,QSP1701,quality_procedure,0,0,0,retired,QSP,-1,6,5,6/25/2003 16:53,6/26/2003 11:24,6/30/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58007cc16,QSP0909,quality_procedure,0,0,0,retired,QSP,-1,6,5,9/4/2003 16:08,9/19/2003 14:06,9/24/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58007dda8,QSP1401,quality_procedure,0,0,1,retired,QSP,-1,6,5,9/24/2003 8:28,9/26/2003 14:24,9/30/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58007e783,QSP0906,quality_procedure,0,0,0,retired,QSP,-1,6,5,10/2/2003 14:02,10/6/2003 8:09,10/6/2003 8:09,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580080e36,QSP0602,quality_procedure,0,0,0,retired,QSP,-1,6,5,10/31/2003 16:20,11/7/2003 16:06,11/11/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580081515,QSP1001,quality_procedure,0,0,1,retired,QSP,-1,6,5,11/7/2003 11:10,11/7/2003 17:21,11/10/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800839c9,QSP1101,quality_procedure,0,0,1,retired,QSP,-1,6,5,12/5/2003 11:39,12/8/2003 8:24,12/12/2003 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008493d,QSP1301,quality_procedure,0,0,0,retired,QSP,-1,6,5,12/18/2003 10:32,12/19/2003 9:45,12/19/2003 9:45,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800852b3,QSP0504,quality_procedure,0,0,0,retired,QSP,-1,6,5,1/8/2004 12:55,1/12/2004 16:05,1/16/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800854b5,QSP0901,quality_procedure,0,0,0,retired,QSP,-1,6,5,1/9/2004 9:52,1/15/2004 19:20,1/16/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800868c6,QSP0501,quality_procedure,0,0,0,retired,QSP,-1,6,5,1/26/2004 17:14,1/28/2004 13:23,1/29/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008706d,QSP0201,quality_procedure,0,0,0,retired,QSP,-1,6,5,1/28/2004 20:10,1/29/2004 14:43,1/30/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800871ec,QSP0602,quality_procedure,0,0,0,retired,QSP,-1,6,5,1/29/2004 17:51,2/6/2004 12:58,2/9/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580087770,QSP0901,quality_procedure,0,0,0,retired,QSP,-1,6,5,2/4/2004 11:35,2/5/2004 14:07,2/5/2004 14:07,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800888c4,QSP1303,quality_procedure,0,0,1,retired,QSP,-1,6,5,2/18/2004 12:29,2/20/2004 13:45,2/23/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580088ab5,QSP0910,quality_procedure,0,0,1,retired,QSP,-1,6,5,2/19/2004 17:42,2/23/2004 10:25,2/27/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580088bda,QSP1301,quality_procedure,0,0,1,retired,QSP,-1,6,5,2/24/2004 14:04,2/25/2004 13:32,2/25/2004 13:32,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008917b,QSP0909,quality_procedure,0,0,0,retired,QSP,-1,6,5,2/27/2004 10:10,3/5/2004 7:59,3/5/2004 7:59,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580089788,QSP1201,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/3/2004 9:31,3/4/2004 3:52,3/12/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008a181,QSP0504,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/8/2004 13:29,3/9/2004 15:10,3/11/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008a326,QSP0602,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/15/2004 11:57,3/15/2004 14:43,3/16/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008a91d,QSP0904,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/9/2004 13:43,3/10/2004 8:01,3/11/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008ad57,QSP0102,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/10/2004 9:28,3/10/2004 14:27,3/15/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008b5bc,QSP0908,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/15/2004 10:32,3/15/2004 14:43,3/19/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008b6d1,QSP0201,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/15/2004 18:06,3/17/2004 7:47,3/18/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008b7c7,QSP1801,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/16/2004 12:03,3/17/2004 9:23,3/22/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008b8fc,QSP0901,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/16/2004 17:04,3/18/2004 8:38,3/18/2004 8:38,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008b9d5,QSP0912,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/17/2004 8:40,3/18/2004 13:42,3/19/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008bad2,QSP0301,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/17/2004 17:38,3/18/2004 16:41,3/19/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008bbee,QSP0502,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/18/2004 10:07,3/18/2004 13:33,3/22/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008bcb3,QSP0101,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/18/2004 19:08,3/19/2004 9:29,3/20/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008bd76,QSP0601,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/19/2004 9:40,3/19/2004 11:58,3/19/2004 11:58,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008bdd8,QSP0911,quality_procedure,0,0,0,retired,QSP,-1,6,5,3/19/2004 11:59,3/19/2004 14:50,3/23/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008c18e,QSP1502,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/22/2004 13:59,3/23/2004 17:37,3/24/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008c1bc,QSP1501,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/22/2004 13:59,3/23/2004 17:38,3/24/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58008c1d8,QSP0908,quality_procedure,0,0,1,retired,QSP,-1,3,2,3/22/2004 10:19,,3/22/2004 17:24,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af58008c1f5,QSP0909,quality_procedure,0,0,0,retired,QSP,-1,3,2,3/22/2004 11:18,,3/22/2004 17:25,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af58008c652,QSP0101,quality_procedure,0,0,1,retired,QSP,-1,3,2,3/25/2004 18:41,,3/26/2004 7:21,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af58008ea03,QSP0909,quality_procedure,0,0,0,retired,QSP,-1,6,5,4/26/2004 15:34,5/5/2004 16:54,5/7/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580091135,QSP0901,quality_procedure,0,0,1,retired,QSP,-1,6,5,6/4/2004 12:57,6/15/2004 9:09,6/15/2004 9:09,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800921a6,QSP0911,quality_procedure,0,0,0,retired,QSP,-1,6,5,6/18/2004 9:00,6/21/2004 8:19,6/22/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580092216,QSP0201,quality_procedure,0,0,1,retired,QSP,-1,6,5,6/18/2004 15:57,6/21/2004 8:22,6/21/2004 8:22,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580092d84,QSP0501,quality_procedure,0,0,1,retired,QSP,-1,6,5,6/24/2004 14:39,6/25/2004 9:20,7/1/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800940c0,QSP0602,quality_procedure,0,0,0,retired,QSP,-1,6,5,7/8/2004 16:55,7/9/2004 7:51,7/14/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800947b1,QSP0906,quality_procedure,0,0,1,retired,QSP,-1,6,5,7/14/2004 8:48,7/20/2004 16:01,7/21/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58009a507,QSP0909,quality_procedure,0,0,1,retired,QSP,-1,6,5,8/30/2004 8:25,9/1/2004 7:59,9/10/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58009cf3e,QSP1402,quality_procedure,0,0,1,retired,QSP,-1,6,5,9/29/2004 10:20,9/30/2004 9:26,10/15/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58009fbca,QSP1701,quality_procedure,0,0,1,retired,QSP,-1,6,5,11/3/2004 11:20,11/4/2004 10:20,11/10/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800a0f3a,QSP0914,quality_procedure,0,0,1,retired,QSP,-1,6,5,11/16/2004 11:05,11/26/2004 14:52,11/30/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800a29aa,QSP0601,quality_procedure,0,0,1,retired,QSP,-1,6,5,12/6/2004 11:49,12/6/2004 16:53,12/14/2004 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800a77f8,QSP0911,quality_procedure,0,0,1,retired,QSP,-1,3,2,2/8/2005 13:21,,2/9/2005 7:59,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af5800a94f7,QSP0602,quality_procedure,0,0,1,retired,QSP,-1,6,5,3/2/2005 18:41,3/3/2005 9:24,3/4/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800a9e38,LBP407,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,3/7/2005 13:38,3/7/2005 15:08,3/7/2005 15:08,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800a9e6e,LBP407,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,3/7/2005 13:38,3/7/2005 15:08,3/7/2005 15:08,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa029,LBP407,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,3/7/2005 13:38,3/7/2005 15:08,3/7/2005 15:08,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa113,LBP999,quality_process,0,0,1,retired,LBP,-1,3,2,3/10/2005 18:00,,3/10/2005 18:35,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af5800aa26f,LBP407,quality_process,0,0,1,in_redaction,LBP,-1,0,-1,3/7/2005 13:38,3/7/2005 15:08,3/7/2005 15:08,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa2c2,LBP201,quality_process,0,0,0,retired,LBP,-1,6,5,3/11/2005 17:04,3/14/2005 8:50,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa777,LBP301,quality_process,0,0,0,retired,LBP,-1,6,5,3/15/2005 9:53,3/16/2005 10:24,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa930,LBP107,quality_process,0,0,0,retired,LBP,-1,6,5,3/16/2005 8:50,3/24/2005 14:48,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aa996,LBP110,quality_process,0,0,0,retired,LBP,-1,6,5,3/16/2005 11:49,3/24/2005 16:06,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aaa44,LBP207,quality_process,0,0,0,retired,LBP,-1,6,5,3/16/2005 16:15,3/17/2005 13:09,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aaa90,LBP109,quality_process,0,0,0,retired,LBP,-1,6,5,3/17/2005 8:15,3/24/2005 15:20,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aab64,LBP403,quality_process,0,0,0,retired,LBP,-1,6,5,3/17/2005 8:41,3/30/2005 7:56,3/30/2005 7:56,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aac66,LBP116,quality_process,0,0,0,retired,LBP,-1,6,5,3/17/2005 18:51,3/21/2005 8:35,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aacb4,LBP300,quality_process,0,0,0,retired,LBP,-1,6,5,3/17/2005 17:54,3/18/2005 9:26,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aae23,LBP401,quality_process,0,0,0,retired,LBP,-1,6,5,3/18/2005 12:00,3/21/2005 13:30,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aae73,LBP203,quality_process,0,0,0,retired,LBP,-1,6,5,3/18/2005 14:22,3/30/2005 7:53,3/30/2005 7:53,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800aaef5,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,3/22/2005 9:58,3/30/2005 7:58,3/30/2005 7:58,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab1f5,LBP409,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 9:21,3/22/2005 15:29,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab1fd,LBP202,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 9:33,3/30/2005 7:52,3/30/2005 7:52,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab215,LBP100,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 17:21,3/24/2005 13:39,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab271,LBP102,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 13:22,3/24/2005 14:12,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab280,LBP111,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 13:29,3/30/2005 7:08,3/30/2005 7:08,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab321,LBP115,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 16:24,3/22/2005 16:20,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab33e,LBP101,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 16:52,3/24/2005 13:47,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab35d,LBP106,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 17:23,3/24/2005 14:38,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab364,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 17:30,3/24/2005 14:56,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab385,LBP200,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 17:56,3/24/2005 16:36,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab396,LBP402,quality_process,0,0,0,retired,LBP,-1,6,5,3/21/2005 19:58,3/22/2005 15:21,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab433,LBP400,quality_process,0,0,0,retired,LBP,-1,6,5,3/22/2005 8:22,3/22/2005 15:50,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab467,LBP405,quality_process,0,0,0,retired,LBP,-1,6,5,3/22/2005 9:07,3/30/2005 7:57,3/30/2005 7:57,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab49e,LBP408,quality_process,0,0,0,retired,LBP,-1,6,5,3/22/2005 10:55,3/30/2005 8:00,3/30/2005 8:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab4de,LBP404,quality_process,0,0,0,retired,LBP,-1,6,5,3/22/2005 13:32,3/30/2005 10:00,3/30/2005 10:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab580,LBP209,quality_process,0,0,0,retired,LBP,-1,6,5,3/22/2005 17:33,3/23/2005 7:47,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab64a,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 8:32,3/24/2005 9:48,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab662,LBP208,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 9:41,3/30/2005 7:55,3/30/2005 7:55,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab6aa,LBP114,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 13:59,3/24/2005 16:24,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab733,LBP103,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 14:58,3/24/2005 14:18,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab740,LBP104,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 15:08,3/28/2005 13:54,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab748,LBP105,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 15:12,3/28/2005 13:54,3/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab778,LBP206,quality_process,0,0,0,retired,LBP,-1,6,5,3/23/2005 16:26,3/30/2005 14:50,3/30/2005 14:50,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ab8c0,LBP205,quality_process,0,0,0,retired,LBP,-1,6,5,3/24/2005 15:07,3/30/2005 14:51,3/30/2005 14:51,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800b6093,LBP101,quality_process,0,0,0,retired,LBP,-1,6,5,7/15/2005 15:55,7/18/2005 19:36,7/21/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800b96bf,LBP101,quality_process,0,0,0,retired,LBP,-1,3,2,8/23/2005 9:21,,8/23/2005 13:04,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af5800ca107,LBP404,quality_process,0,0,0,retired,LBP,-1,6,5,9/28/2005 10:14,9/29/2005 10:20,9/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800ca12b,LBP109,quality_process,0,0,0,retired,LBP,-1,6,5,9/28/2005 10:21,9/29/2005 10:20,9/30/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800df63b,LBP410,quality_process,0,0,0,retired,LBP,-1,6,5,11/4/2005 11:00,11/9/2005 10:57,11/11/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800f11a0,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,12/1/2005 10:52,12/2/2005 10:05,12/5/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800f1439,LBP203,quality_process,0,0,0,retired,LBP,-1,6,5,12/1/2005 15:57,12/2/2005 13:19,12/6/2005 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5800f1c8d,LBP402,quality_process,0,0,0,retired,LBP,-1,6,5,12/5/2005 7:33,12/5/2005 17:39,12/5/2005 17:39,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58011c66e,LBP301,quality_process,0,0,0,retired,LBP,-1,6,5,2/2/2006 9:57,2/2/2006 13:34,2/2/2006 13:34,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801259cb,LBP209,quality_process,0,0,0,retired,LBP,-1,6,5,2/15/2006 16:01,2/16/2006 16:03,2/20/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58013407b,LBP209,quality_process,0,0,0,retired,LBP,-1,6,5,3/7/2006 12:02,3/9/2006 8:06,3/13/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58013852c,LBP209,quality_process,0,0,0,retired,LBP,-1,3,2,3/13/2006 10:47,,3/13/2006 13:29,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af5801579e7,LBP115,quality_process,0,0,0,retired,LBP,-1,6,5,4/26/2006 13:58,4/26/2006 15:27,4/28/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58015c64c,LBP115,quality_process,0,0,0,retired,LBP,-1,3,2,5/3/2006 13:56,,5/3/2006 17:17,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af58015ff3d,LBP109,quality_process,0,0,0,retired,LBP,-1,6,5,5/8/2006 17:08,5/16/2006 8:41,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58015ffc4,LBP404,quality_process,0,0,0,retired,LBP,-1,6,5,5/9/2006 10:40,5/16/2006 8:42,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580162006,LBP116,quality_process,0,0,0,retired,LBP,-1,6,5,5/11/2006 15:11,5/15/2006 11:59,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580164f5c,LBP110,quality_process,0,0,0,retired,LBP,-1,6,5,5/15/2006 15:32,5/18/2006 12:35,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801656ed,LBP209,quality_process,0,0,1,released,LBP,-1,5,4,5/16/2006 10:31,5/18/2006 12:32,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016615f,LBP102,quality_process,0,0,0,retired,LBP,-1,6,5,5/17/2006 14:38,5/18/2006 13:29,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801662cf,LBP203,quality_process,0,0,0,retired,LBP,-1,6,5,5/19/2006 12:02,5/22/2006 10:52,5/22/2006 10:52,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166937,LBP402,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:41,5/19/2006 10:21,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166a8a,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 11:14,5/18/2006 12:34,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166a99,LBP107,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 11:22,5/22/2006 10:25,5/22/2006 10:25,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b13,LBP207,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 13:08,5/18/2006 16:02,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b36,LBP111,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:25,5/22/2006 10:31,5/22/2006 10:31,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b50,LBP101,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:01,5/18/2006 16:42,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b59,LBP106,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:01,5/18/2006 16:49,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b74,LBP300,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:38,5/22/2006 10:22,5/22/2006 10:22,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b88,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:41,5/22/2006 12:37,5/22/2006 12:37,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166b8d,LBP202,quality_process,0,0,0,retired,LBP,-1,6,5,5/18/2006 14:39,5/19/2006 10:38,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580166c05,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,5/19/2006 9:59,5/22/2006 12:34,5/22/2006 12:34,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801673eb,LBP400,quality_process,0,0,0,retired,LBP,-1,6,5,5/19/2006 14:50,5/22/2006 10:54,5/22/2006 10:54,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580167408,LBP409,quality_process,0,0,0,retired,LBP,-1,6,5,5/19/2006 11:10,5/22/2006 11:27,5/22/2006 11:27,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580167494,LBP201,quality_process,0,0,0,retired,LBP,-1,6,5,5/19/2006 12:26,5/22/2006 10:35,5/22/2006 10:35,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801676e7,LBP200,quality_process,0,0,0,retired,LBP,-1,6,5,5/19/2006 17:26,5/22/2006 12:32,5/22/2006 12:32,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801693d2,LBP209,quality_process,0,0,1,released,LBP,-1,5,4,5/16/2006 10:31,5/18/2006 12:32,5/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801699ea,LBP408,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 13:32,5/24/2006 16:12,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801699f4,LBP100,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 14:26,5/24/2006 9:28,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169a03,LBP405,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 14:26,5/24/2006 9:41,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169a93,LBP103,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 15:42,5/24/2006 9:39,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169a95,LBP105,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 16:14,5/24/2006 9:35,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169a9c,LBP206,quality_process,0,0,1,released,LBP,-1,5,4,5/22/2006 16:15,5/24/2006 9:37,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169aab,LBP104,quality_process,0,0,0,released,LBP,-1,5,4,5/22/2006 16:10,5/24/2006 9:38,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169aae,LBP114,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 16:11,5/24/2006 9:33,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169ab1,LBP205,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 16:14,5/24/2006 9:34,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169ab3,LBP208,quality_process,0,0,1,released,LBP,-1,5,4,5/22/2006 16:14,5/24/2006 16:52,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169abe,LBP401,quality_process,0,0,0,retired,LBP,-1,6,5,5/24/2006 15:55,5/24/2006 17:52,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169ac1,LBP410,quality_process,0,0,0,retired,LBP,-1,6,5,5/22/2006 16:17,5/24/2006 17:09,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580169ac8,LBP301,quality_process,0,0,0,retired,LBP,-1,6,5,5/23/2006 14:52,5/24/2006 9:39,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016aaff,LBP115,quality_process,0,0,0,retired,LBP,-1,6,5,5/24/2006 17:52,5/30/2006 11:13,5/31/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016ae5e,LBP206,quality_process,0,0,1,released,LBP,-1,5,4,5/22/2006 16:15,5/24/2006 9:37,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016ae65,LBP104,quality_process,0,0,1,released,LBP,-1,5,4,5/22/2006 16:10,5/24/2006 9:38,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016ae6a,LBP208,quality_process,0,0,1,released,LBP,-1,5,4,5/22/2006 16:14,5/24/2006 16:52,5/25/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016dfd0,LBP403,quality_process,0,0,0,retired,LBP,-1,6,5,5/29/2006 12:49,5/29/2006 16:22,5/31/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58016f741,LBP409,quality_process,0,0,0,retired,LBP,-1,3,2,5/31/2006 9:42,,5/31/2006 9:51,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af5801906f0,LBP117,quality_process,0,0,0,retired,LBP,-1,6,5,7/14/2006 13:43,7/19/2006 16:18,7/19/2006 16:18,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58019a131,LBP400,quality_process,0,0,0,retired,LBP,-1,6,5,7/28/2006 13:24,7/28/2006 14:45,7/28/2006 14:45,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801a4f3e,LBP102,quality_process,0,0,0,retired,LBP,-1,6,5,8/14/2006 10:20,8/14/2006 13:55,8/16/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801a4f43,LBP111,quality_process,0,0,0,retired,LBP,-1,6,5,8/14/2006 10:21,8/14/2006 13:53,8/16/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801a826a,LBP106,quality_process,0,0,0,retired,LBP,-1,6,5,8/21/2006 9:50,8/21/2006 16:26,8/24/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801a8271,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,8/21/2006 9:50,8/21/2006 16:24,8/24/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801bf64b,LBP409,quality_process,0,0,0,retired,LBP,-1,6,5,9/21/2006 16:18,9/26/2006 10:25,9/26/2006 10:25,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801d7822,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801d94cd,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801dba75,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801e0784,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801eb511,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801eb519,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801ed127,LBP118,quality_process,0,1,0,in_redaction,LBP,-1,0,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801ef264,LBP118,quality_process,0,0,0,in_progress,LBP,-1,1,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801efc3e,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,11/29/2006 8:54,11/29/2006 17:24,11/30/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801f583a,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,12/5/2006 10:10,12/7/2006 11:03,12/7/2006 11:03,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801f5879,LBP118,quality_process,0,0,1,released,LBP,-1,5,4,12/5/2006 10:49,12/7/2006 16:36,12/11/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801f5aa6,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,12/5/2006 15:27,12/7/2006 16:31,12/12/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801fa06f,LBP118,quality_process,0,0,1,released,LBP,-1,5,4,12/5/2006 10:49,12/7/2006 16:36,12/11/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801fa158,LBP410,quality_process,0,0,0,retired,LBP,-1,6,5,12/12/2006 3:24,12/15/2006 15:27,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5801fc290,LBP409,quality_process,0,0,0,retired,LBP,-1,6,5,12/15/2006 8:49,12/15/2006 14:03,12/15/2006 14:03,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802007fb,LBP114,quality_process,0,0,0,retired,LBP,-1,6,5,12/19/2006 9:12,12/20/2006 10:44,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58020146b,LBP117,quality_process,0,0,0,retired,LBP,-1,6,5,12/20/2006 9:56,12/22/2006 17:22,12/22/2006 17:22,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58020165f,LBP101,quality_process,0,0,0,retired,LBP,-1,6,5,12/20/2006 14:11,12/20/2006 15:25,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580201667,LBP106,quality_process,0,0,0,retired,LBP,-1,6,5,12/20/2006 14:15,12/20/2006 17:02,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580201670,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,12/20/2006 14:19,12/20/2006 15:36,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58020212f,LBP205,quality_process,0,0,1,released,LBP,-1,5,4,12/21/2006 12:11,12/21/2006 17:06,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802026f4,LBP205,quality_process,0,0,1,released,LBP,-1,5,4,12/21/2006 12:11,12/21/2006 17:06,12/22/2006 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580202ce7,LBP401,quality_process,0,0,0,retired,LBP,-1,6,5,12/22/2006 11:50,1/3/2007 17:46,1/15/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580202d5d,LBP105,quality_process,0,0,0,retired,LBP,-1,6,5,1/23/2007 16:43,1/26/2007 9:51,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58020de18,LBP300,quality_process,0,0,0,retired,LBP,-1,6,5,1/8/2007 13:10,1/10/2007 17:47,1/11/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580216759,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,1/16/2007 14:51,1/19/2007 16:32,1/22/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802168e5,LBP402,quality_process,0,0,0,retired,LBP,-1,6,5,1/16/2007 17:18,1/17/2007 14:36,1/17/2007 14:36,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580217dd1,LBP402,quality_process,0,0,0,retired,LBP,-1,3,2,1/18/2007 13:32,,1/18/2007 14:15,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580218035,LBP202,quality_process,0,0,0,retired,LBP,-1,6,5,1/18/2007 18:58,1/19/2007 16:35,1/23/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021bc61,LBP203,quality_process,0,0,1,released,LBP,-1,5,4,1/23/2007 14:12,1/24/2007 17:43,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021c738,LBP109,quality_process,0,0,0,retired,LBP,-1,6,5,1/24/2007 8:36,1/26/2007 9:52,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021c73f,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,1/24/2007 7:58,1/26/2007 15:24,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021c9d5,LBP115,quality_process,0,1,0,released,LBP,-1,5,4,1/24/2007 14:51,1/24/2007 15:24,1/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021cee1,LBP115,quality_process,0,0,1,released,LBP,-1,5,4,1/24/2007 14:51,1/24/2007 15:24,1/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021e061,LBP403,quality_process,0,0,0,retired,LBP,-1,6,5,1/26/2007 14:16,1/29/2007 8:05,1/30/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021e08c,LBP301,quality_process,0,0,0,retired,LBP,-1,6,5,1/26/2007 10:32,1/26/2007 14:05,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58021fc82,LBP203,quality_process,0,0,1,released,LBP,-1,5,4,1/23/2007 14:12,1/24/2007 17:43,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802207a6,LBP105,quality_process,0,0,0,released,LBP,-1,5,4,1/30/2007 15:17,2/2/2007 7:59,2/5/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580221225,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802213dc,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580221453,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58022578d,LBP105,quality_process,0,0,1,released,LBP,-1,5,4,1/30/2007 15:17,2/2/2007 7:59,2/5/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58022bc60,LBP200,quality_process,0,0,0,retired,LBP,-1,6,5,2/13/2007 16:30,2/21/2007 15:22,2/23/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58022ca89,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58022cc1b,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580234994,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,2/22/2007 10:22,2/22/2007 14:32,2/23/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580234a03,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580234a0b,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580234a19,LBP114,quality_process,0,1,0,in_progress,LBP,-1,1,0,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580234ab8,LBP114,quality_process,0,0,0,retired,LBP,-1,6,5,2/22/2007 14:27,2/26/2007 8:16,2/28/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58023ed95,LBP116,quality_process,0,0,0,retired,LBP,-1,6,5,3/9/2007 11:44,3/21/2007 16:38,3/22/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580258406,LBP409,quality_process,0,0,0,retired,LBP,-1,6,5,4/19/2007 11:35,4/23/2007 11:17,4/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58025ac5c,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,4/23/2007 17:51,4/26/2007 16:23,4/30/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58025cb10,LBP110,quality_process,0,0,0,released,LBP,-1,5,4,4/26/2007 9:38,4/26/2007 17:53,5/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580263514,LBP110,quality_process,0,0,1,released,LBP,-1,5,4,4/26/2007 9:38,4/26/2007 17:53,5/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58026e268,LBP200,quality_process,0,0,0,retired,LBP,-1,6,5,5/23/2007 17:25,5/24/2007 18:37,5/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580271df2,LBP207,quality_process,0,0,0,retired,LBP,-1,6,5,5/29/2007 14:24,5/30/2007 8:32,6/4/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802768c4,LBP117,quality_process,0,0,0,retired,LBP,-1,6,5,6/5/2007 12:38,6/5/2007 18:29,6/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580281988,LBP401,quality_process,0,0,0,retired,LBP,-1,6,5,6/21/2007 13:50,6/21/2007 16:55,6/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580284b50,LBP100,quality_process,0,0,0,retired,LBP,-1,3,2,6/25/2007 12:37,,6/25/2007 12:46,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580284bff,LBP107,quality_process,0,0,0,retired,LBP,-1,3,2,6/25/2007 12:53,,6/25/2007 13:48,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580284c48,LBP114,quality_process,0,1,0,released,LBP,-1,2,1,6/25/2007 13:07,,6/25/2007 13:47,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580284c66,LBP300,quality_process,0,0,1,released,LBP,-1,5,4,6/25/2007 14:02,6/25/2007 14:42,6/27/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580284ce4,LBP114,quality_process,0,0,1,released,LBP,-1,2,1,6/25/2007 13:07,,6/25/2007 13:47,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580286110,LBP300,quality_process,0,0,1,released,LBP,-1,5,4,6/25/2007 14:02,6/25/2007 14:42,6/27/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802b04e5,LBP405,quality_process,0,0,1,released,LBP,-1,5,4,8/27/2007 18:05,8/31/2007 15:41,9/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802b7d04,LBP405,quality_process,0,0,1,released,LBP,-1,5,4,8/27/2007 18:05,8/31/2007 15:41,9/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802bad35,LBP114,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802bad3c,LBP114,quality_process,0,0,1,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802c1a03,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,9/21/2007 11:34,9/24/2007 15:02,9/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802c6c3d,LBP116,quality_process,0,0,0,retired,LBP,-1,6,5,9/28/2007 14:34,9/28/2007 17:33,10/1/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802cca5c,LBP108,quality_process,0,0,0,retired,LBP,-1,6,5,10/5/2007 13:32,10/8/2007 10:15,10/8/2007 10:15,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802d3875,LBP112,quality_process,0,0,0,retired,LBP,-1,6,5,10/15/2007 17:15,10/18/2007 16:06,10/19/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802db2cb,LBP207,quality_process,0,0,0,retired,LBP,-1,6,5,10/26/2007 10:37,10/30/2007 14:50,11/1/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802e07c0,LBP109,quality_process,0,0,1,released,LBP,-1,5,4,11/2/2007 14:06,11/6/2007 12:56,11/6/2007 12:56,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802e350a,LBP109,quality_process,0,0,1,released,LBP,-1,5,4,11/2/2007 14:06,11/6/2007 12:56,11/6/2007 12:56,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802ebdf4,LBP200,quality_process,0,0,0,retired,LBP,-1,6,5,11/20/2007 15:27,11/22/2007 12:27,11/26/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802ed728,LBP207,quality_process,0,0,0,retired,LBP,-1,6,5,11/22/2007 11:46,11/23/2007 15:47,11/30/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802f635c,LBP112,quality_process,0,1,0,released,LBP,-1,5,4,12/5/2007 9:47,12/6/2007 20:04,12/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802f7910,LBP112,quality_process,0,0,1,released,LBP,-1,5,4,12/5/2007 9:47,12/6/2007 20:04,12/7/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802fcc6a,LBP401,quality_process,0,0,0,retired,LBP,-1,6,5,12/19/2007 11:36,12/21/2007 10:38,12/21/2007 10:38,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5802fea11,LBP202,quality_process,0,0,0,retired,LBP,-1,6,5,12/20/2007 15:36,12/21/2007 10:16,1/3/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58031aa44,LBP108,quality_process,0,0,1,released,LBP,-1,5,4,2/4/2008 8:31,2/4/2008 17:33,2/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58031dd04,LBP108,quality_process,0,0,1,released,LBP,-1,5,4,2/4/2008 8:31,2/4/2008 17:33,2/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58032095a,LBP101,quality_process,0,0,1,released,LBP,-1,5,4,2/12/2008 10:04,2/13/2008 9:48,2/18/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580320967,LBP102,quality_process,0,0,0,retired,LBP,-1,6,5,2/12/2008 10:03,2/13/2008 9:47,2/15/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580320973,LBP200,quality_process,0,0,0,retired,LBP,-1,6,5,2/12/2008 10:03,2/13/2008 9:58,2/18/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58032221c,LBP117,quality_process,0,0,0,retired,LBP,-1,6,5,2/13/2008 10:54,2/14/2008 19:23,2/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580325585,LBP101,quality_process,0,0,1,released,LBP,-1,5,4,2/12/2008 10:04,2/13/2008 9:48,2/18/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580325bb8,LBP408,quality_process,0,0,0,retired,LBP,-1,6,5,2/18/2008 13:50,2/20/2008 17:36,2/22/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580325dbc,LBP402,quality_process,0,0,0,retired,LBP,-1,6,5,2/18/2008 17:43,2/19/2008 18:47,2/22/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803269f3,LBP410,quality_process,0,0,1,released,LBP,-1,5,4,2/19/2008 14:57,2/25/2008 8:59,2/25/2008 8:59,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58032be2a,LBP410,quality_process,0,0,1,released,LBP,-1,5,4,2/19/2008 14:57,2/25/2008 8:59,2/25/2008 8:59,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58032ecff,LBP400,quality_process,0,0,0,retired,LBP,-1,6,5,2/28/2008 10:13,2/29/2008 14:00,3/3/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58032fe16,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,2/29/2008 10:55,3/3/2008 11:51,3/4/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58033510f,LBP102,quality_process,0,0,1,released,LBP,-1,5,4,3/10/2008 7:43,3/11/2008 16:28,3/11/2008 16:28,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580335318,LBP409,quality_process,0,0,0,retired,LBP,-1,6,5,3/6/2008 13:07,3/7/2008 19:04,3/10/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580336089,LBP107,quality_process,0,0,0,retired,LBP,-1,6,5,3/10/2008 7:59,3/11/2008 16:19,3/13/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580339135,LBP102,quality_process,0,0,1,released,LBP,-1,5,4,3/10/2008 7:43,3/11/2008 16:28,3/11/2008 16:28,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803471c3,LBP403,quality_process,0,0,1,released,LBP,-1,5,4,3/28/2008 11:43,4/2/2008 17:53,4/3/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803471d3,LBP400,quality_process,0,0,1,released,LBP,-1,5,4,3/28/2008 10:25,4/2/2008 14:54,4/2/2008 14:54,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580348f3c,LBP402,quality_process,0,0,1,released,LBP,-1,5,4,4/1/2008 17:50,4/2/2008 14:23,4/3/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58034b000,LBP400,quality_process,0,0,1,released,LBP,-1,5,4,3/28/2008 10:25,4/2/2008 14:54,4/2/2008 14:54,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58034b06d,LBP201,quality_process,0,0,1,released,LBP,-1,5,4,4/2/2008 15:49,4/3/2008 19:31,4/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58034b51a,LBP402,quality_process,0,0,1,released,LBP,-1,5,4,4/1/2008 17:50,4/2/2008 14:23,4/3/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58034b51d,LBP403,quality_process,0,0,1,released,LBP,-1,5,4,3/28/2008 11:43,4/2/2008 17:53,4/3/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58034e59f,LBP201,quality_process,0,0,1,released,LBP,-1,5,4,4/2/2008 15:49,4/3/2008 19:31,4/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580350926,LBP116,quality_process,0,0,0,retired,LBP,-1,3,2,4/9/2008 9:32,,4/9/2008 9:45,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580350f0e,LBP111,quality_process,0,0,1,released,LBP,-1,5,4,4/9/2008 15:49,4/9/2008 19:06,4/10/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580351521,LBP111,quality_process,0,0,1,released,LBP,-1,5,4,4/9/2008 15:49,4/9/2008 19:06,4/10/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580355be0,LBP408,quality_process,0,0,0,released,LBP,-1,2,1,4/15/2008 13:38,,4/15/2008 15:32,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af580355d1c,LBP408,quality_process,0,0,1,released,LBP,-1,2,1,4/15/2008 13:38,,4/15/2008 15:32,46186af58006c9e5,Administrative_Change_Lifecycle
+09186af58035c926,LBP106,quality_process,0,0,1,released,LBP,-1,5,4,4/23/2008 9:54,4/25/2008 13:25,4/29/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580361920,LBP106,quality_process,0,0,1,released,LBP,-1,5,4,4/23/2008 9:54,4/25/2008 13:25,4/29/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58037a1f1,LBP406,quality_process,0,0,0,retired,LBP,-1,6,5,5/29/2008 10:39,5/30/2008 13:50,5/30/2008 13:50,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58037a4b9,LBP100,quality_process,0,1,0,released,LBP,-1,5,4,6/2/2008 17:08,6/6/2008 15:40,6/11/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580385126,LBP100,quality_process,0,0,1,released,LBP,-1,5,4,6/2/2008 17:08,6/6/2008 15:40,6/11/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038929d,LBP301,quality_process,0,0,1,standard_document,LBP,-1,5,4,1/26/2007 10:32,1/26/2007 14:05,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803892a5,LBP409,quality_process,0,0,1,standard_document,LBP,-1,6,5,12/15/2006 8:49,12/15/2006 14:03,12/15/2006 14:03,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803892b5,LBP409,quality_process,0,0,1,standard_document,LBP,-1,6,5,4/19/2007 11:35,4/23/2007 11:17,4/25/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038933f,LBP105,quality_process,0,0,1,standard_document,LBP,-1,6,5,1/23/2007 16:43,1/26/2007 9:51,1/29/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038956d,LBP202,quality_process,0,0,1,standard_document,LBP,-1,6,5,1/18/2007 18:58,1/19/2007 16:35,1/23/2007 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803895a6,LBP200,quality_process,0,0,1,standard_document,LBP,-1,5,4,2/12/2008 10:03,2/13/2008 9:58,2/18/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038a3a6,LBP409,quality_process,0,0,1,standard_document,LBP,-1,6,5,12/15/2006 8:49,12/15/2006 14:03,12/15/2006 14:03,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038a3e8,LBP207,quality_process,0,0,1,released,LBP,-1,5,4,6/17/2008 15:14,6/18/2008 14:43,6/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038a536,LBP200,quality_process,0,0,1,released,LBP,-1,5,4,6/17/2008 17:04,6/18/2008 14:46,6/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038bf66,LBP112,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038bf6c,LBP112,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038c92b,LBP207,quality_process,0,0,1,released,LBP,-1,5,4,6/17/2008 15:14,6/18/2008 14:43,6/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58038c92e,LBP200,quality_process,0,0,1,released,LBP,-1,5,4,6/17/2008 17:04,6/18/2008 14:46,6/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580392754,LBP107,quality_process,0,0,1,released,LBP,-1,5,4,6/27/2008 13:23,7/2/2008 19:08,7/4/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580396840,LBP104,quality_process,0,0,1,in_review,LBP,-1,2,3,7/4/2008 18:16,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580396846,LBP105,quality_process,0,0,1,in_review,LBP,-1,2,3,7/10/2008 14:36,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af580397d22,LBP107,quality_process,0,0,1,released,LBP,-1,5,4,6/27/2008 13:23,7/2/2008 19:08,7/4/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039b434,LBP406,quality_process,0,0,0,released,LBP,-1,5,4,7/9/2008 9:19,7/10/2008 13:27,7/11/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039bd54,LBP115,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039bd74,LBP115,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039cc82,LBP112,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039cc92,LBP112,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039d12b,LBP406,quality_process,0,0,1,released,LBP,-1,5,4,7/9/2008 9:19,7/10/2008 13:27,7/11/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039d63c,LBP409,quality_process,0,0,1,released,LBP,-1,5,4,7/11/2008 11:14,7/14/2008 16:16,7/17/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58039f9fb,LBP103,quality_process,0,0,1,released,LBP,-1,5,4,11/3/2008 14:37,11/6/2008 0:19,11/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803a2125,LBP409,quality_process,0,0,1,released,LBP,-1,5,4,7/11/2008 11:14,7/14/2008 16:16,7/17/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803acc8b,LBP406,quality_process,0,0,1,in_review,LBP,-1,2,3,8/14/2008 9:59,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803bb1b3,LBP100,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803bb1c1,LBP100,quality_process,0,0,1,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803bc96f,LBP408,quality_process,0,0,1,in_review,LBP,-1,2,3,8/22/2008 13:33,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803c1778,LBP202,quality_process,0,0,0,retired,LBP,-1,6,5,8/28/2008 17:43,8/29/2008 11:20,8/29/2008 11:20,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803c7afc,LBP115,quality_process,0,0,1,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803db2bd,LBP112,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803dbff7,LBP117,quality_process,0,0,1,released,LBP,-1,5,4,10/3/2008 16:04,10/6/2008 11:24,10/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803dea82,LBP117,quality_process,0,0,1,released,LBP,-1,5,4,10/3/2008 16:04,10/6/2008 11:24,10/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803df3b9,LBP116,quality_process,0,0,1,released,LBP,-1,5,4,10/7/2008 15:23,10/10/2008 14:45,10/13/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803dfee1,LBP301,quality_process,0,0,0,on_approval,LBP,-1,3,2,10/8/2008 17:20,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e0a28,LBP301,quality_process,0,0,1,released,LBP,-1,5,4,10/9/2008 13:00,10/27/2008 9:54,10/28/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e3592,LBP116,quality_process,0,0,1,released,LBP,-1,5,4,10/7/2008 15:23,10/10/2008 14:45,10/13/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e4b83,LBP202,quality_process,0,0,1,released,LBP,-1,5,4,10/14/2008 14:59,10/15/2008 11:27,10/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e8cba,LBP202,quality_process,0,0,1,released,LBP,-1,5,4,10/14/2008 14:59,10/15/2008 11:27,10/20/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e9cdd,LBP112,quality_process,0,1,0,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803e9cf3,LBP112,quality_process,0,0,1,in_redaction,LBP,-1,0,-1,,,,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803eabcf,LBP404,quality_process,0,0,1,released,LBP,-1,5,4,10/22/2008 16:01,10/24/2008 12:53,10/24/2008 12:53,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803ec281,LBP404,quality_process,0,0,1,released,LBP,-1,5,4,10/22/2008 16:01,10/24/2008 12:53,10/24/2008 12:53,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803ef65e,LBP301,quality_process,0,0,1,released,LBP,-1,5,4,10/9/2008 13:00,10/27/2008 9:54,10/28/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803f78c8,LBP103,quality_process,0,0,1,released,LBP,-1,5,4,11/3/2008 14:37,11/6/2008 0:19,11/7/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803fa44a,LBP401,quality_process,0,0,1,released,LBP,-1,5,4,11/10/2008 18:12,11/13/2008 19:35,11/14/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af5803fd4bd,LBP401,quality_process,0,0,1,released,LBP,-1,5,4,11/10/2008 18:12,11/13/2008 19:35,11/14/2008 0:00,46186af58006c9eb,Quality_Document_Lifecycle
+09186af58041384d,LBP110,quality_process,0,0,1,in_review,LBP,-1,2,3,12/15/2008 9:17,,,46186af58006c9eb,Quality_Document_Lifecycle

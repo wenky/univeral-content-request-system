@@ -1,0 +1,147 @@
+<config version="1.0">
+   <scope>
+      <component id="mdtattachmentlocator" extends="sysobjectlocator:webcomponent/config/library/locator/sysobjectlocator_component.xml">
+         <desc>
+            Document locator component: a locator that locates dm_document objects in a docbase.
+            The component let a user navigate from the root cabinets to locate an object. Objects
+            can be filtered by the content format.
+         </desc>
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtAttachmentLocator</class>
+         <nlsbundle>com.documentum.webcomponent.library.locator.SysObjectLocatorNlsProp</nlsbundle>
+         
+         <pages>
+            <start>/app-workflow/pages/mdt_attachment_locator.jsp</start>
+         </pages>
+         
+         
+         <!-- Component specific Configuration -->
+         <!-- define column visibility -->
+         <!-- Component specific Configuration -->
+         <!-- the (logical) base type of the selectable type. -->
+         <objecttype>dm_document</objecttype>
+         <!-- Component specific Configuration -->
+         <!-- define the views for root, container, and flatlist -->
+         <views>
+            <!-- cabinet view -->
+            <view applyto="root">
+               <queryfiltersets>
+                  <queryfilterset>
+                     <queryfilter>
+                        <containertypes>dm_cabinet</containertypes>
+                        <includetypes>dm_cabinet</includetypes>
+                     </queryfilter>
+                  </queryfilterset>
+               </queryfiltersets>
+            </view>
+            <view applyto="container,flatlist">
+               <queryfiltersets>
+                  <queryfilterset>
+                     <queryfilter>
+                        <!-- show all -->
+                        <displayname>
+                           <nlsid>MSG_SHOWALL</nlsid>
+                        </displayname>
+                        <!-- show folders before other objects and make folders navigatorable -->
+                        <containertypes>dm_folder</containertypes>
+                     </queryfilter>
+                     <!-- show folders -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_SHOWFOLDERS</nlsid>
+                        </displayname>
+                        <!-- show folders before other objects and make folders navigatorable -->
+                        <containertypes>dm_folder</containertypes>
+                        <includetypes>dm_folder</includetypes>
+                     </queryfilter>
+                     <!-- hide folders -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_HIDEFOLDERS</nlsid>
+                        </displayname>
+                        <excludetypes>dm_folder</excludetypes>
+                     </queryfilter>
+                     <!-- show all documents -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_SHOWDOCUMENTS</nlsid>
+                        </displayname>
+                        <includetypes>dm_document</includetypes>
+                     </queryfilter>
+                     <!-- show all word documents -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_SHOWALLWORDDOCUMENTS</nlsid>
+                        </displayname>
+                        <includetypes>dm_document</includetypes>
+                        <attributefilters>
+                           <attributefilter>
+                              <attribute>a_content_type</attribute>
+                              <predicate>sw</predicate>
+                              <value dqlformatted="false">msw</value>
+                           </attributefilter>
+                        </attributefilters>
+                     </queryfilter>
+                     <!-- show word documents -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_SHOWWORDDOCUMENTS</nlsid>
+                        </displayname>
+                        <includetypes>dm_document</includetypes>
+                        <attributefilters>
+                           <attributefilter>
+                              <and>true</and>
+                              <attribute>a_content_type</attribute>
+                              <predicate>sw</predicate>
+                              <value dqlformatted="false">msw</value>
+                           </attributefilter>
+                           <attributefilter>
+                              <and>true</and>
+                              <attribute>a_content_type</attribute>
+                              <predicate>nc</predicate>
+                              <value dqlformatted="false">template</value>
+                           </attributefilter>
+                        </attributefilters>
+                     </queryfilter>
+                     <!-- show word templates -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_SHOWWORDTEMPALTES</nlsid>
+                        </displayname>
+                        <includetypes>dm_document</includetypes>
+                        <attributefilters>
+                           <attributefilter>
+                              <and>true</and>
+                              <attribute>a_content_type</attribute>
+                              <predicate>sw</predicate>
+                              <value dqlformatted="false">msw</value>
+                           </attributefilter>
+                           <attributefilter>
+                              <and>true</and>
+                              <attribute>a_content_type</attribute>
+                              <predicate>ew</predicate>
+                              <value dqlformatted="false">template</value>
+                           </attributefilter>
+                        </attributefilters>
+                     </queryfilter>
+                     <!-- show html documents -->
+                     <queryfilter>
+                        <displayname>
+                           <nlsid>MSG_SHOWHTMLDOCUMENTS</nlsid>
+                        </displayname>
+                        <includetypes>dm_document</includetypes>
+                        <attributefilters>
+                           <attributefilter>
+                              <attribute>a_content_type</attribute>
+                              <predicate>eq</predicate>
+                              <value dqlformatted="false">html</value>
+                           </attributefilter>
+                        </attributefilters>
+                     </queryfilter>
+                  </queryfilterset>
+               </queryfiltersets>
+            </view>
+         </views>
+      </component>
+   </scope>
+</config>
+     

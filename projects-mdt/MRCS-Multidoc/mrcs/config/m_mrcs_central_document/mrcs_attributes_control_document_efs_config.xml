@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope type="m_mrcs_central_document">
+
+      <!-- docbaseattributelist definition -->
+      <attributelist id="attributes" extends="attributes:mrcs/config/mrcs_attributes_control_document_config.xml">
+
+         <data_dictionary_population>
+            <enable>true</enable>
+            <ddscopes>
+               <ddscope name="application">webtop</ddscope>
+            </ddscopes>
+            <ignore_attributes></ignore_attributes>            
+            <readonly_attributes>
+               <attribute name="object_name"/>
+               <attribute name="owner_name"/>
+               <attribute name="r_version_label"/>
+               <attribute name="m_mrcs_central_ref_number"/>
+            </readonly_attributes>
+         </data_dictionary_population>
+         
+      </attributelist>
+   </scope>
+   
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_attributes_control_document_efs_config.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.2 $
+ Modified on    $Date: 2006/09/12 20:42:14 $
+
+***********************************************************************
+-->
+
+
+

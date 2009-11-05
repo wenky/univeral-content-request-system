@@ -1,0 +1,62 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+List permits = ["null","NONE","BROWSE","READ","RELATE","VERSION","WRITE","DELETE"];
+IDfSession dctmsess = dctmaccess.accessSession();
+IDfACL acl = (IDfACL)dctmsess.getObject(new DfId(id));
+
+
+out.write """
+Name: ${acl.getObjectName()}<BR>
+Domain: ${acl.getDomain()}<BR>
+<hr>
+""" 
+
+// TODO: xpermits
+// iterate through the users/groups on the accessors
+String html = "";
+try {
+    boolean first = true;
+    for (int i=0; i < acl.getAccessorCount(); i++)
+    {
+        if (first) first = false; else html += " - ";
+        String name = acl.getAccessorName(i);
+        int permit = acl.getAccessorPermit(i);
+        String pmt = "";
+        switch(permit) {
+            case IDfACL.DF_PERMIT_NONE: pmt = " N"+permit; break;
+            case IDfACL.DF_PERMIT_BROWSE: pmt = " B"+permit; break;
+            case IDfACL.DF_PERMIT_READ:   pmt = " Rd"+permit; break;
+            case IDfACL.DF_PERMIT_RELATE: pmt = " Rl"+permit; break;
+            case IDfACL.DF_PERMIT_VERSION: pmt = " V"+permit; break;
+            case IDfACL.DF_PERMIT_WRITE:  pmt = " W"+permit; break;
+            case IDfACL.DF_PERMIT_DELETE: pmt = " D"+permit; break;
+        }
+        IDfUser user = dctmsess.getUser(name);
+        if (user != null) {
+            String osname = "";
+            if (user.isGroup())
+                html += "<img src='../wdk/theme/documentum/icons/type/t_dm_group_16.gif' length=16 width=16 border=0> ";
+            else {
+                html += "<img src='../wdk/theme/documentum/icons/type/t_dm_user_16.gif' length=16 width=16 border=0> ";
+                osname = " ["+user.getUserOSName()+"]";
+            }            
+            html += baselink+"&id="+user.getObjectId().getId()+"'>"+name+"</a>"+osname+"<font color=\'red\'>"+pmt+"</font>";
+        } else {
+            IDfGroup group = dctmsess.getGroup(name);
+            if (group != null) {
+                html += "<img src='../wdk/theme/documentum/icons/type/t_dm_group_16.gif' length=16 width=16 border=0> ";
+                html += baselink+"&id="+group.getObjectId().getId()+"'>"+name+"</a><font color=\'red\'>"+pmt+"</font>";
+            } else {
+                html += "<img src='../wdk/theme/documentum/icons/type/t_dm_group_16.gif' length=16 width=16 border=0> ";
+                html += name+"<font color=\'red\'>"+pmt+"</font>";
+                
+            }
+        }
+    }
+} catch (DfException e) { html = "error in ACL accessor lookup<BR>"; }
+
+out.write(html);

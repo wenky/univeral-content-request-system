@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Column Selector                                        -->
+<!-- File           columnselector_component.xml                           -->
+<!-- Description    Column Selector Component Definition                   -->
+<!-- Created on     22nd August 2003                                       -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2007/12/12 17:39:31 $                            -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      <component id="columnselector" extends="columnselector:webcomponent/config/environment/preferences/display/columnselector_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Column selector component:  Provide UI and behaviour for selecting the
+            columns and column order for view components such as DocList and Drilldown.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='columns' required='true'></param>
+            <param name='objectId' required='false'></param>
+            <param name='selectedColumns' required='false'></param>
+            <param name='docbaseTypes' required='false'></param>
+            <param name='showRepeatingAttributes' required='false'></param>
+            <param name='defaultSelectedColumns' required='false'></param>
+            <param name='enableOrdering' required='false'></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/webcomponent/environment/preferences/display/columnselector.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsDisplayPreferences</class>
+         <nlsbundle>com.documentum.webcomponent.environment.preferences.display.ColumnSelectorNlsProp</nlsbundle>
+
+         <!-- Component Help -->
+         <helpcontextid>columnselector</helpcontextid>
+
+      </component>
+   </scope>
+</config>
+

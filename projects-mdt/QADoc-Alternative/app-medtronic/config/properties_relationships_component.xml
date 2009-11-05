@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         History                                                -->
+<!-- File           history_component.xml                                  -->
+<!-- Description    Generic History Component Definition                   -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2008/06/19 21:37:24 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      <component id="qadoc_relationships" extends="objectgrid:/webcomponent/config/navigation/objectgrid/objectgrid_component.xml">
+
+         <!-- short description of the component: (not NLS'ed) -->
+         <desc>
+            lists the audited events (system and custom) for a given 'objectId' for a sysobject.
+            Auditing can be turned on by executing the API method - audit.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+         </params>
+
+         <!-- Component Layouts -->
+         <pages>
+            <start>/app-medtronic/pages/relationships.jsp</start>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.ecm.documentum.core.webtop.MdtRelationships</class>
+         <nlsbundle>com.medtronic.ecm.documentum.core.webtop.RelationshipsNlsProp</nlsbundle>
+
+         <!-- If this component supports failover/replication, the failoverenabled needs to be set to true-->
+         <failoverenabled>true</failoverenabled>
+         
+         <!-- specify the event qualifier for the events to be shown -->
+         <!-- {r_object_id} represents the object id -->
+         <!-- the dql query format will be of the form "select ... from FROM dm_audittrail WHERE queryconditionstring -->
+         <queryconditionstring>
+            audited_obj_id={r_object_id} or (id_5={r_object_id} and event_name in ('dm_addpackage', 'dm_completedworkitem', 'dm_removepackage', 'dm_signoff'))
+         </queryconditionstring>
+
+         <!-- header info for this component -->
+         <!-- needed only if the component is to be displayed standalone (i.e. not within a container) -->
+         <header visible='false'>
+            <showlabel>true</showlabel>
+            <!-- The flag to show or hide the CLOSE button control within the header. -->
+            <showclosebutton>true</showclosebutton>
+         </header>
+
+         <!-- displayable attribute columns -->
+         <columns>
+
+            <column attribute='event_name'         >true</column>
+            <column attribute='event_source'       >true</column>
+            <column attribute='r_gen_source'       >true</column>
+            <column attribute='time_stamp'         >true</column>
+            <column attribute='user_name'          >true</column>
+
+            <column attribute='string_1'           >false</column>
+            <column attribute='string_2'           >false</column>
+            <column attribute='string_3'           >false</column>
+            <column attribute='string_4'           >false</column>
+            <column attribute='string_5'           >false</column>
+
+         </columns>
+
+         <!-- Nls lookup table -->
+         <!-- used here for supplying user-friendly textual description for system and user defined events -->
+         <!-- Nls mappings are provided in the <nlsbundle> file -->
+         <lookuptable>
+            <!-- system events for sysobjects -->
+            <lookup key='dm_archive'      nlsid='MSG_ARCHIVE'/>
+            <lookup key='dm_assemble'     nlsid='MSG_ASSEMBLE'/>
+            <lookup key='dm_branch'       nlsid='MSG_BRANCH'/>
+            <lookup key='dm_checkin'      nlsid='MSG_CHECKIN'/>
+            <lookup key='dm_checkout'     nlsid='MSG_CHECKOUT'/>
+            <lookup key='dm_destroy'      nlsid='MSG_DESTROY'/>
+            <lookup key='dm_fetch'        nlsid='MSG_FETCH'/>
+            <lookup key='dm_freeze'       nlsid='MSG_FREEZE'/>
+            <lookup key='dm_link'         nlsid='MSG_LINK'/>
+            <lookup key='dm_lock'         nlsid='MSG_LOCK'/>
+            <lookup key='dm_mark'         nlsid='MSG_MARK'/>
+            <lookup key='dm_prune'        nlsid='MSG_PRUNE'/>
+            <lookup key='dm_restore'      nlsid='MSG_RESTORE'/>
+            <lookup key='dm_save'         nlsid='MSG_SAVE'/>
+            <lookup key='dm_setfile'      nlsid='MSG_SETFILE'/>
+            <lookup key='dm_signoff'      nlsid='MSG_SIGNOFF'/>
+            <lookup key='dm_unfreeze'     nlsid='MSG_UNFREEZE'/>
+            <lookup key='dm_unlink'       nlsid='MSG_UNLINK'/>
+            <lookup key='dm_unlock'       nlsid='MSG_UNLOCK'/>
+
+            <!-- system events for policy objects -->
+            <lookup key='dm_bp_attach'       nlsid='MSG_ATTACH'/>
+            <lookup key='dm_bp_demote'       nlsid='MSG_DEMOTE'/>
+            <lookup key='dm_bp_install'      nlsid='MSG_INSTALL'/>
+            <lookup key='dm_bp_promote'      nlsid='MSG_PROMOTE'/>
+            <lookup key='dm_bp_resume'       nlsid='MSG_RESUME'/>
+            <lookup key='dm_bp_suspend'      nlsid='MSG_SUSPEND'/>
+            <lookup key='dm_bp_uninstall'    nlsid='MSG_UNINSTALL'/>
+            <lookup key='dm_bp_validate'     nlsid='MSG_VALIDATE'/>
+
+            <!-- system events for workflows -->
+            <lookup key='dm_abortworkflow'                  nlsid='MSG_ABORT_WORKFLOW'/>
+            <lookup key='dm_addnote'                        nlsid='MSG_ADD_NOTE'/>
+            <lookup key='dm_addpackage'                     nlsid='MSG_ADD_PACKAGE'/>
+            <lookup key='dm_autotransactivity'              nlsid='MSG_AUTO_TRANS_ACTIVITY'/>
+            <lookup key='dm_changestateactivity'            nlsid='MSG_CHG_STATE_ACTIVITY' />
+            <lookup key='dm_changedactivityinstancestate'   nlsid='MSG_CHG_ACTIVITY_INST_STATE'/>
+            <lookup key='dm_changestateprocess'             nlsid='MSG_CHG_STATE_PROCESS'/>
+            <lookup key='dm_changestateworkflow'            nlsid='MSG_CHG_STATE_WORKFLOW'/>
+            <lookup key='dm_completedworkitem'              nlsid='MSG_COMPLETED_WORKITEM'/>
+            <lookup key='dm_createworkflow'                 nlsid='MSG_CREATE_WORKFLOW'/>
+            <lookup key='dm_delegatedworkitem'              nlsid='MSG_DELEGATE_WORKITEM'/>
+            <lookup key='dm_finishworkflow'                 nlsid='MSG_FINISH_WORKFLOW'/>
+            <lookup key='dm_portselect'                     nlsid='MSG_PORT_SELECT'/>
+            <lookup key='dm_removenote'                     nlsid='MSG_REMOVE_NOTE'/>
+            <lookup key='dm_removepackage'                  nlsid='MSG_REMOVE_PACKAGE'/>
+            <lookup key='dm_selectedworkitem'               nlsid='MSG_SELECTED_WORKITEM'/>
+            <lookup key='dm_startedworkitem'                nlsid='MSG_STARTED_WORKITEM'/>
+            <lookup key='dm_startworkflow'                  nlsid='MSG_START_WORKFLOW'/>
+
+            <!-- user defined events can be added here if textual desc is required -->
+            <!--
+            <lookup key='user_defined_event_name'        nlsid='nlsid_for_the_event' />
+             -->
+         </lookuptable>
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>relationships</helpcontextid>
+      </component>
+   </scope>
+</config>
+<!--
+ -->

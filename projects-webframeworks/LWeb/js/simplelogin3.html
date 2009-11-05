@@ -1,0 +1,29 @@
+<html>
+
+    <!--  DWR -->
+    <script type='text/javascript' src='/webtop/dwr/interface/TestLightMap.js'></script>
+    <script type='text/javascript' src='/webtop/dwr/engine.js'></script>
+    <!--  jquery/ext include -->
+    <script type="text/javascript" src="./jquery-1.2.1-regex.js"></script>
+    <script type="text/javascript" src="./ext-2.0/adapter/jquery/jquery-plugins.js"></script>
+    <script type="text/javascript" src="./ext-2.0/adapter/jquery/ext-jquery-adapter.js"></script>
+    <script type="text/javascript" src="./ext-2.0/ext-all.js"></script>
+    <link rel="stylesheet" type="text/css" href="./ext-2.0/resources/css/ext-all.css">
+    <!--  json4jquery - note: extensive problems with DATETIMEs js "objects" ... -->
+    <script type="text/javascript" src="./json4jquery.js"></script>
+    <!--  DCTM-specific login verifier and session setup -->
+    <script type="text/javascript" src="./verifylogin.js></script>       
+    <!--  localsession include -->
+    <script type="text/javascript" src="./localsession.js"></script>
+    <!--  trimquery, for the hell of it, include -->
+    <script type="text/javascript" src="./trimpath-query-1.0.38.js"></script>
+
+    <body>
+      
+      
+      
+      <!--  cannot be appended via jquery...:-(...maybe an iFrame could be dynamically added? -->      
+      <div><applet id='localsession' codebase='/webtop/extjs2-introspection/applet' code='com.medtronic.documentum.ajax.LocalSession.class' width=0 height=0 mayscript></applet></div>    
+    </body>
+
+</html>

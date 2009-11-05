@@ -1,0 +1,16 @@
+<html>
+<body>
+    <input type="submit" name="read" value="read" onclick="alert('hello? '+document.per.readTestFile());"><BR>
+    <input type="text" name="wrt">
+    <input type="submit" name="write" value="write" onclick="document.getElementById('per').writeTestFile('yippee\nsuccessful--write');">
+    <!-- applet id="per" name="per" code="Persistor.class" archive="PersistorApplet.jar" width=0 height=0 mayscript -->
+<!-- OBJECT id="per" name="per" type="application/x-java-applet;version=1.4.1" -->
+<OBJECT id="per" name="per" type="application/x-java-applet;version=1.3">
+    <PARAM NAME="code" VALUE="Persistor.class">
+    <PARAM NAME="archive" VALUE="PersistorApplet.jar" >
+    <PARAM NAME="mayscript" VALUE="yes">
+    <param name="scriptable" value="true">
+    <param name="name" value="persistor">
+</OBJECT>
+</body>
+</html>

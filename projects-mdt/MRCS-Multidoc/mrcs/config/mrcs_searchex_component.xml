@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: search                                            -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $revision$ -->
+<!-- Modified on $date$ -->
+
+<config version='1.0'>
+   
+   <!-- this component doesn't handle display of search results of a dm_query object -->
+   <scope>
+
+      <!-- the simple search component definition -->
+      <component id="search" extends="search:webcomponent/config/library/search/searchex/search_component.xml">
+         
+         <!-- Component Behavior -->
+         <class>com.documentum.webtop.webcomponent.search.SearchEx</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsSearchExNlsProp</nlsbundle>
+
+         <!-- visibility and order of attribute columns -->
+         <!-- attribute names starting with uppercase are pseudo -->
+         <columns_list>
+            <loadinvisibleattribute>true</loadinvisibleattribute>
+            <column>
+               <attribute>object_name</attribute>
+               <label><nlsid>MSG_NAME</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>title</attribute>
+               <label><nlsid>MSG_ATTR_TITLE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_current_state</attribute>
+               <label><nlsid>MSG_CURRENT_STATE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>score</attribute>
+               <label><nlsid>MSG_ATTR_SCORE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>summary</attribute>
+               <label><nlsid>MSG_ATTR_SUMMARY</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>authors</attribute>
+               <label><nlsid>MSG_AUTHORS</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>a_content_type</attribute>
+               <label><nlsid>MSG_FORMAT</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_content_size</attribute>
+               <label><nlsid>MSG_SIZE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>owner_name</attribute>
+               <label><nlsid>MSG_OWNER_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>group_name</attribute>
+               <label><nlsid>MSG_GROUP_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_creator_name</attribute>
+               <label><nlsid>MSG_CREATOR_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_object_type</attribute>
+               <label><nlsid>MSG_OBJECT_TYPE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_version_label</attribute>
+               <label><nlsid>MSG_VERSION_LABEL</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_creation_date</attribute>
+               <label><nlsid>MSG_CREATION_DATE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_modify_date</attribute>
+               <label><nlsid>MSG_MODIFIED_DATE</nlsid></label>
+               <visible>true</visible>
+            </column>
+
+            <column>
+               <attribute>r_modifier</attribute>
+               <label><nlsid>MSG_MODIFIER</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_access_date</attribute>
+               <label><nlsid>MSG_ACCESS_DATE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_lock_owner</attribute>
+               <label><nlsid>MSG_LOCK_OWNER</nlsid></label>
+               <visible>false</visible>
+            </column>
+
+            <!-- this is a pseudo attributes refering to the folder path or external source URL -->
+            <column>
+               <attribute>Location</attribute>
+               <label><nlsid>MSG_ATTR_LOCATION</nlsid></label>
+               <visible>true</visible>
+            </column>
+
+            <column>
+               <attribute>Source</attribute>
+               <label><nlsid>MSG_ATTR_SOURCE</nlsid></label>
+               <visible>false</visible>
+            </column>
+
+            <column>
+               <attribute>topic_status</attribute>
+               <label><nlsid>MSG_DISCUSSION</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>room_status</attribute>
+               <label><nlsid>MSG_ROOM_ICON</nlsid></label>
+               <visible>true</visible>
+            </column>
+         </columns_list>
+
+      </component>
+
+   </scope>
+</config>

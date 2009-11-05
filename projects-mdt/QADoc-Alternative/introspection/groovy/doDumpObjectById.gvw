@@ -1,0 +1,59 @@
+import com.medtronic.ecm.documentum.introspection.*;
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+String dump = null;
+
+String idparam = request.getParameter("id");
+if (idparam != null) {
+    dump = ProcessObjectDump.dump(dctmaccess,baseurl,credurl,idparam);
+} else {
+    // assume id has been placed in the binding - is there a way to detect this?
+    idparam = scriptbinding.getProperty("id");
+    dump = ProcessObjectDump.dump(dctmaccess,baseurl,credurl,idparam);
+}
+
+// do some crude scoping for object-specific header handling:
+// when adding new ones, make sure that the child type is above the parent type in the list
+def types = [
+             ["dm_folder",      "doDumpDmFolder.gvw"],          
+             ["dm_acl",         "doDumpDmACL.gvw"],          
+             ["dm_group",       "doDumpDmGroup.gvw"],          
+             ["dm_user",        "doDumpDmUser.gvw"],          
+             ["dm_workflow",    "doDumpDmWorkflow.gvw"],          
+             ["dm_type",        "doDumpDmType.gvw"],          
+             ["dm_document",    "doDumpDmDocument.gvw"],          
+             ["dm_sysobject",   "doDumpDmDocument.gvw"]          
+            ];
+
+IDfPersistentObject po = dctmaccess.accessSession().getObject(new DfId(idparam));
+IDfType objtype = po.getType();
+
+// object name... you'd think this would be easy
+String objname = null; 
+try {
+    if (objtype.getName().equals("dm_type")) objname = po.getString("name"); 
+    else if (objtype.getName().equals("dm_format")) objname = po.getString("name"); 
+    else if (objtype.getName().equals("dm_group")) objname = po.getString("group_name");
+    else if (objtype.getName().equals("dm_user")) objname = po.getString("user_name");
+    else objname = po.getString("object_name"); 
+} catch (Exception e) { objname = "--Error Getting Name--"; }    
+
+out.write("<b>Name:</b>${objname}<BR><b>Id:</b>${idparam}<BR><b>Type:</b>${objtype.getName()}<br>");
+
+for (int i=0; i < types.size(); i++) {
+    def scope = types[i];
+    if (objtype.getName().equals(scope[0]) || objtype.isSubTypeOf(scope[0])) {
+        Binding binding = GroovyIntrospection.createBindingFromMap(bindingmap);
+        binding.setVariable("id",idparam);
+        binding.setVariable("obj",po);
+        out.write(GroovyIntrospection.callGroovy(scope[1],binding));
+        break;
+    }
+}
+
+out.write """<hr>
+<FONT face='Courier New'>${dump}</FONT>
+"""

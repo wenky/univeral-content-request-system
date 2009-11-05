@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Import                                                 -->
+<!-- File           import_component.xml                                   -->
+<!-- Description    Import Component Definition                            -->
+<!-- Created on     November 11 2001                                       -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.10 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:51 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      
+      <!-- component definition -->
+      <component id="mrcsnewsubfolder">
+         
+         <!-- Component Contract -->
+         <params>
+            <!-- objectId provides id of folder for import -->
+            <param name="objectId" required="true"></param>
+            <param name="mrcsApplication" required="true"></param>
+            <param name="parentGroupingFolderType" required="true"></param>
+         </params>
+         
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/MrcsNewSubFolder.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsNewSubFolder</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsNewGroupingFolderStrings</nlsbundle>
+                       
+      </component>
+      
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcsnewsubfolder_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:51 $
+
+***********************************************************************
+-->
+
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         History                                                -->
+<!-- File           history_component.xml                                  -->
+<!-- Description    Generic History Component Definition                   -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2008/01/28 18:35:28 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      <!--  component id="qadoc_approval" extends="objectgrid:/webcomponent/config/navigation/objectgrid/objectgrid_component.xml" -->
+      <component id="qadoc_approval" >
+
+         <!-- short description of the component: (not NLS'ed) -->
+         <desc>
+            displays QADoc approval form information (associated docs, approval status, etc)
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+         </params>
+
+         <!-- Component Layouts -->
+         <pages>
+            <start>/mrcs/pages/qadoc_approval.jsp</start>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.QADocApprovalComponent</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.client.QADocApprovalNlsProp</nlsbundle>
+         
+         <!-- Component specific Configuration -->
+         <helpcontextid>qadoc_approval</helpcontextid>
+      </component>
+   </scope>
+</config>
+<!--
+ -->

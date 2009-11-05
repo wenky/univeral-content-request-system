@@ -1,0 +1,134 @@
+
+<!-- initial dql query test script -->
+
+
+<MigrationScript>
+  <sourceusername>ecsadmin</sourceusername>
+  <sourcepassword>spring2005</sourcepassword>
+  <sourcedocbase>mqadoc_test</sourcedocbase>
+  
+  <Processors>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.InitialCsvLoad</Class>
+      <Config>
+        <entry><string>CsvFile</string><string>C:/Dev/migrate3/CSV.csv</string></entry>
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.LookupDctmFromCSVObjectId</Class>
+      <Config>
+        <entry><string>IdColumn</string><string>0</string></entry>
+        <!-- entry><string>NameColumn</string><string>1</string></entry -->
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.GetVersionsProcessor</Class>
+      <Config>
+        <entry><string>CreationPropertiesRelease</string><string>9.5.0.2-Global</string></entry>
+        <entry><string>CreationPropertiesEvent</string><string>export</string></entry>
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.StandardAttributesProcessor</Class>
+      <Config>
+        <entry><string>r_object_type</string>
+          <map>
+            <entry><string>mdt_qad_smo_qdoc</string><string>Equipment Document</string></entry>
+          </map>
+        </entry>
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.MapCsvData</Class>
+      <Config>
+        <entry><string>Attributes</string>
+          <map>
+            <entry><string>Name</string><string>previousName</string></entry>
+            <entry><string>Title</string><string>previousTitle</string></entry>
+            <entry><string>Subject</string><string>previousSubject</string></entry><entry><string>Status</string><string>previousStatus</string></entry>
+            <entry><string>Owner</string><string>previousOwner</string></entry>
+            <entry><string>Label</string><string>previousLabel</string></entry>
+            <entry><string>Products Affected</string><string>affectedProducts</string></entry>
+            <entry><string>Folder Path</string><string>folderRelation</string></entry>
+          </map>
+        </entry>
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.RevisionReferencesProcessor</Class>
+    </Plugin>        
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.ReMapAttributesProcessor</Class>
+      <Config>
+        <!--  make this a submap named Attributes for zoder port -->
+        <entry>
+          <string>title</string>
+          <string>Title</string>
+        </entry>
+        <entry>
+          <string>m_qad_type</string>
+          <string>Originator</string>
+        </entry>
+        <entry>
+          <string>object_name</string>
+          <string>Cross Reference ID</string>
+        </entry>
+        <entry>
+          <string>m_approved_date</string>
+          <string>Released Date</string>
+        </entry>
+        <entry>
+          <string>log_entry</string>
+          <string>Reason for Change</string>
+        </entry>
+        <entry>
+          <string>m_issue_date</string>
+          <string>Next Review Date</string>
+        </entry>
+        <entry>
+          <string>m_application</string>
+          <string>Language</string>
+        </entry>
+      </Config>
+    </Plugin>    
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.AuditHistoryProcessor</Class>
+      <Config>
+        <entry><string>DQL</string><string>SELECT event_name,event_source,user_name,current_state,audited_obj_id,time_stamp,string_1,string_2,string_3,string_4,string_5 FROM dm_audittrail WHERE event_source != 'System Unspecific'</string></entry>
+        <entry><string>event_name</string><string>event</string></entry>
+        <entry><string>event_source</string><string>agent</string></entry>
+        <entry><string>time_stamp</string><string>datetime</string></entry>
+        <entry><string>current_state</string><string>stateName</string></entry>
+      </Config>
+    </Plugin>
+    <Plugin> <!--  hardcoded for now, don't know what do to for this... -->
+      <Class>com.nighteclipse.migrate.processors.StateInfoProcessor</Class>
+    </Plugin>        
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.FinalCountsProcessor</Class>
+    </Plugin>        
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.SerializeXmlMapProcessor</Class>
+      <Config>      
+        <entry><string>OutputDirectory</string><string>C:/Dev/migrate3/TestMigration2CSV/</string></entry>
+        <entry><string>OutputPrefix</string><string>csv--</string></entry>
+        <entry><string>XmlHeader</string>
+            <string>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;!-- (c)MatrixOne, Inc., 2000 --&gt;&lt;!DOCTYPE ematrix SYSTEM "ematrixml.dtd"&gt;</string>
+        </entry>        
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.ContentExportProcessor</Class>
+      <Config>      
+        <entry><string>BaseDirectory</string><string>C:/Dev/migrate3/TestMigration2CSV/</string></entry>
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.migrate.processors.ErrorReport</Class>
+      <Config>      
+        <entry><string>ErrorFile</string><string>C:/Dev/migrate3/TestMigration2CSV/ErrorReport.xml</string></entry>
+      </Config>
+    </Plugin>
+    
+  </Processors>
+</MigrationScript>

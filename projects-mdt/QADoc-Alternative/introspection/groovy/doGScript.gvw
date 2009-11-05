@@ -1,0 +1,32 @@
+import com.medtronic.ecm.documentum.introspection.*;
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import groovy.lang.*;
+
+import java.io.StringWriter;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+if(!dctmaccess.accessSession().getUserByOSName(dctmuser, null).isSuperUser()) {
+    out.write """
+        You must have <b>SUPERUSER</b> permissions to run a GScript!
+    """
+    return;	    		
+}
+
+String gscript = request.getParameter("gscript");
+String outscript = gscript.replace("\n","<BR>");
+outscript = outscript.replace(" ","&nbsp;");
+
+Binding binding =  GroovyIntrospection.createBindingFromMap(bindingmap);
+binding.setProperty("out", new StringWriter());
+GroovyShell shell = new GroovyShell();
+def scriptClass = shell.parse(gscript).getClass();
+def returnval = scriptClass.newInstance(binding).run();
+
+
+out.write """
+<b>Script:</b><hr>${outscript}<hr><b>Output: (TODO- id to link conversion)</b><hr>${binding.getVariable("out")}<hr>
+"""
+
+

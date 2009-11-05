@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Import                                                 -->
+<!-- File           mrcsnewgroupingfolder_component.xml                    -->
+<!-- Description    collects information necessary to creating a new MRCS  -->
+<!--                grouping folder (the gf type has been decided...)      -->
+<!-- Created on     February 2005                                          -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      
+      <!-- component definition -->
+      <component id="mrcscreatefolder">
+         
+         <!-- Component Contract -->
+         <params>
+            <!-- objectId provides id of folder for import -->
+            <param name="objectId" required="true"></param>
+            <param name="mrcsApplication" required="true"></param>
+            <param name="action" required="true"></param>
+            <param name="groupingFolderType" required="false"></param>
+            <param name="groupingFolderTypeList" required="false"></param>
+         </params>
+         
+         <!-- Component Layout -->
+         <!-- custom MRCS pages must be registered here so we can switch to the custom page -->
+         <!-- UserSpecified is a sample custom page that has been registered here -->
+         <pages>
+            <start>/mrcs/pages/MrcsNewGroupingFolder.jsp</start>            
+            <selecttype>/mrcs/pages/MrcsSelectGroupingFolder.jsp</selecttype>
+            <selectSForGF>/mrcs/pages/MrcsSelectSubFolderOrGroupingFolder.jsp</selectSForGF>
+            
+            <!--  custom MRCS data collection pages must be registered here, both subfolder and grouping folder -->
+            <UserSpecified>/mrcs/pages/MrcsNewGroupingFolderCustomComponent.jsp</UserSpecified>
+            <UserSpecifiedSF>/mrcs/pages/MrcsNewSubfolderCustomComponent.jsp</UserSpecifiedSF>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsNewFolderComponentMKII</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsNewFolderContainerMKIIStrings</nlsbundle>
+                       
+      </component>
+      
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_newfolder_component_MKII.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.4 $
+ Modified on    $Date: 2006/01/12 22:42:48 $
+
+***********************************************************************
+-->
+
+
+

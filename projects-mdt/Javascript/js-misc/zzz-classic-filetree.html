@@ -1,0 +1,110 @@
+
+
+
+
+
+
+
+<html>
+<head >
+<script>var g_virtualRoot = "/webtop2";</script>
+<link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/dragdrop.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/richtexteditor.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/webforms.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/xforms.css" type="text/css"><link rel="stylesheet" href="/webtop2/webtop/theme/documentum/css/webtop.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/tahoe/css/webforms.css" type="text/css"><link rel="stylesheet" href="/webtop2/webtop/theme/tahoe/css/webtop.css" type="text/css">
+<script>var Trace_TRACE=false;var Trace_LOCATE=false;var Trace_CLIENTEVENTS=false;var Trace_SCROLL=false;var Trace_FORMNAVIGATION=false;var Trace_COMPONENTNAVIGATION=false;var Trace_FRAMENAVIGATION=false;var Trace_HELP=false;var Trace_MODAL=false;var Trace_CONTENTTRANSFER=false;var Trace_TREE=false;var Trace_APPINTGEVENTS=false;var Trace_PORTALWINDOWING=false;</script><script src="/webtop2/wdk/include/trace.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/locate.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/events.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/scroll.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/formnavigation.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/componentnavigation.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/framenavigation.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/help.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/modal.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/contenttransfer.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/tree.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/appintgevents.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/windows.js" language="javascript1.2"></script>
+
+</head>
+<body  marginwidth='6' topmargin='6' bottommargin='0' class='webtopTreeBackground' leftmargin='6' rightmargin='0' marginheight='6'>
+
+<script>var g_bWindowInitialised=false;</script><form name='BrowserTree_0' id='browsertree' action='/webtop2/webtop/classic/browsertree/browsertree.jsp' method='post'><input type='hidden' name='__dmfFormId' value='BrowserTree_0'><input type='hidden' name='__dmfAction'><input type='hidden' name='__dmfHandler'><input type='hidden' name='__dmfHandlerArgs'><input type='hidden' name='__dmfControl'><input type='hidden' name='__dmfServletPath' value='/webtop/classic/browsertree/browsertree.jsp'>
+<!-- action=-->
+
+
+
+
+
+<script>
+if(typeof(onclickTree) == 'function' && typeof(__onclickTreeRef) == 'undefined') {var __onclickTreeRef = onclickTree;}</script>
+<script>
+function onclickTree(nodeId, nodeDiv)
+{
+if(typeof(__onclickTreeRef) == 'undefined' || __onclickTreeRef(nodeId,nodeDiv) != false) 
+{if (nodeId && nodeDiv && nodeId.indexOf('SHOW_MORE_ITEMS_NODE_ID') != -1)
+{
+var parentNodeId = nodeDiv.id.substring(0, nodeDiv.id.lastIndexOf('.'));
+var doc =  document;
+var parentNodeDiv = doc.getElementById(parentNodeId);
+onExpandTreeNode(getNodeId(parentNodeDiv), parentNodeDiv);
+return false;
+}
+}
+}
+</script>
+<script>
+if (typeof(wdkTreeConfig) == 'undefined') wdkTreeConfig = [];
+wdkTreeConfig['__x91'] = new TreeConfig('BrowserTree_docbrowser_0','BrowserTree_0','BrowserTree_docbrowser_hidden_sel_0','BrowserTree_docbrowser_hidden_focus_0','BrowserTree_docbrowser_hidden_collapse_0',false,0,'','','browserTreeNormal','browserTreeSelected',false,'/webtop2/wdk/treeExpandNode.jsp?EXPAND_TREE_ELEMENT_NAME=BrowserTree_docbrowser_0&__dmfJumpType=page&__dmfHandlerArgs=',['/Tplus.gif','/Lplus.gif','/plus.gif'],['/Tminus.gif','/Lminus.gif','/minus.gif'],['/Tload.gif','/Lload.gif','/load.gif']);
+function __x91Expand(element)
+{
+var nodeDiv = element.parentNode;
+while (nodeDiv != null && nodeDiv.tagName != 'DIV')   nodeDiv = nodeDiv.parentNode;var nodeId = getNodeId(nodeDiv);
+onExpandTreeNode(nodeId, nodeDiv);
+}
+function __x91Collapse(element)
+{
+var nodeDiv = element.parentNode;
+while (nodeDiv != null && nodeDiv.tagName != 'DIV')   nodeDiv = nodeDiv.parentNode;var nodeId = getNodeId(nodeDiv);
+{
+if (onCollapseTreeNode(nodeId, nodeDiv))
+{
+if (typeof(onclickTree) == 'undefined' || onclickTree(nodeId, nodeDiv) != false)
+{
+onSelectTreeNode(nodeId, nodeDiv);
+safeCall(postServerEvent,"BrowserTree_0","BrowserTree_docbrowser_0","BrowserTree_0","onclickTree");
+}
+}
+}
+if (typeof initTreeOverlayElements != 'undefined')initTreeOverlayElements('BrowserTree_docbrowser_0');
+}
+function __x91Click(element, event)
+{
+var nodeDiv = element.parentNode;
+while (nodeDiv != null && nodeDiv.tagName != 'DIV')   nodeDiv = nodeDiv.parentNode;var nodeId = getNodeId(nodeDiv);
+if (typeof(onclickTree) == 'undefined' || onclickTree(nodeId, nodeDiv, event) != false)
+{
+onSelectTreeNode(nodeId, nodeDiv, event);
+safeCall(postServerEvent,"BrowserTree_0","BrowserTree_docbrowser_0","BrowserTree_0","onclickTree");
+}
+}
+
+</script>
+<input type='hidden' name='BrowserTree_docbrowser_hidden_sel_0' value='_ROOT.MRCS_Training.homecabinet_classic'><input type='hidden' name='BrowserTree_docbrowser_hidden_focus_0' value=''><input type='hidden' name='BrowserTree_docbrowser_hidden_collapse_0' value=''>
+<div class='tree' onselectstart='return false;' class=defaultTreeNormalStyle>
+<div class="treeNodeHeight" id=__x91._ROOT.mrcs><nobr><a href='#' onclick='return false' onmousedown='__x91Expand(this);'><img src="/webtop2/wdk/theme/documentum/images/tree/plus.gif" height="16"></a><a onclick='__x91Click(this,event);'><img src="/webtop2/wdk/theme/documentum/icons/type/t_docbase_16.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>mrcs</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/minusDeactivated.gif" height="16"><a><img src="/webtop2/wdk/theme/documentum/icons/type/t_docbase_16.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>MRCS_Training : mradmin</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training.homecabinet_classic><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><a href='#' onclick='return false' onmousedown='__x91Expand(this);'><img src="/webtop2/wdk/theme/documentum/images/tree/Tplus.gif" height="16"></a><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/homecabinet.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeSelected>Home Cabinet</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training.inboxclassic><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><img src="/webtop2/wdk/theme/documentum/images/tree/T.gif" height="16"><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/inbox.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>Inbox</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training.subscriptions_classic><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><img src="/webtop2/wdk/theme/documentum/images/tree/T.gif" height="16"><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/subscriptions.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>Subscriptions</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training.myfiles_classic><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><img src="/webtop2/wdk/theme/documentum/images/tree/T.gif" height="16"><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/myfiles.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>My Files</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training.categoryclassic><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><img src="/webtop2/wdk/theme/documentum/images/tree/T.gif" height="16"><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/classify.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>Categories</span></a></nobr></div>
+
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training.administration><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><a href='#' onclick='return false' onmousedown='__x91Expand(this);'><img src="/webtop2/wdk/theme/documentum/images/tree/Tplus.gif" height="16"></a><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/admin.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>Administration</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.MRCS_Training./MRCS_Training><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><a href='#' onclick='return false' onmousedown='__x91Expand(this);'><img src="/webtop2/wdk/theme/documentum/images/tree/Lplus.gif" height="16"></a><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/cabinets.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>Cabinets</span></a></nobr></div>
+<div class="treeNodeHeight" id=__x91._ROOT.repositoryselectorcontainer/selectrepository><nobr><img src="/webtop2/wdk/theme/documentum/images/tree/S.gif" height="16"><a onclick='__x91Click(this,event);'><img src="/webtop2/webtop/theme/documentum/icons/browsertree/space.gif" border="0" height="16" width="16">&nbsp;<span class=browserTreeNormal>Add Repository</span></a></nobr></div>
+</div>
+
+
+<input type='hidden' name='__dmfRequestId' value='__client6~~1'><input type='hidden' name='__dmfHiddenX' value='0'><input type='hidden' name='__dmfHiddenY' value='0'><input type='hidden' name='__dmfFormclass' value='com.documentum.webtop.webcomponent.browsertree.BrowserTree'><input type='hidden' name='__dmfNlsclass' value='com.documentum.webtop.webcomponent.browsertree.BrowserTreeNlsProp'><input type='hidden' name='__dmfInitDocbase' value=''><input type='hidden' name='__dmfInitDocbaseUser' value=''><input type='hidden' name='__dmfInitDocbasePassword' value=''><input type='hidden' name='__dmfInitDocbaseDomain' value=''><input type='hidden' name='__dmfInitLocale' value=''><input type='hidden' name='__dmfSerialNumber' value='3'><input type='hidden' name='__dmfClientId' value=''></form>
+<script>function setBrowserWindowId() {var element = document.forms["BrowserTree_0"].__dmfClientId;element.value=getBrowserId();}setBrowserWindowId();</script><script>function __onAutoFocus(formId, controlId) {var el = document.forms[formId][controlId];if (el != null && el.disabled == false) el.focus(); } 
+registerClientEventHandler(null, "BrowserTree_0_SetAutoFocus", __onAutoFocus);</script><script>function BrowserTree_0_initForm(){
+setServerForm('BrowserTree_0','__dmfHiddenX','__dmfHiddenY');
+if (typeof setScrollPosition != 'undefined') setScrollPosition(0, 0);
+if (typeof endModal != 'undefined') endModal();
+
+if (typeof(window.setOnActionMultiselectWindowUnloadHandler) != 'undefined' && window.setOnActionMultiselectWindowUnloadHandler != null){ setOnActionMultiselectWindowUnloadHandler(); }
+ g_bWindowInitialised=true;
+createTestHook('/webtop2');fireClientEvent('onNodeSelected','homecabinet_classic');fireClientEvent('onNodeScrollIntoView','__x91._ROOT.MRCS_Training.homecabinet_classic');fireClientEvent('SetHelpURL','/webtop2/help/help.jsp?context=foldertree&locale=en_US_');
+}</script><script>setTimeout('BrowserTree_0_initForm()', 10);</script>
+<script type="text/javascript">function BrowserTree_0_preSubmitForm(formId, controlId){
+
+}</script><script> document.cookie = 'wdk_pref_cookie_0=eJyVUm1v2jAQ/ivwFU2ItJ20ruRDoSHr1kALGaFMk+XYB3Vx7Mi+AOHXz0m6rd1W1H26l+funntbCQkWJDDU5oZavBKm1kv/7pCzaXj+yBNPpmp6uA5HxXI4iJeLaY8m7xXz9siTuU3DqLcIppKdYC89HbA0mZ/RZLy9Dsc5/7RZs1A+sp3v99urV7kWoz2y0wFGyefifhHtIrnX6YknF6HnLZO9vT/cuXyms1wrUPhNcF/qtVDfu4UFo2gGfmYoz4Tqt7fCilSCgVxb4aoLsP5H7+zD+bvMMEsQLF40djQdzsgVbC+ewfyF+TwwNlQoodb9Ns1zKRhFoVWXMgbWEQopsOzaB22QFajoVqzrAFDUNcP9FZUWjqVSiQh7/COeSeHmVYA7bTZSN5k+IUF0G9/Ht1FASOtY1Q2UqaaGv62hAh8c20+T68xN/BfZlmddpvOymxtYuTUrBv7Q2f9z3/Ho9++87IELm0tadpmkbgrme71XAiwaoJkUCgijqRNoCdOyyJT1dfroiEn1F/POvDN2MugEHRQoa0dcKZWHuhTldo4Ey7yGRtpkFCvM/MKsONTYzMkG2YKxrhkiaQqyguaNo0EzzcWqJJxinRZVpgDegO6IG6J3CkyFDR+AbYC3JgW2BuUTbWFMTYtPBYaNozWrHP02IZdf4wkJgzi+nH0hw8k4nk5uyPgyCt50VZZSC/6Rn/7HiuvTNsf4AU36iME.;expires='+new Date(1495212940598).toGMTString()+'; path=/';</script><script> document.cookie = 'wdk_sess_cookie_0=eJxtkM1qwzAQhJ8lBF+LbMu2DNHBdmzIoVDq0OuiOJtGRD9GEqR9+8otLS7tbdn9ZnYYEPMMyk4iSGuAPz53IxydkEaa14er1TiJkzQYwAeHQqs47zYQRSN631kT8C30Jrj3JytNAL6WTEp4L6fdJuJGaOR3PAU7Z38MXiTegf/g0Py6LmMMd9gDT1tGsp7RtilzQoqMDW3bpntCad/XTV3HV0oNDv21UxJN4EkyWXuTeBwhxllW+XabplVdsYyWdV5USQJw1peVaEX6IBSuicE6/Z8ToSWLwRfuy+Rw5t/HgpVFTBZLvn168IvDWOIHFNCBnA..;; path=/';</script>
+
+</body>
+</html>

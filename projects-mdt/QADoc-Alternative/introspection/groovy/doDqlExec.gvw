@@ -1,0 +1,18 @@
+import com.medtronic.ecm.documentum.introspection.*;
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+String query = request.getParameter("query");
+String queryhtml = GenerateQueryTable.call(dctmaccess,baseurl,credurl,query);
+
+String csvbase = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/introspection/getcsv.jsp";
+
+out.write """
+Query: ${query} - <a href="${csvbase}?query=$query${credurl}">As CSV file</a>
+<hr>
+${queryhtml}
+"""
+
+

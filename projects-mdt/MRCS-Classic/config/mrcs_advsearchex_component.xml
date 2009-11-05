@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Component: 	advancedSearch                                         -->
+<!-- Scope:     	None                                                   -->
+<!-- File           mrcs_advsearchex_component.xml                         -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+
+<config version='1.0'>
+
+   <!-- this component is the generic version so has unqualified scope -->
+   <scope>
+
+      <!-- the browser tree component definition -->
+      <component id="advsearch" extends="advsearch:webtop/config/advsearchex_component.xml">
+
+         <!-- specify the list of types (and their sub-types) which will be available in the drop down list
+              If descend is set to false, the subtypes won't be included.
+           -->
+         <includetypes descend="true">m_mrcs_document</includetypes>
+
+      </component>
+
+   </scope>
+</config>

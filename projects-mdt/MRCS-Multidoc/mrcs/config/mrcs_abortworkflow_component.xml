@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Lister                                                 -->
+<!-- Module                                                                -->
+<!-- File           abortworkflow_component.xml                            -->
+<!-- Description                             -->
+<!-- Created on     February 18, 2002                 -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.9 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:51 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope type="dm_workflow">
+      <!-- abort workflow component -->
+      <component id="abortworkflow" extends="abortworkflow:webcomponent/config/library/workflow/abort/abortworkflow_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+         You can use the abortworkflow component to terminate Documentum workflows prematurely.
+         NOTE: Probably the only time you would need to use this component is when a workflow becomes obsolete.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"/>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/webcomponent/library/workflow/abort/abortWorkflow.jsp</start>
+         </pages>
+
+         <!-- Component Behavior
+         <class>com.documentum.webcomponent.library.workflow.abort.AbortWorkflow</class>
+          -->
+          <class>com.medtronic.documentum.mrcs.client.MrcsAbortWorkflow</class>
+          <nlsbundle>com.documentum.webcomponent.library.workflow.abort.AbortWorkflowNlsProp</nlsbundle>
+
+         <helpcontextid>abortworkflow</helpcontextid>
+      </component>
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_abortworkflow_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.9 $
+ Modified on    $Date: 2006/01/12 22:42:51 $
+
+***********************************************************************
+-->
+
+

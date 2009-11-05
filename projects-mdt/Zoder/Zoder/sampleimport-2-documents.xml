@@ -1,0 +1,102 @@
+<map>
+
+    <entry><string>StageList</string><!--  default  -->
+      <list>
+        <string>PreImport</string>
+        <string>Import</string>
+        <string>PostImport</string>
+      </list>
+    </entry>
+    
+    <entry><string>Import</string>
+      <map>
+        <entry><string>Processors</string>
+          <list>
+        
+            <!--  put DctmAccess ==> SourceAccess  -->
+            <Plugin> 
+                <Class>com.zoder.processors.InitDctmAccess</Class>
+                <Config>
+                    <entry><string>user</string><string>ecsadmin</string></entry>
+                    <entry><string>pass</string><string>spring2005</string></entry>
+                    <entry><string>base</string><string>mqadoc_dev</string></entry>
+                    <entry><string>contextkey</string><string>SourceAccess</string></entry>
+                </Config>
+            </Plugin>
+
+            <!--  get a list of docids to play with -->
+            <Plugin> 
+                <Class>com.zoder.processors.LoadXStream</Class>
+                <Config>
+                    <entry><string>Keys</string>
+                      <map>
+                        <!-- entry><string>IdList</string><string>C:/Dev/migrate3/Zoder/test1/SuccessList.xml</string></entry -->
+                        <entry><string>Folders.OldToNew</string><string>C:/Dev/migrate3/Zoder/test1/Folders.OldToNew.xml</string></entry>
+                      </map>                    
+                    </entry>
+                </Config>
+            </Plugin>
+            
+            <!--  deserialize version metadata for each id in the IdList, place results in Success/Failure lists -->
+            <Plugin> 
+                <Class>com.zoder.processors.importing.LoadDocumentMaps</Class>
+                <Config>
+                    <entry><string>IdList</string> <!--  HARDCODED TEST: should be loaded by something else... -->
+                      <list>
+                        <string>09017f448007cb3c</string>
+                        <string>09017f448007d64f</string>
+                        <string>09017f4480094e5e</string>
+                      </list>
+                    </entry>
+                </Config>
+            </Plugin>
+            
+            <!--  Import documents
+                This is the simple version: assumes previous processors have already remapped necessary data:
+                - name
+                - version
+                - types 
+                - attribute names 
+                - attribute values
+                - acl names
+                - lifecycles
+                - lifecycle states 
+                - link folders                
+                etc.
+                
+                This will simply iterate through the version list for each document in the Success queue, and create
+                the corresponding version tree with lifecycle, acl, and metadata all set, and import the necessary content.
+            -->
+            <Plugin> 
+                <Class>com.zoder.processors.importing.ImportDocuments</Class>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.zoder.processors.SerializeXStream</Class>
+                <Config>
+                    <entry><string>Files</string>
+                      <map>
+                        <entry><string>C:/Dev/migrate3/Zoder/test1/Import.Success.xml</string><string>Success</string></entry>
+                        <entry><string>C:/Dev/migrate3/Zoder/test1/Import.Failure.xml</string><string>Failure</string></entry>
+                      </map>
+                    </entry>
+                </Config>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.zoder.processors.importing.ErrorListSerialize</Class>
+            </Plugin>
+            
+          </list>
+        </entry>
+      </map>
+    </entry>
+  
+    <entry><string>Globals</string>
+      <map>
+        <entry><string>BaseDirectory</string><string>C:/Dev/migrate3/Zoder/test1/</string></entry>
+        <entry><string>Configuration.DirectoryDepth</string><string>3</string></entry>
+      </map>
+    </entry>
+    
+</map>  

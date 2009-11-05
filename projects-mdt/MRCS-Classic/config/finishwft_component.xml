@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Lister                                                 -->
+<!-- Module         ComboContainer                                         -->
+<!-- File           finishworkflowtask_component.xml                       -->
+<!-- Description                             -->
+<!-- Created on     March 24, 2002                 -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.11 $                                          -->
+<!-- Modified on    $Date: 2006/01/31 18:08:11 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope mrcsworkflow="mrcs">
+      <component id="finishworkflowtask" extends="finishworkflowtask:webcomponent\config\library\workflow\taskmanager\finishworkflowtask_component.xml" >
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for simple completion of a workflow task.
+            It can only be used for non-manual tasks (in which the user is not
+            expected to specify the next tasks).
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <finish>/mrcs/pages/finishesgn.jsp</finish>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+
+         <class>com.medtronic.documentum.mrcs.client.FinishWFT</class>
+ 		 <nlsbundle>com.medtronic.documentum.mrcs.eSignNlsProp</nlsbundle>
+
+         <helpcontextid>finishworkflowtask</helpcontextid>
+      </component>
+
+   </scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: finishwft_component.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.11 $
+ Modified on    $Date: 2006/01/31 18:08:11 $
+
+***********************************************************************
+-->
+
+

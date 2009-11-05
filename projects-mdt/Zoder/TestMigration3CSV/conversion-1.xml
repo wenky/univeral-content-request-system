@@ -1,0 +1,178 @@
+<map>
+
+    <entry><string>StageList</string>
+      <list>
+        <string>Output</string>
+      </list>
+    </entry>
+    
+    <entry><string>Output</string>
+      <map>
+        <entry><string>Processors</string>
+          <list>
+
+            <!--  put DctmAccess ==> SourceAccess  -->
+            <Plugin> 
+                <Class>com.zoder.processors.InitDctmAccess</Class>
+                <Config>
+                    <entry><string>user</string><string>ecsadmin</string></entry>
+                    <entry><string>pass</string><string>spring2005</string></entry>
+                    <entry><string>base</string><string>mqadoc_dev</string></entry>
+                    <entry><string>contextkey</string><string>SourceAccess</string></entry>
+                </Config>
+            </Plugin>            
+
+            <!-- Load CSV -->          
+            <Plugin> 
+                <Class>com.zoder.processors.LoadCSV</Class>
+                <Config>
+                    <entry><string>Keys</string>
+                      <map>
+                        <entry><string>InputDocIdList</string> <string>C:/Dev/migrate3/TestMigration3CSV/CSV.csv</string></entry>
+                      </map>
+                    </entry>
+                </Config>
+            </Plugin>
+            
+            <!-- load documents, basic checks (for csv lists, will take first item) -->
+            <Plugin> 
+                <Class>com.zoder.processors.exporting.CheckIdList</Class>
+            </Plugin>
+          
+            <!-- load versions of documents -->
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMGetVersionsProcessor</Class>
+              <Config>
+                <entry><string>RootTag</string><string>ematrix</string></entry>              
+                <entry><string>CreationPropertiesRelease</string><string>9.5.0.2-Global</string></entry>
+                <entry><string>CreationPropertiesEvent</string><string>export</string></entry>
+              </Config>
+            </Plugin>
+    
+            <!-- put standard attributes in version DOMs -->        
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMStandardAttributesProcessor</Class>
+              <Config>
+                <entry><string>r_object_type</string> <!--  value translation table -->
+                  <map>
+                    <entry><string>mdt_qad_smo_qdoc</string><string>Equipment Document</string></entry>
+                  </map>
+                </entry>
+              </Config>
+            </Plugin>    
+
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMMapCsvData</Class>            
+              <Config>
+                <entry><string>CsvKey</string><string>InputDocIdList</string></entry>
+                <entry><string>Attributes</string>
+                  <map>
+                    <entry><string>Name</string><string>previousName</string></entry>
+                    <entry><string>Title</string><string>previousTitle</string></entry>
+                    <entry><string>Subject</string><string>previousSubject</string></entry><entry><string>Status</string><string>previousStatus</string></entry>
+                    <entry><string>Owner</string><string>previousOwner</string></entry>
+                    <entry><string>Label</string><string>previousLabel</string></entry>
+                    <entry><string>Products Affected</string><string>affectedProducts</string></entry>
+                    <entry><string>Folder Path</string><string>folderRelation</string></entry>
+                  </map>
+                </entry>
+              </Config>
+            </Plugin>
+            
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMRevisionReferencesProcessor</Class>
+            </Plugin>
+                    
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMReMapAttributesProcessor</Class>
+              <Config>
+                <entry><string>Attributes</string>
+                  <map>
+                    <entry>
+                      <string>title</string>
+                      <string>Title</string>
+                    </entry>
+                    <entry>
+                      <string>m_qad_type</string>
+                      <string>Originator</string>
+                    </entry>
+                    <entry>
+                      <string>object_name</string>
+                      <string>Cross Reference ID</string>
+                    </entry>
+                    <entry>
+                      <string>m_approved_date</string>
+                      <string>Released Date</string>
+                    </entry>
+                    <entry>
+                      <string>log_entry</string>
+                      <string>Reason for Change</string>
+                    </entry>
+                    <entry>
+                      <string>m_issue_date</string>
+                      <string>Next Review Date</string>
+                    </entry>
+                    <entry>
+                      <string>m_application</string>
+                      <string>Language</string>
+                    </entry>
+                  </map>
+                </entry>
+              </Config>
+            </Plugin>    
+            
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMAuditHistoryProcessor</Class>
+              <Config>
+                <entry><string>DQL</string><string>SELECT event_name,event_source,user_name,current_state,audited_obj_id,time_stamp,string_1,string_2,string_3,string_4,string_5 FROM dm_audittrail WHERE event_source != 'System Unspecific'</string></entry>
+                <entry><string>event_name</string><string>event</string></entry>
+                <entry><string>event_source</string><string>agent</string></entry>
+                <entry><string>time_stamp</string><string>datetime</string></entry>
+                <entry><string>current_state</string><string>stateName</string></entry>
+              </Config>
+            </Plugin>
+            
+            <Plugin> 
+              <Class>com.nighteclipse.zoder.processors.MMMStateInfoProcessor</Class>
+              <Config>
+                <entry><string>StateMappings</string>
+                  <map>
+                    <entry><string>Superseded</string><string>NEWSuperseded</string></entry>
+                    <entry><string>Released</string><string>NEWReleased</string></entry>
+                    <entry><string>Obsolete</string><string>NEWObsolete</string></entry>
+                    <entry><string>In-Progress</string><string>NEWDraft</string></entry>
+                  </map>
+                </entry>              
+              </Config>
+            </Plugin>
+                    
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMFinalCountsProcessor</Class>
+              <Config>
+                <entry><string>CountElements</string>
+                  <map>
+                    <entry><string>attributeList</string><string>attribute</string></entry>
+                    <entry><string>stateList</string><string>state</string></entry>
+                    <entry><string>historyList</string><string>history</string></entry>
+                  </map>
+                </entry>              
+              </Config>
+            </Plugin>
+            
+            <Plugin>
+              <Class>com.nighteclipse.zoder.processors.MMMSerializeXML</Class>
+              <Config>      
+                <entry><string>OutputDirectory</string><string>C:/Dev/migrate3/TestMigration3CSV/</string></entry>
+                <entry><string>OutputPrefix</string><string>ematrix</string></entry>
+                <entry><string>XmlHeader</string> <!--  TODO... may need Xerces-J for this... -->
+                    <string>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;!-- (c)MatrixOne, Inc., 2000 --&gt;&lt;!DOCTYPE ematrix SYSTEM "ematrixml.dtd"&gt;</string>
+                </entry>        
+              </Config>
+            </Plugin>
+          
+          </list>
+        </entry>
+      </map>
+    </entry>
+    
+</map>          

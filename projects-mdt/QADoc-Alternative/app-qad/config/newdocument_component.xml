@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         New Document                                           -->
+<!-- File           newdocument_component.xml                              -->
+<!-- Description    Generic New Document Component Definition              -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.2 $                                           -->
+<!-- Modified on    $Date: 2008/08/20 22:20:04 $                             -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope>
+      <component id="newdocument">
+         <desc>
+            Creates new objects. This component must run within the component 
+            newdoccontainer or the component the component newhttpdoccontainer. 
+            Each custom object must have a template in the repository Templates 
+            cabinet in order for the template and its associated formats to show 
+            up in the newdocument UI. 
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+         </params>
+         <pages>
+            <start>/app-qad/pages/newDocument.jsp</start>
+         </pages>
+         <class>com.medtronic.ecm.documentum.core.webtop.MdtNewDocument</class>
+         <nlsbundle>com.documentum.webcomponent.library.create.NewDocumentNlsProp</nlsbundle>
+         <helpcontextid>newdocument</helpcontextid>
+         <combo_defaults>
+            <base_type>dm_document</base_type>
+            <type>dm_document</type>
+            <format>msw8</format>
+         </combo_defaults>
+
+         <document_filter>
+            <preset_item id="type_filter">
+               <selection>
+                  <entries>
+                     <entry></entry>
+                  </entries>
+               </selection>
+            </preset_item>
+         </document_filter>
+
+        <preset_item id="acl_filter">
+            <selection>
+               <entries>
+                  <entry></entry>
+               </entries>
+            </selection>
+         </preset_item>
+         
+         <preset_item id="format_filter">
+            <selection>
+               <entries>
+                  <entry></entry>
+               </entries>
+            </selection>
+            <allow_nocontent_entry></allow_nocontent_entry>                        
+         </preset_item>
+
+         <preset_item id="template_filter">
+            <selection>
+               <entries>
+                  <entry></entry>
+               </entries>
+            </selection>
+         </preset_item>
+
+         <preset_item id='autoattributes'>
+            <attributes>
+               <attribute>
+                  <name></name>
+                  <values>
+                     <value></value>
+                  </values>
+               </attribute>
+            </attributes>
+         </preset_item>
+
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* objectId                             (Required) ID of the folder that will 
+                                        contain the new document 
+*/
+#
+# Elements
+/* base_type                            Base type for types to show in the
+                                        type combo. Valid values: dm_sysobject
+                                        or its subtypes
+*/
+/* format                               Default format to display in format 
+                                        combo box. A template of this format 
+                                        must be available in the /Templates 
+                                        cabinet or subfolder. Valid values: 
+                                        'name' attribute values for dm_format 
+                                        object 
+*/
+/* preset_item                          TBD.
+*/
+/* type                                 Default type to display in type combo 
+                                        box. Valid values: dm_sysobject or 
+                                        its subtypes 
+*/
+
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

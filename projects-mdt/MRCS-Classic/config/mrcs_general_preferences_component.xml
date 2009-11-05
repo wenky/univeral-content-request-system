@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         General Preferences                                    -->
+<!-- File           general_preferences_component.xml                      -->
+<!-- Description    General Preferences Component Definition               -->
+<!-- Created on     11 September 2001                                      -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2006/05/01 22:11:12 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config>
+   <scope>
+      <component id="general_preferences" extends="general_preferences:webtop/config/general_preferences_component.xml">
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/app_general_preferences.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.documentum.webtop.webcomponent.environment.preferences.general.AppGeneralPreferences</class>
+         <nlsbundle>com.documentum.webtop.webcomponent.environment.preferences.general.AppGeneralPreferencesNlsProp</nlsbundle>
+
+         <helpcontextid>generalpreferences</helpcontextid>
+      </component>
+   </scope>
+</config>
+

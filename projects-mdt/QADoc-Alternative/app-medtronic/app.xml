@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config>
+   <scope>
+      <application extends="webtop/app.xml">
+        <save_credential>
+          <!-- saved credentials functionality is turned on by default -->
+          <enabled>false</enabled>
+        </save_credential>
+      </application>
+   </scope>
+</config>
+ 

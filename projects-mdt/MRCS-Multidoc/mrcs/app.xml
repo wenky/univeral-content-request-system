@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config>
+   <scope>
+      <application extends="webtop/app.xml">
+         <!--  scope implementors (including our very special own one for MRCS) -->
+         <qualifiers>
+            <!-- Docbase name qualifier, scope="docbase", context="objectId" ! "docbase" -->
+            <qualifier>com.documentum.web.formext.config.DocbaseNameQualifier</qualifier>
+
+            <!-- Docbase type qualifier, scope="type", context="objectId" | "type" -->
+            <qualifier>com.documentum.web.formext.config.DocbaseTypeQualifier</qualifier>
+
+            <!-- Privilege qualifier, scope="privilege", context="privilege" -->
+            <qualifier>com.documentum.web.formext.config.PrivilegeQualifier</qualifier>
+
+            <!-- Role qualifier, scope="role", context="role" -->
+            <qualifier>com.documentum.web.formext.config.RoleQualifier</qualifier>
+
+            <!-- Client Environment qualifier, scope="clientenv", context=null -->
+            <qualifier>com.documentum.web.formext.config.ClientEnvQualifier</qualifier>
+
+            <!-- Application qualifier scope="application", context=null -->
+            <qualifier>com.documentum.web.formext.config.AppQualifier</qualifier>
+
+            <!-- Version qualifier, scope="version", context="preferredVersion" -->
+            <qualifier>com.documentum.web.formext.config.VersionQualifier</qualifier>
+
+            <!-- Location qualifier, scope="location", context="location" -->
+            <qualifier>com.documentum.webtop.app.ApplicationLocationQualifier</qualifier>
+
+            <!-- Entitlement qualifier, scope="entitlement", context="entitlement" -->
+            <qualifier>com.documentum.web.formext.config.EntitlementQualifier</qualifier>
+
+            <!-- MRCS custom WF qualifier, scope="mrcsworkflow", context=null -->
+            <qualifier>com.medtronic.documentum.mrcs.client.MrcsWorkflowCustomScopeQualifier</qualifier>
+         </qualifiers>
+         
+         <!--  permanently disable drag and drop -->
+         <dragdrop>
+            <!-- drag and drop is turned on by default -->
+            <enabled>true</enabled>
+         </dragdrop>
+         
+         
+      </application>
+   </scope>   
+</config>
+ 

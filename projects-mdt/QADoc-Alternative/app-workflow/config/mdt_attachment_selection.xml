@@ -1,0 +1,15 @@
+<config version="1.0">
+   <scope>
+      <component id="mdtattachmentselection" extends="sysobjectlocator:webcomponent/config/library/locator/sysobjectlocator_component.xml">
+         <desc>
+           component that wraps an attachment locator and an attachment list of currently selected documents
+           to improve the attachment selection process
+         </desc>
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtAttachmentSelection</class>
+         <nlsbundle>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtAttachmentSelectionNlsProp</nlsbundle>
+         <pages>
+            <start>/app-workflow/pages/mdt_attachment_selection.jsp</start>
+         </pages>
+      </component>
+   </scope>
+</config>

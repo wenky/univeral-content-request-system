@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope>
+      <component id="mdtdisplayworkflowvalidationerrors">
+         <desc>
+           display validation errors that prevented the Mdt Approval Form from starting its workflow
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+            <param name="validationerrors" required="true"/>
+         </params>
+         <pages>
+            <start>/app-workflow/pages/mdt_startworkflowvalidationerrors.jsp</start>
+         </pages>
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtStartWorkflowValidationErrors</class>
+         <nlsbundle>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtStartWorkflowValidationErrorsNlsProp</nlsbundle>
+         <helpcontextid>mdtdisplayworkflowvalidationerrors</helpcontextid>
+      </component>
+   </scope>
+</config>

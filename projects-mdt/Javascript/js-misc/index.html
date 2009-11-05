@@ -1,0 +1,23 @@
+<script>
+
+function redirect()
+{
+   //Get hold of virtual dir via the window.location.pathname
+   var strPath = window.location.pathname;
+   var nIndex1 = strPath.indexOf("/");
+   var nIndex2 = strPath.indexOf("/", nIndex1 + 1);
+   var strVirtualDir = strPath.substring(nIndex1 + 1, nIndex2);
+
+   var dmfUrl = "/" + strVirtualDir + "/component/main";
+   window.location.replace("/" + strVirtualDir + "/wdk/redirect.jsp?ReLoad=" +
+                           new Date().getTime() + "&__dmfUrl=" + dmfUrl);
+}
+
+</script>
+
+<html>
+
+<body onload='redirect()'>
+</body>
+
+</html>

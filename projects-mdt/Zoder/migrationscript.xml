@@ -1,0 +1,61 @@
+<MigrationScript>
+  <username>ecsadmin</username>
+  <password>spring2005</password>
+  <docbase>sandbox6</docbase>
+  
+  <InitialQuery>
+    <Class>com.nighteclipse.mmm.DqlQuery</Class>
+    <Config>
+      <entry><string>DQL</string><string>SELECT r_object_id FROM mdt_qad_doc where object_name = 'QAD-00010033--testlcplugins1'</string></entry>
+    </Config>
+  </InitialQuery>
+  
+  <Processors>
+    <Plugin>
+      <Class>com.nighteclipse.mmm.GetVersionsProcessor</Class>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.mmm.StandardAttributesProcessor</Class>
+      <Config>
+        <entry><string>r_object_type</string>
+          <map>
+            <entry><string>m_mrcs_document</string><string>mmm_em_doc</string></entry>
+          </map>
+        </entry>
+      </Config>
+    </Plugin>
+    <Plugin>
+      <Class>com.nighteclipse.mmm.RevisionReferencesProcessor</Class>
+    </Plugin>        
+    <Plugin>
+      <Class>com.nighteclipse.mmm.ReMapAttributesProcessor</Class>
+      <Config>
+        <entry><string>acl_name</string><string>mmm_legacy_permission</string></entry>
+        <entry><string>title</string><string>mmm_document_title</string></entry>
+      </Config>
+    </Plugin>    
+    <Plugin>
+      <Class>com.nighteclipse.mmm.AuditHistoryProcessor</Class>
+      <Config>
+        <entry><string>DQL</string><string>SELECT event_name,event_source,user_name,current_state,audited_obj_id,time_stamp,string_1,string_2,string_3,string_4,string_5 FROM dm_audittrail WHERE event_source != 'System Unspecific'</string></entry>
+        <entry><string>event_name</string><string>event</string></entry>
+        <entry><string>event_source</string><string>agent</string></entry>
+        <entry><string>time_stamp</string><string>datetime</string></entry>
+        <entry><string>current_state</string><string>stateName</string></entry>
+      </Config>
+    </Plugin>
+    <Plugin> <!--  hardcoded for now, don't know what do to for this... -->
+      <Class>com.nighteclipse.mmm.StateInfoProcessor</Class>
+    </Plugin>        
+    <Plugin>
+      <Class>com.nighteclipse.mmm.OutputXMLProcessor</Class>
+      <Config>
+        <entry><string>Filename</string><string>C:/Dev/migrate3/outputxml-</string></entry>
+
+        <entry><string>CreationProps.release</string><string>FVD demo migration 0.5</string></entry>
+        <entry><string>CreationProps.event</string><string>migration</string></entry>
+        <entry><string>CreationProps.dtd</string><string>ematrixProductDtd;</string></entry> <!--  NO ampersand!!! We will put this in with the code -->
+      </Config>
+    </Plugin>
+  </Processors>
+</MigrationScript>

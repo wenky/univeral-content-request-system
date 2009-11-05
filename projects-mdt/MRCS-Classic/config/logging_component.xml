@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $ -->
+<!-- Modified on    $Date: 2007/03/28 21:14:02 $ -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   
+   <!-- this component has unqualified scope -->
+   <scope role="administrator">
+      
+      <!-- the About WebTop component definition -->
+      <component id="logging">
+         
+         <!-- Description (not NLS'd) -->
+         <desc>
+            MRCS logging component: Displays MRCS log information.
+         </desc>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/log.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.LogReader</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.AboutNlsProp</nlsbundle>
+         
+         <!-- Component specific Configuration -->
+         
+      </component>
+      
+   </scope>
+</config>

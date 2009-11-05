@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+
+      <!-- Login component definition -->
+      <component id="login">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Login: Presents UI allowing the user to login to a Docbase.  Note 
+            that the component dispatcher invokes the component to authenticate 
+            the user as necessary.
+         </desc>
+         
+         <!-- Component Contract -->
+         <params>
+            <param name='startUrl' required='false'></param>
+            <param name='startComponent' required='false'></param>
+            <param name='startPage' required='false'></param>
+            <param name='docbase' required='false'></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <filter clientenv='not appintg'>
+               <start>/mrcs/pages/MrcsLogin.jsp</start>
+            </filter>
+            <filter clientenv='appintg'>
+               <start>/wdk/system/login/appintglogin.jsp</start>
+            </filter>
+         </pages>
+       
+         <!-- Component Behavior -->
+         <!-- class>com.documentum.web.formext.session.Login</class -->
+         <class>com.medtronic.documentum.mrcs.client.PRLAnonymousLogin</class>
+         <nlsbundle>com.documentum.webtop.session.LoginNlsProp</nlsbundle>
+         <!--  nlsbundle>com.documentum.web.formext.session.LoginNlsProp</nlsbundle -->
+         
+         <!-- If this component supports failover/replication, the failoverenabled needs to be set to true-->
+         <failoverenabled>true</failoverenabled>
+
+         <serveroptionenabled>false</serveroptionenabled>
+
+         <!-- Component specific Configuration -->
+         <showoptions>false</showoptions>
+
+         <helpcontextid>login</helpcontextid>
+         
+         <prl-userid>dms09</prl-userid>
+         <prl-password>train9</prl-password>
+         <prl-docbase>MRCS_Dev</prl-docbase>
+         
+      </component>
+   </scope>
+</config>
+

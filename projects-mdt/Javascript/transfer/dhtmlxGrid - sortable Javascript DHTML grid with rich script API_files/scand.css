@@ -1,0 +1,33 @@
+<style type="text/css">
+<!--
+
+a:link { color: #0066cc; text-decoration : none; }
+a:visited { color: #0066cc; text-decoration : none; }
+a:hover { color: #6699ff; text-decoration : underline; }
+
+a.mn { color: white; font-family: verdana,arial; text-decoration: none; }
+a.mn:hover { color: white;  font-family: verdana,arial; text-decoration: underline; }
+a.mn:active { color: red;  font-family: verdana,arial; text-decoration: underline; }
+a.mn:visited { color: white;  font-family: verdana,arial; }
+
+a.mns { color: white;  font-family: verdana,arial; text-decoration: underline; }
+a.mns:hover { color: white;  font-family: verdana,arial; text-decoration: underline; }
+a.mns:active { color: red;  font-family: verdana,arial; text-decoration: underline; }
+a.mns:visited { color: white;  font-family: verdana,arial; text-decoration: underline; }
+
+a.menu:link { color: #0066cc; text-decoration : underline; }
+a.menu:visited { color: #0066cc; text-decoration : underline; }
+a.menu:hover { color: #6699ff; text-decoration : none; }
+
+body { color: black; font-family: verdana,arial; font-size: 10pt }
+
+select { color: black; font-family: verdana,arial; font-size: 10pt }
+
+td { font-family: verdana,arial,helvetica; font-size:9pt; }
+
+.d_desc { font-family: verdana,arial,helvetica; font-size:8pt; }
+
+.fld1 { font-family: verdana; font-size: 9pt; background-color: #f0f9ff; xborder: 1pt solid; }
+
+-->
+</style>

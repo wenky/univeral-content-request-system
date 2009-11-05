@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: start workflow container                                   -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $Revision: 1.13 $ -->
+<!-- Modified on $Date: 2007/03/14 15:57:30 $ -->
+
+<config version='1.0'>
+   <scope type='dm_process'>
+
+      <component id="startwfcontainer" extends="startwfcontainer:webcomponent/config/library/workflow/startwfcontainer/startwfcontainer_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Container holding components comprising start workflow component group.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='component' required='false'/>
+            <param name='startworkflowId' required='true'/>
+            <param name='type' required='true'/>
+            <param name='attachmentIds' required='false'/>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/webcomponent/library/workflow/startwfcontainer/startWorkflowContainer.jsp</start>
+
+            <!-- validationfailure added by CEM 11/01/05 to support WF pre-start validation plugin layer -->
+            <validationfailure>/mrcs/pages/MrcsStartWorkflowValidationFailure.jsp</validationfailure>
+
+         </pages>
+
+         <!-- Contained components -->
+         <contains>
+            <!-- component>startworkflow</component -->
+            <component>startwfperformers</component>
+            <component>startwfcomments</component>
+         </contains>
+
+         <!--
+         <class>com.documentum.webcomponent.library.workflow.startwfcontainer.StartWorkflowContainer</class>
+         -->
+         <class>com.medtronic.documentum.mrcs.client.QADocStartWorkflowContainer</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsStartWorkflowContainerNlsProp</nlsbundle>
+
+<!-- Modified on 03/08 to Fix the Defect 368
+         <asynchronous>false</asynchronous>
+-->
+         <asynchronous>true</asynchronous>
+      </component>
+
+   </scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_startwfcontainer_component.xml,v $
+ Author         $Author: wallam1 $
+ Revision       $Revision: 1.13 $
+ Modified on    $Date: 2007/03/14 15:57:30 $
+
+***********************************************************************
+-->
+
+

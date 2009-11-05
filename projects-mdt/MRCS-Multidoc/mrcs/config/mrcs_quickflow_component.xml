@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: send to distribution list                                  -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $Revision: 1.10 $ -->
+<!-- Modified on $Date: 2006/01/12 22:42:49 $ -->
+
+<config version='1.0'>
+   <scope type="m_mrcs_document,m_mrcs_folder">   
+      <component id="sendtodistributionlist" extends="sendtodistributionlist:webcomponent/config/library/workflow/sendto/sendtodistributionlist_component.xml">
+      
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for sending documents to users with in an 
+            adhoc workflow (a.k.a. quickflow).
+         </desc>
+         
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <pages>
+            <start>/mrcs/pages/MrcsQuickflow.jsp</start>
+         </pages>
+      
+         <class>com.documentum.webcomponent.library.workflow.sendto.SendToDistributionList</class>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.sendto.SendToDistributionListNlsProp</nlsbundle>
+
+         <helpcontextid>sendtodistributionlist</helpcontextid>
+      </component>
+      
+   </scope>
+   
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_quickflow_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:49 $
+
+***********************************************************************
+-->
+
+

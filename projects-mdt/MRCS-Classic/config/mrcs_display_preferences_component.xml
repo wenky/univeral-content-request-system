@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Webtop                                                 -->
+<!-- Module         Display Preferences                                    -->
+<!-- File           display_preferences_component.xml                      -->
+<!-- Description    Display Preferences Component Definition               -->
+<!-- Created on     13 January 2004                                        -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                           -->
+<!-- Modified on    $Date: 2007/12/12 17:39:31 $                             -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      <component id="display_preferences" extends="display_preferences:webcomponent/config/environment/preferences/display/display_preferences_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Display preferences component:  Provide UI and behaviour for
+            setting display preferences like columns and positions.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/webcomponent/environment/preferences/display/display_preferences.jsp</start>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.documentum.webcomponent.environment.preferences.display.DisplayPreferences</class>
+         <nlsbundle>com.documentum.webcomponent.environment.preferences.display.DisplayPreferencesNlsProp</nlsbundle>
+
+         <!-- Component Help -->
+         <helpcontextid>display_preferences</helpcontextid>
+
+         <!-- Display Preferences -->
+         <preferences>
+
+            <!-- What docbase types to make available by default -->
+            <display_docbase_types>
+               <docbase_type>
+                  <value>m_mrcs_grouping_folder</value>
+                  <label>MRCS Folder</label>
+               </docbase_type>
+            </display_docbase_types>
+
+            <!-- Do we want to show repeating attributes by default? Override this by copying this tag to an individual preference. -->
+            <show_repeating_attributes>true</show_repeating_attributes>
+
+            <preference id="application.display.classic_cabinets_columns">
+               <label><nlsid>CLASSIC_CABINETS_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=doclist].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.streamline_cabinets_columns">
+               <label><nlsid>STREAMLINE_CABINETS_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=drilldown].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.classic_categories_columns">
+               <label><nlsid>CLASSIC_CATEGORIES_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=categorylist].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.streamline_categories_columns">
+               <label><nlsid>STREAMLINE_CATEGORIES_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=categorydrilldown].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.classic_homecabinet_columns">
+               <label><nlsid>CLASSIC_HOMECABINET_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=homecabinet_list].columns</value>
+               <inherits>application.display.classic_cabinets_columns</inherits>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.streamline_homecabinet_columns">
+               <label><nlsid>STREAMLINE_HOMECABINET_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=homecabinet_drilldown].columns</value>
+               <inherits>application.display.streamline_cabinets_columns</inherits>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.classic_inbox_columns">
+               <label><nlsid>CLASSIC_INBOX_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=inboxlist].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <display_docbase_types>
+                  <docbase_type>
+                     <value>dmi_queue_item</value>
+                     <label><nlsid>LBL_QUEUE_ITEM</nlsid></label>
+                  </docbase_type>
+               </display_docbase_types>
+               <enableordering>false</enableordering>
+            </preference>
+
+            <preference id="application.display.streamline_inbox_columns">
+               <label><nlsid>STREAMLINE_INBOX_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=inboxdrilldown].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <display_docbase_types>
+                  <docbase_type>
+                     <value>dmi_queue_item</value>
+                     <label><nlsid>LBL_QUEUE_ITEM</nlsid></label>
+                  </docbase_type>
+               </display_docbase_types>
+               <enableordering>false</enableordering>
+            </preference>
+
+            <preference id="application.display.classic_myfiles_columns">
+               <label><nlsid>CLASSIC_MYFILES_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=myobjects_list].columns</value>
+               <inherits>application.display.classic_cabinets_columns</inherits>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.streamline_myfiles_columns">
+               <label><nlsid>STREAMLINE_MYFILES_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=myobjects_drilldown].columns</value>
+               <inherits>application.display.streamline_cabinets_columns</inherits>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.classic_subscriptions_columns">
+               <label><nlsid>CLASSIC_SUBSCRIPTIONS_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=subscriptions_list].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <show_repeating_attributes>false</show_repeating_attributes>
+            </preference>
+
+            <preference id="application.display.streamline_subscriptions_columns">
+               <label><nlsid>STREAMLINE_SUBSCRIPTIONS_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=subscriptions_drilldown].columns</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <show_repeating_attributes>false</show_repeating_attributes>
+            </preference>
+
+            <preference id="application.display.classic_vdm_columns">
+               <label><nlsid>CLASSIC_VDM_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=vdmlist].columns</value>
+               <inherits>application.display.classic_cabinets_columns</inherits>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.streamline_vdm_columns">
+               <label><nlsid>STREAMLINE_VDM_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=vdmliststreamline].columns</value>
+               <inherits>application.display.streamline_cabinets_columns</inherits>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.classic_search_columns">
+               <label><nlsid>CLASSIC_SEARCH_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>CLASSIC_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=search].columns_list</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.streamline_search_columns">
+               <label><nlsid>STREAMLINE_SEARCH_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>STREAMLINE_COLUMNS</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=search].columns_drilldown</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <preference id="application.display.saved_search_columns">
+               <label><nlsid>SAVEDSEARCH_COLUMNS_LABEL</nlsid></label>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=search].columns_saved_search</value>
+               <editcomponent>columnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+            </preference>
+
+            <filter role='queue_manager'>
+               <preference id="application.display.manage_queue_inbox_columns">
+                  <label><nlsid>CLASSIC_MANAGE_QUEUE_INBOX_COLUMNS_LABEL</nlsid></label>
+                  <type>columnlist</type>
+                  <display_hint>hidden</display_hint>
+                  <value>component[id=managequeueinbox].columns</value>
+                  <editcomponent>columnselector</editcomponent>
+                  <editcontainer>columnselectorcontainer</editcontainer>
+                  <display_docbase_types>
+                     <docbase_type>
+                        <value>dmi_queue_item</value>
+                        <label><nlsid>LBL_QUEUE_ITEM</nlsid></label>
+                     </docbase_type>
+                  </display_docbase_types>
+               </preference>
+               <preference id="application.display.processor_workload_inbox_columns">
+                  <label><nlsid>CLASSIC_PROCESSOR_WORKLOAD_INBOX_COLUMNS_LABEL</nlsid></label>
+                  <type>columnlist</type>
+                  <display_hint>hidden</display_hint>
+                  <value>component[id=processorworkloadinbox].columns</value>
+                  <editcomponent>columnselector</editcomponent>
+                  <editcontainer>columnselectorcontainer</editcontainer>
+                  <display_docbase_types>
+                     <docbase_type>
+                        <value>dmi_queue_item</value>
+                        <label><nlsid>LBL_QUEUE_ITEM</nlsid></label>
+                     </docbase_type>
+                  </display_docbase_types>
+               </preference>
+            </filter>
+
+            <filter role='process_report_admin'>
+            <preference id="application.display.wf_historical_process_report_columns">
+               <label><nlsid>PROCESS_REPORT_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>PROCESS_REPORT_COLUMNS_LABEL</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=historicalprocessreportresults].columns_list</value>
+               <editcomponent>historicalreportcolumnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <display_docbase_types>
+                  <docbase_type>
+                     <value>dmc_completed_workflow</value>
+                  </docbase_type>
+               </display_docbase_types>
+            </preference>
+            <preference id="application.display.wf_historical_user_report_columns">
+               <label><nlsid>USER_REPORT_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>USER_REPORT_COLUMNS_LABEL</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=historicaluserreportresults].columns_list</value>
+               <editcomponent>historicalreportcolumnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <display_docbase_types>
+                  <docbase_type>
+                     <value>dmc_completed_workitem</value>
+                  </docbase_type>
+               </display_docbase_types>
+            </preference>
+            <preference id="application.display.wf_historical_activity_report_columns">
+               <label><nlsid>ACTIVITY_REPORT_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>ACTIVITY_REPORT_COLUMNS_LABEL</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=historicalactivityreportresults].columns_list</value>
+               <editcomponent>historicalreportcolumnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <display_docbase_types>
+                  <docbase_type>
+                     <value>dmc_completed_workitem</value>
+                  </docbase_type>
+               </display_docbase_types>
+            </preference>
+            <preference id="application.display.wf_historical_process_detail_report_columns">
+               <label><nlsid>PROCESS_DETAIL_REPORT_COLUMNS_LABEL</nlsid></label>
+               <columnlabel><nlsid>PROCESS_DETAIL_REPORT_COLUMNS_LABEL</nlsid></columnlabel>
+               <type>columnlist</type>
+               <display_hint>hidden</display_hint>
+               <value>component[id=processdetailreportresults].columns_list</value>
+               <editcomponent>historicalreportcolumnselector</editcomponent>
+               <editcontainer>columnselectorcontainer</editcontainer>
+               <display_docbase_types>
+                  <docbase_type>
+                     <value>dmc_completed_workflow</value>
+                  </docbase_type>
+               </display_docbase_types>
+            </preference>
+            </filter>
+
+         </preferences>
+
+         <preferencedisplaygroups>
+
+            <group id="cabinets">
+               <members>
+                  <preference-ref id="application.display.classic_cabinets_columns" />
+                  <preference-ref id="application.display.streamline_cabinets_columns" />
+               </members>
+               <label><nlsid>CABINETS_LABEL</nlsid></label>
+            </group>
+
+            <group id="categories">
+               <members>
+                  <preference-ref id="application.display.classic_categories_columns" />
+                  <preference-ref id="application.display.streamline_categories_columns" />
+               </members>
+               <label><nlsid>CATEGORIES_LABEL</nlsid></label>
+            </group>
+
+            <group id="homecabinet">
+               <members>
+                  <preference-ref id="application.display.classic_homecabinet_columns" />
+                  <preference-ref id="application.display.streamline_homecabinet_columns" />
+               </members>
+               <label><nlsid>HOMECABINET_LABEL</nlsid></label>
+            </group>
+
+            <group id="inbox">
+               <members>
+                  <preference-ref id="application.display.classic_inbox_columns" />
+                  <preference-ref id="application.display.streamline_inbox_columns" />
+               </members>
+               <label><nlsid>INBOX_LABEL</nlsid></label>
+            </group>
+
+            <filter role="queue_manager">
+            <group id="queuemanagement">
+               <members>
+                  <preference-ref id="application.display.manage_queue_inbox_columns" />
+                  <preference-ref id="application.display.processor_workload_inbox_columns" />
+               </members>
+               <label><nlsid>QUEUE_MANAGEMENT_LABEL</nlsid></label>
+            </group>
+            </filter>
+
+            <group id="myfiles">
+               <members>
+                  <preference-ref id="application.display.classic_myfiles_columns" />
+                  <preference-ref id="application.display.streamline_myfiles_columns" />
+               </members>
+               <label><nlsid>MYFILES_LABEL</nlsid></label>
+            </group>
+
+            <group id="subsciptions">
+               <members>
+                  <preference-ref id="application.display.classic_subscriptions_columns" />
+                  <preference-ref id="application.display.streamline_subscriptions_columns" />
+               </members>
+               <label><nlsid>SUBSCRIPTIONS_LABEL</nlsid></label>
+            </group>
+
+            <group id="vdm">
+               <members>
+                  <preference-ref id="application.display.classic_vdm_columns" />
+                  <preference-ref id="application.display.streamline_vdm_columns" />
+               </members>
+               <label><nlsid>VDM_LABEL</nlsid></label>
+            </group>
+
+            <group id="search">
+               <members>
+                  <preference-ref id="application.display.classic_search_columns" />
+                  <preference-ref id="application.display.streamline_search_columns" />
+               </members>
+               <label><nlsid>SEARCH_LABEL</nlsid></label>
+            </group>
+
+            <filter role="process_report_admin">
+            <group id="workflow_historical_reports">
+               <members>
+                  <preference-ref id="application.display.wf_historical_process_report_columns"/>
+                  <preference-ref id="application.display.wf_historical_user_report_columns"/>
+                  <preference-ref id="application.display.wf_historical_activity_report_columns"/>
+                  <preference-ref id="application.display.wf_historical_process_detail_report_columns"/>
+               </members>
+               <label><nlsid>WORKFLOW_HISTORICAL_REPORTS_LABEL</nlsid></label>
+            </group>
+            </filter>
+
+         </preferencedisplaygroups>
+
+      </component>
+   </scope>
+</config>
+

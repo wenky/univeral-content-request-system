@@ -1,0 +1,110 @@
+
+
+
+
+
+
+<html>
+<head>
+<script>var g_virtualRoot = "/webtop2";</script>
+<link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/dragdrop.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/richtexteditor.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/webforms.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/xforms.css" type="text/css"><link rel="stylesheet" href="/webtop2/webtop/theme/documentum/css/webtop.css" type="text/css"><link rel="stylesheet" href="/webtop2/wdk/theme/tahoe/css/webforms.css" type="text/css"><link rel="stylesheet" href="/webtop2/webtop/theme/tahoe/css/webtop.css" type="text/css">
+<script>var Trace_TRACE=false;var Trace_LOCATE=false;var Trace_CLIENTEVENTS=false;var Trace_SCROLL=false;var Trace_FORMNAVIGATION=false;var Trace_COMPONENTNAVIGATION=false;var Trace_FRAMENAVIGATION=false;var Trace_HELP=false;var Trace_MODAL=false;var Trace_CONTENTTRANSFER=false;var Trace_TREE=false;var Trace_APPINTGEVENTS=false;var Trace_PORTALWINDOWING=false;</script><script src="/webtop2/wdk/include/trace.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/locate.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/events.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/scroll.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/formnavigation.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/componentnavigation.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/framenavigation.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/help.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/modal.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/contenttransfer.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/tree.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/appintgevents.js" language="javascript1.2"></script><script src="/webtop2/wdk/include/windows.js" language="javascript1.2"></script>
+
+<script>
+registerClientEventHandler(null, "onClassicView", onClassicView);
+registerClientEventHandler(null, "onStreamlineView", onStreamlineView);
+function onClassicView(view)
+{
+changeFrameLocationInFrameset(parent.parent, "view", "/webtop2/webtop/classic/classic.jsp");
+fireClientEvent("SetView", view);
+}
+function onStreamlineView(view)
+{
+changeFrameLocationInFrameset(parent.parent, "view", "/webtop2/webtop/streamline/streamline.jsp");
+fireClientEvent("SetView", view);
+}
+function onClickShowAllMsgs()
+{
+postComponentNestEvent(null, "dialogcontainer", "content", "component", "messages");
+}
+function onClickShowJobStatus()
+{
+var strFramePath = getAbsoluteFramePath("content");
+if (strFramePath != null)
+{
+strFramePath = walkDownFrameSet(strFramePath);
+if ((eval(strFramePath).postServerEvent != null) &&
+(typeof eval(strFramePath).postServerEvent != "undefined"))
+{
+var strCall = "";
+strCall += strFramePath +
+".safeCall('postServerEvent', null, null, null, \"onaction\", \"action\", \"showjobstatus\"";
+strCall += ")";
+eval(strCall);
+}
+}
+}
+function updateJobStatus(newStatus)
+{
+var currentStatus = document.getElementById("currentStatus").value;
+if( typeof currentStatus == "undefined" || currentStatus != newStatus)
+{
+postServerEvent(null, null, null, "updateJobIconMessage");
+}
+}
+function onClickClassic()
+{
+fireClientEvent("PrepareViewChange", "classic");
+return false;
+}
+function onClickStreamline()
+{
+fireClientEvent("PrepareViewChange", "streamline");
+return false;
+}
+</script>
+</head>
+<body class='webtopStatusbarBackground' marginheight='0' marginwidth='4' leftmargin='4' rightmargin='4' topmargin='0' bottommargin='0'>
+<script>var g_bWindowInitialised=false;</script><form name='StatusBar_0' id='statusbar' action='/webtop2/webtop/statusbar/statusbar.jsp' method='post'><input type='hidden' name='__dmfFormId' value='StatusBar_0'><input type='hidden' name='__dmfAction'><input type='hidden' name='__dmfHandler'><input type='hidden' name='__dmfHandlerArgs'><input type='hidden' name='__dmfControl'><input type='hidden' name='__dmfServletPath' value='/webtop/statusbar/statusbar.jsp'>
+<!-- action=-->
+
+<table border='0' width='100%' height='100%' cellspacing='0' cellpadding='0'>
+<tr>
+<td valign='middle' nowrap class='statusBarTd'>
+<span title="View all system messages for this session"><table border='0' cellspacing='0' cellpadding='0'  height=16 name='StatusBar_Button_0'  onclick='setKeys(event);safeCall(onClickShowAllMsgs,this);'  style='cursor:pointer'><tr style='cursor:pointer' height='3'><td valign='top' width='7' height='3' class='spacer'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/left_top.gif' border=0 width='7' height='3'></td><td valign='top' background='/webtop2/webtop/theme/tahoe/images/themebutton/bg_top.gif' class='spacer' height='3'>&nbsp;</td><td valign=top width='7' height='3' class='spacer'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/right_top.gif' border=0 width='7' height='3'></td></tr><tr style='cursor:pointer'><td valign=top width='7' class='spacer' background='/webtop2/webtop/theme/tahoe/images/themebutton/left.gif'>&nbsp;</td><td valign='middle' background='/webtop2/webtop/theme/tahoe/images/themebutton/bg.gif' nowrap align=center class=buttonLink>View Messages</td><td valign=top width='7' class='spacer' background='/webtop2/webtop/theme/tahoe/images/themebutton/right.gif'>&nbsp;</td></tr><tr style='cursor:pointer' height='3'><td valign=top width='7' class='spacer' height='3'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/left_bot.gif' border=0></td><td height='3' background='/webtop2/webtop/theme/tahoe/images/themebutton/bg_bot.gif' class='spacer'>&nbsp;</td><td valign=top height='3' width='7' class='spacer'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/right_bot.gif' border=0></td></tr></table></span>
+</td>
+<td class="spacer" width="4" nowrap>&nbsp;</td>
+<td align='right' valign='middle' nowrap class='statusBarTd'>
+
+<span title="View status of all asynchronous jobs"><table border='0' cellspacing='0' cellpadding='0'  height=16 name='StatusBar_jobStatus_0'  onclick='setKeys(event);safeCall(onClickShowJobStatus,this);'  style='cursor:pointer'><tr style='cursor:pointer' height='3'><td valign='top' width='7' height='3' class='spacer'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/left_top.gif' border=0 width='7' height='3'></td><td valign='top' background='/webtop2/webtop/theme/tahoe/images/themebutton/bg_top.gif' class='spacer' height='3'>&nbsp;</td><td valign=top width='7' height='3' class='spacer'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/right_top.gif' border=0 width='7' height='3'></td></tr><tr style='cursor:pointer'><td valign=top width='7' class='spacer' background='/webtop2/webtop/theme/tahoe/images/themebutton/left.gif'>&nbsp;</td><td valign='middle' background='/webtop2/webtop/theme/tahoe/images/themebutton/bg.gif' nowrap align=center class=buttonLink>Job Status</td><td valign=top width='7' class='spacer' background='/webtop2/webtop/theme/tahoe/images/themebutton/right.gif'>&nbsp;</td></tr><tr style='cursor:pointer' height='3'><td valign=top width='7' class='spacer' height='3'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/left_bot.gif' border=0></td><td height='3' background='/webtop2/webtop/theme/tahoe/images/themebutton/bg_bot.gif' class='spacer'>&nbsp;</td><td valign=top height='3' width='7' class='spacer'><img src='/webtop2/webtop/theme/tahoe/images/themebutton/right_bot.gif' border=0></td></tr></table></span>
+</td>
+<td class="spacer" width="10" nowrap>&nbsp;</td>
+
+<td align='right' valign='top' nowrap width="80%">
+<table border=0 cellspacing=0 cellpadding=0 class=defaultTabbarOuterGfxStyle style=cursor:pointer><tr>
+
+
+<td><img src="/webtop2/webtop/theme/tahoe/images/statusbar/tabbar/bottom/selTabLeft.gif" alt=''></td><td><table border=0 cellspacing=0 cellpadding=0 style='cursor:pointer' onclick='javascript:StatusBar_0int_tab_click_StatusBar_tabClassic_0()'><tr><td title='Classic view, tabular layout with browser tree and state - Selected' width=60 height=26 background='/webtop2/webtop/theme/tahoe/images/statusbar/tabbar/bottom/selTabBg.gif' valign='middle' align=center class=webtopStatusbarTabbarSelectedText nowrap><nobr><script>function StatusBar_0int_tab_click_StatusBar_tabClassic_0(){var value='tabClassic';document.StatusBar_0.StatusBar_tabsView_hidden_0.value=value;storeScrollPosition('StatusBar_0', '__dmfHiddenX', '__dmfHiddenY');var fctnReturn = onClickClassic(this);if (typeof fctnReturn != "undefined") { if (fctnReturn != false) {document.StatusBar_0.submit();}} else {document.StatusBar_0.submit();}}</script>Classic</nobr></td></tr></table></td><td><img src="/webtop2/webtop/theme/tahoe/images/statusbar/tabbar/bottom/selTabRightInt.gif" alt=''></td><td><table border=0 cellspacing=0 cellpadding=0 style='cursor:pointer' onclick='javascript:StatusBar_0int_tab_click_StatusBar_tabStreamline_0()'><tr><td title='Streamline view, tabular navigation, web style interface. No administrative functionality' width=60 height=26 background='/webtop2/webtop/theme/tahoe/images/statusbar/tabbar/bottom/tabBg.gif' valign='middle' align=center class=webtopStatusbarTabbarNormalText nowrap><nobr><script>function StatusBar_0int_tab_click_StatusBar_tabStreamline_0(){var value='tabStreamline';document.StatusBar_0.StatusBar_tabsView_hidden_0.value=value;storeScrollPosition('StatusBar_0', '__dmfHiddenX', '__dmfHiddenY');var fctnReturn = onClickStreamline(this);if (typeof fctnReturn != "undefined") { if (fctnReturn != false) {document.StatusBar_0.submit();}} else {document.StatusBar_0.submit();}}</script>Streamline</nobr></td></tr></table></td><td><img src="/webtop2/webtop/theme/tahoe/images/statusbar/tabbar/bottom/tabRight.gif" alt=''></td></tr></table><input type='hidden' name='StatusBar_tabsView_hidden_0' id='StatusBar_tabsView_hidden_0' value='tabClassic'>
+</td>
+<td align='right' width='10' class='spacer' nowrap>&nbsp;</td>
+</tr>
+
+</table>
+<input type='hidden' name='StatusBar_currentStatus_0' id='currentStatus' value=''>
+
+<input type='hidden' name='__dmfRequestId' value='__client10~~2'><input type='hidden' name='__dmfHiddenX' value='0'><input type='hidden' name='__dmfHiddenY' value='0'><input type='hidden' name='__dmfFormclass' value='com.documentum.webtop.webcomponent.statusbar.StatusBar'><input type='hidden' name='__dmfNlsclass' value='com.documentum.webtop.webcomponent.statusbar.StatusBarNlsProp'><input type='hidden' name='__dmfInitDocbase' value=''><input type='hidden' name='__dmfInitDocbaseUser' value=''><input type='hidden' name='__dmfInitDocbasePassword' value=''><input type='hidden' name='__dmfInitDocbaseDomain' value=''><input type='hidden' name='__dmfInitLocale' value=''><input type='hidden' name='__dmfSerialNumber' value='9'><input type='hidden' name='__dmfClientId' value=''></form>
+<script>function setBrowserWindowId() {var element = document.forms["StatusBar_0"].__dmfClientId;element.value=getBrowserId();}setBrowserWindowId();</script><script>function __onAutoFocus(formId, controlId) {var el = document.forms[formId][controlId];if (el != null && el.disabled == false) el.focus(); } 
+registerClientEventHandler(null, "StatusBar_0_SetAutoFocus", __onAutoFocus);</script><script>function StatusBar_0_initForm(){
+setServerForm('StatusBar_0','__dmfHiddenX','__dmfHiddenY');
+if (typeof setScrollPosition != 'undefined') setScrollPosition(0, 0);
+if (typeof endModal != 'undefined') endModal();
+
+if (typeof(window.setOnActionMultiselectWindowUnloadHandler) != 'undefined' && window.setOnActionMultiselectWindowUnloadHandler != null){ setOnActionMultiselectWindowUnloadHandler(); }
+ g_bWindowInitialised=true;
+createTestHook('/webtop2');fireClientEvent('onClassicView','classic');
+}</script><script>setTimeout('StatusBar_0_initForm()', 10);</script>
+<script type="text/javascript">function StatusBar_0_preSubmitForm(formId, controlId){
+
+}</script><script> document.cookie = 'wdk_pref_cookie_0=eJyVUm1v2jAQ/ivwFU2ItJ20ruRDoSHr1kALGaFMk+XYB3Vx7Mi+AOHXz0m6rd1W1H26l+funntbCQkWJDDU5oZavBKm1kv/7pCzaXj+yBNPpmp6uA5HxXI4iJeLaY8m7xXz9siTuU3DqLcIppKdYC89HbA0mZ/RZLy9Dsc5/7RZs1A+sp3v99urV7kWoz2y0wFGyefifhHtIrnX6YknF6HnLZO9vT/cuXyms1wrUPhNcF/qtVDfu4UFo2gGfmYoz4Tqt7fCilSCgVxb4aoLsP5H7+zD+bvMMEsQLF40djQdzsgVbC+ewfyF+TwwNlQoodb9Ns1zKRhFoVWXMgbWEQopsOzaB22QFajoVqzrAFDUNcP9FZUWjqVSiQh7/COeSeHmVYA7bTZSN5k+IUF0G9/Ht1FASOtY1Q2UqaaGv62hAh8c20+T68xN/BfZlmddpvOymxtYuTUrBv7Q2f9z3/Ho9++87IELm0tadpmkbgrme71XAiwaoJkUCgijqRNoCdOyyJT1dfroiEn1F/POvDN2MugEHRQoa0dcKZWHuhTldo4Ey7yGRtpkFCvM/MKsONTYzMkG2YKxrhkiaQqyguaNo0EzzcWqJJxinRZVpgDegO6IG6J3CkyFDR+AbYC3JgW2BuUTbWFMTYtPBYaNozWrHP02IZdf4wkJgzi+nH0hw8k4nk5uyPgyCt50VZZSC/6Rn/7HiuvTNsf4AU36iME.;expires='+new Date(1495142823570).toGMTString()+'; path=/';</script><script> document.cookie = 'wdk_sess_cookie_0=eJyNjkEKwjAQAN/SD4jVJjXQHGoawYMgVrwusQRdaDclWVB/bzz25m0OMzDg5hnGMDjGQKBPF9PDNTokpMfqGSY/uDuSZ0gcvZvGzE0BOep9SiYQ+zdb4vg5ByQG/WdyQ/8CvRDahfDDfHTsQLfSKCvqbdntN2tpqgwHKVRra1GpXWmb4gtpA0dA;; path=/';</script>
+</body>
+</html>

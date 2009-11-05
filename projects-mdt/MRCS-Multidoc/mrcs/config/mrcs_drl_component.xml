@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Web Development Kit                                    -->
+<!-- Module         Content Transfer                                            -->
+<!-- File           drl_component.xml                                       -->
+<!-- Description    DRL Component Definition                               -->
+<!-- Created on     30 July 2002                                           -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2006/09/07 05:12:46 $                            -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope type="m_mrcs_document">
+
+
+      <!-- DRL Request Connection component definition -->
+      <!--  component id="drlauthenticate" extends="drl:wdk/config/drl_component.xml" -->
+      <component id="drlauthenticate">
+         <!-- Description (not NLS'd) -->
+         <desc>
+            DRL component: Opens an object prompting the user to view or
+            edit. The object is specified using an objectId, optional version
+            label, and optional format.  Note that the opened object may differ
+            if a version label is passed (E.g. CURRENT). The login component is
+            invoked if necessary.
+         </desc>
+
+         <params>
+            <param name='objectId' required='true'></param>
+            <param name='versionLabel' required='false'></param>
+            <param name='format' required='false'></param>
+         </params>
+
+         <pages>
+            <start>/mrcs/pages/MrcsDrl.jsp</start>
+            <logout>/wdk/system/drl/logout.jsp</logout>
+         </pages>
+
+         <!-- class>com.documentum.web.formext.drl.DRLComponent</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsDrl</class>
+         <nlsbundle>com.documentum.web.formext.drl.DRLComponentNlsProp</nlsbundle>
+
+         <defaultaccounts>
+            <!-- There should be one default account entry per repository -->
+
+            <!-- e.g. (The filter is optional and isn't required if you want to use the same account across repositories)
+            <filter docbase='repositoryname'>
+                <defaultaccount>
+                   <username>username</username>
+                   <password>encrypted password</password>
+                   <domain>domain</domain>
+                <defaultaccount>
+            </filter>
+            -->
+
+            <!--
+               Set to true, if you want the DRL to logoff default account and close window after performing the DRL action
+            -->
+            <logoffoncomplete>true</logoffoncomplete>
+         </defaultaccounts>
+
+      </component>
+
+
+      <!-- DRL component definition -->
+      <component id="drl">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            DRL component: Opens an object prompting the user to view or
+            edit. The object is specified using an objectId, optional version
+            label, and optional format.  Note that the opened object may differ
+            if a version label is passed (E.g. CURRENT). The login component is
+            invoked if necessary.
+         </desc>
+
+         <params>
+            <param name='objectId' required='true'></param>
+            <param name='versionLabel' required='false'></param>
+            <param name='format' required='false'></param>
+         </params>
+
+         <pages>
+            <start>/mrcs/pages/MrcsDrl.jsp</start>
+            <logout>/wdk/system/drl/logout.jsp</logout>
+         </pages>
+
+         <!-- class>com.documentum.web.formext.drl.DRLComponent</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsDrl</class>
+         <nlsbundle>com.documentum.web.formext.drl.DRLComponentNlsProp</nlsbundle>
+
+         <defaultaccounts>
+            <!-- There should be one default account entry per repository -->
+
+            <!-- e.g. (The filter is optional and isn't required if you want to use the same account across repositories)
+            <filter docbase='repositoryname'>
+                <defaultaccount>
+                   <username>username</username>
+                   <password>encrypted password</password>
+                   <domain>domain</domain>
+                <defaultaccount>
+            </filter>
+            -->
+
+            <!--
+               Set to true, if you want the DRL to logoff default account and close window after performing the DRL action
+            -->
+            <logoffoncomplete>true</logoffoncomplete>
+         </defaultaccounts>
+      </component>
+   </scope>
+</config>
+

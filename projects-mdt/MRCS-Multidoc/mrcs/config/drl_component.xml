@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $ -->
+<!-- Modified on    $Date: 2007/03/08 21:35:12 $ -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+
+      <!-- DRL component definition -->
+      <component id="drl" extends="/wdk/config/drl_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            DRL component: Opens an object prompting the user to view or
+            edit. The object is specified using an objectId, optional version
+            label, and optional format.  Note that the opened object may differ
+            if a version label is passed (E.g. CURRENT). The login component is
+            invoked if necessary.
+         </desc>
+
+         <params>
+            <param name='objectId' required='true'></param>
+            <param name='versionLabel' required='false'></param>
+            <param name='format' required='false'></param>
+         </params>
+
+         <pages>
+            <start>/wdk/system/drl/drl.jsp</start>
+            <logout>/wdk/system/drl/logout.jsp</logout>
+         </pages>
+
+         <class>com.documentum.web.formext.drl.DRLComponent</class>
+         <nlsbundle>com.documentum.web.formext.drl.DRLComponentNlsProp</nlsbundle>
+
+         <defaultaccounts>
+            <!-- There should be one default account entry per repository -->
+
+            <!-- e.g. (The filter is optional and isn't required if you want to use the same account across repositories)-->
+            <filter>
+                <defaultaccount>
+                   <username>anon</username>
+                   <password>b6aeced6caead4ddcdc5d5ece3ded0ecedb5d6acbeb5</password>
+                   <domain></domain>
+                </defaultaccount>
+            </filter>
+            
+
+            <!--
+               Set to true, if you want the DRL to logoff default account and close window after performing the DRL action
+            -->
+            <logoffoncomplete>true</logoffoncomplete>
+         </defaultaccounts>
+      </component>
+   </scope>
+</config>
+

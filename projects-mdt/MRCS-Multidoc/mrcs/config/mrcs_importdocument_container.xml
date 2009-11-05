@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <!-- scope it to mrcs_folder... -->
+   <!-- scope type='m_mrcs_folder'-->
+   <scope>
+   
+      <!-- Checkout container component definition -->
+      <component id="mrcsimportcontainerOLD" extends="contentxfercontainer:webcomponent/config/library/contentxfer/contentxfercontainer_component.xml">
+
+         <!-- Component Contract -->
+         <params>
+            <param name='component' required='true'></param>
+            <param name='componentArgs' required='true'></param>
+         </params>
+         
+         <!-- Component Layout -->
+         <pages>
+            <fileselection>/mrcs/pages/MrcsImportContent/importFileSelection.jsp</fileselection>
+            <accessibleFileselection>/mrcs/pages/MrcsImportContent/accessibleImportFileSelection.jsp</accessibleFileselection>
+            <checkfullapplet>/mrcs/pages/MrcsImportContent/checkFullApplet.jsp</checkfullapplet>
+            <installfullapplet>/mrcs/pages/MrcsImportContent/installFullContentXfer.jsp</installfullapplet>
+            <verifyinstallfullapplet>/mrcs/pages/MrcsImportContent/verifyFullContentXferInstall.jsp</verifyinstallfullapplet>
+            <restartbrowser>/mrcs/pages/MrcsImportContent/restartBrowser.jsp</restartbrowser>
+            <containerstart>/mrcs/pages/MrcsImportContent/combocontainer.jsp</containerstart>
+            <linkdetect>/mrcs/pages/MrcsImportContent/linkDetect.jsp</linkdetect>
+            <importupload>/mrcs/pages/MrcsImportContent/importUpload.jsp</importupload>
+            <serviceprogress>/mrcs/pages/MrcsImportContent/serviceProgress.jsp</serviceprogress>
+            <mrcscombocontainer>/mrcs/pages/MrcsImportContent/combocontainer2.jsp</mrcscombocontainer>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsImportContainer</class>
+         <!-- nlsbundle>com.documentum.webcomponent.library.importcontent.ImportNlsProp</nlsbundle -->
+         <!-- nlsbundle>com.medtronic.documentum.mrcs.client.MrcsImportContentNlsProp</nlsbundle -->
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>import</helpcontextid>
+      </component>
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_importdocument_container.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.5 $
+ Modified on    $Date: 2006/08/21 04:54:49 $
+
+***********************************************************************
+-->
+
+
+

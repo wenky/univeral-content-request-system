@@ -1,0 +1,19 @@
+import com.medtronic.ecm.documentum.introspection.*;
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+out.write """
+<FORM name='DumpDoc' action='${baseurl}' method='GET'>
+    <P>username:&nbsp;&nbsp;<INPUT type='text' name='u' value='${dctmuser}'></P>
+    <P>password:&nbsp;&nbsp;<INPUT type='password' name='p' value='${dctmpass}'></P>
+    <P>docbase:&nbsp;&nbsp;<SELECT name='b'>
+"""    		
+
+List baselist = DctmAccess.getDocbaseList()
+baselist.each { docbase -> out.write("<option value='${docbase}'"+(docbase.equals(dctmbase) ? " SELECTED":"")+">${docbase}</option>"); }
+        
+out.write """
+</SELECT></P>
+    <INPUT type='hidden' name='do' value='showDqlExec.gvw'/>
+    <INPUT type='submit' name='Login' value='Login'/>
+</FORM>
+"""

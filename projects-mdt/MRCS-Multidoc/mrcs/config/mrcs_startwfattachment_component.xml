@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: start workflow attachment                                  -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $Revision: 1.11 $ -->
+<!-- Modified on $Date: 2007/03/21 22:36:41 $ -->
+
+<config version='1.0'>
+   <scope>
+
+      <component id="startwfattachment" extends="startwfattachment:webcomponent/config/library/workflow/attachment/startwfattachment_component.xml">
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component is part of the start workflow component. It manages
+            the attachment information during the workflow initialization process.
+         </desc>
+
+         <!-- component contract -->
+         <params>
+            <param name="objectId" required="true"/>
+            <param name="attachmentIds" required="false"/>
+         </params>
+
+         <pages>
+            <!--  start>/webcomponent/library/workflow/attachment/startAttachmentList.jsp</start> -->
+            <start>/mrcs/pages/MrcsStartAttachmentList.jsp</start>
+            <!-- list>/webcomponent/library/workflow/attachment/startAttachmentList.jsp</list> -->
+            <list>/mrcs/pages/MrcsStartAttachmentList.jsp</list>
+            <drilldown>/mrcs/pages/MrcsStartAttachmentDrilldown.jsp</drilldown>
+         </pages>
+
+         <class>com.documentum.webcomponent.library.workflow.attachment.StartAttachment</class>
+        <nlsbundle>com.documentum.webcomponent.library.workflow.attachment.AttachmentNlsProp</nlsbundle>
+
+         <helpcontextid>startwfattachment</helpcontextid>
+      </component>
+
+   </scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_startwfattachment_component.xml,v $
+ Author         $Author: wallam1 $
+ Revision       $Revision: 1.11 $
+ Modified on    $Date: 2007/03/21 22:36:41 $
+
+***********************************************************************
+-->
+
+

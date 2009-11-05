@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2003.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         checkin_docbaseattributelist                           -->
+<!-- File           checkin_docbaseattributelist.xml                       -->
+<!-- Description    Docbase attribute list Definition                      -->
+<!-- Created on     4 January 2003                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2007/06/08 16:15:24 $                            -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope type='m_mrcs_mdts_document'>
+
+      <!-- docbaseattributelist definition -->
+      <attributelist id="mrcs_import_attrlist_config" extends="attributes:webcomponent/config/library/attributes_dm_document_docbaseattributelist.xml">
+
+         <!-- If enable equals false, the information for the category, the   -->
+         <!-- order of the category, and the order of the attribute in a      -->
+         <!-- particular category will be gathered in the configuration file. -->
+         <!-- On the other hand, if enable equals true, the system does the   -->
+         <!-- the following to determine how to use information in the        -->
+         <!-- configuration file.                                             -->
+         <!-- 1. When running on Documentum Content Server 5.2 or above,      -->
+         <!-- the information for the category, the order of the category,    -->
+         <!-- and the order of the attribute in a particular category will be -->
+         <!-- gathered from the data dictionary.  Also, attributes listed     -->
+         <!-- under ignore_attributes will be read and treated as a filter    -->
+         <!-- so that those attributes will not be shown in the User Interface-->
+         <!-- 2. When running on Documentum Content Server 5.1 or less,       -->
+         <!-- the system merge the data gathered from the data dictionary (as -->
+         <!-- #1) with the data gathered from the configuration file (as      -->
+         <!-- enable equals false).                                           -->
+         <data_dictionary_population>
+            <enable>true</enable>
+
+            <!-- ddscope specifies scope class and scope value for retrieving -->
+            <!-- the right data dictionary information from the content       -->
+            <!-- server. Currently, only application is valid in the name field -->
+            <ddscopes>
+               <ddscope name="application">webtop</ddscope>
+            </ddscopes>
+
+            <ignore_attributes>
+               <!-- add any attributes that shouldn't be shown in the UI here -->
+               <attribute name="r_object_id"/>
+               <attribute name="object_name"/> <!--  shouldn't show name in import doc screen, since name generation hasn't happened yet -->
+               <!-- attribute name="title"/ -->
+               <attribute name="subject"/>
+               <!-- attribute name="keywords"/ -->
+               <!-- attribute name="authors"/ -->
+               <attribute name="r_content_size"/>
+               <attribute name="r_full_content_size"/>
+               <attribute name="owner_name"/>
+               <attribute name="r_version_label"/>
+               <attribute name="r_lock_date"/>
+               <attribute name="r_lock_owner"/>
+               <attribute name="log_entry"/>
+               <attribute name="r_creation_date"/>
+               <attribute name="r_creator_name"/>
+               <attribute name="r_modify_date"/>
+               <attribute name="r_modifier"/>
+               <attribute name="r_access_date"/>
+               <attribute name="r_policy_id"/>
+               <attribute name="r_current_state"/>
+            </ignore_attributes>
+            <readonly_attributes>
+               <!-- attribute name="object_name"/ -->
+            </readonly_attributes>
+         </data_dictionary_population>
+
+         <!-- Info -->
+         <category id="info">
+            <name><nlsid>MSG_INFO</nlsid></name>
+            <attributes>
+            <!-- Specify attributes that are going to be shown on the         page here -->
+            <!-- Please be aware that the following attributes are already on the jsp   -->
+            <!-- page: object_name, r_version_label, r_object_type, a_content_type,     -->
+            <!-- a_full_text -->
+            <!--               <attribute name="title"/>                                -->
+            </attributes>
+         </category>
+
+      </attributelist>
+   </scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_attributes_control_mdts_import_document_config.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.1 $
+ Modified on    $Date: 2007/06/08 16:15:24 $
+
+***********************************************************************
+-->
+
+
+

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope type="m_mrcs_folder">
+
+      <!-- Import action -->
+      <action id="import">
+         <params>
+            <param name="objectId" required="true"></param>
+            <param name="objectName" required="false"/>
+            <param name="ownerName" required="false"></param>
+            <param name="docbaseType" required="false"></param>
+            <param name="baseDocbaseType" required="false"></param>
+            <param name="filePath" required="false"/>
+            <param name="parentPath" required="false"/>
+            <param name="isDirectory" required="false"/>
+            <param name="format" required="false"/>
+         </params>
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.ImportPrecondition">
+            </precondition>
+            <precondition class="com.documentum.web.formext.action.RolePrecondition">
+               <role>contributor</role>
+            </precondition>
+            <!--  allowable documents precond -->
+            <precondition class="com.medtronic.documentum.mrcs.client.MrcsAllowableDocumentsPrecondition"></precondition>                        
+         </preconditions>
+         <execution class="com.documentum.web.formext.action.LaunchComponentWithPermitCheck">
+            <permit>folder_link_permit</permit>
+            <dynamicfilter class="com.documentum.web.formext.action.LaunchComponentFilter">
+               <option>
+                  <criteria>
+                     <criterion name='isaccessibilityon' value='true' evaluatorclass='com.documentum.web.contentxfer.AccessibilityEvaluator'/>
+                  </criteria>
+                  <filter clientenv='not appintg'>
+                     <selection>
+                        <component>httpimport</component>
+                        <container>httpimportcontainer</container>
+                     </selection>
+                  </filter>
+                  <filter clientenv='appintg'>
+                     <selection>
+                        <component>import</component>
+                        <container>importcontainer</container>
+                     </selection>
+                  </filter>
+               </option>
+               <option>
+                  <criteria>
+                     <criterion name='contenttransfer' value='applet' evaluatorclass='com.documentum.web.contentxfer.ContentTransferLaunchComponentEvaluator'/>
+                  </criteria>
+                  <selection>
+                     <component>mrcsimport</component>
+                     <container>mrcsimportcontainer</container>
+                  </selection>
+               </option>
+               <option>
+                  <criteria>
+                     <criterion name='contenttransfer' value='http' evaluatorclass='com.documentum.web.contentxfer.ContentTransferLaunchComponentEvaluator'/>
+                  </criteria>
+                  <selection>
+                     <component>httpimport</component>
+                     <container>httpimportcontainer</container>
+                  </selection>
+               </option>
+               <option>
+                  <criteria>
+                     <criterion name='contenttransfer' value='ucf' evaluatorclass='com.documentum.web.contentxfer.ContentTransferLaunchComponentEvaluator'/>
+                  </criteria>
+                  <selection>
+                     <component>mrcsimport</component>
+                     <container>mrcsimportcontainer</container>
+                  </selection>
+               </option>
+            </dynamicfilter>
+         </execution>
+      </action>
+
+      <!-- MRCS New Document: need to check if mrcs folder actually has allowable documents defined -->
+      <!-- New Document action -->
+      <action id="newdocument">
+         <params>
+            <param name="objectId" required="true"></param>
+            <param name="ownerName" required="false"></param>
+            <param name="editAfterCreate" required="false"></param>
+            <param name="contentType"     required="false"/>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.web.formext.action.RolePrecondition">
+               <role>contributor</role>
+            </precondition>
+            <!--  CEM: added additional precondition -->
+            <precondition class="com.medtronic.documentum.mrcs.client.MrcsAllowableDocumentsPrecondition"></precondition>
+         </preconditions>
+         <execution class="com.documentum.web.formext.action.LaunchComponentWithPermitCheck">
+            <permit>folder_link_permit</permit>
+            <dynamicfilter class="com.documentum.web.contentxfer.ContentTransferLaunchComponentFilter">
+               <option>
+                  <criteria>
+                     <criterion name='contenttransfer' value='ucf'/>
+                  </criteria>
+                  <selection>
+                     <component>newdocument</component>
+                     <container>newdoccontainer</container>
+                  </selection>
+               </option>
+               <option>
+                  <criteria>
+                     <criterion name='contenttransfer' value='applet'/>
+                  </criteria>
+                  <selection>
+                     <component>newdocument</component>
+                     <container>newdoccontainer</container>
+                  </selection>
+               </option>
+               <option>
+                  <criteria>
+                     <criterion name='contenttransfer' value='http'/>
+                  </criteria>
+                  <selection>
+                     <component>newdocument</component>
+                     <container>newhttpdoccontainer</container>
+                  </selection>
+               </option>
+            </dynamicfilter>
+
+         </execution>
+      </action>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ (c) Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_import_menu_action.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.6 $
+ Modified on    $Date: 2007/01/05 04:45:24 $
+
+***********************************************************************
+-->
+
+    

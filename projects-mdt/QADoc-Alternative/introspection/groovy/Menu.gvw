@@ -1,0 +1,13 @@
+out.write """
+<hr>
+<a href="${baseurl}?do=showDumpName.gvw${credurl}">Dump</a> -
+"""
+//<a href="${baseurl}?do=showWorkflows.gvw${credurl}">Workflows</a> -
+//<a href="${baseurl}?do=showTypes.gvw${credurl}">*Types</a> -
+out.write """
+<a href="${baseurl}?do=doCabinetList.gvw${credurl}">Cabinets</a> -
+<a href="${baseurl}?do=showDqlExec.gvw${credurl}">DQL</a> -
+<a href="${baseurl}?do=showGScript.gvw${credurl}">gScript</a> -
+<a href="${baseurl}?do=showLogin.gvw">Login</a> -- [User: ${dctmuser} Docbase: ${dctmbase}]
+<hr>
+"""
