@@ -1,0 +1,119 @@
+<div style="display:none;">
+
+  <div id="home-div">
+    <a href="/lweb/LWeb/govmeals-home.frame"> 
+      <div style="float:left;" ><img src="/lweb/lw-img/welcome.png" /></div>
+      <div style="margin-left:150px;">
+          <h2>Welcome</h2>
+          <p>Go here for a description of the site.</p>
+      </div>
+    </a>
+  </div>  
+  
+  <div id="login-div">
+    <a href="/lweb/LWeb/govmeals-login.frame"> 
+      <div style="float:left;" ><img src="/lweb/lw-img/login.png" /></div>
+      <div style="margin-left:150px;">
+          <h2>Login</h2>
+          <p>If you are a registered user, login to view your account status, reports, and upload data</p>
+      </div>
+    </a>
+  </div>
+  
+  <div id="question-div">
+    <a href="/lweb/LWeb/govmeals-questions.frame"> 
+      <div style="float:left;" ><img src="/lweb/lw-img/eligibility.png" /></div>
+      <div style="margin-left:150px;">
+          <h2>Eligibility</h2>
+          <p>Answer these simple questions  to help us determine if you qualify for assistance</p>
+      </div>
+    </a>
+  </div>
+  
+  <div id="estimatepayments-div">
+    <a href="/lweb/LWeb/govmeals-estimatepayments.frame"> 
+      <div style="float:left;" ><img src="/lweb/lw-img/estimate-payments.png" /></div>
+      <div style="margin-left:150px;">
+          <h2>Estimate Payments</h2>
+          <p>Estimate approximate reimbursement amount in the event you qualify.</p>
+      </div>
+    </a>
+  </div>
+
+  <div id="researchprograms-div">
+    <a href="/lweb/LWeb/govmeals-researchprograms.frame"> 
+      <div style="float:left;" ><img src="/lweb/lw-img/research-programs.png" /></div>
+      <div style="margin-left:150px;">
+          <h2>Research Programs</h2>
+          <p>Publications detailing available federal and local child nutrition programs</p>
+      </div>
+    </a>
+  </div>
+
+  <div id="publicreports-div">
+    <a href="/lweb/LWeb/govmeals-publicreports.frame"> 
+      <div style="float:left;" ><img src="/lweb/lw-img/public-reports.png" /></div>
+      <div style="margin-left:150px;">
+          <h2>Public Reports</h2>
+          <p>View public reports about child nutrition programs</p>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+  function readyToGo() {
+	  var home = {
+	    id: 'home-panel',
+	    bodyStyle: 'padding:25px',
+	    contentEl: 'home-div'
+	  };
+	
+	  var login = {
+	    id: 'login-panel',
+	    bodyStyle: 'padding:25px',
+	    contentEl: 'login-div'
+	  };
+	
+	  var questions = {
+	    id: 'questions-panel',
+	    bodyStyle: 'padding:25px',
+	    contentEl: 'question-div'
+	  };
+	
+	  var estimatepayments = {
+	    id: 'estimatepayments-panel',
+	    bodyStyle: 'padding:25px',
+	    contentEl: 'estimatepayments-div'
+	  };
+	  var researchprograms = {
+	    id: 'researchprograms-panel',
+	    bodyStyle: 'padding:25px',
+	    contentEl: 'researchprograms-div'
+	  };
+	  var publicreports = {
+	    id: 'publicreports-panel',
+	    bodyStyle: 'padding:25px',
+	    contentEl: 'publicreports-div'
+	  };
+	  
+	  var table = new Ext.Panel({
+	    layout:'table',
+	    defaults: {
+	      border: false,
+	      bodyStyle:'padding:20px'
+	    },
+	    layoutConfig: {
+	      columns: 1
+	    },
+	    items: [home,login,questions,estimatepayments,researchprograms,publicreports],
+	    renderTo: "main-div"
+	  });
+  }
+
+</script>
+
+

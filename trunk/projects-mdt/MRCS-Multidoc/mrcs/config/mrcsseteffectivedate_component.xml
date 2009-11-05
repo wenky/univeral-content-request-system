@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         New Folder                                             -->
+<!-- File           newfolder_component.xml                                -->
+<!-- Description    Generic New Folder Component Definition                -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 4$                                          -->
+<!-- Modified on    $Date: 5/30/2005 4:37:08 PM$                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   
+   <!-- this component is the generic version so has unqualified scope -->
+   <scope>
+      
+      <!-- the document list component definition -->
+      <component id="mrcsseteffectivedate">
+         
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+         </params>
+         
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/setEffectiveDate.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.QADocSetEffectiveDate</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.seteffectivedate.MRCSSetEffectiveDateNlsProp</nlsbundle>
+        
+      </component>
+      
+   </scope>
+</config>
+

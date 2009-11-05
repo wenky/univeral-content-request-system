@@ -1,0 +1,137 @@
+<map>
+
+    <entry><string>StageList</string><!--  default  -->
+      <list>
+        <string>PreExport</string>
+        <string>Export</string>
+        <string>PostExport</string>
+      </list>
+    </entry>
+    
+    <entry><string>Export</string>
+      <map>
+        <entry><string>Processors</string>
+          <list>
+        
+            <!--  put DctmAccess ==> SourceAccess  -->
+            <Plugin> 
+                <Class>com.zoder.processors.InitDctmAccess</Class>
+                <Config>
+                    <entry><string>user</string><string>ecsadmin</string></entry>
+                    <entry><string>pass</string><string>spring2005</string></entry>
+                    <entry><string>base</string><string>mqadoc_dev</string></entry>
+                    <entry><string>contextkey</string><string>SourceAccess</string></entry>
+                </Config>
+            </Plugin>            
+
+            <!--  get a list of docids to play with -->
+            <Plugin> 
+                <Class>com.zoder.processors.SingleColumnDql</Class>
+                <Config>
+                    <entry><string>Dql</string><string>Select r_object_id from mdt_document</string></entry>
+                    <entry><string>OutputKey</string><string>InputDocIdList</string></entry>
+                </Config>
+            </Plugin>
+            
+            <!--  Basic integrity and valid id checks
+                - put list of all valid documents ==> Success
+                - invalid ids ==> Failure  
+            -->
+            <Plugin> 
+                <Class>com.zoder.processors.exporting.CheckIdList</Class>
+            </Plugin>
+            
+            <!--  version tree processing:   
+                - do various checks on Success docs, move invalid docs to Failure
+                - place version list ==> Versions in valid docs 
+            -->
+            <Plugin>
+                <Class>com.zoder.processors.exporting.CheckVersionTree</Class>
+            </Plugin>
+
+
+            <!--  load folder map: needed by the FolderLink processor  -->
+            <Plugin> 
+                <Class>com.zoder.processors.LoadXStream</Class>
+                <Config>
+                    <entry><string>Keys</string>
+                      <map>
+                        <entry><string>Folders.IdMap</string><string>C:/Dev/migrate3/Zoder/test1/Folders.IdMap.xml</string></entry>
+                      </map>                    
+                    </entry>
+                </Config>
+            </Plugin>
+
+            <!--  get list of folders the documents are currently linked to -->
+            <Plugin>
+                <Class>com.zoder.processors.exporting.LinkedFolderList</Class>
+                <Config>
+                    <entry><string>MustBeLinked</string><null/></entry>
+                </Config>
+            </Plugin>
+            
+            <!--  Filter virtual documents to the Failure list -->            
+            <Plugin>
+                <Class>com.zoder.processors.exporting.VirtualDocumentFilter</Class>
+            </Plugin>                        
+            
+            <!--  Dump necessary data/metadata -->
+            <Plugin>
+                <Class>com.zoder.processors.exporting.GetMetaData</Class>
+                <Config>
+                    <entry><string>ExportAllApplicationAttributes</string><null/></entry>
+                    <entry><string>Attributes</string>
+                      <map>
+                        <entry><string>object_name</string><null/></entry>
+                        <entry><string>title</string><null/></entry>
+                        <entry><string>subject</string><null/></entry>
+                        <entry><string>authors</string><null/></entry>
+                        <entry><string>keywords</string><null/></entry>
+                        <entry><string>owner_name</string><null/></entry>
+                        <entry><string>log_entry</string><null/></entry>
+                        <entry><string>r_creation_date</string><null/></entry>
+                        <entry><string>r_creator_name</string><null/></entry>
+                        <entry><string>r_modify_date</string><null/></entry>
+                        <entry><string>r_content_type</string><null/></entry>
+                      </map>
+                    </entry>
+                </Config>
+            </Plugin>
+
+            <Plugin>
+                <Class>com.zoder.processors.exporting.GetReferenceData</Class>
+            </Plugin>
+            
+            <Plugin>
+                <Class>com.zoder.processors.exporting.ExportContent</Class>
+                <Config>
+                    <entry><string>RenditionFormats</string>
+                      <list>
+                        <string>pdf</string>
+                      </list>
+                    </entry>
+                </Config>
+            </Plugin>
+            
+            <Plugin> 
+                <Class>com.zoder.processors.ErrorListSerialize</Class>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.zoder.processors.SuccessListSerialize</Class>
+            </Plugin>
+            
+          </list>
+        </entry>
+      </map>
+            
+        
+    </entry>    
+    
+    <entry><string>Globals</string>
+      <map>
+        <entry><string>BaseDirectory</string><string>C:/Dev/migrate3/Zoder/test1/</string></entry>
+        <entry><string>Configuration.DirectoryDepth</string><string>3</string></entry>
+      </map>
+    </entry>
+</map>

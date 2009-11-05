@@ -1,0 +1,73 @@
+<map>
+
+    <entry><string>StageList</string><!--  default  -->
+      <list>
+        <string>PreImport</string>
+        <string>Import</string>
+        <string>PostImport</string>
+      </list>
+    </entry>
+    
+    <entry><string>Import</string>
+      <map>
+        <entry><string>Processors</string>
+          <list>
+        
+            <!--  put DctmAccess ==> SourceAccess  -->
+            <Plugin> 
+                <Class>com.zoder.processors.InitDctmAccess</Class>
+                <Config>
+                    <entry><string>user</string><string>ecsadmin</string></entry>
+                    <entry><string>pass</string><string>spring2005</string></entry>
+                    <entry><string>base</string><string>mqadoc_dev</string></entry>
+                    <entry><string>contextkey</string><string>SourceAccess</string></entry>
+                </Config>
+            </Plugin>
+
+            <!--  get a list of docids to play with -->
+            <Plugin> 
+                <Class>com.zoder.processors.LoadXStream</Class>
+                <Config>
+                    <entry><string>Keys</string>
+                      <map>
+                        <entry><string>Folders.IdMap</string><string>C:/Dev/migrate3/Zoder/test1/Folders.IdMap.xml</string></entry>
+                        <entry><string>Folders.IdChains</string><string>C:/Dev/migrate3/Zoder/test1/Folders.IdChains.xml</string></entry>
+                        <entry><string>Folders.FolderList</string><string>C:/Dev/migrate3/Zoder/test1/Folders.FolderList.xml</string></entry>
+                        <entry><string>Folders.FolderPaths</string><string>C:/Dev/migrate3/Zoder/test1/Folders.FolderPaths.xml</string></entry>
+                      </map>                    
+                    </entry>
+                </Config>
+            </Plugin>
+            
+            <!--  Check the target folder structure for importation
+                - if configured: either recreate the folders, or overlay
+            -->
+            <Plugin> 
+                <Class>com.zoder.processors.importing.CheckFolders</Class>
+                <Config>
+                    <entry><string>DefaultFolderACL</string><string>anarchy_rule</string></entry>
+                </Config>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.zoder.processors.SerializeXStream</Class>
+                <Config>
+                    <entry><string>Files</string>
+                      <map>
+                        <entry><string>C:/Dev/migrate3/Zoder/test1/Folders.OldToNew.xml</string><string>Folders.OldToNew</string></entry>
+                      </map>
+                    </entry>
+                </Config>
+            </Plugin>
+          </list>
+        </entry>
+      </map>
+        
+    </entry>    
+    
+    <entry><string>Globals</string>
+      <map>
+        <entry><string>BaseDirectory</string><string>C:/Dev/migrate3/Zoder/test1/</string></entry>
+      </map>
+    </entry>
+</map>

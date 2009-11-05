@@ -1,0 +1,159 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+String html = null;
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+
+IDfSysObject doc = (IDfSysObject)obj;  
+
+String lockowner = doc.getLockOwner();
+if (lockowner == null || "".equals(lockowner)) lockowner = ""; else lockowner = " (Locked by ${lockowner})";
+
+try { 
+    html = "Version: ${doc.getVersionLabels().getImplicitVersionLabel()}${lockowner}<br>"; 
+    out.write(html);
+} catch (Exception e) { out.write("Error in getting version and locking info<br>");}
+
+try { 
+    html = "Current State: ${doc.getCurrentStateName()} [${doc.getCurrentState()}]<br>"; 
+    out.write(html);
+} catch (Exception e) { out.write("No current state for document<br>");}
+
+try {
+    IDfFolder f = (IDfFolder)dctmaccess.accessSession().getObject(doc.getFolderId(0));
+    html = "";
+    if (f != null) {
+        while (true) {            
+            html = "/${baselink}&id=${f.getObjectId().getId()}'>${f.getObjectName()}</a>"+html;
+            if (f.getFolderPathCount() > 0) {
+                IDfId upid = f.getFolderId(0);
+                if (upid.isNull()) break;
+                f = (IDfFolder)dctmaccess.accessSession().getObject(f.getFolderId(0));
+                if (f==null) break;
+            } else break;
+        }
+    }
+    out.write("Breadcrumb: "+html+"<BR>");
+} catch (Exception e) { out.write("No folder found<br>");}
+
+try {
+    String policyid = doc.getPolicyId().getId();
+    String policyname = policyid; try { policyname = doc.getPolicyName();} catch(Exception e){}
+    html = "Lifecycle: ${baselink}&id=${policyid}'>${policyname}</a><br>"; 
+    out.write(html);
+} catch (Exception e) { out.write("No policy found<br>");}
+
+try { 
+    html = "ACL: ${baselink}&id=${doc.getACL().getObjectId().getId()}'>${doc.getACLName()}</a><br>"; 
+    out.write(html);
+} catch (Exception e) { out.write("No current state for document<br>");}
+
+// check for relationships
+try {
+    boolean hasnorel = true; int count = 0;
+    String dql = "SELECT count(*) as one from dm_relation where parent_id = '${doc.getObjectId().getId()}'";            
+    count = DctmUtils.execSingleValueQuery(dctmaccess.accessSession(),dql).asInteger();
+    if (count > 0) {
+        String relationlink = "<a href='${baseurl}?do=doParentRelations.gvw&id=${doc.getObjectId().getId()}${credurl}'>Has Parent Relation</a><BR>";
+        hasnorel = false;
+        out.write(relationlink);
+    }
+
+    dql = "SELECT count(*) as one from dm_relation where child_id = '${doc.getObjectId().getId()}'";
+    count = DctmUtils.execSingleValueQuery(dctmaccess.accessSession(),dql).asInteger();    
+    if (count > 0) {
+        hasnorel = false;
+        String relationlink = "<a href='${baseurl}?do=doChildRelations.gvw&id=${doc.getObjectId().getId()}$credurl'>Has Child Relation</a><BR>";
+        out.write(relationlink);
+    }
+
+    if (hasnorel) { out.write("No Relationships<BR>"); }    
+} catch (Exception e) {
+    out.write("Relationship Detection Error<BR>");
+}
+
+// check for workflows 
+try {
+    boolean hasnowf = true; int count = 0;
+    String dql = "SELECT count(r_workflow_id) as one from dmi_package where any r_component_id = '${doc.getObjectId().getId()}'";    
+    count = DctmUtils.execSingleValueQuery(dctmaccess.accessSession(),dql).asInteger();    
+    if (count > 0) {
+        hasnowf = false;
+        String workflowlink = "<a href='${baseurl}?do=doListDocumentWorkflowsAsPackage.gvw&id=${doc.getObjectId().getId()}${credurl}'>In Workflow As Package</a><BR>";
+        out.write(workflowlink);
+    }
+
+    dql = "SELECT count(r_workflow_id) as one from dmi_wf_attachment where r_component_id = '${doc.getObjectId().getId()}'";    
+    count = DctmUtils.execSingleValueQuery(dctmaccess.accessSession(),dql).asInteger();    
+    if (count > 0) {
+        hasnowf = false;
+        String workflowlink = "<a href='${baseurl}?do=doListDocumentWorkflowsAsAttachment.gvw&id=${doc.getObjectId().getId()}${credurl}'>In Workflow As Attachment</a><BR>";
+        out.write(workflowlink);
+    }
+
+    //TODO: attachment workflow detection
+    
+    if (hasnowf) { out.write("No Workflows<BR>"); }    
+} catch (Exception e) {
+    out.write("Workflow Detection Error<BR>");
+}
+// version tree link
+out.write("<a href='${baseurl}?do=doListDocumentVersionTree.gvw&id=${doc.getObjectId().getId()}${credurl}'>View Version Tree</a><BR>");
+
+// renditions
+String haspdfquery = "SELECT count(full_format) FROM dm_sysobject (ALL), dmr_content, dm_store WHERE full_format='pdf' and r_object_id = ID('${doc.getObjectId().getId()}') AND ANY (parent_id=ID('${doc.getObjectId().getId()}') AND page = 0) and dmr_content.storage_id=dm_store.r_object_id";
+String hasrendition = ""; boolean addend = false;
+count = DctmUtils.execSingleValueQuery(dctmaccess.accessSession(),haspdfquery).asInteger();
+if (count > 0) { hasrendition+=" [Has PDF"; addend=true;}
+if (count > 1) { hasrendition+=" (Probably Signed)"; addend=true;}
+if (addend)hasrendition +=']';
+
+String renditionsquery = "SELECT full_content_size as content_size,set_time,full_format,r_object_id,owner_name,r_link_cnt,r_is_virtual_doc,r_object_type,r_lock_owner, i_is_reference, name as storage_name, i_is_replica,r_policy_id FROM dm_sysobject (ALL), dmr_content, dm_store WHERE r_object_id = ID('${doc.getObjectId().getId()}') AND ANY (parent_id=ID('${doc.getObjectId().getId()}') AND page = 0) and dmr_content.storage_id=dm_store.r_object_id";
+String renditionstable = GenerateQueryTable.call(dctmaccess,baseurl,credurl,renditionsquery);
+out.write """
+<hr>
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("renditions").style.display = (document.getElementById("renditions").style.display=="block"?"none":"block")'>View Renditions${hasrendition} --<BR>
+<div id='renditions' style='display:none'>
+${renditionstable}
+</div>
+"""
+
+// audit trail
+String auditquery = "select * from dm_audittrail where audited_obj_id ='${doc.getObjectId().getId()}'";
+String audittable = GenerateQueryTable.call(dctmaccess,baseurl,credurl,auditquery);
+out.write """
+<hr>
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("trail").style.display = (document.getElementById("trail").style.display=="block"?"none":"block")'>Audit Trail --<BR>
+<div id='trail' style='display:none'>
+${audittable}
+</div>
+"""
+
+//view content link TODO: do more than text, drl links? direct access content stream?
+out.write "<hr>${baselink}&do=doModifyAttrs&objectid=${doc.getObjectId().getId()}'>Modify Attributes</a>";
+
+IDfCollection rendcoll = null;
+def textformats = ["text/html","text/plain","text/xml","text/css","text/dtd"];
+try {
+    rendcoll = doc.getRenditions(null);
+    while (rendcoll.next()) {
+        out.write(" - ");
+        String fullformat = rendcoll.getString("full_format");
+        IDfFormat fmtobj = dctmaccess.accessSession().getFormat(fullformat);
+        String dosext = fmtobj.getDOSExtension();
+        if (textformats.contains(fmtobj.getMIMEType())) {
+            // text view
+            out.write("<a href='$baseurl?do=doViewContent.gvw&id=${doc.getObjectId().getId()}$credurl'>View Text</a>")
+        } else {
+            // binary view
+            out.write("<a href='getfile.jsp?id=${doc.getObjectId().getId()}&format=$fullformat$credurl&end=.$dosext'>View $fullformat</a>");            
+        }
+    }
+} finally {
+    try {rendcoll.close()}catch(Exception e){}
+}
+out.write("<hr>");
+
+

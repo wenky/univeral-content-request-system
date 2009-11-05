@@ -1,0 +1,127 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>JQuery testbed</title>
+    
+    <!-- Webtop classes -->
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/dragdrop.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/richtexteditor.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/webforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/documentum/css/xforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/wdk/theme/tahoe/css/webforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/webtop/theme/tahoe/css/webtop.css" type="text/css">
+    <link rel="stylesheet" href="/webtop2/webtop/theme/documentum/css/webtop.css" type="text/css">
+    
+
+    <!-- DWR includes -->
+    <script type='text/javascript' src='/webtop2/dwr/interface/Gateway.js'></script>
+    <script type='text/javascript' src='/webtop2/dwr/engine.js'></script>
+    
+    <!--  jquery library -->
+    <script type="text/javascript" src="./jquery-latest.regexp.js"></script>
+    
+    <script type="text/javascript">
+
+      // useful jqueries lookups:
+      //  $('div[@id*=]') <-- select nodes containing that substring in their ids...
+      //  $('#id') <-- get specifically id'd node
+      
+      var sessionkey = (""+window.location).replace(/(.*)session\=([0-9]*)(.*)/,"$2");
+            
+      var hardcodedcabinets = [ {name:'Corporate',id:'0c017f3f80010e90'}, {name:'CRDM',id:'0c017f3f80013137'}, {name:'Integration',id:'0c017f3f8000014e'} ];
+       
+      $(document).ready(
+        function(){
+          // Your code here
+          // alert("JQuery works!");
+          alert("sessionkey-: "+sessionkey);
+          alert("user: "+document.applets["localsession"].getKey(sessionkey,"user"));
+          $("a").click(
+            function(){ 
+              alert("adding cabinets...!"); 
+              populateDocbaseCabinets('cabinetlist',hardcodedcabinets);
+              return false; 
+            }
+          );
+        }
+      );
+
+      function populateDocbaseCabinets(rootdivid,cabinetlist)
+      {
+        // clear out the root div
+        var rootdivjqobj = $('#'+rootdivid);
+        $('#'+rootdivid).empty();
+        // compose the cabinet list HTML source
+        var cablisthtml = "";
+        for (var i=0; i < cabinetlist.length; i++)
+        {
+          var cabIH = "<div id='"+cabinetlist[i].id+"'><img src='./wdk/theme/documentum/images/tree/Tplus.gif' onclick='requestFolderContent(this)'><img src='./wdk/theme/documentum/icons/type/t_dm_folder_16.gif' onclick='requestFolderContent(this)'><span class='treetext' onclick='requestFolderContent(this)'>"+cabinetlist[i].name+"</span></div>";
+          cablisthtml += cabIH;
+        }
+        // this 'compiles' the html and appends it to the rootdiv
+        $(cablisthtml).appendTo('#'+rootdivid);
+      }
+      
+      // works in FF and IE6
+      function requestFolderContent(e)
+      {
+        alert("e: "+e);
+        var currentTag = e;
+        alert("src: "+currentTag.src);
+        var thediv = e.parentNode;
+        alert("id: " + thediv.id);    
+      }
+      
+      // see if the java session applet is functioning...
+      function checkjava()
+      {
+        document.applets["localsession"].setKey("thisapp","key","value");
+        var value = document.applets["localsession"].getKey("thisapp","key");
+        alert("val is: "+value); 
+      }
+
+    </script>
+  </head>
+  
+  <body>
+
+    <a href=""">mylink</a><BR>
+    <input id="abutton" type="submit" value="checkjava" onclick="checkjava();"><BR>
+    
+    <div>
+      Username: <input type='text' size='10' id='user' ><br>
+      Password: <input type='text' size='10' id='pass' ><br>
+      Docbase:  <input type='text' size='10' id='base' ><br>
+      <input type='button' name='authenticate' value='authenticate' onclick ='Gateway.authenticate($("#user").val(),$("#pass").val(),$("#base").val(),authreply);'>
+      <script type='text/javascript'>
+        var authreply = function(data)
+        {
+          $("#d0").text(""+data);
+        }
+      </script>
+      
+      <span id='d0' class='reply'></span>
+    </div>
+    
+        
+    Webtop is simpler, just adds in more imgs:<BR><BR>
+    <div id=""><img src="./wdk/theme/documentum/images/tree/Tplus.gif"><img src="./wdk/theme/documentum/icons/type/t_dm_folder_16.gif"><span class="treetext">Folder 1</span>
+      <div><img src="./wdk/theme/documentum/images/tree/S.gif"><img src="./wdk/theme/documentum/images/tree/Tplus.gif"><img src="./wdk/theme/documentum/icons/type/t_dm_folder_16.gif"><span class="treetext">Folder 1.1</span></div>
+    </div>
+    <div><img src="./wdk/theme/documentum/images/tree/Tplus.gif"><img src="./wdk/theme/documentum/icons/type/t_dm_folder_16.gif"><span class="treetext">Folder 2</span></div>
+    
+    Time to start generalizing:<BR><BR>
+    <div id="cabinetlist" class="defaultTreeNormalStyle">
+      <div><img src="./wdk/theme/documentum/images/tree/S.gif"><img src="./wdk/theme/documentum/images/tree/Tplus.gif"><img src="./wdk/theme/documentum/icons/type/t_dm_folder_16.gif"><span class="treetext">Folder 1.1</span></div>
+    </div>
+    
+    
+    
+    <!--  cross-page session Java applet (just a hashmap of hashmaps in the local JRE -->
+    <!--  include this at the bottom of every page until we figure out a better way -->
+    <!--      btw, I think codebase is the base folder the applet is in relative to the current page, and then it's the normal classpath == folderstructure for java -->
+    <div><applet id="localsession" codebase="applet" code="com.medtronic.documentum.ajax.LocalSession.class" width=0 height=0 mayscript></applet></div>
+    
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope type="dm_workflow">
+      <component id="abortworkflow" extends="abortworkflow:webcomponent/config/library/workflow/abort/abortworkflow_component.xml">
+         <desc>
+            Detects if workflow is an Mdt workflow (has an instance of an mdt workflow form object as its package) 
+            and attempts to rollback the form and attachments. 
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+         </params>
+         <pages>
+            <start>/webcomponent/library/workflow/abort/abortWorkflow.jsp</start>
+         </pages>
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtAbortWorkflow</class>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.abort.AbortWorkflowNlsProp</nlsbundle>
+         <helpcontextid>abortworkflow</helpcontextid>
+      </component>
+   </scope>
+</config>

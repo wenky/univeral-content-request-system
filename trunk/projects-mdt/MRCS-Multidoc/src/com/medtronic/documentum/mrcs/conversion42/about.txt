@@ -1,0 +1,38 @@
+These are the classes for the 4.1.2 --> 4.2 upgrade for MRCS in Q1 of 2007. 
+
+
+The framework is organized in a batch processing style, with programs run at the command line 
+to perform conversion operations. 
+
+There are two types of programs: Identifiers and Processors. 
+
+The purpose of identifiers is to identify/classify objects that will need to be processed in a 
+specific way, and to write a list of those docbase objects out to an xml file (we'll use XStream 
+for simplicity). Those files will be consumed by processors...
+
+Processors take input files produced by identifiers and perform conversion operations. Processors
+will output two files as a result: a log/list of successfully converted objects, and a log/list of
+objects that failed and may need manual handling. The intention is that these lists may then be 
+reused by other processors. The XML format doubles as a reasonable human-readable and human-editable
+format for viewing/editing the files. 
+
+
+--- unfinished/TODO ---
+4.1.2 to 4.2 will require:
+
+- identify which objects are in workflows (need to abort those)
+  - identifier: select m_mrcs_documents that are in an active workflowj
+  - processor: ???
+- conversion of pdf format to the new acro format
+  - identifier: m_mrcs_documents that have main format of pdf
+  - processor: convert pdf to acro
+- processing of the retired and obsolete flags now that we don't use states for those
+- setting of the conversion history for future reference and support
+- reattachment of lifecycles/policies and the appropriate state since there is version incompatibilies with the docapps
+- a special fix for some of the EFS documents which have broken version trees in the Approved Copies folders
+- user dumps and reapplication...
+
+other fixes (manual, not automated):
+- fix relationship name in EFS configs
+- create conversion-specific Build2 xmls (these don't create the folder structure)
+- moving of folders+cabinets (rather than rebuild using the Build2 scripts)

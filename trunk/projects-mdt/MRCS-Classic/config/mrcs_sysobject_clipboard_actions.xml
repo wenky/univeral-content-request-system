@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope type="dm_folder">
+
+      <!-- cut action -->
+      <action id="addtoclipboard">
+         <params>
+            <param name="objectId" required="true"></param>
+            <param name="lockOwner" required="false"></param>
+            <param name="type" required="false"></param>
+            <param name="isReference" required="false"></param>
+            <param name="ownerName" required="false"></param>
+         </params>
+         
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.environment.actions.AddToClipboardAction">
+            </precondition>
+            <precondition class="com.documentum.web.formext.action.RolePrecondition">
+                <role>contributor</role>
+            </precondition>
+         </preconditions>
+         
+         <execution class="com.documentum.webcomponent.environment.actions.AddToClipboardAction">
+         </execution>
+      </action>
+
+      <!-- move action -->
+      <!-- MJH: Not in scope for MRCS 4.2.2 -->
+      <!--
+      <action id="move">
+         <params>
+         </params>
+         
+         <preconditions>
+            <precondition class="com.medtronic.documentum.mrcs.client.MrcsMovePrecondition">
+            </precondition>
+            <precondition class="com.documentum.webcomponent.environment.actions.MoveAction">
+            </precondition>
+         </preconditions>
+         
+         <execution class="com.documentum.webcomponent.environment.actions.MoveAction">
+         </execution>
+      </action>
+      -->
+
+      <!-- copy to action -->
+      <action id="link">
+         <params>
+         </params>
+         
+         <preconditions>
+            <precondition class="com.medtronic.documentum.mrcs.client.MrcsMovePrecondition">
+            </precondition>
+            <precondition class="com.documentum.webcomponent.environment.actions.LinkAction">
+            </precondition>
+         </preconditions>
+         
+         <execution class="com.documentum.webcomponent.environment.actions.LinkAction">
+         </execution>
+      </action>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.2.2
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_sysobject_clipboard_actions.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.2 $
+ Modified on    $Date: 2007/12/18 22:02:59 $
+
+***********************************************************************
+-->

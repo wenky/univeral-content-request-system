@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MrcsApplication>
+  <!--  Base application info -->
+  <ApplicationName>mrcs_npd_nrp</ApplicationName>
+  <SystemUsername>svc-mrcs2</SystemUsername>
+  <SystemPassword>Npdnsp1</SystemPassword>
+  <DocBase>MRCS_Dev</DocBase>
+
+  <!--  Document types -->
+  <DocumentTypes>
+    <!-- m_mrcs_npd_nrp_document -->
+    <entry>
+      <string>NRP Document</string>
+      <MrcsDocumentType>
+        <Name>NRP Document</Name>
+        <DocumentumSystemType>m_mrcs_npd_nrp_document</DocumentumSystemType>
+        <Lifecycle>mrcs_npd_nrp_lc</Lifecycle>
+        <AllowableFormats>
+          <MrcsDocumentAllowableFormat>
+            <Format>msw8</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>excel8book</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>ppt8</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>acro</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>msproject</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>vsd4</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>MathCad</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>zip</Format>
+          </MrcsDocumentAllowableFormat>
+          <MrcsDocumentAllowableFormat>
+            <Format>text</Format>
+          </MrcsDocumentAllowableFormat>
+        </AllowableFormats>
+      </MrcsDocumentType>
+    </entry>
+  </DocumentTypes>
+
+	<!-- GroupingFolderTypes -->
+    <GroupingFolderTypes>
+        <entry>
+            <string>nnrp_root</string>
+            <MrcsGroupingFolderType>
+                <Name>nnrp_root</Name>
+                <DisallowUserCreatedSubfolders>true</DisallowUserCreatedSubfolders>
+                <GroupingFolderTypes><string>nnrp_folder</string></GroupingFolderTypes>
+            </MrcsGroupingFolderType>
+        </entry>
+		<!-- "NRP000 User specified Name" -->
+        <entry>
+            <string>nnrp_folder</string>
+            <MrcsGroupingFolderType>
+                <Name>nnrp_folder</Name>
+                <DocumentumSystemType>m_mrcs_grouping_folder</DocumentumSystemType>
+                <GroupingFolderACL>mrcs_npd_nrp_project_folder</GroupingFolderACL>
+                <DisallowUserCreatedSubfolders>true</DisallowUserCreatedSubfolders>
+                <Component>UserSpecified</Component>
+                <GroupingFolderNamingFormat>
+                    <PluginClassName>com.medtronic.documentum.mrcs.plugin.MultipleNamingPlugin</PluginClassName>
+                    <PluginConfiguration>
+                        <entry><string>1.CLASS</string><string>com.medtronic.documentum.mrcs.plugin.StaticName</string></entry>
+                        <entry><string>1.CONFIG</string><map><entry><string>Name</string><string>NRP</string></entry></map></entry>
+                        <entry><string>2.CLASS</string><string>com.medtronic.documentum.mrcs.plugin.MrcsSequenceNamingPlugin</string></entry>
+                        <entry><string>2.CONFIG</string>
+                            <map>
+                                <entry><string>SequenceDocName</string><string>/System/Applications/mrcs_npd/mrcs_npd_nrp_folder_sequence</string></entry>
+                                <entry><string>SequenceProperty</string><string>mrcs_sequence</string></entry>
+                                <entry><string>Format</string><string>0000</string></entry>
+                            </map>
+                        </entry>
+                        <entry><string>3.CLASS</string><string>com.medtronic.documentum.mrcs.plugin.StaticName</string></entry>
+                        <entry><string>3.CONFIG</string><map><entry><string>Name</string><string> </string></entry></map></entry>
+                        <entry><string>4.CLASS</string><string>com.medtronic.documentum.mrcs.plugin.UserSpecified</string></entry>
+                        <entry><string>4.CONFIG</string><map/></entry>
+                    </PluginConfiguration>
+                </GroupingFolderNamingFormat>
+		<!-- No subfolders -->
+                <GroupingFolderCreationPlugins/>
+                <DocumentACL>mrcs_npd_nrp_inprogress_doc</DocumentACL>
+                <DocumentNamingFormat>
+                    <PluginClassName>com.medtronic.documentum.mrcs.plugin.MultipleNamingPlugin</PluginClassName>
+                    <PluginConfiguration>
+                        <entry>
+                            <string>1.CLASS</string>
+                            <string>com.medtronic.documentum.mrcs.plugin.GroupingFolderParentPrefixNamingPlugin</string>
+                        </entry>
+                        <entry>
+                            <string>1.CONFIG</string>
+                            <map>
+                                <entry>
+                                    <string>Delimiter</string>
+                                    <string>-</string>
+                                </entry>
+                            </map>
+                        </entry>
+                        <entry><string>2.CLASS</string><string>com.medtronic.documentum.mrcs.plugin.StaticName</string></entry>
+                        <entry><string>2.CONFIG</string>
+                            <map>
+                                <entry><string>Name</string><string> - </string></entry>
+                            </map>
+                        </entry>
+                        <entry><string>3.CLASS</string><string>com.medtronic.documentum.mrcs.plugin.MrcsSequenceNamingPlugin</string></entry>
+                        <entry><string>3.CONFIG</string>
+                            <map>
+                                <entry><string>SequenceDocName</string><string>/System/Applications/mrcs_npd/mrcs_npd_nrp_document_sequence</string></entry>
+                                <entry><string>SequenceProperty</string><string>mrcs_sequence</string></entry>
+                                <entry><string>Format</string><string>0000</string></entry>
+                            </map>
+                        </entry>
+                    </PluginConfiguration>
+                </DocumentNamingFormat>
+                <AllowableDocumentTypes>
+                    <MrcsGroupingFolderAllowableDocument>
+                        <DocumentType>NRP Document</DocumentType>
+                        <Lifecycle>mrcs_npd_nrp_lc</Lifecycle>
+                    </MrcsGroupingFolderAllowableDocument>
+                </AllowableDocumentTypes>
+            </MrcsGroupingFolderType>
+         </entry>
+    </GroupingFolderTypes>
+
+    <!--Life Cycles -->
+    <MrcsLifecycles>
+        <entry>
+            <!--mrcs_npd_nrp_lc -->
+            <string>mrcs_npd_nrp_lc</string>
+            <MrcsLifecycle>
+                <Name>mrcs_npd_nrp_lc</Name>
+                <SystemName>mrcs_npd_nrp_lc</SystemName>
+                <States>
+                    <!--In-Progress -->
+                    <MrcsLifecycleState>
+                        <Name>In-Progress</Name>
+                        <PromotionType>WORKFLOW</PromotionType>
+						<AllowableWorkflows><string>mrcs_npd_nrp_approval</string></AllowableWorkflows>
+						<VersionType>SAME</VersionType>
+                        <ServerEntryPlugins/>
+                        <ServerActionPlugins/>
+                        <ServerPostPlugins/>
+                    </MrcsLifecycleState>
+                    <!--In-Approval -->
+                    <MrcsLifecycleState>
+                        <Name>In-Approval</Name>
+                        <PromotionType>WORKFLOW</PromotionType>
+                        <AllowableWorkflows/>
+                        <VersionType>MAJOR</VersionType>
+                        <ServerEntryPlugins/>
+                        <ServerActionPlugins/>
+                        <ServerPostPlugins/>
+                    </MrcsLifecycleState>
+                    <!--Approved -->
+                    <MrcsLifecycleState>
+                        <Name>Approved</Name>
+                        <PromotionType>WORKFLOW</PromotionType>
+                        <AllowableWorkflows/>
+                        <VersionType>SAME</VersionType>
+                        <ServerEntryPlugins/>
+                        <ServerActionPlugins/>
+                        <ServerPostPlugins/>
+                    </MrcsLifecycleState>
+                    <!--Rejected -->
+                    <MrcsLifecycleState>
+                        <Name>Rejected</Name>
+                        <PromotionType/>
+                        <AllowableWorkflows/>
+                        <VersionType/>
+                        <ServerEntryPlugins/>
+                        <ServerActionPlugins/>
+                        <ServerPostPlugins/>
+                    </MrcsLifecycleState>
+                </States>
+            </MrcsLifecycle>
+        </entry>
+	</MrcsLifecycles>
+
+	<!--MrcsWorkflows -->
+    <MrcsWorkflows>
+        <entry>
+            <string>mrcs_npd_nrp_approval</string>
+            <MrcsWorkflow>
+                <Name>mrcs_npd_nrp_approval</Name>
+                <Tasks>
+                    <MrcsWorkflowTask>
+                        <Name>Supervisor Promote</Name>
+                    </MrcsWorkflowTask>
+                    <MrcsWorkflowTask>
+                        <Name>Approve Document</Name>
+                    </MrcsWorkflowTask>
+                    <MrcsWorkflowTask>
+                        <Name>Approval Complete</Name>
+                        <MethodConfiguration>
+                            <entry><string>ServerPlugins</string>
+                                <list>
+                                    <MrcsPlugin>
+                                        <PluginClassName>com.medtronic.documentum.mrcs.server.plugin.QueueEvent</PluginClassName>
+                                        <PluginConfiguration>
+                                            <entry><string>EventName</string><string>approvalcomplete</string></entry>
+                                            <entry><string>Message</string><string>Your document has been successfully approved!</string></entry>
+                                        </PluginConfiguration>
+                                    </MrcsPlugin>
+                                </list>
+                            </entry>
+                        </MethodConfiguration>
+                    </MrcsWorkflowTask>
+                    <MrcsWorkflowTask>
+                        <Name>Approval Rejected</Name>
+                    </MrcsWorkflowTask>
+                </Tasks>
+                <Validations>
+                    <MrcsPlugin>
+                        <PluginClassName>com.medtronic.documentum.mrcs.plugin.ValidateRequiredAttributes</PluginClassName>
+                        <PluginConfiguration>
+                            <entry>
+                                <string>Required-1</string>
+                                <string>title</string>
+                            </entry>
+                            <entry>
+                                <string>Required-2</string>
+                                <string>authors</string>
+                            </entry>
+                        </PluginConfiguration>
+                    </MrcsPlugin>
+                    <MrcsPlugin>
+                        <PluginClassName>com.medtronic.documentum.mrcs.plugin.ValidateDocumentHasNoRendition</PluginClassName>
+                        <PluginConfiguration>
+                            <entry>
+                                <string>RenditionFormat</string>
+                                <string>pdf</string>
+                            </entry>
+                        </PluginConfiguration>
+                    </MrcsPlugin>
+                </Validations>
+            </MrcsWorkflow>
+        </entry>
+    </MrcsWorkflows>
+
+
+  <!-- ESignature -->
+  <ESignature>
+    <NoOfSigns>15</NoOfSigns>
+    <SigningReasonsQuery>select mrcs_property_value from m_mrcs_value_assistance where mrcs_object_type = 'm_mrcs_npd_nrp_document' and mrcs_property_name = 'SigningReasons' order by 1 asc</SigningReasonsQuery>
+  </ESignature>
+
+  <!-- MrcsPreconditions -->
+  <MrcsPreconditions>
+    <entry>
+        <string>StateTransition</string>
+        <MrcsPlugin>
+            <PluginClassName>com.medtronic.documentum.mrcs.common.STPromotePreCondition</PluginClassName>
+            <PluginConfiguration/>
+        </MrcsPlugin>
+    </entry>
+    <entry>
+        <string>NotInWorkflow</string>
+        <MrcsPlugin>
+            <PluginClassName>com.medtronic.documentum.mrcs.common.NotInWFPrecondition</PluginClassName>
+            <PluginConfiguration/>
+        </MrcsPlugin>
+        </entry>
+    <entry>
+        <string>ESignature</string>
+        <MrcsPlugin>
+            <PluginClassName>com.medtronic.documentum.mrcs.common.ESignPrecondition</PluginClassName>
+            <PluginConfiguration/>
+        </MrcsPlugin>
+    </entry>
+  </MrcsPreconditions>
+
+
+  <!-- CheckinInfo -->
+  <CheckinInfo>
+    <CheckinAsSameVersion>false</CheckinAsSameVersion>
+    <CheckinAsMajorVersion>false</CheckinAsMajorVersion>
+    <CheckinAsMinorVersion>true</CheckinAsMinorVersion>
+    <CheckinAsBranchVersion>false</CheckinAsBranchVersion>
+    <AllowDescription>false</AllowDescription>
+  </CheckinInfo>
+</MrcsApplication>

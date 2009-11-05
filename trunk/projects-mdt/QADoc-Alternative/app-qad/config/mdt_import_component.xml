@@ -1,0 +1,8 @@
+
+<config version="1.0">
+   <scope>
+      <component id="import" extends="import:webcomponent/config/library/contenttransfer/importcontent/import_component.xml">
+         <class>com.medtronic.ecm.documentum.core.webtop.MdtImportContent</class>      
+      </component>
+   </scope>
+</config>

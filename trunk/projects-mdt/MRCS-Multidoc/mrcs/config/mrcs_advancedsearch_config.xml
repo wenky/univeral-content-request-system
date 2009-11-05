@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: advancedSearch                                             -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $revision$ -->
+<!-- Modified on $date$ -->
+
+<config version='1.0'>
+
+   <!-- don't know how to scope glb -->
+   <!--  disabling this for 4.2, since 4.2 search is more robust than our 4.1.2 extensions -->
+   <scope type="old">
+
+      <!-- the browser tree component definition -->
+      <component id="advsearch" extends="advsearch:webcomponent/config/library/search/advsearch_component.xml">
+     
+
+         <!-- Component Behavior -->
+         <!--  class>com.documentum.webcomponent.library.advsearch.AdvSearch</class -->
+         <!--  overriding the nls with our own... -->
+         <!--  nlsbundle>com.documentum.webcomponent.library.search.SearchNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.SearchNlsProp</nlsbundle>
+
+         <params>
+            <param name="folderpath" required="false"></param>
+         </params>
+
+         <!-- Component specific Configuration -->
+
+         <!-- All the types to display in advanced search -->
+         <search_types>
+
+            <type id='dm_document'>
+               <name><nlsid>MSG_DOCUMENT</nlsid></name>
+               <attributes>
+                  <attribute>
+                    <name><nlsid>MSG_NAME</nlsid></name>
+                    <docbase_attribute>object_name</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_TYPE</nlsid></name>
+                    <docbase_attribute>r_object_type</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+                    <docbase_attribute>title</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_SUBJECT</nlsid></name>
+                    <docbase_attribute>subject</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_AUTHORS</nlsid></name>
+                    <docbase_attribute>authors</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_KEYWORDS</nlsid></name>
+                    <docbase_attribute>keywords</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_CREATED</nlsid></name>
+                    <docbase_attribute>r_creation_date</docbase_attribute>
+                    <attribute_type>time</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_MODIFIED</nlsid></name>
+                    <docbase_attribute>r_modify_date</docbase_attribute>
+                    <attribute_type>time</attribute_type>
+                  </attribute>
+
+              <!-- start: this are examples for other types of attributes
+                  <attribute>
+                    <name>Example Number Attribute</name>
+                    <docbase_attribute>r_content_size</docbase_attribute>
+                    <attribute_type>number</attribute_type>
+                  </attribute>
+                  <attribute>
+                    <name>Example Boolean Attribute</name>
+                    <docbase_attribute>a_is_hidden</docbase_attribute>
+                    <attribute_type>boolean</attribute_type>
+                  </attribute>
+             end: example attributes -->
+
+               </attributes>
+            </type>
+
+            <type id='dm_folder'>
+               <name><nlsid>MSG_FOLDER</nlsid></name>
+               <fulltextsearch>false</fulltextsearch>
+               <sizeoptionenabled>false</sizeoptionenabled>
+               <versionoptionenabled>false</versionoptionenabled>
+               <attributes>
+                  <attribute>
+                    <name><nlsid>MSG_NAME</nlsid></name>
+                    <docbase_attribute>object_name</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_TYPE</nlsid></name>
+                    <docbase_attribute>r_object_type</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+                    <docbase_attribute>title</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_SUBJECT</nlsid></name>
+                    <docbase_attribute>subject</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_AUTHORS</nlsid></name>
+                    <docbase_attribute>authors</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_KEYWORDS</nlsid></name>
+                    <docbase_attribute>keywords</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_CREATED</nlsid></name>
+                    <docbase_attribute>r_creation_date</docbase_attribute>
+                    <attribute_type>time</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_MODIFIED</nlsid></name>
+                    <docbase_attribute>r_modify_date</docbase_attribute>
+                    <attribute_type>time</attribute_type>
+                  </attribute>
+               </attributes>
+            </type>
+
+            <type id='dm_category'>
+               <name><nlsid>MSG_CATEGORY</nlsid></name>
+               <fulltextsearch>false</fulltextsearch>
+               <sizeoptionenabled>false</sizeoptionenabled>
+               <versionoptionenabled>false</versionoptionenabled>
+               <attributes>
+                  <attribute>
+                    <name><nlsid>MSG_NAME</nlsid></name>
+                    <docbase_attribute>object_name</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_TYPE</nlsid></name>
+                    <docbase_attribute>r_object_type</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+                    <docbase_attribute>title</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_OWNERS</nlsid></name>
+                    <docbase_attribute>category_owner</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_EVIDENCE</nlsid></name>
+                    <docbase_attribute>keyword_evidence</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+               </attributes>
+            </type>
+
+            <type id='dm_sysobject'>
+               <name><nlsid>MSG_SYSOBJECT</nlsid></name>
+               <attributes>
+                  <attribute>
+                    <name><nlsid>MSG_NAME</nlsid></name>
+                    <docbase_attribute>object_name</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_TYPE</nlsid></name>
+                    <docbase_attribute>r_object_type</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+                    <docbase_attribute>title</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_SUBJECT</nlsid></name>
+                    <docbase_attribute>subject</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_AUTHORS</nlsid></name>
+                    <docbase_attribute>authors</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_KEYWORDS</nlsid></name>
+                    <docbase_attribute>keywords</docbase_attribute>
+                    <attribute_type>string</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_CREATED</nlsid></name>
+                    <docbase_attribute>r_creation_date</docbase_attribute>
+                    <attribute_type>time</attribute_type>
+                  </attribute>
+
+                  <attribute>
+                    <name><nlsid>MSG_MODIFIED</nlsid></name>
+                    <docbase_attribute>r_modify_date</docbase_attribute>
+                    <attribute_type>time</attribute_type>
+                  </attribute>
+               </attributes>
+            </type>
+
+            <!-- begin ant-replace-advanced-search -->
+
+<!-- CRM EFS CA Search configuration -->
+<type id='m_mrcs_ca_document'>
+   <name><nlsid>CA_DOCUMENT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_SUBCLASS</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_subclass</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_AUTHOR_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_author_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_DOC_TYPE</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_doc_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_ASSIGN_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_assign_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_DUE_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_due_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_PENDING_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_pending_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_VERIFICATION_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_verification_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_RESPONSIBLE_MGR</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_responsible_mgr</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_MODEL_NUMBER</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_model_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CA_PART_NUMBER</nlsid></name>
+        <docbase_attribute>m_mrcs_ca_part_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+<!-- CRM EFS Central File Search configuration -->
+<type id='m_mrcs_central_document'>
+   <name><nlsid>CENTRAL_DOCUMENT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_SUBCLASS</nlsid></name>
+        <docbase_attribute>m_mrcs_central_subclass</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_AUTHOR_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_central_author_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_DOC_TYPE</nlsid></name>
+        <docbase_attribute>m_mrcs_central_doc_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_REF_NUMBER</nlsid></name>
+        <docbase_attribute>m_mrcs_central_ref_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_PHASE</nlsid></name>
+        <docbase_attribute>m_mrcs_central_phase</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_DHF</nlsid></name>
+        <docbase_attribute>m_mrcs_central_dhf</docbase_attribute>
+        <attribute_type>boolean</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CENTRAL_FUNC_GROUP</nlsid></name>
+        <docbase_attribute>m_mrcs_central_func_group</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+<!-- CRM EFS EP Systems Search configuration -->
+<type id='m_mrcs_epsys_document'>
+   <name><nlsid>EPSYS_DOCUMENT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>EPSYS_DOC_TYPE</nlsid></name>
+        <docbase_attribute>m_mrcs_epsys_doc_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>EPSYS_PROJECT_NAME</nlsid></name>
+        <docbase_attribute>m_mrcs_epsys_project_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>EPSYS_PHASE</nlsid></name>
+        <docbase_attribute>m_mrcs_epsys_phase</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>EPSYS_PRODUCT_NAME</nlsid></name>
+        <docbase_attribute>m_mrcs_epsys_product_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>EPSYS_DEVICE_TYPE</nlsid></name>
+        <docbase_attribute>m_mrcs_epsys_device_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>EPSYS_MODEL_NUMBER</nlsid></name>
+        <docbase_attribute>m_mrcs_epsys_model_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+<!-- CRM EFS MQA Search configuration -->
+<type id='m_mrcs_mqa_document'>
+   <name><nlsid>MQA_DOCUMENT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MQA_SUBCLASS</nlsid></name>
+        <docbase_attribute>m_mrcs_mqa_subclass</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MQA_AUTHOR_DATE</nlsid></name>
+        <docbase_attribute>m_mrcs_mqa_author_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MQA_DOC_TYPE</nlsid></name>
+        <docbase_attribute>m_mrcs_mqa_doc_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MQA_SUPPLIER</nlsid></name>
+        <docbase_attribute>m_mrcs_mqa_supplier</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MQA_PART_NUMBER</nlsid></name>
+        <docbase_attribute>m_mrcs_mqa_part_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+<!-- CRM SDO Contract Search configuration -->
+<type id='m_mrcs_crmsdo_contract'>
+   <name><nlsid>CRMSDO_CONTRACT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_CONTRACT_SERIAL_NUMBER</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_serial_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_CONTRACT_SUPPLIER</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_supplier</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+<!-- CRM SDO Document Search configuration -->
+<type id='m_mrcs_crmsdo_document'>
+   <name><nlsid>CRMSDO_DOCUMENT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_DOCUMENT_DOCTYPE</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_doctype</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_DOCUMENT_FILE_NUMBER</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_file_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_DOCUMENT_MODEL_NUMBER</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_model_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_DOCUMENT_PART_NAME</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_part_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>CRMSDO_DOCUMENT_PART_NUMBER</nlsid></name>
+        <docbase_attribute>mrcs_crmsdo_part_number</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+
+<!-- CRM SDO Contract Search configuration -->
+<type id='m_mrcsnpp_document'>
+   <name><nlsid>NPP_DOCUMENT</nlsid></name>
+   <attributes>
+      <attribute>
+        <name><nlsid>MSG_NAME</nlsid></name>
+        <docbase_attribute>object_name</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_PROP_TITLE</nlsid></name>
+        <docbase_attribute>title</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_AUTHORS</nlsid></name>
+        <docbase_attribute>authors</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>NPP_BUSINESS_UNIT</nlsid></name>
+        <docbase_attribute>business_unit</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>NPP_BUSINESS_SUBGROUP</nlsid></name>
+        <docbase_attribute>business_subgroup</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_TYPE</nlsid></name>
+        <docbase_attribute>r_object_type</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_SUBJECT</nlsid></name>
+        <docbase_attribute>subject</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_KEYWORDS</nlsid></name>
+        <docbase_attribute>keywords</docbase_attribute>
+        <attribute_type>string</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_CREATED</nlsid></name>
+        <docbase_attribute>r_creation_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+      <attribute>
+        <name><nlsid>MSG_MODIFIED</nlsid></name>
+        <docbase_attribute>r_modify_date</docbase_attribute>
+        <attribute_type>time</attribute_type>
+      </attribute>
+
+   </attributes>
+</type>
+
+
+            <!-- end ant-replace-advanced-search -->
+         </search_types>
+
+         <!-- Type dependant search conditions -->
+         <attribute_conditions>
+            <string>
+               <condition><nlsid>MSG_IS</nlsid></condition>
+               <condition><nlsid>MSG_IS_NOT</nlsid></condition>
+               <condition><nlsid>MSG_CONTAINS</nlsid></condition>
+               <condition><nlsid>MSG_DOES_NOT_CONTAIN</nlsid></condition>
+               <condition><nlsid>MSG_STARTS_WITH</nlsid></condition>
+               <condition><nlsid>MSG_ENDS_WITH</nlsid></condition>
+            </string>
+
+            <time>
+               <condition><nlsid>MSG_IS</nlsid></condition>
+               <condition><nlsid>MSG_IS_NOT</nlsid></condition>
+               <condition><nlsid>MSG_IS_BEFORE</nlsid></condition>
+               <condition><nlsid>MSG_IS_ON_OR_BEFORE</nlsid></condition>
+               <condition><nlsid>MSG_IS_AFTER</nlsid></condition>
+               <condition><nlsid>MSG_IS_ON_OR_AFTER</nlsid></condition>
+            </time>
+
+            <number>
+               <condition><nlsid>MSG_EQUAL_TO</nlsid></condition>
+               <condition><nlsid>MSG_NOT_EQUAL</nlsid></condition>
+               <condition><nlsid>MSG_LESS_THAN</nlsid></condition>
+               <condition><nlsid>MSG_LESS_THAN_EQUAL</nlsid></condition>
+               <condition><nlsid>MSG_GREATER_THAN</nlsid></condition>
+               <condition><nlsid>MSG_GREATER_THAN_EQUAL</nlsid></condition>
+            </number>
+
+            <boolean>
+               <condition><nlsid>MSG_IS_TRUE</nlsid></condition>
+               <condition><nlsid>MSG_IS_FALSE</nlsid></condition>
+            </boolean>
+
+         </attribute_conditions>
+
+         <!-- Date options configuration -->
+         <date_options>
+            <date_conditions>
+               <condition>
+                  <label>
+                     <nlsid>MSG_DATE_MODIFIED</nlsid>
+                  </label>
+                  <value>r_modify_date</value>
+               </condition>
+               <condition>
+                  <label>
+                     <nlsid>MSG_DATE_CREATED</nlsid>
+                  </label>
+                  <value>r_creation_date</value>
+               </condition>
+            </date_conditions>
+            <elapsed_times>
+               <condition>
+                  <label>
+                     <nlsid>MSG_DAY</nlsid>
+                  </label>
+                  <value>day</value>
+               </condition>
+               <condition>
+                  <label>
+                     <nlsid>MSG_WEEK</nlsid>
+                  </label>
+                  <value>week</value>
+               </condition>
+               <condition>
+                  <label>
+                     <nlsid>MSG_MONTH</nlsid>
+                  </label>
+                  <value>month</value>
+               </condition>
+               <condition>
+                  <label>
+                     <nlsid>MSG_YEAR</nlsid>
+                  </label>
+                  <value>year</value>
+               </condition>
+            </elapsed_times>
+         </date_options>
+
+         <!-- Size options configuration -->
+         <size_options>
+            <size_conditions>
+               <condition><nlsid>MSG_SMALLER_THAN</nlsid></condition>
+               <condition><nlsid>MSG_LARGER_THAN</nlsid></condition>
+            </size_conditions>
+         </size_options>
+
+
+         <panel_visibility>
+            <panel>
+               <name>fulltext</name>
+               <expanded>true</expanded>
+            </panel>
+            <panel>
+               <name>properties</name>
+               <expanded>false</expanded>
+            </panel>
+            <panel>
+               <name>dateoptions</name>
+               <expanded>false</expanded>
+            </panel>
+            <panel>
+               <name>sizeoptions</name>
+               <expanded>false</expanded>
+            </panel>
+            <panel>
+               <name>advoptions</name>
+               <expanded>false</expanded>
+            </panel>
+         </panel_visibility>
+
+         <!-- Date control options configuration -->
+         <date_controls>
+            <!-- the year from which there will be a year item in the year dropdown -->
+            <fromyear>1990</fromyear>
+
+            <!-- the minimum years from the current year which there will be a year item in the year dropdown -->
+            <minyearsfromnow>3</minyearsfromnow>
+         </date_controls>
+
+
+         <helpcontextid>advsearch</helpcontextid>
+      </component>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_advancedsearch_config.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.6 $
+ Modified on    $Date: 2006/09/19 22:01:49 $
+
+***********************************************************************
+-->
+
+

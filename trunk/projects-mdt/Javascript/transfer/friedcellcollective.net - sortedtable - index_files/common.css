@@ -1,0 +1,12 @@
+body {font-family:Verdana,Geneva,sans-serif;padding:0;margin:0;font-size:82%;line-height:1.4;}
+h1 {font-family:"Century Gothic","Avant Garde",Arial, sans-serif;background-color:#11b;color:#fff;margin:0;padding:.5em;font-weight:normal;letter-spacing:2px;}
+div.content {margin:1em 2em 1em 1em;}
+h2 {font-family:"Century Gothic","Avant Garde",Arial, sans-serif;margin:1em 0;padding:0;border-bottom:1px solid #ccc;color:#006;font-weight:normal;letter-spacing:2px;}
+h3 {font-family:"Century Gothic","Avant Garde",Arial, sans-serif;margin:1em 0;padding:0;color:#006;font-weight:normal;font-size:1.4em;letter-spacing:1px;}
+p, dl, ul {padding:0 0 1em;margin:0;}
+ul {padding-left:2em;}
+#nav {background-color:#006;list-style:none;margin:0;padding:0;height:1.5em;}
+#nav li {display:block;margin:0;padding:0 0 0 1em;float:left;}
+#nav a {color:#fff;display:block;text-decoration:none;}
+#nav a:hover {text-decoration:underline;}
+#nav a:visited {color:#EAEEF3;}

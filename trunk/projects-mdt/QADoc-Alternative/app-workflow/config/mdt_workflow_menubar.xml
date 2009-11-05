@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+      <component id="menubar" extends="menubar:/webtop/config/menubar_component.xml">
+      
+         <pages>
+            <start>/app-workflow/pages/mdt_menubar.jsp</start>
+         </pages>
+         <menugrouptarget>content</menugrouptarget>
+         <class>com.documentum.webtop.webcomponent.menubar.MenuBar</class>
+         <nlsbundle>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtMenuBarNlsProp</nlsbundle>
+         <!-- nlsbundle>com.documentum.webtop.webcomponent.menubar.MenuBarNlsProp</nlsbundle -->
+         <failoverenabled>true</failoverenabled>
+      
+      
+         <!-- menuconfig modifies="file_new_submenu:webcomponent/config/library/menubar/menubar_component.xml">
+             <insertafter path="menu[name=file_new_submenu].actionmenuitem[name=file_newdocument]">
+                 <actionmenuitem dynamic="multiselect" id="file_mdtnewchangerequest" name="file_mdtnewchangerequest" value="New Approval Form" action="mdtnewchangerequestaction" showifinvalid="true" showifdisabled="true"/>
+             </insertafter>
+         </menuconfig>
+         <menuconfig modifies="workflow_submenu:webcomponent/config/library/menubar/menubar_component.xml">
+             <insertafter path="menu[name=tools_workflow].actionmenuitem[name=tools_startworkflownotemplate]">
+                 <actionmenuitem dynamic="singleselect" id="file_mdtformstartworkflow" name="file_mdtformstartworkflow" value="Start Approval" action="mdtformstartworkflowaction" showifinvalid="true" showifdisabled="true"/>
+             </insertafter>
+         </menuconfig>
+         <menuconfig modifies="workflow_submenu:webcomponent/config/library/menubar/menubar_component.xml">
+             <remove path="menu[name=tools_workflow].actionmenuitem[name=tools_startworkflowfromdoc]"></remove>
+         </menuconfig -->
+      </component>
+      
+   </scope>
+</config>

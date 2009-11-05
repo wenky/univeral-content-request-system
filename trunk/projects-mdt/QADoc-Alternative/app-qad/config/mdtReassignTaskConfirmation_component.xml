@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        qaodc                                                  -->
+<!-- Module         Reassign Task                                          -->
+<!-- File           mdtReassignTaskConfirmation_component.xml                      -->
+<!-- Description    Reassign Task Confirmation Component Definition                -->
+<!-- Created on     20th May 2008                                          -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope >
+      <component id="mdtReassignTaskConfirmation" >
+         <desc>
+         </desc>
+         <!-- Component Layout -->
+         <pages>
+            <start>/app-qad/reassigntask/mdtReassignTaskConfirmation.jsp</start>
+         </pages>
+
+         <class>com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskConfirmation</class>
+         <nlsbundle>com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskConfirmationNlsProp</nlsbundle>
+      </component>
+   </scope>
+</config>

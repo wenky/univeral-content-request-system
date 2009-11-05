@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+      <component id="finishworkflowtask" extends="finishworkflowtask:webcomponent\config\library\workflow\taskmanager\finishworkflowtask_component.xml" >
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for simple completion of a workflow task.
+            It can only be used for non-manual tasks (in which the user is not
+            expected to specify the next tasks).
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <!-- finish>/webcomponent/library/workflow/taskmanager/finish.jsp</finish -->
+            <!-- finish>/mrcs/pages/finishesgn.jsp</finish -->
+            <finish>/mrcs/pages/QADocFinishTask.jsp</finish>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+
+         <!-- class>com.documentum.webcomponent.library.workflow.taskmanager.FinishWorkflowTask</class -->
+         <class>com.medtronic.documentum.mrcs.client.QADocFormFinishWFT</class>
+         <!-- nlsbundle>com.documentum.webcomponent.library.workflow.taskmanager.FinishWorkflowTaskNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.eSignNlsProp</nlsbundle>
+
+         <helpcontextid>finishworkflowtask</helpcontextid>
+      </component>
+
+   </scope>
+
+</config>

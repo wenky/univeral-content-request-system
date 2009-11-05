@@ -1,0 +1,52 @@
+<script type="text/javascript">
+
+  var simple = new Ext.FormPanel({
+        labelWidth: 500, 
+        url:'save-form.php',
+        frame:true,
+        /*title: 'Qualification Questions',*/
+        bodyStyle:'padding:5px 5px 0',
+        width: 700,
+        defaults: {width: 300},
+        defaultType: 'textfield',
+
+        items: [{
+                fieldLabel: 'What is the average airspeed of a laden swallow?',
+                name: 'first',
+                allowBlank:false
+            },{
+                fieldLabel: 'How many children in your brood?',
+                name: 'last'                
+            },{
+                fieldLabel: 'How much money have you donated to your local family-first politician?',
+                name: 'company'
+            },{
+                fieldLabel: 'Assuming your weapon is silver, what is your THAC0 vs Were-Rats?',
+                name: 'thaco'
+            }, {
+                fieldLabel: 'Email',
+                name: 'email',
+                vtype:'email'
+            },{
+                fieldLabel: 'Do I like looking at Franchise Player?',
+                xtype: 'radiogroup',
+                columnWidth: '.25',
+                anchor:'-25',
+                items: [
+                    {boxLabel: 'Yes', name: 'rb-auto', inputValue: 'Y', checked: true},
+                    {boxLabel: 'No', name: 'rb-auto', inputValue: 'N'}
+                ]
+              }
+                        
+        ],
+
+        buttons: [{
+            text: 'Save'
+        },{
+            text: 'Cancel'
+        }]
+    });
+
+    simple.render("main-div");
+
+</script>

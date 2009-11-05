@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+   
+      <component id="inboxstreamline" extends="inboxstreamline:webtop/config/inboxstreamline_component.xml">
+
+      <!-- Description (not NLS'd) -->
+      <desc>
+         This component allows for listing of the user?s inbox tasks. 
+         It extends inboxdrilldown adding user preference capability. 
+         It has a streamline-style layout.
+      </desc>
+
+      <pages>
+         <start>/webtop/streamline/inbox/inbox.jsp</start>
+      </pages>
+
+      <class>com.medtronic.documentum.mrcs.client.MrcsInboxStreamline</class>
+
+      <!-- Show attachment names -->
+      <showattachmentinfo>false</showattachmentinfo>
+
+      <!-- id of the task manager component accessible from inbox -->
+      <taskmanagerid>taskmgrstreamline</taskmanagerid>
+
+      <!-- specify action name to access workflow status page - 
+      overloaded to show workflowstatusstreamline -->
+      <workflowstatusactionname>workflowstatusstreamline</workflowstatusactionname>
+      <workflowreportactionname>reportmainstreamline</workflowreportactionname>
+
+      </component>
+      
+   </scope>
+   
+</config>

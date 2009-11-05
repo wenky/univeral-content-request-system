@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<DocbaseItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="docbase_objects.xsd">
+    <Groups>
+    </Groups>
+    
+    
+    <ACLs>
+    
+        <!-- dependencies: need these groups defined:        
+        
+                mdt_qad_smo_users
+                mdt_qad_smo_author
+                mdt_qad_smo_doc_ctrl
+                mdt_qad_smo_approver        
+        
+         -->
+         
+        
+        <!-- BEGIN SMO Form Lifecycle lifecycle state acls -->
+        <ACL>
+            <ACLName>mdt_qad_smo_form_in_progress</ACLName>
+            <Description>SMO Quality Record Revisable In-Progress</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>DELETE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>VERSION</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>DELETE</Permit><ExtendedPermits><string>CHANGE_LOCATION</string></ExtendedPermits></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>DELETE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+
+        <ACL>
+            <ACLName>mdt_qad_smo_form_in_approval</ACLName>
+            <Description>SMO Quality Record Revisable In-Approval</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>DELETE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+        
+        <ACL>
+            <ACLName>mdt_qad_smo_form_approved</ACLName>
+            <Description>SMO Quality Record Revisable Approved</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_users</string>      <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>VERSION</Permit><ExtendedPermits><string>CHANGE_LOCATION</string></ExtendedPermits></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>WRITE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+
+        <ACL>
+            <ACLName>mdt_qad_smo_form_effective</ACLName>
+            <Description>SMO Quality Record Revisable Approved</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_users</string>      <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>VERSION</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>VERSION</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>WRITE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+
+        <ACL>
+            <ACLName>mdt_qad_smo_form_history</ACLName>
+            <Description>SMO Quality Record Revisable Approved</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>WRITE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+
+        <ACL>
+            <ACLName>mdt_qad_smo_form_obsolete</ACLName>
+            <Description>SMO Quality Record Revisable Approved</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>WRITE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+
+        <!-- END SMO Form Lifecycle lifecycle state acls -->
+        <ACL>
+            <ACLName>mdt_qad_smo_qdoc_in_obsoletion</ACLName>
+            <Description>SMO Process Documents In Obsoletion Review</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_users</string>      <AccessRights><Permit>READ</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>WRITE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+        <ACL>
+            <ACLName>mdt_qad_smo_qdoc_in_quickflow</ACLName>
+            <Description>SMO Quality Record In Quickflow</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>RELATE</Permit><ExtendedPermits><string>CHANGE_LOCATION</string></ExtendedPermits></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>RELATE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>DELETE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+
+        <ACL>
+            <ACLName>mdt_qad_smo_qdoc_obsolete_prev</ACLName>
+            <Description>SMO Quality Record Revisable Approved</Description>
+            <Accessors>
+                <entry><string>dm_world</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>dm_owner</string>               <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>mdt_qad_smo_author</string>     <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_doc_ctrl</string>   <AccessRights><Permit>BROWSE</Permit><ExtendedPermits/></AccessRights></entry>
+                <entry><string>mdt_qad_smo_approver</string>   <AccessRights><Permit>NONE</Permit><ExtendedPermits/></AccessRights></entry>
+
+                <entry><string>admingroup</string>             <AccessRights><Permit>WRITE</Permit><ExtendedPermits><string>EXECUTE_PROC</string><string>CHANGE_LOCATION</string><string>CHANGE_STATE</string><string>CHANGE_PERMIT</string><string>CHANGE_OWNER</string></ExtendedPermits></AccessRights></entry>
+            </Accessors>
+        </ACL>
+                
+                
+    </ACLs>
+    
+    <Folders>
+    </Folders>
+    
+    <DocbaseObjects>
+    </DocbaseObjects>
+    
+</DocbaseItems>

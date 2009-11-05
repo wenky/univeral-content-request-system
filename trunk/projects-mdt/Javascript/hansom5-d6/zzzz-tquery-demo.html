@@ -1,0 +1,82 @@
+<html>
+ <head>
+  <META HTTP-EQUIV="Pragma"  CONTENT="no-cache">
+  <META HTTP-EQUIV="Expires" CONTENT="-1">
+  <title>TrimPath Query Demo</title>
+  <script type="text/javascript" src="./trimpath-query-1.0.38.js"></script>
+  <script language="javascript" src="breakpoint.js"></script>
+ </head>
+
+ <body onload="runQuery()">
+  <h1>Demo for TrimPath Query.</h1>
+
+<script>
+function runQuery() {
+    var schema = eval("({" + document.getElementById('schema').value + "})");
+    var data = eval("({" + document.getElementById('data').value + "})");
+    var sql = document.getElementById('sql').value;
+
+    // The key line to parse and execute the SQL...
+    var result = TrimPath.makeQueryLang(schema).parseSQL(sql).filter(data);
+
+    var out = "";
+    for (var r = 0; r < result.length; r++) {
+        for (var c in result[r])
+            out += c + ": " + result[r][c] + ", ";
+        out += "<br/>\n";
+    }
+    document.getElementById('result').innerHTML = out;    
+    
+evalthingy();    
+}
+
+function evalthingy() {
+  var result = (new RegExp('(.*)d')).exec('1000') == null;
+  alert ("result: " + result);
+}
+</script>
+
+  <div>
+  <label for="sql">SQL query:</label><br/>
+  <textarea name="sql" id="sql" cols="90" rows="5">SELECT Customer.id, Customer.acctBalance, Invoice.total
+FROM Customer, Invoice
+WHERE Customer.id = Invoice.custId
+ORDER BY Customer.id</textarea>
+
+  </div>
+  <input type="submit" value="Run the query!" onclick="runQuery()">
+
+<hr/>
+  <div>
+  Query Result:</br>
+  <div id="result" style="font-family: monospace;">
+  </div>
+  </div>
+
+<hr/>
+  <div>
+  <label for="data">Source Data:</label><br/>
+  <textarea name="data" id="data" cols="90" rows="8">
+Invoice  : [ { id: 1, total: 100, custId: 10 }, 
+             { id: 2, total: 200, custId: 10 }, 
+             { id: 3, total: 300, custId: 10 }, 
+             { id: 4, total: 400, custId: 20 } ],
+Customer : [ { id: 10, acctBalance: 1000 }, 
+             { id: 20, acctBalance: 2000 }, 
+             { id: 30, acctBalance: 3000 } ]
+  </textarea>
+  </div>
+
+  <div>
+  <label for="schema">Source Schema:</label><br/>
+
+  <textarea name="schema" id="schema" cols="90" rows="6">
+Invoice  : { id          : { type : "String" },
+             total       : { type : "Number" }, 
+             custId      : { type : "String" } },
+Customer : { id          : { type : "String" },
+             acctBalance : { type : "Number" } }
+  </textarea>
+  </div>
+ </body>
+</html>

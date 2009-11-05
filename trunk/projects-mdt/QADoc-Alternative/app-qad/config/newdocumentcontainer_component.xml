@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!-- (c) Copyright 2002-2005. EMC Corporation.  All Rights Reserved.       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         NewDocContainer                                        -->
+<!-- File           newdoccontainer_component.xml                          -->
+<!-- Description    New Doc Container Component Definition                 -->
+<!-- Created on     January 2 2002                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                          -->
+<!-- Modified on    $Date: 2008/04/16 20:02:38 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope>
+      <component id="newdoccontainer" extends="propertysheetwizardcontainer:webcomponent/config/library/propertysheetwizardcontainer/propertysheetwizardcontainer_component.xml">
+         <desc>
+            Extends the component propertysheetwizardcontainer and contains 
+            attributes, the component newdocument, and permissions. The 
+            component newdocument requires a visit. 
+         </desc>
+         <params>
+            <param name="component" required="true"/>
+            <param name="editAfterCreate" required="false"/>
+            <param name="contentType" required="false"/>
+         </params>
+         <pages>
+            <filter clientenv="not appintg">
+               <start>/webcomponent/library/create/newContainer.jsp</start>
+            </filter>
+            <filter clientenv="appintg">
+               <start>/webcomponent/library/create/appIntgNewContainer.jsp</start>
+            </filter>
+         </pages>
+         <contains>
+            <component requiresVisit="true">newdocument</component>
+            <component requiresVisit="false">attributes</component>
+            <component requiresVisit="false">permissions</component>
+         </contains>
+         <class>com.documentum.webcomponent.library.create.NewDocContainer</class>
+         <filter clientenv='not appintg'>
+            <nlsbundle>com.documentum.webcomponent.library.create.NewContainerNlsProp</nlsbundle>
+         </filter>
+         <filter clientenv='appintg'>
+            <nlsbundle>com.documentum.webcomponent.library.create.AppIntgNewContainerNlsProp</nlsbundle>
+            <!-- Set "numberedtabs" to true to display each -->
+            <!-- tab's title with a sequential number.      -->
+            <numberedtabs>false</numberedtabs>
+         </filter>
+        <newcomponentname>newdocument</newcomponentname>
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* component                            (Required) ID of the component displayed 
+*/
+/* contentType                          (Optional) Content type of document 
+                                        being created. 
+*/
+/* editAfterCreate                      (Optional) Boolean: Set to true to open 
+                                        the new document object in edit mode 
+                                        after it has been created. 
+*/
+#
+# Elements
+/* <newcomponentname>                   Specifies the name of the component that 
+                                        will be launched to create the new 
+                                        object 
+*/
+/* <numberedtabs>                       Set to true to display each tab's title
+                                        preceded by a sequential number.
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

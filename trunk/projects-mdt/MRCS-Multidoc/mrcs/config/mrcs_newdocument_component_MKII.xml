@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   
+   <!-- scope it to mrcs_folder... -->
+   <scope type='m_mrcs_folder'>
+      
+      <!-- the document list component definition -->
+      <component id="newdoccontainer">         
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+         </params>                  
+         
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/MrcsNewDocument.jsp</start>
+            <!--  custom component pages must be specified here -->
+            <UserSpecified>/mrcs/pages/MrcsNewDocumentCustomComponent.jsp</UserSpecified>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsNewDocumentComponentMKII</class>
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsNewDocumentContainerMKIIStrings</nlsbundle>
+                  
+      </component>
+      
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_newdocument_component_MKII.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.4 $
+ Modified on    $Date: 2006/01/12 22:42:49 $
+
+***********************************************************************
+-->
+
+
+

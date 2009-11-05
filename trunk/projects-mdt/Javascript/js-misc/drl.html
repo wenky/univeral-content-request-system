@@ -1,0 +1,134 @@
+<!--
+/**
+ *****************************************************************************
+ *
+ * Confidential Property of Documentum, Inc.
+ * (c) Copyright Documentum, Inc. 2001.
+ * All Rights reserved.
+ * May not be used without prior written agreement
+ * signed by a Documentum corporate officer.
+ *
+ *****************************************************************************
+ *
+ * Project        Webtop
+ * Module         Webtop
+ * File           drl.html
+ * Description    redirection to DRL Component
+ * Created on     30th July 2002
+ * Tab width      3
+ *
+ *****************************************************************************
+ * Usage:
+ *
+ *****************************************************************************
+ *
+ * PVCS Maintained Data
+ *
+ * Revision       $Revision: 2$
+ * Modified on    $Date: 8/12/05 8:38:54 AM$
+ *
+ * Log at EOF
+ *
+ *****************************************************************************
+ */
+-->
+
+<html>
+   <head>
+      <!--------------------------------------------------------------------->
+      <!-- Confidential Property of Documentum, Inc.                       -->
+      <!-- (c) Copyright Documentum, Inc. 2001.                            -->
+      <!-- All Rights reserved.                                            -->
+      <!-- May not be used without prior written agreement                 -->
+      <!-- signed by a Documentum corporate officer.                       -->
+      <!--------------------------------------------------------------------->
+      <!-- Project   WDK                                                   -->
+      <!-- Module    DRL Component                                         -->
+      <!-- File      drl.html                                               -->
+      <!--------------------------------------------------------------------->
+
+      <script language="JavaScript1.2">
+
+         // decimal to hex lookup: decimal number as the index, hex number as the value
+         var g_arrDecimalToHex = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F");
+
+         /**
+         * Escape a unicode string
+         *
+         * @param  str  the string to escape
+         * @return the escaped string
+         */
+         function escapeUnicodeString(str)
+         {
+            var strescaped ="";
+            for(var idxch=0; idxch<str.length; idxch++)
+            {
+               var ch = str.charCodeAt(idxch);
+               if (ch == '?'.charCodeAt(0) || ch == '='.charCodeAt(0) || ch == '&'.charCodeAt(0))
+               {
+                  strescaped += str.substring(idxch, idxch+1);
+               }
+               else
+               {
+                  var highbyte = ch & 0xFF00;
+                  var highbit = ch & 0xFF80;
+                  if (highbyte == 0 && highbit == 0)
+                  {
+                     strescaped += escape(str.substring(idxch, idxch+1));
+                  }
+                  else
+                  {
+                     strescaped +="%u";
+                     for(var idxdigit=0; idxdigit < 4; idxdigit++)
+                     {
+                        var decimaldigit = (ch >>> (12 - idxdigit * 4)) & 0x0F ;
+                        strescaped += g_arrDecimalToHex[decimaldigit];
+                     }
+                  }
+               }
+            }
+
+            return strescaped;
+         } //escapeUnicodeString(str)
+
+         /*
+          * forward to the drl component
+          */
+         function doForward()
+         {
+            //Get hold of virtual dir via the window.location.pathname
+            var strVirtualDir = "/";
+            var strPath = window.location.pathname;
+            var nIndex1 = strPath.indexOf("/");
+            var nIndex2 = strPath.lastIndexOf("/");
+            if (nIndex1 < nIndex2)
+            {
+               strVirtualDir = strPath.substring(nIndex1, nIndex2);
+            }
+
+            // get the query paramters
+            var strArg = "";
+            var strSearch = window.location.search;
+            if (strSearch != null && strSearch.length > 0)
+            {
+               strArg = escapeUnicodeString(strSearch) + "&";
+            }
+            else
+            {
+               strArg = "?"
+            }
+            strArg += "ReLoad=" + new Date().getTime();
+
+            // forwading to the drl component
+            window.location.replace(strVirtualDir + "/component/drl" + strArg);
+         }
+
+      </script>
+   </head>
+
+   <body onload='doForward()'>
+   </body>
+</html>
+
+<!--
+-->

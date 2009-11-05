@@ -1,0 +1,112 @@
+<map>
+
+    <entry><string>StageList</string><!--  default  -->
+      <list>
+        <string>PreExport</string>
+        <string>Export</string>
+        <string>PostExport</string>
+      </list>
+    </entry>
+    
+    <entry><string>Export</string>
+      <map>
+        <entry><string>Processors</string>
+          <list>
+        
+            <!--  put DctmAccess ==> SourceAccess  -->
+            <Plugin> 
+                <Class>com.zoder.processors.InitDctmAccess</Class>
+                <Config>
+                    <entry><string>user</string><string>ecsadmin</string></entry>
+                    <entry><string>pass</string><string>spring2005</string></entry>
+                    <entry><string>base</string><string>mqadoc_dev</string></entry>
+                    <entry><string>contextkey</string><string>SourceAccess</string></entry>
+                </Config>
+            </Plugin>
+            
+            <!--  Folder Processing preparation:
+                - get cabinets/folderpaths in config 
+                - get info on any superpaths referenced
+                - descend recursively through subfolders of the path list
+            -->
+            <Plugin>
+                <Class>com.zoder.processors.exporting.ScanFolderStructure</Class>
+                <Config>
+                    <entry><string>PathList</string>
+                      <list>
+                        <string>1_Creation</string>
+                        <string>2_On_Approval</string>
+                        <string>3_Applicable</string>
+                        <string>4_History</string>
+                        <!-- string>5_Records</string>
+                        <string>6_Reference</string -->
+                        <string>Admin-MDT</string>
+                        <string>Migration</string>
+                        <string>QADoc Reference</string>
+                        <string>SMO</string>
+                      </list>
+                    </entry>
+                </Config>
+            </Plugin>
+
+            <Plugin>
+                <Class>com.zoder.processors.exporting.SimpleRenameFolders</Class>
+                <Config>
+                    <entry><string>FolderRenames</string>
+                      <map>
+                        <entry><string>:::[0-9]_.*</string><string>:::([0-9]_.*)/CEM $1</string></entry>                      
+                        <entry><string>Admin-MDT</string><string>CEM Admin-MDT</string></entry>                      
+                        <entry><string>Migration</string><string>CEM Migration</string></entry>                      
+                        <entry><string>QADoc Reference</string><string>CEM QADoc Reference</string></entry>                      
+                        <entry><string>SMO</string><string>CEM SMO</string></entry>                      
+                      </map>
+                    </entry>
+                </Config>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.zoder.processors.exporting.FolderAttributes</Class>
+            </Plugin>
+
+            <!--  get a list of docids to play with -->
+            <Plugin> 
+                <Class>com.zoder.processors.SingleColumnDql</Class>
+                <Config>
+                    <entry><string>Dql</string><string>Select r_object_id from mdt_document</string></entry>
+                    <entry><string>OutputKey</string><string>InputDocIdList</string></entry>
+                </Config>
+            </Plugin>
+            
+            <!--  Basic integrity and valid id checks
+                - put list of all valid documents ==> Success
+                - invalid ids ==> Failure  
+            -->
+            <Plugin> 
+                <Class>com.zoder.processors.exporting.CheckIdList</Class>
+            </Plugin>
+            
+            <!--  version tree processing:   
+                - do various checks on Success docs, move invalid docs to Failure
+                - place version list ==> Versions in valid docs 
+            -->
+            <Plugin>
+                <Class>com.zoder.processors.exporting.CheckVersionTree</Class>
+            </Plugin>
+                        
+            <Plugin>
+                <Class>com.zoder.processors.exporting.ExportFolderInfo</Class>
+            </Plugin>
+            
+          </list>
+        </entry>
+      </map>
+            
+        
+    </entry>    
+    
+    <entry><string>Globals</string>
+      <map>
+        <entry><string>BaseDirectory</string><string>C:/Dev/migrate3/Zoder/test1/</string></entry>
+      </map>
+    </entry>
+</map>

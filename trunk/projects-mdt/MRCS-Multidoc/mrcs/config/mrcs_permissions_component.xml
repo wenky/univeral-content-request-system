@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Permissions                                            -->
+<!-- File           permissions_component.xml                              -->
+<!-- Description    Generic Permissions Component Definition               -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.10 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:51 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope type="m_mrcs_document,m_mrcs_folder">
+      <component id="permissions" extends="permissions:webcomponent/config/library/permissions/permissions_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Permissions component:  Allow the user to view and edit the security parameters for an object.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+         </params>
+
+         <!-- Component Layouts -->
+         <pages>
+            <start>/mrcs/pages/MrcsPermissions.jsp</start>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsPermissions</class>
+         <nlsbundle>com.documentum.webcomponent.library.permissions.PermissionsNlsProp</nlsbundle>
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>permissions</helpcontextid>
+      </component>
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_permissions_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:51 $
+
+***********************************************************************
+-->
+
+
+

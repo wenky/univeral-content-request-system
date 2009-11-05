@@ -1,0 +1,18 @@
+<config>
+	<scope>
+        <!--  CEM: this seems to get ignored, see app-workflow's mdt_menubar.jsp and mdt_menubar_body.jsp for stuff that seems to work -->
+		<menuconfig modifies="menubar_tools_menu:webcomponent/config/library/menubar/menubar_component.xml">
+			<insertafter path="menu[name=tools_menu].actionmenuitem[name=tools_exportcsv]">
+				<actionmenuitem dynamic="generic" id="tools_reassigntask" name="tools_reassigntask" value="Reassign Task" action="mdtReassignTaskContainer" showifinvalid="true" showifdisabled="true"/>
+			</insertafter>
+            <insertafter path="menu[name=tools_menu].actionmenuitem[name=tools_exportcsv]">
+                <actionmenuitem dynamic="singleselect" id="tools_releaseimmediately" name="tools_releaseimmediately" value="Release Immediately" action="smoreleaseimmediately" showifinvalid="true" showifdisabled="true"/>
+            </insertafter>      
+		</menuconfig>
+		<menuconfig modifies="workflow_submenu:webcomponent/config/library/menubar/menubar_component.xml">
+			<remove path="menu[name=tools_workflow].actionmenuitem[name=tools_startworkflowfromdoc]"></remove>
+    	</menuconfig>
+        
+	</scope>
+  
+</config>

@@ -1,0 +1,91 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>testUCF.html</title>
+    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script type='text/javascript' src='/webtop2/dwr/interface/Gateway.js'></script>
+    <script type='text/javascript' src='/webtop2/dwr/engine.js'></script>
+    <script type="text/javascript" src="./jquery-latest.regexp.js"></script>
+    
+  </head>
+  
+    <script type="text/javascript">
+
+      // useful jqueries lookups:
+      //  $('div[@id*=]') <-- select nodes containing that substring in their ids...
+      //  $('#id') <-- get specifically id'd node
+      
+       
+      $(document).ready(
+        function(){
+          // Your code here
+          // alert("JQuery works!");
+          //alert("sessionkey-: "+sessionkey);
+          //alert("user: "+document.applets["localsession"].getKey(sessionkey,"user"));
+          alert("calling gateway"); 
+          Gateway.getUCFAppletData(function(data){
+            //var s = "<span id='testucfappletspan'><applet id='testucfapplet' archive='CEMucfinit.jar' code='com.documentum.web.applet.ucfinvoker.LaunchRuntime.class' codebase='./wdk/system' name='UcfInvoker_LaunchRuntimeApplet' height=0 width=0 mayscript>";
+            var s = "<span id='testucfappletspan'><applet id='testucfapplet' archive='CEMucfinit.jar' code='com.medtronic.documentum.ucf.LaunchRuntime.class' codebase='./wdk/system' name='UcfInvoker_LaunchRuntimeApplet' height=0 width=0 mayscript>";
+            var sp = "<hr><table>";
+            for (var value in data) {
+              s+= "<param name='"+value+"' value='"+data[value]+"'>'";
+              sp+= "<tr><td>"+value+"</td><td>" + data[value] + "</td></tr>";
+            }
+            s+= "</applet></span>";
+            sp+="</table>";
+            alert("apptag: "+s);
+            $("body").append(s);
+            $("body").append(sp);
+          }); // end gateway.getUCFAppletData call
+          $("a").click(
+            function(){
+              var id = document.applets["testucfapplet"].getUcfSessionId();
+              alert("ucfid: "+id);
+              return false; 
+            }
+          );
+        }
+      );
+      
+      function PostServerEventCallback(method,request,handler)
+      {
+          alert("callback vars: "+method+" "+request+" "+handler);
+      }
+      
+      function callimport()
+      {
+          // prep an associative array aka map for the import call
+          var importcall = { localmachine : "muellc4-d1", 
+                             localpath : "C:\\ldif CAS.xls",
+                             objecttype : "dm_document",
+                             user:"muellc4",pass:"silverl1z@rd",base:"MRCS_Dev"
+                           };
+          Gateway.importSingleFile(importcall, function(data) {
+            
+          });
+          
+      }
+      
+    </script>
+    
+    
+  
+  <body>
+    <a href="">TestUCFgenerateparams</a>
+    
+    <input type="submit" name="Import" value="Import" onclick="callimport();">
+    
+    <div id="blahdiv"></div>
+
+    <!--
+        
+    -->    
+    
+  </body>
+</html>

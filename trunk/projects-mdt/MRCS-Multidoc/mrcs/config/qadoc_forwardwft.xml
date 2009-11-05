@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+      <component id="forwardworkflowtask" extends="forwardworkflowtask:webcomponent\config\library\workflow\taskmanager\forwardworkflowtask_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for forwarding of a workflow task
+            (only manual workflow tasks can be forwarded).
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <!-- forward>/webcomponent/library/workflow/taskmanager/forward.jsp</forward -->
+            <!-- forward>/mrcs/pages/forwardesgn.jsp</forward -->
+            <forward>/mrcs/pages/QADocForwardTask.jsp</forward>
+            
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+
+         <!-- class>com.documentum.webcomponent.library.workflow.taskmanager.ForwardWorkflowTask</class -->
+         <class>com.medtronic.documentum.mrcs.client.QADocForwardWFT</class>
+         <!-- nlsbundle>com.documentum.webcomponent.library.workflow.taskmanager.ForwardWorkflowTaskNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.eSignNlsProp</nlsbundle>
+
+         <helpcontextid>forwardworkflowtask</helpcontextid>
+      </component>
+
+   </scope>
+
+</config>
+
+

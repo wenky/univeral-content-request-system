@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope>
+      <component id="taskattachment">
+         <desc>
+            Manages the attachments to tasks in the inbox for alternative-workflow
+            - TODO: separate form and attachments grids
+            - TODO: header bar for attachments grid so line headers line up over attachments
+            - TODO: remove Add link next to Attachments
+            - TODO: remove Remove links next to each attachment             
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+         </params>
+         <pages>
+            <!-- start>/webcomponent/library/workflow/attachment/taskAttachmentList.jsp</start -->
+            <!-- list>/webcomponent/library/workflow/attachment/taskAttachmentList.jsp</list -->
+            <start>/app-workflow/pages/mdt_taskattachments_list.jsp</start>
+            <list>/app-workflow/pages/mdt_taskattachments_list.jsp</list>
+            <drilldown>/webcomponent/library/workflow/attachment/taskAttachmentDrilldown.jsp</drilldown>
+         </pages>
+         <class>com.documentum.webcomponent.library.workflow.attachment.TaskAttachment</class>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.attachment.AttachmentNlsProp</nlsbundle>
+         <helpcontextid>taskattachment</helpcontextid>
+      </component>
+   </scope>
+</config>

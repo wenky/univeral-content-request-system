@@ -1,0 +1,113 @@
+out.write(com.medtronic.ecm.documentum.introspection.GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+out.write """
+GSCRIPT EXEC:
+<FORM name='DumpDoc' action='${baseurl}' method='POST'>
+    <P><TEXTAREA name='gscript' cols=100 rows=20></TEXTAREA></P>
+    ${credhidden}
+    <INPUT type='hidden' name='do' value='doGScript.gvw'/>
+    <INPUT type='submit' name='EXECUTE' value='EXECUTE'/>   
+</FORM>
+<hr>
+Useful scripts:<BR>
+<hr>
+"""
+
+out.write """
+//set object format<br>
+import com.documentum.fc.client.*;<br>
+import com.documentum.fc.common.*;<br>
+IDfSession dctmsess = dctmaccess.accessSession();<br>
+IDfSysObject so = dctmsess.getObject(new DfId("09028f46800730c4"));<br>
+so.setContentType("acro");<br>
+so.save();<br>
+<hr>
+"""
+
+out.write """
+// API abort+destroy workflow<br>
+String id = "4d028f4680002144";<BR>
+boolean op = dctmaccess.accessSession().apiExec("abort",id);<BR>
+if (op) op = dctmaccess.accessSession().apiExec("destroy",id);<BR>
+out.write("\$op");
+<hr>
+"""
+
+out.write """
+// API set+save<br>
+String objectid = "37028f4680002db4"<br>
+String attrname = "parent_id"<br>
+String newvalue = "09028f46800703a0"<br>
+boolean op = dctmaccess.accessSession().apiSet("set","\$objectid,\$attrname","\$newvalue");<br>
+out.writeln(""+op)<br>
+op = dctmaccess.accessSession().apiExec("save","\$objectid");<br>
+out.writeln(""+op)<br>
+<hr>
+"""
+
+out.write """
+// script to create MdtConfigurableScheduledTask job, make sure to change the docbase_name param<br>
+// WHY? Because our admins are too dumb to properly set permgen JVM parameters so the DAs go down<BR>
+import&nbsp;com.documentum.fc.client.*;
+<br>import&nbsp;com.documentum.fc.common.*;
+<br>import&nbsp;com.medtronic.ecm.documentum.introspection.*;
+<br>import&nbsp;com.medtronic.ecm.documentum.util.*;
+
+<br>import&nbsp;java.util.*;
+<br>
+<br>Date&nbsp;dt&nbsp;=&nbsp;new&nbsp;Date();
+<br>Date&nbsp;dt2&nbsp;=&nbsp;new&nbsp;Date();&nbsp;dt2.setYear(dt.getYear()+100);
+<br>Date&nbsp;dt3&nbsp;=&nbsp;new&nbsp;Date();&nbsp;dt3.setMinutes(dt.getMinutes()+15);
+
+<br>
+<br>IDfSession&nbsp;dctmsess&nbsp;=&nbsp;dctmaccess.accessSession();
+<br>IDfPersistentObject&nbsp;newjob&nbsp;=&nbsp;(IDfPersistentObject)dctmsess.newObject("dm_job");
+<br>newjob.setString&nbsp;("object_name",&nbsp;"MdtConfigurableScheduledTask");
+<br>newjob.setString&nbsp;("method_name",&nbsp;"MdtConfigurableScheduledTask");
+<br>newjob.setBoolean("pass_standard_arguments",&nbsp;false);
+
+<br>newjob.setTime&nbsp;("start_date",&nbsp;new&nbsp;DfTime(dt));
+<br>newjob.setTime&nbsp;("expiration_date",&nbsp;new&nbsp;DfTime(dt2));
+<br>newjob.setInt&nbsp;("max_iterations",&nbsp;0);
+<br>newjob.setInt&nbsp;("run_interval",&nbsp;5);
+<br>newjob.setInt&nbsp;("run_mode",1);
+
+<br>newjob.setBoolean("is_inactive",&nbsp;false);
+<br>newjob.setString&nbsp;("target_server",&nbsp;"mqadoc_test.mqadoc_test@mspsun51");
+<br>newjob.setBoolean("run_now",&nbsp;false);
+<br>newjob.setBoolean("inactivate_after_failure",false);
+<br>newjob.setTime&nbsp;("a_next_invocation",&nbsp;new&nbsp;DfTime(dt3));
+<br>newjob.appendString&nbsp;("method_arguments","-docbase_name&nbsp;mqadoc_test");
+
+<br>newjob.appendString&nbsp;("method_arguments","-dql&nbsp;\"SELECT&nbsp;r_object_id&nbsp;FROM&nbsp;mdt_scheduled_task&nbsp;WHERE&nbsp;m_exec_status&nbsp;=&nbsp;'waiting'&nbsp;AND&nbsp;m_exec_date&nbsp;&lt;=&nbsp;DATE(NOW)\"");
+<br>newjob.save();
+<br>&nbsp;
+<hr>
+"""
+
+out.write """
+// get rendition of pdf-p, set as pdf rendition (f'ing hidden formats...)<BR>
+import com.documentum.fc.client.*;<br>
+import com.documentum.fc.common.*;<br>
+IDfSession dctmsess = dctmaccess.accessSession();<br>
+IDfSysObject so = (IDfSysObject)dctmsess.getObject(new DfId("09028f46800729b2"));<br>
+String filename = so.getFileEx(null,"pdf-p",0,false);<br>
+so.addRendition(filename,"pdf");<br>
+so.removeRendition("pdf-p");<br>
+so.save();<br>
+<hr>
+"""
+
+
+out.write """
+//Test how XSTream serializes things<BR>
+import com.thoughtworks.xstream.*;<BR>
+import com.medtronic.ecm.documentum.introspection.*;<BR>
+HashSet set = new HashSet();<BR>
+set.add("boy");<BR>
+set.add("girl");<BR>
+XStream xstream = new XStream();<BR>        
+String outstr = xstream.toXML((Object)set);<BR>
+out.write(WebUtils.makeXMLdisplayableInHTML(outstr));<BR>
+<hr>
+"""

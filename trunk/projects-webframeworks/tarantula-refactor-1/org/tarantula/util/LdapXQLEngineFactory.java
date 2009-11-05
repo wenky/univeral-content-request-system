@@ -1,0 +1,1 @@
+package org.tarantula.util;public class LdapXQLEngineFactory {  public static LdapXQLProcessor create()  {    return null;  }}

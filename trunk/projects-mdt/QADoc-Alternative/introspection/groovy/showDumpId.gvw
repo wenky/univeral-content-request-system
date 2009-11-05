@@ -1,0 +1,13 @@
+out.write(com.medtronic.ecm.documentum.introspection.GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+out.write """
+Introspect object - enter object id
+<FORM name='DumpDoc' action='${baseurl}' method='GET'>
+    <p><table border=0>
+    <tr><td>object id:</td><td><INPUT type='text' name='id'></td></tr>
+    </table></p>
+    ${credhidden}
+    <INPUT type='hidden' name='do' value='doDumpObjectById.gvw'/>
+    <INPUT type='submit' name='go' value='go'/>
+</FORM>
+"""

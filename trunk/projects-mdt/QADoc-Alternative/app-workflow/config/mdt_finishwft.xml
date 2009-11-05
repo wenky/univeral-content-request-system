@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope>
+      <component id="finishworkflowtask">
+         <desc>
+            The finishworkflowtask component completes non-manual workflow 
+            tasks (for which the user is not expected to specify the next 
+            task). 
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+            <param name="userTime" required="false"/>
+            <param name="userCost" required="false"/>
+         </params>
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <!--  finish>/webcomponent/library/workflow/taskmanager/finish.jsp</finish -->
+            <finish>/app-workflow/pages/mdt_finishwft.jsp</finish>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+         <filter entitlement="not collaboration">
+            <!-- class>com.documentum.webcomponent.library.workflow.taskmanager.FinishWorkflowTask</class -->
+            <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtFinishTask</class>
+         </filter>
+         <filter entitlement="collaboration">
+            <class>com.documentum.webcomponent.library.workflow.taskmanager.FinishRoomWorkflowTask</class>
+         </filter>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.taskmanager.FinishWorkflowTaskNlsProp</nlsbundle>
+         <helpcontextid>finishworkflowtask</helpcontextid>
+      </component>
+   </scope>
+</config>

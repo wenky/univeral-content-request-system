@@ -1,0 +1,20 @@
+<config version="1.0">
+   <scope>
+      <component id="mdtemptycomponent">
+         <desc>
+           component that wraps an attachment locator and an attachment list of currently selected documents
+           to improve the attachment selection process
+         </desc>
+
+         <params>
+            <param name="objectId" required="true"></param>
+         </params>
+         
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtEmptyComponent</class>
+         <nlsbundle>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtAttachmentSelectionNlsProp</nlsbundle>
+         <pages>
+            <start>/app-workflow/pages/mdt_empty_component.jsp</start>
+         </pages>
+      </component>
+   </scope>
+</config>

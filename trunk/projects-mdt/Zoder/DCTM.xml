@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c)MatrixOne, Inc., 2000 -->
+<!DOCTYPE ematrix SYSTEM "ematrixml.dtd">
+<ematrix>
+  <creationProperties>
+    <release>9.5.0.2-Global</release>
+    <datetime>2003-02-12T16:14:39Z</datetime>
+    <event>export</event>
+    <dtdInfo>&ematrixProductDtd;
+    </dtdInfo>
+  </creationProperties>
+  <businessObject>
+    <objectType>Semi-Finished Material</objectType>
+    <objectName>12-3456-7890-1</objectName>
+    <objectRevision>A</objectRevision>
+    <vaultRef>MigrationPartsVault</vaultRef>
+    <policyRef>BOM ITEM - ECO</policyRef>
+    <owner>
+      <userRef>MigrationDocAdmin</userRef>
+    </owner>
+    <description>Testing Descrption 1234567890</description>
+    <creationInfo>
+      <datetime>1994-01-01T12:01:01Z</datetime>
+    </creationInfo>
+    <modificationInfo>
+      <datetime>1994-01-01T12:01:01Z</datetime>
+    </modificationInfo>
+    <attributeList count="3">
+      <attribute>
+        <name>Search Description</name>
+        <string>Testing Descrption 1234567890</string>
+      </attribute>
+      <attribute>
+        <name>Inventory Unit of Measure</name>
+        <string>each</string>
+      </attribute>
+      <attribute>
+        <name>Title</name>
+        <string></string>
+      </attribute>
+    </attributeList>
+    <stateList count="1">
+      <state>
+        <name>Released</name>
+        <current />
+        <stateStatus>enabled</stateStatus>
+        <actualInfo>
+          <datetime>1994-01-01T12:01:01Z</datetime>
+        </actualInfo>
+        <revisionable />
+        <versionable />
+      </state>
+    </stateList>
+  </businessObject>
+</ematrix>

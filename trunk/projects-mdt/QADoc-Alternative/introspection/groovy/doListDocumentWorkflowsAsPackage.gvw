@@ -1,0 +1,69 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+IDfSession dctmsess = dctmaccess.accessSession();
+String docid = request.getParameter("id");
+IDfSysObject obj = (IDfSysObject)dctmsess.getObject(new DfId(docid));
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+
+IDfVersionLabels labels = obj.getVersionLabels();
+String labelstring = "";
+String implicitlabel = labels.getImplicitVersionLabel();
+for (int i=0; i<labels.getVersionLabelCount(); i++)
+{
+    labelstring += '['+labels.getVersionLabel(i)+']';
+}
+
+out.write """
+List Workflows that have a package in the version tree of this object<br>Object Name: ${obj.getObjectName()}<br>
+Object Id: ${baselink}&id=${docid}'>${docid}</a><br>
+Implicit Version: $implicitlabel<br>
+Labels: $labelstring<br>
+"""
+
+
+// get chronicle id
+String chronid = obj.getChronicleId().getId();
+
+// find workflows that have that chronicle id as the package
+String html = "";
+try { 
+    String workflowsqry = "select distinct r_workflow_id from dmi_package where any r_component_chron_id = '$chronid' order by r_workflow_id desc";
+    List results = DctmUtils.execQuery(dctmsess,workflowsqry);    
+    html = "<table border='1'>";
+    html+="<tr><td><b>Name</b></td><td><b>supervisor</b></td><td><b>RuntimeState</b></td><td><b>Packages</b></td><td><b>WF Dump</b></td></tr>";
+    results.each { resultmap -> 
+        IDfId wfid = new DfId(resultmap.get("r_workflow_id"));
+        // look up each workflow
+        IDfWorkflow workflow = (IDfWorkflow)dctmsess.getObject(wfid);
+        // look up the version labels of the relevant package
+        String packagedql = "select r_object_id from dmi_package where r_workflow_id = '"+wfid.getId()+"'";
+        Set pkgset = new HashSet();
+        List pkgresults = DctmUtils.execQuery(dctmsess,packagedql);
+        pkgresults.each { pkgmap ->
+            String pdocid = pkgmap.get("r_object_id");
+            IDfPersistentObject pkg = dctmsess.getObject(new DfId(pdocid));            
+            for (i=0; i < pkg.getValueCount("r_component_id"); i++)
+                pkgset.add(pkg.getRepeatingId("r_component_id",i).getId());
+        }
+        
+        String packagelink = "";
+        boolean first = true;
+        pkgset.each { pkgid ->
+            IDfSysObject pkgobj = (IDfSysObject)dctmsess.getObject(new DfId(pkgid));                        
+            if (first) first=false; else packagelink += "<BR>";
+            packagelink += baselink+"&id="+pkgid+"'>"+pkgobj.getObjectName()+"["+pkgobj.getVersionLabels().getImplicitVersionLabel()+"]</a>";
+        }
+        
+        String wflink = baselink+"&id="+wfid.getId()+"'>"+wfid.getId()+"</a>";
+        html+= "<tr><td>"+workflow.getObjectName()+"</td><td>"+workflow.getSupervisorName()+"</td><td>"+workflow.getRuntimeState()+"</td><td>"+packagelink+"</td><td>"+wflink+"</td></tr>";
+    }
+    html += "</table>";        
+} catch (NullPointerException e) {
+    html = "Workflow lookup error";
+}
+
+out.write(html);

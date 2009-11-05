@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope type="dm_workflow">
+
+      <!-- list of actions to display for a dm_workflow -->
+      <actionlist id="default" extends ="default:webcomponent/config/actions/dm_workflow_actions.xml">
+         <action id="view" nlsid="MSG_VIEW_WORKFLOW" showifdisabled="false"/>
+         <action id="haltworkflow" nlsid='MSG_HALT_WORKFLOW' showifdisabled="false"/>
+         <action id="resumeworkflow" nlsid='MSG_RESUME_WORKFLOW' showifdisabled="false"/>
+         <action id="abortworkflow" nlsid='MSG_ABORT_WORKFLOW' showifdisabled="false"/>
+         <action id="delete" nlsid='MSG_DELETE_WORKFLOW' showifdisabled="false"/>
+         <action id="changesupervisor" nlsid='MSG_CHANGE_WORKFLOW_SUPERVISOR' showifdisabled="false"/>
+      </actionlist>
+
+      <!-- view -->
+      <action id="view">
+          <params>
+             <param name="objectId" required="true"/>
+             <param name='workflowRuntimeState' required='true'/>
+          </params>
+          <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.ViewWorkflowPrecondition"/>
+          </preconditions>
+          <execution class="com.documentum.web.formext.action.LaunchComponent">
+             <container>webwfmcontainer</container>
+             <component>webwfm</component>
+          </execution>
+       </action>
+
+      <!-- abort workflow action-->
+      <action id="abortworkflow">
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='workflowRuntimeState' required='true'/>
+            <param name='supervisor' required='false'/>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.AbortWorkflowPrecondition"/>
+         </preconditions>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <container>combocontainer</container>
+            <component>abortworkflow</component>
+         </execution>
+      </action>
+
+
+      <!-- delete workflow action -->
+      <action id="delete">
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='workflowRuntimeState' required='true'/>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.DeleteWorkflowPrecondition"/>
+         </preconditions>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <container>combocontainer</container>
+            <component>deleteworkflow</component>
+         </execution>
+      </action>
+
+      <!-- resume workflow action -->
+      <action id="resumeworkflow">
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='workflowRuntimeState' required='true'/>
+            <param name='supervisor' required='false'/>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.ResumeWorkflowPrecondition"/>
+         </preconditions>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <container>combocontainer</container>
+            <component>resumeworkflow</component>
+         </execution>
+      </action>
+
+      <!-- halt workflow action -->
+      <action id="haltworkflow">
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='workflowRuntimeState' required='true'/>
+            <param name='supervisor' required='false'/>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.HaltWorkflowPrecondition"/>
+         </preconditions>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <container>combocontainer</container>
+            <component>haltworkflow</component>
+         </execution>
+      </action>
+
+      <!-- change supervisor action -->
+      <action id="changesupervisor">
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='workflowRuntimeState' required='true'/>
+         </params>
+
+         <preconditions>
+            <precondition class="com.documentum.webcomponent.library.actions.ChangeWorkflowSupervisorPrecondition"/>
+         </preconditions>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>changesupervisor</component>
+         </execution>
+      </action>
+
+      <!-- workflow report details summary action -->
+      <action id="reportdetailssummarylist">
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <execution class="com.documentum.webcomponent.library.workflow.reportdetails.LaunchReportDetailsComponent">
+            <container>reportdetailscontainerlist</container>
+            <!-- component element is added dynamically -->
+         </execution>
+      </action>
+      <action id="reportdetailssummarydrilldown">
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <execution class="com.documentum.webcomponent.library.workflow.reportdetails.LaunchReportDetailsComponent">
+            <container>reportdetailscontainerdrilldown</container>
+            <!-- component element is added dynamically -->
+         </execution>
+      </action>
+
+      <!-- workflow report details audit action -->
+      <action id="reportdetailsauditlist">
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <execution class="com.documentum.webcomponent.library.workflow.reportdetails.LaunchReportDetailsComponent">
+            <container>reportdetailscontainerlist</container>
+            <!-- component element is added dynamically -->
+         </execution>
+      </action>
+      <action id="reportdetailsauditdrilldown">
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <execution class="com.documentum.webcomponent.library.workflow.reportdetails.LaunchReportDetailsComponent">
+            <container>reportdetailscontainerdrilldown</container>
+            <!-- component element is added dynamically -->
+         </execution>
+      </action>
+
+      <action id="reportdetailsmap">
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <container>reportdetailscontainerlist</container>
+            <!-- component element is added dynamically -->
+         </execution>
+      </action>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.2
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_dm_workflow_actions.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.11 $
+ Modified on    $Date: 2006/08/28 19:31:54 $
+
+***********************************************************************
+
+ MJH 8/28/2006:  Updated ViewWorkflowPrecondition to work with 5.3
+ 
+*********************************************************************** 
+-->
+
+
+
+

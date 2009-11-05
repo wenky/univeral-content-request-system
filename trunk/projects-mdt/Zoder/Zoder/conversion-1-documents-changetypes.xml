@@ -1,0 +1,97 @@
+<map>
+
+    <entry><string>StageList</string><!--  default  -->
+      <list>
+        <string>PreExport</string>
+        <string>Export</string>
+        <string>PostExport</string>
+      </list>
+    </entry>
+    
+    <entry><string>Export</string>
+      <map>
+        <entry><string>Processors</string>
+          <list>
+        
+            <!--  put DctmAccess ==> SourceAccess  -->
+            <Plugin> 
+                <Class>com.zoder.processors.InitDctmAccess</Class>
+                <Config>
+                    <entry><string>user</string><string>ecsadmin</string></entry>
+                    <entry><string>pass</string><string>spring2005</string></entry>
+                    <entry><string>base</string><string>mqadoc_dev</string></entry>
+                    <entry><string>contextkey</string><string>SourceAccess</string></entry>
+                </Config>
+            </Plugin>            
+
+            <!--  get a list of docids to play with -->
+            <Plugin> 
+                <Class>com.zoder.processors.SingleColumnDql</Class>
+                <Config>
+                    <entry><string>Dql</string><string>select doc.r_object_id as r_object_id from dm_document doc, buldoser_audit_trail bull where doc.r_object_id = bull.audited_obj_id and bull.batch_name = '\\mspm1bfile46\SMODocumentum_122308\12-09-2008\1_Creation'</string></entry>
+                    <entry><string>OutputKey</string><string>InputDocIdList</string></entry>
+                </Config>
+            </Plugin>
+
+            <!--  get new id to old id mappings -->
+            <Plugin> 
+                <Class>com.zoder.processors.MultiColumnDql</Class>
+                <Config>
+                    <entry><string>Dql</string><string>select doc.r_object_id as r_object_id, bull.audited_obj_id as audited_obj_id, bull.old_object_id as old_object_id from dm_document(all) doc, buldoser_audit_trail bull where doc.r_object_id = bull.audited_obj_id and bull.batch_name = '\\mspm1bfile46\SMODocumentum_122308\12-09-2008\1_Creation'</string></entry>
+                    <entry><string>OutputKey</string><string>NewIdOldIdList</string></entry>
+                </Config>
+            </Plugin>
+
+            
+            <!--  Basic integrity and valid id checks
+                - put list of all valid documents ==> Success
+                - invalid ids ==> Failure  
+            -->
+            <Plugin> 
+                <Class>com.zoder.processors.exporting.CheckIdList</Class>
+            </Plugin>
+                        
+            <!--  load old system id mapping data csv: used by LC assignment  -->
+            <Plugin> 
+                <Class>com.zoder.processors.LoadCSV</Class>
+                <Config>
+                    <entry><string>Keys</string>
+                      <map>
+                        <entry><string>qualitydocuments</string> <string>C:/Dev/migrate3/Zoder/SMO-1/1CREATIONprod_qadoc_quality_document_extract_report.csv</string></entry>
+                        <entry><string>qualitymanuals</string>   <string>C:/Dev/migrate3/Zoder/SMO-1/1CREATIONprod_qadoc_quality_manual_extract_report.csv</string></entry>
+                        <entry><string>qualityprocedures</string><string>C:/Dev/migrate3/Zoder/SMO-1/1CREATIONprod_qadoc_quality_procedure_extract_report.csv</string></entry>
+                        <entry><string>qualityrecords</string>   <string>C:/Dev/migrate3/Zoder/SMO-1/1CREATIONprod_qadoc_quality_record_extract_report.csv</string></entry>
+                      </map>
+                    </entry>
+                </Config>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.medtronic.ecm.documentum.zoder.smo.SMOTransformObjectType</Class>
+                <Config>
+                </Config>
+            </Plugin>
+
+            
+            <Plugin> 
+                <Class>com.zoder.processors.exporting.ErrorListSerialize</Class>
+            </Plugin>
+
+            <Plugin> 
+                <Class>com.zoder.processors.SuccessListSerialize</Class>
+            </Plugin>
+            
+          </list>
+        </entry>
+      </map>
+            
+        
+    </entry>    
+    
+    <entry><string>Globals</string>
+      <map>
+        <entry><string>BaseDirectory</string><string>C:/Dev/migrate3/Zoder/SMO-1/</string></entry>
+        <entry><string>Configuration.DirectoryDepth</string><string>3</string></entry>
+      </map>
+    </entry>
+</map>

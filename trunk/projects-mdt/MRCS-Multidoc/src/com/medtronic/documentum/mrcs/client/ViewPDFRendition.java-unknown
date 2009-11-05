@@ -1,0 +1,153 @@
+/**
+ ******************************************************************************
+ *
+ * Confidential Property of Documentum, Inc.
+ * (c) Copyright Documentum, Inc. 2001.
+ * All Rights reserved.
+ * May not be used without prior written agreement
+ * signed by a Documentum corporate officer.
+ *
+ ******************************************************************************
+ *
+ * Project
+ * File           ViewPDFRendition.java
+ * Description    Action execution class that only allows pdf renditions to be viewed.
+ *                No other rendition types are allowed.
+ *
+ * Created by     Aashish Patil (aashish.patil@documentum.com)
+ * Created on     31 January, 2003
+ * Tab width      4
+ */
+
+/*
+**********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: ViewPDFRendition.java,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.1 $
+ Modified on    $Date: 2006/05/30 21:35:48 $
+
+***********************************************************************
+*/
+
+package com.medtronic.documentum.mrcs.client;
+
+
+import com.documentum.web.formext.action.LaunchComponentWithPermitCheck;
+import com.documentum.web.formext.config.IConfigElement;
+import com.documentum.web.common.ArgumentList;
+import com.documentum.web.formext.config.Context;
+import com.documentum.web.formext.component.Component;
+import com.documentum.web.formext.session.SessionManagerHttpBinding;
+
+import com.documentum.fc.client.IDfSession;
+import com.documentum.fc.client.IDfSessionManager;
+import com.documentum.fc.client.IDfSysObject;
+import com.documentum.fc.client.IDfPersistentObject;
+import com.documentum.fc.client.IDfDocument;
+import com.documentum.fc.common.DfId;
+import com.documentum.fc.client.IDfCollection;
+import com.documentum.fc.common.DfException;
+import java.util.Map;
+
+public class ViewPDFRendition extends LaunchComponentWithPermitCheck
+{
+
+    /**
+     *The renditions requested for viewing are contained as the argument
+     *'contentType' in the ArgumentList object. The value of this argument is
+     *replaced with the value for the content type of Acrobat PDF.
+     */
+    public boolean execute(String strAction,IConfigElement config,ArgumentList args,
+    Context context, Component component,java.util.Map map)
+    {
+        if(args != null)
+        {
+            String objectId = args.get("objectId");
+            if(hasPDFRendition(objectId,component))
+            {
+                args.replace(m_strContentTypeArg, m_strArrayContentTypePDF);
+            }
+
+
+        }
+
+        boolean executeResult = super.execute(strAction,config,args,context,component,map);
+        return executeResult;
+
+    }//execute(...)
+
+    /**
+     *Checks whether a document has a pdf rendition
+     *
+     *@param    objectId    The object id of the sysobject whose renditions have to be checked
+     *                      for existence of a pdf rendition.
+     *@return   boolean     true=>pdf rendition exists
+     *                      false=>pdf rendition does not exist
+     *
+     */
+    protected boolean hasPDFRendition(String objectId,Component component)
+    {
+        try
+        {
+
+            //SessionManagerHttpBinding httpBinding = new SessionManagerHttpBinding();
+            //IDfSessionManager sessionManager = httpBinding.getSessionManager();
+            //String currentDocbase = httpBinding.getCurrentDocbase();
+            //IDfSession docbaseSession = sessionManager.getSession(currentDocbase);
+        	IDfSession docbaseSession = component.getDfSession();
+
+            IDfDocument sysObject = (IDfDocument)docbaseSession.getObject(new DfId(objectId));
+            IDfCollection contentTypes = sysObject.getRenditions("r_object_id,full_format");
+
+            boolean haspdf = false;
+            while(contentTypes.next())
+            {
+                String attrValue = contentTypes.getString("full_format");
+                if (m_strArrayContentTypePDF.equals(attrValue))
+                	haspdf = true;
+            }
+            contentTypes.close();
+            return haspdf;
+
+        }catch(DfException dfe)
+        {
+            System.out.println("Error while searching for rendition: " + dfe.getMessage());
+            dfe.printStackTrace();
+            return false;
+        }
+
+
+
+
+
+    }//hasPdfRendition
+
+    /**
+     *String specifying the pdf content type
+     */
+    private String m_strArrayContentTypePDF = "pdf";
+
+    /**
+     *String specifying the key referencing the content type value in the
+     *ArgumentList passed
+     */
+    private String m_strContentTypeArg = "contentType";
+}

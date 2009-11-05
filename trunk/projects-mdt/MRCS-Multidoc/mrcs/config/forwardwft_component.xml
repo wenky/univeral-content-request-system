@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Lister                                                 -->
+<!-- Module                                                                -->
+<!-- File           forwardworkflowtask_component.xml                      -->
+<!-- Description                             -->
+<!-- Created on     March 29, 2002                 -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.10 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:50 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+      <!-- component id="forwardworkflowtask" extends="forwardworkflowtask:webcomponent\config\library\workflow\taskmanager\forwardworkflowtask_component.xml" -->
+      <component id="disabled_forwardworkflowtask" extends="forwardworkflowtask:webcomponent\config\library\workflow\taskmanager\forwardworkflowtask_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for forwarding of a workflow task
+            (only manual workflow tasks can be forwarded).
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+         </params>
+
+         <pages>
+            <start>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</start>
+            <forward>/mrcs/pages/forwardesgn.jsp</forward>
+            <assignperformers>/webcomponent/library/workflow/taskmanager/assignPerformers.jsp</assignperformers>
+         </pages>
+
+         <class>com.medtronic.documentum.mrcs.client.ForwardWFT</class>
+ 		 <nlsbundle>com.medtronic.documentum.mrcs.eSignNlsProp</nlsbundle>
+
+         <helpcontextid>forwardworkflowtask</helpcontextid>
+      </component>
+
+   </scope>
+
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: forwardwft_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:50 $
+
+***********************************************************************
+-->
+
+

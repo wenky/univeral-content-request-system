@@ -1,0 +1,50 @@
+<html>
+
+    <!--  DWR/Direct Web Remoting includes -->
+    <script type='text/javascript' src='/webtop/dwr/interface/TestLightMap.js'></script>
+    <script type='text/javascript' src='/webtop/dwr/engine.js'></script>
+    <!--  jquery/ext include -->
+    <script type="text/javascript" src="./jquery-1.2.1-regex.js"></script>
+    <script type="text/javascript" src="./ext-2.0/ext-all.js"></script>
+    <!--  json4jquery -->
+    <script type="text/javascript" src="./json4jquery.js"></script>
+    <!--  localsession include -->
+    <!-- script type="text/javascript" src="./localsession.js"></script -->
+    <!--  trimquery, for the hell of it, include -->
+    <script type="text/javascript" src="./trimpath-query-1.0.38.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(
+        function() {
+          alert("JQuery works!");
+          //TestLightMap.runTestXml(handleTest);
+          TestLightMap.runTest(handleTest);
+          //TestLightMap.getCurrentDate(handleTest);
+        });
+        
+      function handleTest(data)
+      {
+        //var data2 = data.replace('/\&/g','&amp;');
+        //data2 = data2.replace('/\</g','&lt;');
+        //data2 = data2.replace('/\>/g','&gt;');
+        //$('div[@id*=output]').append(data2);
+        var jsonstring = $.toJSON(data[0].r_creation_date);
+        $('div[@id*=output]').append(jsonstring); // < -- problems with dates in arrays...
+        $('div[@id*=output]').append("<hr>"); // < -- problems with dates in arrays...
+        alert("evaling...");
+        var evaljson = eval(jsonstring);        
+        $('div[@id*=output]').append($.toJSON(evaljson)); // < -- problems with dates in arrays...
+      }
+    
+    </script>
+
+
+    <body>
+    
+      <div id="output">
+      </div>
+    
+    
+    </body>
+
+</html>

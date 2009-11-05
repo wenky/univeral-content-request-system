@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+   <scope>
+      <component id="about" extends="about:webtop/config/about_component.xml">
+         <desc>
+            Displays the product name and version information. 
+         </desc>
+         <pages>
+            <start>/app-qad/pages/about.jsp</start>
+         </pages>
+         <class>com.documentum.webtop.webcomponent.about.About</class>
+         <nlsbundle>com.medtronic.ecm.documentum.qad.AboutNlsProp</nlsbundle>
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* enableTools                          (Optional) Set to true to enable the 
+                                        display of the DQL editor and API tester 
+                                        tools. 
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

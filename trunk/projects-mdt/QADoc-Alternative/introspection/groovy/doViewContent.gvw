@@ -1,0 +1,71 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+out.write(com.medtronic.ecm.documentum.introspection.GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+String objectid = request.getParameter("id");
+IDfSession dctmsess = dctmaccess.accessSession();
+String thedoc = null;
+IDfSysObject so = (IDfSysObject)dctmsess.getObject(new DfId(objectid));
+
+// view the content (assume it's text or xml)
+thedoc = DctmUtils.loadFileContents(dctmsess,new DfId(objectid));
+
+
+// check if we need to prettify the xml
+int newlinecount = 0; for (int i=0; i < thedoc.length(); i++) if (thedoc.charAt(i) == '\n') newlinecount++;
+int bracketcount = 0; for (int i=0; i < thedoc.length(); i++) if (thedoc.charAt(i) == '<') bracketcount++;
+
+if (bracketcount > 20 && newlinecount < 2)
+{
+    //crudely prettify the xml
+    StringBuffer f = new StringBuffer(thedoc.length());
+    int stack = -1;
+    boolean cdata = false;              
+    for (int i=0; i < thedoc.length(); i++) 
+    {
+        char c = thedoc.charAt(i);
+        if (c == '<') {
+            // terminating tag
+            if (i+1 < thedoc.length() && thedoc.charAt(i+1) == '/'){ 
+                stack--;
+                if ((i-1) > 0 &&thedoc.charAt(i-1) == '>') {
+                    f.append('\n');
+                    for (int j=0; j < 2*stack; j++)f.append(' ');
+                }
+            } else {
+                if ((i-1) > 0 &&thedoc.charAt(i-1) == '>') {
+                    f.append('\n');
+                    for (int j=0; j < 2*stack; j++)f.append(' ');
+                }
+                stack++;
+                if (i+1 < thedoc.length() && thedoc.charAt(i+1) == '!')
+                    cdata = true;
+            }
+            f.append(c);
+        } else if (c == '>') {
+            if ((i-1) > 0 && thedoc.charAt(i-1) == '/') {
+                f.append(c);
+                stack--;
+            } else if (cdata && thedoc.charAt(i-1) == ']') {
+                f.append(c);
+                stack--;
+                cdata = false;
+            } else f.append(c);
+        } else f.append(c);
+            
+    }
+    
+    
+    thedoc = f.toString();
+}
+String dump = thedoc;
+
+dump = dump.replaceAll("<","&lt;");
+dump = dump.replaceAll(">","&gt;");
+dump = dump.replaceAll(" ","&nbsp;");
+dump = dump.replaceAll("\n","<br>");
+out.write("<FONT face='Courier New'>" + dump + "</FONT>");
+

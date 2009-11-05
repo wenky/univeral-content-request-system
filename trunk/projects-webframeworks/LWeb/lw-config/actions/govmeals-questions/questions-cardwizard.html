@@ -1,0 +1,97 @@
+<script type="text/javascript">
+
+  var questions1 = [
+    { fieldLabel: 'Organization Name', name: 'orgname', allowBlank:false },
+    { fieldLabel: 'Mailing Address', name: 'mailaddr' },
+    { fieldLabel: 'Mailing Address 2', name: 'mailaddr2' },
+    { fieldLabel: 'City', name: 'city' },
+    { fieldLabel: 'State', name: 'state' },
+    { fieldLabel: 'Zip', name: 'zip' }, 
+    { fieldLabel: 'Email', name: 'email', vtype:'email' }
+  ];  
+  
+  var questions2 = [
+    { fieldLabel: 'What is the average airspeed of a laden swallow?', name: 'first', allowBlank:false },
+    { fieldLabel: 'How many children in your brood?', name: 'last' },
+    { fieldLabel: 'How much money have you donated to your local family-first politician?', name: 'company' },
+    { fieldLabel: 'Assuming your weapon is silver, what is your THAC0 vs Were-Rats?', name: 'thaco' }, 
+    { fieldLabel: 'Email', name: 'email2', vtype:'email' },
+    { fieldLabel: 'Do I like looking at Franchise Player?', xtype: 'radiogroup', 
+        columnWidth: '.25', anchor:'-25',
+        items: [
+          {boxLabel: 'Yes', name: 'rb-auto', inputValue: 'Y', checked: true},
+          {boxLabel: 'No', name: 'rb-auto', inputValue: 'N'}
+        ]
+    }
+  ];  
+
+  var card1 = {
+      id:"card-0",
+      labelWidth: 500, 
+      url:'save-form.php',
+      frame:true,
+      title: 'Qualification Questions Page 1 of 2',
+      bodyStyle:'padding:5px 5px 0',
+      width: 700,
+      defaults: {width: 200},
+      defaultType: 'textfield',
+      items: questions1
+  };
+
+  var card2 = {
+        id:"card-1",
+        labelWidth: 500, 
+        url:'save-form.php',
+        frame:true,
+        title: 'Qualification Questions Page 2 of 2',
+        bodyStyle:'padding:5px 5px 0',
+        width: 700,
+        defaults: {width: 200},
+        defaultType: 'textfield',
+        items: questions2 
+
+    };
+
+  var cardNav = function(incr){
+        var l = Ext.getCmp('card-wizard-panel').getLayout();
+        var i = l.activeItem.id.split('card-')[1];
+        var next = parseInt(i) + incr;
+        l.setActiveItem(next);
+        Ext.getCmp('card-prev').setDisabled(next==0);
+        Ext.getCmp('card-next').setDisabled(next==1);
+    };
+
+
+  var cardWizardDef = {
+        id:'card-wizard-panel',
+        title: 'Eligibility Wizard',
+        layout:'card',
+        activeItem: 0,
+        bodyStyle: 'padding:15px',
+        width: 775,
+        height: 400,
+        defaults: {border:false},
+        bbar: ['->', // some sort of right-justification indicator... 
+        {
+            id: 'card-prev',
+            text: '&laquo; Previous', 
+            handler: cardNav.createDelegate(this, [-1]), // CEM: interesting. is this a lambda?
+            disabled: true
+        },{
+            id: 'card-next',
+            text: 'Next &raquo;', 
+            handler: cardNav.createDelegate(this, [1])
+        }]
+    };
+
+
+  function divexec(divid) 
+  {
+    var cardpanel1 = new Ext.FormPanel(card1);
+    var cardpanel2 = new Ext.FormPanel(card2);
+    cardWizardDef.items = [cardpanel1,cardpanel2];
+    var wizardobj = new Ext.Panel(cardWizardDef);
+    wizardobj.render(divid);    
+  }
+
+</script>

@@ -1,0 +1,138 @@
+15:14:56,243 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- getting docbase from JSM parameters
+15:14:56,245 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~docbase: mqadoc_dev
+15:14:56,246 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- getting packageId from JSM parameters
+15:14:56,246 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~packageId: 4a017f4480000d10
+15:14:56,248 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- getting mode from JSM parameters
+15:14:56,248 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~MODE: 1
+15:14:56,249 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - getting data from parameters map
+15:14:56,249 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - getting client objects
+15:14:56,250 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - setting identity to user ecsadmin
+15:14:56,251 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - setting identity to ticket DM_TICKET=AAAAAgAAAOQAAAABAAAA30c7ZVBHO2Z8AAAAOG1xYWRvY19kZXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGVjc2FkbWluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1xYWRvY19kZXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1zcDAwZG1zZDEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASUlCVkhSV1h6TG5TNzRRdjBIeXdzZ0Y3QVZtVVJSTXQyTFhUSGZZeGNidlpMMWErenR3eDRRPT0=
+15:14:56,252 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - getting session
+15:14:56,257 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - returning
+15:14:56,258 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~getting user session
+15:14:56,590 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- retreive workitem (the packageid)
+15:14:56,759 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- ...retrieved workitem 4a017f4480000d10? true
+15:14:56,759 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~getting first package - the form
+15:14:56,760 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - get session
+15:14:56,760 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - get workitem interface
+15:14:56,760 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - get session
+15:14:56,761 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - get workitemid 
+15:14:56,761 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - get object from db
+15:14:56,766 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - releasing session
+15:14:56,766 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - session released
+15:14:56,768 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - iterate through packages
+15:14:57,060 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - check if there are packages in the r_component_id multivalue attr
+15:14:57,061 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - getting the first component id
+15:14:57,061 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - retrieving component 09017f4480002417
+15:14:57,412 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - component: com.documentum.fc.client.DfDocument___PROXY@ee20fe
+15:14:57,412 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - releasing session
+15:14:57,413 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - session released
+15:14:57,413 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~getting inputstreams
+15:14:57,443 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~read from inputstream
+15:14:57,505 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~parsed xmldoc: <?xml version="1.0" encoding="UTF-8"?>
+<ApprovalForm1>
+    <ApproverList><![CDATA[11017f4480000102]]></ApproverList>
+    <MandatoryApprovers><![CDATA[11017f4480000102]]></MandatoryApprovers>
+    <DocumentAttachments id_type="object_id"><![CDATA[09017f4480002299]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:14:57,509 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~front strip: ttachments id_type="object_id"><![CDATA[09017f4480002299]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:14:57,510 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~begin next loop, attstr is: ttachments id_type="object_id"><![CDATA[09017f4480002299]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:14:57,511 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~090 idx: 40
+15:14:57,511 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~subst curid
+15:14:57,511 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~add attachment curid: 09017f448000229
+15:19:39,829 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- getting docbase from JSM parameters
+15:19:39,831 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~docbase: mqadoc_dev
+15:19:39,831 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- getting packageId from JSM parameters
+15:19:39,833 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~packageId: 4a017f4480000d10
+15:19:39,833 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- getting mode from JSM parameters
+15:19:39,834 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~MODE: 1
+15:19:39,834 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - getting data from parameters map
+15:19:39,835 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - getting client objects
+15:19:39,836 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - setting identity to user ecsadmin
+15:19:39,836 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - setting identity to ticket DM_TICKET=AAAAAgAAAOQAAAABAAAA4Uc7ZmtHO2eXAAAAOG1xYWRvY19kZXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGVjc2FkbWluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1xYWRvY19kZXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1zcDAwZG1zZDEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASUlCVkhSV1h6TG5TNzRRdjBIeXdzcVoxWStIT21mUU1SNSthL3VkTVRJUnllcmtORllRVmt3PT0=
+15:19:39,837 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - getting session
+15:19:39,843 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getUserSession - returning
+15:19:39,844 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~getting user session
+15:19:40,265 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- retreive workitem (the packageid)
+15:19:40,425 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- ...retrieved workitem 4a017f4480000d10? true
+15:19:40,426 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~getting first package - the form
+15:19:40,426 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - get session
+15:19:40,427 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - get workitem interface
+15:19:40,427 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - get session
+15:19:40,427 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - get workitemid 
+15:19:40,428 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - get object from db
+15:19:40,432 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - releasing session
+15:19:40,433 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getWorkitem - session released
+15:19:40,433 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - iterate through packages
+15:19:40,580 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - check if there are packages in the r_component_id multivalue attr
+15:19:40,581 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - getting the first component id
+15:19:40,582 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - retrieving component 09017f4480002417
+15:19:40,759 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - component: com.documentum.fc.client.DfDocument___PROXY@ec8784
+15:19:40,760 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - releasing session
+15:19:40,760 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - getFirstPackage - session released
+15:19:40,761 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~getting inputstreams
+15:19:40,786 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~read from inputstream
+15:19:40,850 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~parsed xmldoc: <?xml version="1.0" encoding="UTF-8"?>
+<ApprovalForm1>
+    <ApproverList><![CDATA[11017f4480000102]]></ApproverList>
+    <MandatoryApprovers><![CDATA[11017f4480000102]]></MandatoryApprovers>
+    <DocumentAttachments id_type="object_id"><![CDATA[09017f4480002299]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:19:40,854 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~front strip: ttachments id_type="object_id"><![CDATA[09017f4480002299]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:19:40,855 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~begin next loop, attstr is: ttachments id_type="object_id"><![CDATA[09017f4480002299]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:19:40,855 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~090 idx: 40
+15:19:40,856 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~subst curid
+15:19:40,856 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~add attachment curid: 09017f4480002299
+15:19:41,181 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~trimming attachstring
+15:19:41,181 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~begin next loop, attstr is: ]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229a]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:19:41,182 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~090 idx: 75
+15:19:41,182 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~subst curid
+15:19:41,183 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~add attachment curid: 09017f448000229a
+15:19:41,238 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~trimming attachstring
+15:19:41,239 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~begin next loop, attstr is: ]]></DocumentAttachments><DocumentAttachments id_type="object_id"><![CDATA[09017f448000229b]]></DocumentAttachments>
+</ApprovalForm1>
+15:19:41,239 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~090 idx: 75
+15:19:41,242 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~subst curid
+15:19:41,244 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~add attachment curid: 09017f448000229b
+15:19:41,279 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~trimming attachstring
+15:19:41,281 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~begin next loop, attstr is: ]]></DocumentAttachments>
+</ApprovalForm1>
+15:19:41,281 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~090 idx: -1
+15:19:41,282 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute --   ~~no more attachment ids, were done
+15:19:41,282 DEBUG [http-9083-Processor24] com.medtronic.documentum.mrcs.method.QADocFormCreateAttachmentsMethod - QADocFormCreateAttachmentsMethod.execute -- completing workitem...
+15:19:46,064 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute - getting docbase from JSM parameters
+15:19:46,064 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute -   ~~docbase: mqadoc_dev
+15:19:46,065 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute - getting packageId from JSM parameters
+15:19:46,065 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute -   ~~packageId: 4a017f4480000d16
+15:19:46,065 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute - getting mode from JSM parameters
+15:19:46,066 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute -   ~~MODE: 0
+15:19:46,066 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - QADocFormConfigurableMethod.execute - getting mrcs system session
+15:19:46,066 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getMrcsSystemUserSessionFromFirstAttachment - getting user session
+15:19:46,067 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getUserSession - getting data from parameters map
+15:19:46,067 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getUserSession - getting client objects
+15:19:46,067 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getUserSession - setting identity to user ecsadmin
+15:19:46,068 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getUserSession - setting identity to ticket DM_TICKET=AAAAAgAAAOQAAAABAAAA40c7ZnJHO2eeAAAAOG1xYWRvY19kZXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGVjc2FkbWluAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1xYWRvY19kZXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1zcDAwZG1zZDEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASUlCVkhSV1h6TG5TNzRRdjBIeXdzbHUxMzNwalFVcW9BczUzcWMzUERROVlhNmp1dEF2aVhnPT0=
+15:19:46,068 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getUserSession - getting session
+15:19:46,069 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getUserSession - returning
+15:19:46,069 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getMrcsSystemUserSessionFromFirstAttachment - getting first attachment via user session
+15:19:46,070 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - get session
+15:19:46,261 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - get workitem interface
+15:19:46,262 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getWorkitem - get session
+15:19:46,262 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getWorkitem - get workitemid 
+15:19:46,262 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getWorkitem - get object from db
+15:19:46,268 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getWorkitem - releasing session
+15:19:46,269 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getWorkitem - session released
+15:19:46,269 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - iterate through packages
+15:19:46,290 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - check if there are packages in the r_component_id multivalue attr
+15:19:46,291 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - getting the first component id
+15:19:46,291 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - retrieving component 09017f4480002417
+15:19:46,359 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - component: com.documentum.fc.client.DfDocument___PROXY@dafa2c
+15:19:46,360 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - releasing session
+15:19:46,361 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getFirstPackage - session released
+15:19:46,361 DEBUG [http-9083-Processor25] com.medtronic.documentum.mrcs.method.QADocFormConfigurableMethod - getMrcsSystemUserSessionFromFirstAttachment - getting mrcsapp from first attachment

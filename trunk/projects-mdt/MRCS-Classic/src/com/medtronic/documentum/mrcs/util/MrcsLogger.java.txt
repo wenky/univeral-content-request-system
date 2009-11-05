@@ -1,0 +1,351 @@
+/*jadclipse*/// Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
+//Jad home page: http://www.kpdus.com/jad.html
+//Decompiler options: packimports(3) radix(10) lradix(10) 
+//Source File Name:   DfLogger.java
+
+package com.medtronic.documentum.mrcs.util;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.MessageFormat;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+import org.apache.log4j.Priority;
+import org.apache.log4j.xml.DOMConfigurator;
+
+import com.documentum.fc.common.DfPropertyConfigurator;
+
+//Referenced classes of package com.documentum.fc.common:
+//         LogResourceBundle, DfPropertyConfigurator
+
+public class MrcsLogger
+{
+ static class Loggers
+ {
+
+     public Map getLoggersMap()
+     {
+         Object obj = (Map)m_loggersMap.get();
+         if(obj == null)
+         {
+             obj = new HashMap(4999);
+             m_loggersMap.set(obj);
+         }
+         return ((Map) (obj));
+     }
+
+     public void reset()
+     {
+         m_loggersMap.set(new HashMap(4999));
+     }
+
+     static final int CACHE_SIZE = 4999;
+     private ThreadLocal m_loggersMap;
+
+     Loggers()
+     {
+         m_loggersMap = new ThreadLocal();
+     }
+ }
+
+
+ public MrcsLogger()
+ {
+ }
+
+ public static void fatal(Object obj, String s, String as[], Throwable throwable)
+ {
+     getLogger(obj).l7dlog(Priority.FATAL, s, as, throwable);
+ }
+
+ public static void error(Object obj, String s, String as[], Throwable throwable)
+ {
+     getLogger(obj).l7dlog(Priority.ERROR, s, as, throwable);
+ }
+
+ public static void warn(Object obj, String s, String as[], Throwable throwable)
+ {
+     getLogger(obj).l7dlog(Priority.WARN, s, as, throwable);
+ }
+
+ public static void info(Object obj, String s, String as[], Throwable throwable)
+ {
+     getLogger(obj).l7dlog(Priority.INFO, s, as, throwable);
+ }
+
+ public static void debug(Object obj, String s, String as[], Throwable throwable)
+ {
+     getLogger(obj).l7dlog(Priority.DEBUG, s, as, throwable);
+ }
+
+ public static void trace(Object obj, String s, String as[], Throwable throwable)
+ {
+     getLoggerForTrace(obj).l7dlog(Priority.DEBUG, s, as, throwable);
+ }
+
+ public static boolean isFatalEnabled(Object obj)
+ {
+     return getLogger(obj).isEnabledFor(Priority.FATAL);
+ }
+
+ public static boolean isErrorEnabled(Object obj)
+ {
+     return getLogger(obj).isEnabledFor(Priority.ERROR);
+ }
+
+ public static boolean isWarnEnabled(Object obj)
+ {
+     return getLogger(obj).isEnabledFor(Priority.WARN);
+ }
+
+ public static boolean isInfoEnabled(Object obj)
+ {
+     return getLogger(obj).isEnabledFor(Priority.INFO);
+ }
+
+ public static boolean isDebugEnabled(Object obj)
+ {
+     return getLogger(obj).isEnabledFor(Priority.DEBUG);
+ }
+
+ public static boolean isTraceEnabled(Object obj)
+ {
+     return getLoggerForTrace(obj).isEnabledFor(Priority.DEBUG);
+ }
+
+ public static Logger getLogger(Object obj)
+ {
+     Object obj1;
+     if(obj instanceof String)
+         obj1 = obj;
+     else
+     if(obj instanceof Class)
+         obj1 = obj;
+     else
+     if(obj != null)
+         obj1 = obj.getClass();
+     else
+         obj1 = "null";
+     Map map = s_loggers.getLoggersMap();
+     Logger logger = (Logger)map.get(obj1);
+     if(logger == null)
+     {
+         String s;
+         if(obj instanceof String)
+             s = (String)obj;
+         else
+         if(obj instanceof Class)
+             s = ((Class)obj).getName();
+         else
+         if(obj != null)
+             s = obj.getClass().getName();
+         else
+             s = "null";
+         String s1 = s;
+         String s2 = (String)s_prefix.get();
+         if(s2 != null)
+         {
+             StringBuffer stringbuffer = new StringBuffer(s2.length() + s.length() + 1);
+             s1 = stringbuffer.append(s2).append('.').append(s).toString();
+         }
+         logger = Logger.getLogger(s1);
+         map.put(obj1, logger);
+     }
+     return logger;
+ }
+
+ public static Logger getRootLogger()
+ {
+     String s = (String)s_prefix.get();
+     if(s == null)
+         return Logger.getRootLogger();
+     else
+         return Logger.getLogger(s);
+ }
+
+ public static void setClientContext(String s)
+ {
+     s_loggers.reset();
+     s_prefix.set(s);
+ }
+
+ public static void mute(boolean flag)
+ {
+     s_loggers.reset();
+     String s = (String)s_prefix.get();
+     if(flag)
+     {
+         if(s != "MUTE")
+         {
+             s_prevPrefix.set(s);
+             setClientContext("MUTE");
+         }
+     } else
+     if(s == "MUTE")
+         setClientContext((String)s_prevPrefix.get());
+ }
+
+ public static void registerResourceBundle(ResourceBundle resourcebundle)
+ {
+     s_resources.addResourceBundle(resourcebundle);
+ }
+
+ public static String getFullMessage(String s, String as[])
+ {
+     String s1 = s_resources.getString(s);
+     if(s1 != null)
+     {
+         if(as != null)
+             s1 = MessageFormat.format(s1, as);
+     } else
+     {
+         s1 = s;
+     }
+     return s1;
+ }
+
+ private static Logger getLoggerForTrace(Object obj)
+ {
+     String s;
+     if(obj instanceof String)
+         s = (String)obj;
+     else
+     if(obj instanceof Class)
+         s = ((Class)obj).getName();
+     else
+     if(obj != null)
+         s = obj.getClass().getName();
+     else
+         s = "null";
+     StringBuffer stringbuffer = new StringBuffer(TRACING_LENGTH + s.length());
+     String s1 = stringbuffer.append("tracing.").append(s).toString();
+     return Logger.getLogger(s1);
+ }
+
+ static Class _mthclass$(String s)
+ {
+     try
+     {
+         return Class.forName(s);
+     }
+     catch(ClassNotFoundException classnotfoundexception)
+     {
+         throw new NoClassDefFoundError(classnotfoundexception.getMessage());
+     }
+ }
+
+ private static final String MUTE = "MUTE";
+ private static final String NULL_CATEGORY = "null";
+ private static LogResourceBundle s_resources;
+ private static ThreadLocal s_prefix = new ThreadLocal();
+ private static ThreadLocal s_prevPrefix = new ThreadLocal();
+ private static Loggers s_loggers = new Loggers();
+ private static final String TRACING = "tracing.";
+ private static final int TRACING_LENGTH = "tracing.".length();
+ private static final int WATCH_INTERVAL = 1000;
+
+ static 
+ {
+     s_resources = new LogResourceBundle();
+     System.setProperty("log4j.defaultInitOverride", "true");
+     URL url = null;
+     ClassLoader classloader = (com.documentum.fc.common.DfLogger.class).getClassLoader();
+     String s = System.getProperty("log4j.configuration");
+     if(s != null)
+     {
+         try
+         {
+             url = new URL(s);
+         }
+         catch(MalformedURLException malformedurlexception)
+         {
+             url = classloader.getResource(s);
+         }
+     } else
+     {
+         s = "log4j.xml";
+         url = classloader.getResource(s);
+         if(url == null)
+         {
+             s = "log4j.properties";
+             url = classloader.getResource(s);
+         }
+     }
+     if(url != null)
+     {
+         String s1 = url.getFile();
+         if(s1 != null)
+         {
+             if(s1.endsWith(".xml"))
+                 DOMConfigurator.configureAndWatch(s1, 1000L);
+             else
+                 DfPropertyConfigurator.configureAndWatch(s1, 1000L);
+         } else
+         {
+             DOMConfigurator.configure(url);
+         }
+     }
+     Enumeration enumeration = Logger.getRootLogger().getAllAppenders();
+     boolean flag = enumeration.hasMoreElements();
+     if(!flag)
+     {
+         try
+         {
+             Logger logger = Logger.getRootLogger();
+             logger.setLevel(Level.WARN);
+             PatternLayout patternlayout = new PatternLayout("%r [%t] %p %c %x - %m%n");
+             logger.addAppender(new ConsoleAppender(patternlayout));
+             logger.addAppender(new FileAppender(patternlayout, "log4j.log"));
+             Logger logger1 = Logger.getLogger("tracing");
+             logger1.setLevel(Level.DEBUG);
+             logger1.setAdditivity(false);
+             logger1.addAppender(new FileAppender(patternlayout, "trace.log"));
+         }
+         catch(IOException ioexception)
+         {
+             throw new Error("Failed to initialize default log4j configuration: " + ioexception.toString());
+         }
+         warn(com.documentum.fc.common.DfLogger.class, "Failed to load " + s + ". Using default log4j configuration", null, null);
+     }
+     Logger.getRootLogger().setResourceBundle(s_resources);
+     try
+     {
+         registerResourceBundle(ResourceBundle.getBundle("com.documentum.fc.common.DfcLogResBundle"));
+         registerResourceBundle(ResourceBundle.getBundle("com.documentum.fc.common.DfDFCResourceBundle"));
+     }
+     catch(MissingResourceException missingresourceexception)
+     {
+         error(com.documentum.fc.common.DfLogger.class, "Could not find the DFC resource bundle for logging.", null, missingresourceexception);
+     }
+ }
+}
+
+
+
+/***** DECOMPILATION REPORT *****
+
+    DECOMPILED FROM: C:\Program Files\Apache Tomcat 5.0.28\webapps\webtop\WEB-INF\classes/com/documentum/fc/common/DfLogger.class
+
+
+    TOTAL TIME: 48901 ms
+
+
+    JAD REPORTED MESSAGES/ERRORS:
+
+
+    EXIT STATUS:    0
+
+
+    CAUGHT EXCEPTIONS:
+
+********************************/

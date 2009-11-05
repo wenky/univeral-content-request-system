@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Document List                                          -->
+<!-- File           doclist_component.xml                                  -->
+<!-- Description    Generic Document List Component Definition             -->
+<!-- Created on     24 August 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.9 $                                          -->
+<!-- Modified on    $Date: 2007/03/16 16:24:34 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+
+      <!-- the document list component definition -->
+      <component id="objectlist" extends="objectlist:webtop/config/objectlist_component.xml">
+
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            WebTop Object List component: The WebTop specific version of the doclist
+            component. Extends the webcomponent to provide additional functionality to
+            update the WebTop Browser Tree when navigating into a folder.
+         </desc>
+
+         <!-- the are 4 methods of initialising this component:
+              1. No params  - displays docbase root cabinets
+              2. folderId   - shows the primary location of the specified folder Id
+              3. folderIds  - a list of '.' separated object Ids are used to build
+                              an absolute location to display
+              4. folderPath - displays the specified folder path -->
+         <params>
+            <param name="folderId" required="false"></param>
+            <param name="folderIds" required="false"></param>
+            <param name="folderPath" required="false"></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <!--  start>/webtop/classic/objectlist/objectlist.jsp</start -->
+            <start>/mrcs/pages/MrcsClassicView.jsp</start>
+            <thumbnail>/webtop/classic/objectlist/objectlist_thumbnail.jsp</thumbnail>
+            <!-- thumbnail>/mrcs/pages/MrcsClassicThumbnailView.jsp</thumbnail -->
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.documentum.webtop.webcomponent.objectlist.ObjectList</class>
+         <!--   <nlsbundle>com.documentum.webcomponent.navigation.doclist.DocListNlsProp</nlsbundle> -->
+		 <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsDocListNlsProp</nlsbundle> -->
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>objectlist</helpcontextid>
+
+
+
+         <!-- Component specific Configuration -->
+
+         <!-- show object type filters drop-down control -->
+         <showfilters>true</showfilters>
+
+         <!-- object type filters -->
+         <!-- This component displays a list of folders then documents (or any
+              other object type). You can customize whether the folder list is
+              shown and which object type to display below that. -->
+         <objectfilters>
+
+            <!-- show all folders and documents -->
+            <objectfilter>
+               <label><nlsid>MSG_FILTER_FILES_FOLDERS</nlsid></label>
+               <showfolders>true</showfolders>
+               <type>dm_document</type>
+            </objectfilter>
+
+            <!-- show only the documents -->
+            <objectfilter>
+               <label><nlsid>MSG_FILTER_FILES</nlsid></label>
+               <showfolders>false</showfolders>
+               <type>dm_document</type>
+            </objectfilter>
+
+            <!-- show only the folders list -->
+            <objectfilter>
+               <label><nlsid>MSG_FILTER_FOLDERS</nlsid></label>
+               <showfolders>true</showfolders>
+               <type></type>
+            </objectfilter>
+
+            <!-- show folders and all objects -->
+            <objectfilter>
+               <label><nlsid>MSG_FILTER_ALL</nlsid></label>
+               <showfolders>true</showfolders>
+               <type>dm_sysobject</type>
+            </objectfilter>
+
+         </objectfilters>
+
+         <!-- visibility and order of attribute columns -->
+         <columns>
+
+            <!-- load invisible attribute flag -->
+            <!-- set the value to "true" means that all the invisible attributes
+                 will be added to the columns map. The default value is "false" -->
+
+            <!-- <loadinvisibleattribute>true</loadinvisibleattribute> -->
+
+            <column>
+               <attribute>object_name</attribute>
+               <label><nlsid>MSG_NAME</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>title</attribute>
+               <label><nlsid>MSG_TITLE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>authors</attribute>
+               <label><nlsid>MSG_AUTHORS</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>owner_name</attribute>
+               <label><nlsid>MSG_OWNER_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>group_name</attribute>
+               <label><nlsid>MSG_GROUP_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_creator_name</attribute>
+               <label><nlsid>MSG_CREATOR_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_lock_owner</attribute>
+               <label><nlsid>MSG_LOCK_OWNER</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_object_type</attribute>
+               <label><nlsid>MSG_OBJECT_TYPE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_current_state</attribute>
+               <label><nlsid>MSG_CURRENT_STATE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_version_label</attribute>
+               <label><nlsid>MSG_VERSION_LABEL</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_content_size</attribute>
+               <label><nlsid>MSG_SIZE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>a_content_type</attribute>
+               <label><nlsid>MSG_FORMAT</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_creation_date</attribute>
+               <label><nlsid>MSG_CREATION_DATE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_modify_date</attribute>
+               <label><nlsid>MSG_MODIFIED_DATE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_modifier</attribute>
+               <label><nlsid>MSG_MODIFIER</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_access_date</attribute>
+               <label><nlsid>MSG_ACCESS_DATE</nlsid></label>
+               <visible>false</visible>
+            </column>
+         </columns>
+
+      </component>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_override_doclist_component.xml,v $
+ Author         $Author: wallam1 $
+ Revision       $Revision: 1.9 $
+ Modified on    $Date: 2007/03/16 16:24:34 $
+
+***********************************************************************
+-->
+
+

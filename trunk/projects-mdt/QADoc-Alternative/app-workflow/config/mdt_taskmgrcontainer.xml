@@ -1,0 +1,51 @@
+<config version="1.0">
+   <!--  not overridden: dm_notification, dm_router_task, dm_queued -->
+   <scope type="dm_task">
+      <component id="taskmanagercontainer" extends="propertysheetcontainer:wdk/config/propertysheetcontainer_component.xml">
+         <desc>
+            Extends the component propertysheetcontainer. This component is 
+            defined for following scopes: dm_notification, dm_queued, 
+            dm_router_task, and dm_task. The definitions for dm_notification, 
+            dm_queued, and dm_router_task do not contain components. 
+         </desc>
+         <params>
+            <param name="objectId" required="true"/>
+            <param name="component" required="false"/>
+            <param name="taskmanagerId" required="true"/>
+         </params>
+         <!-- Component Layout -->
+         <pages>
+            <!-- start>/webcomponent/library/workflow/taskmgrcontainer/taskManagerContainer.jsp</start -->
+            <start>/app-workflow/pages/mdt_taskmanagercontainer.jsp</start>
+         </pages>
+         <!-- Contained components -->
+         <contains>
+            <!-- component>taskmanager</component -->
+            <component>taskcomments</component>
+            <component>taskprogress</component>
+            <component>taskprocessvariables</component>
+        </contains>
+         <!-- class>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainer</class --> 
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtTaskMgrContainer</class>
+         <nlsbundle>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainerNlsProp</nlsbundle>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# See end of file for descriptions of common parameters.
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+     </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* component                            (Optional) Specifies the ID of the 
+                                        component to initialize 
+*/
+/* objectId                             (Required) Task ID 
+*/
+/* taskmanagerId                        (Required) ID of the taskmanager object 
+*/
+/* type                                 (Required) Not used (any value can be 
+                                        inserted) 
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

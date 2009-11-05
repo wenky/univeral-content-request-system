@@ -1,0 +1,48 @@
+out.write(com.medtronic.ecm.documentum.introspection.GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+out.write """
+Exec DQL - enter query:
+<FORM name='DumpDoc' action='${baseurl}' method='GET'>
+    <P><TEXTAREA name='query' cols=100 rows=20></TEXTAREA></P>
+    ${credhidden}
+    <INPUT type='hidden' name='do' value='doDqlExec.gvw'/>
+    <INPUT type='submit' name='EXECUTE' value='EXECUTE'/>
+</FORM>
+<hr>
+"""
+
+def frequents = [
+  ["Type List","SELECT * FROM dm_type ORDER BY name"],
+  ["Recent Workflows","SELECT * FROM dm_workflow ORDER BY r_object_id DESC ENABLE (return_top 10)"],
+  ["Recent MdtDocs","SELECT * FROM mdt_document ORDER BY r_object_id DESC ENABLE (return_top 10)"],
+  ["Scheduled MdtJobs","SELECT r_object_id,object_name,m_taskname,m_exec_date,m_arguments FROM mdt_scheduled_task WHERE m_exec_status = 'waiting' order by r_object_id desc"],  
+  ["Imminent MdtJobs","SELECT r_object_id,object_name,m_taskname,m_exec_date,m_arguments FROM mdt_scheduled_task WHERE m_exec_status = 'waiting' AND m_exec_date <= DATE(NOW) order by r_object_id desc"],
+  ["View render queue ","SELECT item_name,content_type,task_name,date_sent,event,item_id,item_type,priority,r_object_id,sent_by FROM dmi_queue_item WHERE ( name= 'dm_autorender_win31') AND delete_flag=0 ORDER BY date_sent'"],
+  ["SMOApprovalSpam","Select r_object_id from mdt_qad_smo_qdoc where r_current_state = 1 and NOT m_review_target_date is NULLDATE and DATEDIFF(day,m_review_target_date,DATE(TODAY)) >= 1"]
+];
+
+out.write("<table border=0>")
+frequents.each { query -> out.write("""<tr><td>${query[0]}</td><td><a href="${baseurl}?do=doDqlExec.gvw${credurl}&query=${query[1]}">${query[1]}</a></td></tr>""") }
+out.write("</table><hr>")
+
+out.write """
+<table>
+  <tr>
+    <td>UserInboxByName</td>
+    <td>
+      Username:<INPUT type='text' id='frequents2.inboxuser'>
+      <script language="JAVASCRIPT">
+        function getInboxQuery() 
+        {
+            var inputvalue = document.getElementById('frequents2.inboxuser').value;
+            var query = "SELECT task_name,content_type,date_sent,dependency_type,due_date,event,item_id,item_name,item_type,priority,r_object_id,router_id,sent_by,task_subject,task_number,task_state,source_docbase,source_event "+
+                        "FROM dmi_queue_item WHERE ( name= '"+inputvalue+"' OR NAME IN (SELECT ALL group_name FROM dm_group WHERE ANY i_all_users_names = '"+inputvalue+"') ) AND delete_flag=0  ORDER BY 3 DESC'";
+            return query;
+        }
+      </script>
+      <a href='#' onclick="location.href='${baseurl}?do=doDqlExec.gvw${credurl}&query='+getInboxQuery()">View</a>
+    </td>
+  </tr>
+</table>  
+"""
+

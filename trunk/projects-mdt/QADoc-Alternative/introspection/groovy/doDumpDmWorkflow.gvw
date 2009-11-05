@@ -1,0 +1,62 @@
+import com.medtronic.ecm.documentum.introspection.*;
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.util.*;
+// TODOs:
+// some override/scoping/MRCS vs wizard vs alternative vs quickflow vs other wf
+//snapshot/rollback records
+//workflow/lifecycle snapshots  
+
+
+// get workitems+denormalization
+String wiquery = "SELECT wi.r_object_id, wi.r_workflow_id, wi.r_act_seqno,wi.r_performer_name,wi.r_runtime_state,wi.r_act_def_id, act.object_name,wi.r_queue_item_id FROM dmi_workitem wi, dm_activity act WHERE act.r_object_id = wi.r_act_def_id and wi.r_workflow_id = '${id}'";
+Map translations = ["r_runtime_state" : [(IDfWorkitem.DF_WI_STATE_ACQUIRED):"Acquired",(IDfWorkitem.DF_WI_STATE_AHALTED):"AHalted",(IDfWorkitem.DF_WI_STATE_DHALTED):"DHalted",(IDfWorkitem.DF_WI_STATE_DORMANT):"Dormant",(IDfWorkitem.DF_WI_STATE_FAULTED):"Faulted",(IDfWorkitem.DF_WI_STATE_FINISHED):"Finished",(IDfWorkitem.DF_WI_STATE_PAUSED):"Paused",(IDfWorkitem.DF_WI_STATE_PHALTED):"PHalted"]];
+String witable = GenerateQueryTable.callWithTranslation(dctmaccess,baseurl,credurl,wiquery,translations);
+out.write"""
+<hr>
+Workitems --<BR>
+${witable}
+<hr>
+"""
+
+// get activity definitions
+String activityquery = "SELECT r_object_id, object_name, r_package_name, r_package_id, exec_method_id FROM dm_activity WHERE r_object_id in (SELECT r_act_def_id FROM dm_process WHERE r_object_id IN (SELECT process_id FROM dm_workflow WHERE r_object_id = '${id}')) order by r_object_id";
+String activitytable = GenerateQueryTable.call(dctmaccess,baseurl,credurl,activityquery);
+out.write"""
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("activities").style.display = (document.getElementById("activities").style.display=="block"?"none":"block")'>Activity Definitions --<BR><div id='activities' style='display:none'>
+${activitytable}
+</div>
+<hr>
+"""
+
+// get packages
+String packagequery = "SELECT r_object_id,r_workflow_id,r_component_id,r_component_chron_id,r_act_seqno,r_port_name,r_package_name,r_package_type FROM dmi_package WHERE r_workflow_id = '${id}'";
+String packagetable = GenerateQueryTable.call(dctmaccess,baseurl,credurl,packagequery);
+String packagequery2 = "SELECT r_object_id,object_name,r_version_label FROM dm_document(all) WHERE r_object_id in (SELECT DISTINCT r_component_id FROM dmi_package WHERE r_workflow_id = '${id}') order by r_object_id";
+String packagetable2 = GenerateQueryTable.call(dctmaccess,baseurl,credurl,packagequery2);
+out.write"""
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("packages").style.display = (document.getElementById("packages").style.display=="block"?"none":"block")'>Packages --<BR><div id='packages' style='display:none'>
+${packagetable}
+Package document names/versions:<br>
+${packagetable2}
+</div><hr>
+"""
+
+// ?Attachments?
+String attachquery = "SELECT r_object_id,r_workflow_id,r_component_id,r_component_name,r_component_type,r_creator_name,r_creation_date FROM dmi_wf_attachment WHERE r_workflow_id = '${id}' order by r_creation_date";
+String attachtable = GenerateQueryTable.call(dctmaccess,baseurl,credurl,attachquery);
+out.write"""
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("attachments").style.display = (document.getElementById("attachments").style.display=="block"?"none":"block")'>Attachments --<BR><div id='attachments' style='display:none'>
+${attachtable}  
+</div><hr>
+"""
+
+
+// queue items
+String ququery = "SELECT * FROM dmi_queue_item WHERE r_object_id in (SELECT r_queue_item_id FROM dmi_workitem WHERE r_workflow_id = '${id}')";
+String qutable = GenerateQueryTable.call(dctmaccess,baseurl,credurl,ququery);
+out.write"""
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("queueitems").style.display = (document.getElementById("queueitems").style.display=="block"?"none":"block")'>Queue Items --<BR><div id='queueitems' style='display:none'>
+${qutable}  
+</div>
+"""

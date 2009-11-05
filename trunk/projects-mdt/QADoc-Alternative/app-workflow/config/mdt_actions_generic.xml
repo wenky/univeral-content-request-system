@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version='1.0'>
+   <scope type="mdt_document">
+      <!--context menu feature-->
+      
+      <menuconfig id="context-menu">
+         <actionmenuitem dynamic="multiselect" action="properties" nlsid="MSG_PROPERTIES" showifdisabled="false" showifinvalid="false"/>
+         <menuseparator/>
+         <actionmenuitem dynamic="multiselect" action="editfile" nlsid="MSG_EDIT" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="singleselect" action="view" nlsid="MSG_VIEW_FILE" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="checkout" nlsid="MSG_CHECKOUT" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="checkin" nlsid="MSG_CHECKIN" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="cancelcheckout" nlsid="MSG_CANCEL_CHECKOUT" showifdisabled="false" showifinvalid="false"/>      
+         <actionmenuitem dynamic="multiselect" action="subscribe" nlsid="MSG_SUBSCRIBE" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="unsubscribe" nlsid="MSG_UNSUBSCRIBE" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="subscribeothers" nlsid="MSG_SUBSCRIBE_OTHERS" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="sendlocator" nlsid="MSG_SEND_LOCATOR_SHORT" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="export" nlsid="MSG_EXPORT" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="singleselect" action="newrelation" nlsid="MSG_ADD_RELATION" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="sendtodistributionlist" nlsid="MSG_SEND_TO_DISTRIBUTION" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="generic" action="exporttocsv" nlsid="MSG_EXPORT_TO_CSV"  showifinvalid="false" showifdisabled="false"/>
+         <menuseparator/>
+         <!-- CEM: custom approval form actions -->
+         <actionmenuitem dynamic="multiselect" action="mdtnewchangerequestaction" nlsid='MSG_NEW_APPROVAL_FORM' showifinvalid="true" showifdisabled="true"/>
+         <actionmenuitem dynamic='singleselect' action="mdtformstartworkflowaction" nlsid='MSG_START_APPROVAL' showifinvalid="true" showifdisabled="true"/>
+         <menuseparator/>
+         <actionmenuitem dynamic="multiselect" action="addtoclipboard" nlsid="MSG_ADD_TO_CLIPBOARD" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="multiselect" action="addtobrowserfavorites" nlsid="MSG_ADD_TO_FAVORITES" showifdisabled="false" showifinvalid="false" oncompleteclient='onAddToFavorites'/>
+         <menuseparator/>
+         <actionmenuitem dynamic="multiselect" action="delete" nlsid="MSG_DELETE" showifdisabled="false" showifinvalid="false"/>
+         <actionmenuitem dynamic="singleselect" action="deleterelation" nlsid="MSG_DELETE_RELATION" showifdisabled="false" showifinvalid="false"/>
+         <menuseparator/>
+         <actionmenuitem dynamic='multiselect' action='registerreadevent' nlsid='MSG_TURN_ON_READ_NOTIFICATION' showifinvalid='false' showifdisabled='false'/>
+         <actionmenuitem dynamic='multiselect' action='unregisterreadevent' nlsid='MSG_TURN_OFF_READ_NOTIFICATION' showifinvalid='false' showifdisabled='false'/>
+         <actionmenuitem dynamic='multiselect' action='registerevents' nlsid='MSG_TURN_ON_NOTIFICATION' showifinvalid='false' showifdisabled='false'/>
+         <actionmenuitem dynamic='multiselect' action='unregisterevents' nlsid='MSG_TURN_OFF_NOTIFICATION' showifinvalid='false' showifdisabled='false'/>
+         
+         <menu nlsid="MSG_VIEW_MENU">
+            <actionmenuitem dynamic='singleselect' action='versions' nlsid='MSG_VERSIONS' showifdisabled='false' showifinvalid='false'/>
+            <actionmenuitem dynamic='singleselect' action='renditions' nlsid='MSG_RENDITIONS' showifdisabled='false' showifinvalid='false'/>
+            <actionmenuitem dynamic='singleselect' action='relationships' nlsid='MSG_RELATIONSHIPS' showifdisabled='false' showifinvalid='false'/>
+            <actionmenuitem dynamic='singleselect' action='locations' nlsid='MSG_LOCATIONS' showifdisabled='false' showifinvalid='false'/>
+            <actionmenuitem dynamic='multiselect' action='showtopicaction' nlsid='MSG_DISCUSSION_ACTION' showifdisabled='false' showifinvalid='false'/>
+            <!-- TODO lifecycle -->
+            <actionmenuitem dynamic='multiselect' action='viewassemblies' nlsid='MSG_ASSEMBLIES' showifdisabled='false' showifinvalid='false'/>
+            <!-- TODO collections, categories -->
+
+             <!-- Begin RM (Webtop) -->
+            <menuseparator/>
+            <actionmenuitem dynamic="singleselect" name="view_contained_in_formal_records" nlsid="MSG_CONTAINED_IN_FORMAL_RECORDS" action="viewformalrecordassociations" showifinvalid="true"/>
+            <actionmenuitem dynamic="singleselect" name="view_record_relationships" nlsid="MSG_RECORD_RELATIONSHIPS" action="viewrecordrelationships" showifinvalid="true"/>
+            <!-- end RM webtop -->
+         </menu>
+         <menu nlsid="MSG_LIFECYCLE">
+            <actionmenuitem dynamic="multiselect" action="demote" nlsid="MSG_DEMOTE" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" action="promote" nlsid="MSG_PROMOTE" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" action="applylifecycle" nlsid="MSG_APPLY_LIFECYCLE" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" action="detachlifecycle" nlsid="MSG_DETACH_LIFECYCLE" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" action="suspendlifecycle" nlsid="MSG_SUSPEND_LIFECYCLE" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" action="restorelifecycle" nlsid="MSG_RESTORE_LIFECYCLE" showifdisabled="false" showifinvalid="false"/>
+         </menu>
+         <menu nlsid="MSG_VDM">
+            <actionmenuitem dynamic="multiselect" nlsid="MSG_VDM_MAKE_VIRTUAL" action="makevirtual" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" nlsid="MSG_VDM_MAKE_SIMPLE" action="makesimple" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDM_VIEW" action="viewvirtualdoc" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDMTOOLS_SET_BINDING_RULE" action="setbindingrule" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="multiselect" nlsid="MSG_VDMTOOLS_MODIFY_VERSION_LABELS" action="modifyversionlabels" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDMTOOLS_SAVE_CHANGES" action="savechanges" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDM_VALIDATE" action="vdmvalidate" showifdisabled="false" showifinvalid="false"/>
+            <menuseparator/>
+            <menu nlsid="MSG_VDM_ADDCOMPONENT">
+               <actionmenuitem dynamic="generic" nlsid="MSG_FROM_CLIPBOARD" action="addcomponentfromclipboard" showifdisabled="false" showifinvalid="false"/>
+               <actionmenuitem dynamic="generic" nlsid="MSG_FROM_FILE_SELECTOR" action="addcomponentfromfileselector" showifdisabled="false" showifinvalid="false"/>
+               <actionmenuitem dynamic="generic" nlsid="MSG_USING_NEW_DOCUMENT" action="addnewvirtualdocumentnode" showifdisabled="false" showifinvalid="false"/>
+            </menu>
+            <actionmenuitem dynamic="multiselect" nlsid="MSG_VDM_REMOVECOMPONENT" action="removevirtualdocumentnode" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDMTOOLS_REORDERCOMPONENTS" action="reordervirtualdocumentnodes" showifdisabled="false" showifinvalid="false"/>
+            <menuseparator/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDMTOOLS_NEW_ASSEMBLY" action="newassembly" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDMTOOLS_FREEZE_ASSEMBLY" action="freezeassembly" showifdisabled="false" showifinvalid="false"/>
+            <actionmenuitem dynamic="singleselect" nlsid="MSG_VDMTOOLS_UNFREEZE_ASSEMBLY" action="unfreezeassembly" showifdisabled="false" showifinvalid="false"/>
+         </menu>
+         <!-- begin RM (Webtop) -->
+         <menu nlsid="MSG_RECORDS_MENU">
+            <actionmenuitem dynamic="multiselect" name="declare_record" nlsid="MSG_DECLARE_FORMAL_RECORD" action="declareformalrecord" showifdisabled="true"/>
+            <actionmenuitem dynamic="singleselect" name="create_record_relation" nlsid="MSG_CREATE_RECORD_RELATION" action="createrecordrelation" showifdisabled="true"/>
+         </menu>
+      </menuconfig>
+      
+      
+   </scope>
+   
+   <scope>
+      <!--  action definitions (menu config/insertion of these actions is in mdt_workflow_menubar.xml) -->
+      <!--  this is not scoped since it is essentially a folder-scoped action, whereas if you multislected, it is a document action -->
+      <action id="mdtnewchangerequest_nodocs_action">
+         <params>
+            <param name="objectId" required="true"/> <!-- id of document to attach to workflow -->
+            <param name="folderId" required="false"/>
+         </params>
+         <execution class="com.documentum.web.formext.action.LaunchComponent">
+            <component>mdtnewchangerequest</component>
+            <container>mdtnewchangerequestcontainer</container>
+         </execution>         
+      </action>   
+   </scope>
+
+
+   <scope type="mdt_document">
+                  
+      <action id="mdtnewchangerequestaction">
+         <params>
+            <param name="objectId" required="true"/> <!-- id of document to attach to workflow -->
+            <param name="folderId" required="false"/>
+         </params>
+         <execution class="com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtNewApprovalAction">
+            <component>mdtnewchangerequest</component>
+            <container>mdtnewchangerequestcontainer</container>
+         </execution>         
+      </action>
+   </scope>
+
+   <scope type="mdt_workflow_form">
+      <action id="mdtformstartworkflowaction">
+         <params>
+            <param name="objectId" required="true"></param>            
+         </params>
+         <execution class="com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtStartApprovalWorkflowAction">
+         </execution>         
+      </action>
+   </scope>
+   
+   
+
+</config>      
+      

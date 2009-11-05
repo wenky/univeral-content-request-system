@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Selectbox / Select Box Functions For Manipulating Options from JavascriptToolbox.com</title>
+
+
+	
+<link rel="stylesheet" type="text/css" href="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/css.css" media="all">
+<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/main.js"></script><script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/toggleDiv.js"></script><style type="text/css">
+DIV.toggle { position:absolute; visibility:hidden; }
+</style>
+
+<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/selectbox.js"></script>
+<style type="text/css">
+table.example select {
+	width:200px;
+}
+</style></head><body>
+
+<table class="columns" border="0" cellspacing="0">
+<tbody><tr>
+	<td class="left" rowspan="2">
+		<div style="text-align: center;"><a href="http://www.javascripttoolbox.com/" title="Home"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/logo5.gif" alt="Logo"></a></div>
+
+		<div class="portlet">
+			<h5>Navigation</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/" title="Home">Home</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/" title="Libraries">Libraries</a>
+				<a href="http://www.javascripttoolbox.com/bestpractices/" title="Best Practices">Best Practices</a>
+				<a href="http://www.javascripttoolbox.com/support/" title="Support">Support</a>
+				<a href="http://www.javascripttoolbox.com/resources/" title="Javascript Resources">Resources / Links</a>
+				<a href="http://www.javascripttoolbox.com/search/" title="Javascript Knowledge Base Search">JS Knowledge Base</a>
+				<a href="http://www.javascripttoolbox.com/donate/" title="Donate To Support This Site">Donate!</a>
+				<a href="http://www.javascripttoolbox.com/aboutme/" title="About Me">About Me</a>
+				<a href="http://www.ajaxtoolbox.com/" title="AJAX" target="_blank">AJAX Toolbox</a>
+			</div>
+		</div>
+
+		<div class="portlet">
+			<h5>Libraries</h5>
+			<div class="pBody">
+				<a href="http://www.javascripttoolbox.com/lib/calendar/" title="">Calendar Popup</a>
+				<a href="http://www.javascripttoolbox.com/lib/checkboxgroup/" title="">Checkbox Group</a>
+				<a href="http://www.javascripttoolbox.com/lib/datadumper/" title="">Data Dumper</a>
+				<a href="http://www.javascripttoolbox.com/lib/validations/" title="">Data Validation</a>
+				<a href="http://www.javascripttoolbox.com/lib/date/" title="">Date Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/mktree/" title="">DHTML Tree</a>
+				<a href="http://www.javascripttoolbox.com/lib/dragiframe/" title="">Draggable Iframes</a>
+				<a href="http://www.javascripttoolbox.com/lib/dynamicoptionlist/" title="">Dependent Select Boxes</a>
+				<a href="http://www.javascripttoolbox.com/lib/form/" title="">Form Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/objectposition/" title="">Object Position</a>
+				<a href="http://www.javascripttoolbox.com/lib/optiontransfer/" title="">Option Transfer</a>
+				<a href="http://www.javascripttoolbox.com/lib/popup/" title="">Popups (In-Page DIV)</a>
+				<a class="selected" href="http://www.javascripttoolbox.com/lib/selectbox/" title="">Selectbox Functions</a>
+				<a href="http://www.javascripttoolbox.com/lib/table/" title="">Table Sorting And Utils</a>
+				<a href="http://www.javascripttoolbox.com/lib/util/" title="">Util/DOM/CSS/Event</a>
+			</div>
+		</div>
+
+		<h5>doctype [<a href="#" onclick="alert('Since some web browsers use the DOCTYPE of a document to switch between Quirks or Standards mode, some code may have different behavior depending on the DOCTYPE specified. These links allow pages to be tested using strict, loose, or no doctype at all for compatability testing.'); return false;" title="What's This?">?</a>]</h5>
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/examples.php?doctype=strict">strict</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/examples.php?doctype=loose">loose</a>]
+		[<a href="http://www.javascripttoolbox.com/lib/selectbox/examples.php?doctype=none">none</a>]
+
+	</td>
+	<td class="header" colspan="2">
+		<div id="searchbox"><form method="get" action="http://www.google.com/custom"><input name="domains" value="javascripttoolbox.com" type="hidden"><input class="search" name="q" size="15" maxlength="255" value="Search!" onclick="this.style.color='black';this.value='';" type="text"><input name="sa" value="go" type="submit"><input name="sitesearch" value="javascripttoolbox.com" type="hidden"><input name="client" value="pub-9155030588311591" type="hidden"><input name="forid" value="1" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input name="oe" value="ISO-8859-1" type="hidden"><input name="cof" value="GALT:#008000;GL:1;DIV:#AAAAAA;VLC:663399;AH:center;BGC:FFFFFF;LBGC:C2DDF4;ALC:002BB8;LC:002BB8;T:000000;GFNT:AAAAAA;GIMP:AAAAAA;LH:50;LW:588;L:http://www.javascripttoolbox.com/search_header.gif;S:http://www.JavascriptToolbox.com/;FORID:1;" type="hidden"><input name="hl" value="en" type="hidden"></form></div>
+		<h1>Selectbox Utility Functions</h1>	</td>
+</tr>
+<tr>
+	<td class="middle"><div class="corner cornerul"></div><div class="body">
+	<div class="tabContainer">
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/index.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/overview.gif" alt=""> Overview</a></div>
+	<div class="selected"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/examples.gif" alt=""> Examples</div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/documentation.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/documentation.gif" alt=""> Documentation</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/test.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/test.gif" alt=""> Test Cases</a></div>
+	<div><a href="http://www.javascripttoolbox.com/lib/selectbox/source.php"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/source.gif" alt=""> Source</a></div>
+</div>
+<div class="tabcontent"><br>
+
+
+
+
+<form action="examples.php">
+
+<h2>Moving Values Between Select Boxes</h2>
+<p>(See also the <a href="http://www.javascripttoolbox.com/lib/optiontransfer/">Option Transfer</a> library for a better way to create this type of interface)</p>
+<p>
+Do not allow moving of options matching pattern: <input name="movepattern1" size="8" value="[Rr]" type="text"><br>
+<input name="movesort" value="true" type="checkbox"> autosort<br>
+</p>
+<table class="example" border="0">
+<tbody><tr>
+ <td>
+  <select name="list1" multiple="multiple" size="10" ondblclick="Selectbox.moveSelectedOptions(this.form.list1,this.form.list2,this.form.movesort.checked,this.form.movepattern1.value)">
+   <option value="Matt">Matt</option>
+   <option value="Bill">Bill</option>
+   <option value="Bob">Bob</option>
+   <option value="Jane">Jane</option>
+   <option value="Mary">Mary</option>
+  </select>
+ </td>
+ <td>
+  <input name="right" value="&gt;&gt;" onclick="Selectbox.moveSelectedOptions(this.form.list1,this.form.list2,this.form.movesort.checked,this.form.movepattern1.value)" type="button"><br><br>
+  <input name="right" value="All &gt;&gt;" onclick="Selectbox.moveAllOptions(this.form.list1,this.form.list2,this.form.movesort.checked,this.form.movepattern1.value)" type="button"><br><br>
+  <input name="left" value="&lt;&lt;" onclick="Selectbox.moveSelectedOptions(this.form.list2,this.form.list1,this.form.movesort.checked,this.form.movepattern1.value)" type="button"><br><br>
+  <input name="left" value="All &lt;&lt;" onclick="Selectbox.moveAllOptions(this.form.list2,this.form.list1,this.form.movesort.checked,this.form.movepattern1.value)" type="button">
+ </td>
+ <td>
+  <select name="list2" multiple="multiple" size="10" ondblclick="Selectbox.moveSelectedOptions(this.form.list2,this.form.list1,this.form.movesort.checked,this.form.movepattern1.value)">
+   <option value="George">George</option>
+   <option value="Fred">Fred</option>
+   <option value="Ryan">Ryan</option>
+   <option value="Angela">Angela</option>
+   <option value="Jill">Jill</option>
+  </select>
+ </td>
+</tr>
+</tbody></table><a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code">&lt;table class="example" border=0&gt;
+&lt;tr&gt;
+ &lt;td&gt;
+  &lt;select name="list1" multiple size=10
+   onDblClick="Selectbox.moveSelectedOptions(this.form.list1,this.form.list2,this.form.movesort.checked,this.form.movepattern1.value)"&gt;
+   &lt;option value="Matt"&gt;Matt&lt;/option&gt;
+   &lt;option value="Bill"&gt;Bill&lt;/option&gt;
+   &lt;option value="Bob"&gt;Bob&lt;/option&gt;
+   &lt;option value="Jane"&gt;Jane&lt;/option&gt;
+   &lt;option value="Mary"&gt;Mary&lt;/option&gt;
+  &lt;/select&gt;
+ &lt;/td&gt;
+ &lt;td&gt;
+  &lt;input type="button" name="right" value="&amp;gt;&amp;gt;"
+   onClick="Selectbox.moveSelectedOptions(this.form.list1,this.form.list2,this.form.movesort.checked,this.form.movepattern1.value)"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="button" name="right" value="All &amp;gt;&amp;gt;"
+   onClick="Selectbox.moveAllOptions(this.form.list1,this.form.list2,this.form.movesort.checked,this.form.movepattern1.value)"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="button" name="left" value="&amp;lt;&amp;lt;"
+   onClick="Selectbox.moveSelectedOptions(this.form.list2,this.form.list1,this.form.movesort.checked,this.form.movepattern1.value)"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="button" name="left" value="All &amp;lt;&amp;lt;"
+   onClick="Selectbox.moveAllOptions(this.form.list2,this.form.list1,this.form.movesort.checked,this.form.movepattern1.value)"&gt;
+ &lt;/td&gt;
+ &lt;td&gt;
+  &lt;select name="list2" multiple size=10
+   onDblClick="Selectbox.moveSelectedOptions(this.form.list2,this.form.list1,this.form.movesort.checked,this.form.movepattern1.value)"&gt;
+   &lt;option value="George"&gt;George&lt;/option&gt;
+   &lt;option value="Fred"&gt;Fred&lt;/option&gt;
+   &lt;option value="Ryan"&gt;Ryan&lt;/option&gt;
+   &lt;option value="Angela"&gt;Angela&lt;/option&gt;
+   &lt;option value="Jill"&gt;Jill&lt;/option&gt;
+  &lt;/select&gt;
+ &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</pre>
+</div>
+
+<br><br>
+<h2>Copying Values Between Select Boxes</h2>
+<p><input name="copysort" value="true" type="checkbox"> autosort</p>
+<table class="example" border="0">
+<tbody><tr>
+ <td>
+  <select name="copylist1" multiple="multiple" size="10" ondblclick="Selectbox.copySelectedOptions(this.form.copylist1,this.form.copylist2,this.form.copysort.checked)">
+   <option value="Matt">Matt</option>
+   <option value="Bill">Bill</option>
+   <option value="Bob">Bob</option>
+   <option value="Jane">Jane</option>
+   <option value="Mary">Mary</option>
+   <option value="George">George</option>
+   <option value="Fred">Fred</option>
+   <option value="Ryan">Ryan</option>
+   <option value="Angela">Angela</option>
+   <option value="Jill">Jill</option>
+  </select>
+ </td>
+ <td>
+  <input name="right" value="&gt;&gt;" onclick="Selectbox.copySelectedOptions(this.form.copylist1,this.form.copylist2,this.form.copysort.checked)" type="button"><br><br>
+  <input name="right" value="All &gt;&gt;" onclick="Selectbox.copyAllOptions(this.form.copylist1,this.form.copylist2,this.form.copysort.checked)" type="button"><br><br>
+  <input name="left" value="&lt;&lt;" onclick="Selectbox.copySelectedOptions(this.form.copylist2,this.form.copylist1,this.form.copysort.checked)" type="button"><br><br>
+  <input name="left" value="All &lt;&lt;" onclick="Selectbox.copyAllOptions(this.form.copylist2,this.form.copylist1,this.form.copysort.checked)" type="button">
+ </td>
+ <td>
+  <select name="copylist2" multiple="multiple" size="10" ondblclick="Selectbox.copySelectedOptions(this.form.copylist2,this.form.copylist1,this.form.copysort.checked)">
+   <option value="Matt">Matt</option>
+   <option value="Mary">Mary</option>
+   <option value="Angela">Angela</option>
+  </select>
+ </td>
+</tr>
+</tbody></table><a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code">&lt;table class="example" border=0&gt;
+&lt;tr&gt;
+ &lt;td&gt;
+  &lt;select name="copylist1" multiple size=10
+   onDblClick="Selectbox.copySelectedOptions(this.form.copylist1,this.form.copylist2,this.form.copysort.checked)"&gt;
+   &lt;option value="Matt"&gt;Matt&lt;/option&gt;
+   &lt;option value="Bill"&gt;Bill&lt;/option&gt;
+   &lt;option value="Bob"&gt;Bob&lt;/option&gt;
+   &lt;option value="Jane"&gt;Jane&lt;/option&gt;
+   &lt;option value="Mary"&gt;Mary&lt;/option&gt;
+   &lt;option value="George"&gt;George&lt;/option&gt;
+   &lt;option value="Fred"&gt;Fred&lt;/option&gt;
+   &lt;option value="Ryan"&gt;Ryan&lt;/option&gt;
+   &lt;option value="Angela"&gt;Angela&lt;/option&gt;
+   &lt;option value="Jill"&gt;Jill&lt;/option&gt;
+  &lt;/select&gt;
+ &lt;/td&gt;
+ &lt;td&gt;
+  &lt;input type="button" name="right" value="&amp;gt;&amp;gt;"
+   onClick="Selectbox.copySelectedOptions(this.form.copylist1,this.form.copylist2,this.form.copysort.checked)"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="button" name="right" value="All &amp;gt;&amp;gt;"
+   onClick="Selectbox.copyAllOptions(this.form.copylist1,this.form.copylist2,this.form.copysort.checked)"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="button" name="left" value="&amp;lt;&amp;lt;"
+   onClick="Selectbox.copySelectedOptions(this.form.copylist2,this.form.copylist1,this.form.copysort.checked)"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="button" name="left" value="All &amp;lt;&amp;lt;"
+   onClick="Selectbox.copyAllOptions(this.form.copylist2,this.form.copylist1,this.form.copysort.checked)"&gt;
+ &lt;/td&gt;
+ &lt;td&gt;
+  &lt;select name="copylist2" multiple size=10
+   onDblClick="Selectbox.copySelectedOptions(this.form.copylist2,this.form.copylist1,this.form.copysort.checked)"&gt;
+   &lt;option value="Matt"&gt;Matt&lt;/option&gt;
+   &lt;option value="Mary"&gt;Mary&lt;/option&gt;
+   &lt;option value="Angela"&gt;Angela&lt;/option&gt;
+  &lt;/select&gt;
+ &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</pre>
+</div>
+
+<br><br>
+<h2>Moving Options Up And Down</h2>
+
+<table class="example" border="0">
+<tbody><tr>
+	<td>
+	<select name="updownlist" size="7" multiple="multiple">
+		<option value="Option 1"> Option 1
+		</option><option value="Option 2" selected="selected"> Option 2
+		</option><option value="Option 3"> Option 3
+		</option><option value="Option 4" selected="selected"> Option 4
+		</option><option value="Option 5"> Option 5
+	</option></select>
+	</td>
+	<td>
+	<input value="&nbsp;Up&nbsp;" onclick="Selectbox.moveOptionUp(this.form.updownlist)" type="button">
+	<br><br>
+	<input value="Down" onclick="Selectbox.moveOptionDown(this.form.updownlist)" type="button">
+	</td>
+</tr>
+</tbody></table><a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code">&lt;table border="0" class="example"&gt;
+&lt;tr&gt;
+	&lt;td&gt;
+	&lt;select name="updownlist" size="7" multiple&gt;
+		&lt;option value="Option 1"&gt; Option 1
+		&lt;option value="Option 2" selected&gt; Option 2
+		&lt;option value="Option 3"&gt; Option 3
+		&lt;option value="Option 4" selected&gt; Option 4
+		&lt;option value="Option 5"&gt; Option 5
+	&lt;/select&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	&lt;input type="button" value="&amp;nbsp;Up&amp;nbsp;" onClick="Selectbox.moveOptionUp(this.form.updownlist)"&gt;
+	&lt;br&gt;&lt;br&gt;
+	&lt;input type="button" value="Down" onClick="Selectbox.moveOptionDown(this.form.updownlist)"&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</pre>
+</div>
+
+
+<br><br>
+<h2>Selecting Options By Regular Expression</h2>
+
+<select name="selectmatching" size="5" multiple="multiple" style="width: 200px;">
+	<option value="Abcdefg">Abcdefg</option>
+	<option value="John Doe" selected="selected">John Doe</option>
+	<option value="$123.45" selected="selected">$123.45</option>
+	<option value="123 123 123">123 123 13</option>
+	<option value="January 1, 2000">January 1, 2000</option>
+</select>
+<br>
+Select Matching Options: <input name="pattern1" value="^\w+$" type="text">
+<input name="selectmatching1" value="Select" onclick="Selectbox.selectOptions(this.form.selectmatching,this.form.pattern1.value)" type="button">
+<br>
+Select ONLY Matching Options: <input name="pattern2" value="^\w+$" type="text">
+<input name="selectmatching2" value="Select" onclick="Selectbox.selectOnlyOptions(this.form.selectmatching,this.form.pattern2.value)" type="button">
+<br>
+Un-Select Matching Options: <input name="pattern3" value="^\w+$" type="text">
+<input name="selectmatching3" value="Select" onclick="Selectbox.unselectOptions(this.form.selectmatching,this.form.pattern3.value)" type="button">
+<br>
+<input name="selectall" value="Select All Options" onclick="Selectbox.selectAllOptions(this.form.selectmatching)" type="button">
+<br><a class="button" href="#" onclick="showExample(this);return false;">&lt;view/hide code&gt;</a>
+<div class="example toggle">
+	<pre class="code">Select Matching Options: &lt;input type="text" name="pattern1" value="^\w+$"&gt;
+&lt;input type="button" name="selectmatching1" value="Select" onClick="Selectbox.selectOptions(this.form.selectmatching,this.form.pattern1.value)"&gt;
+&lt;br&gt;
+Select ONLY Matching Options: &lt;input type="text" name="pattern2" value="^\w+$"&gt;
+&lt;input type="button" name="selectmatching2" value="Select" onClick="Selectbox.selectOnlyOptions(this.form.selectmatching,this.form.pattern2.value)"&gt;
+&lt;br&gt;
+Un-Select Matching Options: &lt;input type="text" name="pattern3" value="^\w+$"&gt;
+&lt;input type="button" name="selectmatching3" value="Select" onClick="Selectbox.unselectOptions(this.form.selectmatching,this.form.pattern3.value)"&gt;
+&lt;br&gt;
+&lt;input type="button" name="selectall" value="Select All Options" onClick="Selectbox.selectAllOptions(this.form.selectmatching)"&gt;
+&lt;br&gt;</pre>
+</div>
+
+</form>
+	</div>
+	</div>
+	</td>
+	<td class="right" id="googleAds">
+		<script type="text/javascript">
+		google_ad_client = "pub-9155030588311591";
+		google_ad_width = 120;
+		google_ad_height = 600;
+		google_ad_format = "120x600_as";
+		google_color_border = "000000";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "000000";
+		google_color_text = "000000";
+		</script>
+		<script type="text/javascript" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/show_ads.js"></script><iframe name="google_ads_frame" src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+	</td>
+</tr>
+<tr>
+	<td class="footer" colspan="3"><img src="Selectbox%20_%20Select%20Box%20Functions%20For%20Manipulating%20Options%20from%20JavascriptToolbox.com.htm%20-%20examples.php_files/bullet-bolt.gif" alt="Logo">&nbsp;All Contents Copyright © <a href="http://www.mattkruse.com/">Matt Kruse</a></td>
+</tr></tbody></table>
+
+
+</body></html>

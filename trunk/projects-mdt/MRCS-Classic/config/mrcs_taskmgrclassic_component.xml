@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: taskmgrclassic                                               -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $Revision: 1.2 $ -->
+<!-- Modified on $Date: 2007/01/25 22:05:27 $ -->
+
+<config version='1.0'>
+   <scope>
+   
+      <component id="taskmgrclassic" extends="taskmgrclassic:webtop/config/taskmgrclassic_component.xml">
+
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'></param>
+         </params>
+
+         <pages>
+            <!-- start>/webcomponent/library/workflow/taskmanager/taskManager.jsp</start -->
+            <!--  fix: buttons are way off to the right -->
+            <start>/mrcs/pages/MrcsClassicTaskManager.jsp</start>
+         </pages>
+
+         <class>com.documentum.webtop.webcomponent.taskmanager.TaskManagerClassic</class>
+
+         <showusertimeandcost>false</showusertimeandcost>
+      </component>
+      
+   </scope>
+   
+</config>

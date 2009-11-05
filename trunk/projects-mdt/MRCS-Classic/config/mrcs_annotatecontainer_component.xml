@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         annotateContainer                                       -->
+<!-- File           annotatecontainer_component.xml                         -->
+<!-- Description    annotate Container Component Definition                 -->
+<!-- Created on     November 28 2001                                       -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.10 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:52 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+
+      <!-- Checkout container component definition -->
+      <component id="annotatecontainer">
+
+         <!-- Description (not NLS'd) -->
+	 <desc>
+	    You can use the annotatecontainer component to allow users to do the following:
+	    1. Check in previously checked-out components.
+	    2. Set various properties, such as version numbering, locking, and format.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+            <param name='component' required='true'></param>
+            <param name='componentArgs' required='true'></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+         	<start>/mrcs/pages/Annotate.jsp</start>
+            <containerstart>/wdk/container/combocontainer.jsp</containerstart>
+            <checkfullapplet>/webcomponent/library/contentxfer/checkFullApplet.jsp</checkfullapplet>
+            <installfullapplet>/webcomponent/library/contentxfer/installFullContentXfer.jsp</installfullapplet>
+            <verifyinstallfullapplet>/webcomponent/library/contentxfer/verifyFullContentXferInstall.jsp</verifyinstallfullapplet>
+            <restartbrowser>/webcomponent/library/contentxfer/restartBrowser.jsp</restartbrowser>
+            <serviceprogress>/webcomponent/library/contentxfer/serviceProgress.jsp</serviceprogress>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsAnnotateContainer</class>
+
+      </component>
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_annotatecontainer_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.10 $
+ Modified on    $Date: 2006/01/12 22:42:52 $
+
+***********************************************************************
+-->
+
+
+

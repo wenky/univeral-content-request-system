@@ -1,0 +1,132 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>jsontest.html</title>
+    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!-- DWR includes -->
+    <script type='text/javascript' src='/webtop2/dwr/interface/Gateway.js'></script>
+    <script type='text/javascript' src='/webtop2/dwr/engine.js'></script>
+
+    <script type="text/javascript" src="./jquery-latest.regexp.js"></script>
+    <script type="text/javascript" src="./json.js"></script>
+        
+
+    <script type="text/javascript">
+      // session utils (requires session applet div/footer!)
+      var sessionkey = (""+window.location).replace(/(.*)session\=([0-9]*)(.*)/,"$2");
+      var user,pass,base; 
+      $(document).ready( function()
+        { 
+          // append the footer session applet div...
+          $("body").append("<div><applet id='localsession' codebase='applet' code='com.medtronic.documentum.ajax.LocalSession.class' width=0 height=0 mayscript></applet></div>");
+          user = getSessionString("user"); // convert JavaObject string to a JS String
+          pass = getSessionString("pass"); // convert JavaObject string to a JS String
+          base = getSessionString("base"); // convert JavaObject string to a JS String
+          initthepage();
+        }
+      );
+      
+      // session conversion utilities (will make this a lib...)
+      function getSessionString(key) { return ""+document.applets["localsession"].getKey(sessionkey,key); }
+      function setSessionString(key,value) { document.applets["localsession"].setKey(sessionkey,key,value); }
+      function getSessionObject(key) 
+      {
+        var jsontxt = getSessionString(key);
+        var evalobj = eval('('+jsontxt+')'); 
+        return evalobj;
+      }
+      function setSessionObject(key,value) 
+      {
+        var jsontxt = value.toJSONString();
+        setSessionString(key,jsontxt);
+      }
+    </script>
+
+    <script type="text/javascript">
+      
+      
+      var foldertree; // global object for the data/state of the folder tree
+      function initthepage() {
+        // get folder tree status from session
+        foldertree = getSessionObject("foldertree");
+      
+        if (foldertree == null) {
+          // get base cabinet list
+          Gateway.getCabinetList(user,pass,base, 
+            function(data)
+            {
+              // set state values...
+              for (var i=0; i < data.length; i++)
+              {
+                data[i].depth = 0;
+                data[i].current = false;
+                data[i].expanded = false;
+                data[i].parent = "";
+              }
+              setSessionObject("foldertree",data);
+              foldertree = data;
+              initTree();
+            } 
+          );
+        } else {
+          // init tree with existing folder tree
+          initTree();
+        }
+      }
+      
+      function initTree()
+      {      
+        for (var i=0; i< foldertree.length; i++)
+        {
+          var newfolder = "";
+          newfolder += "<div id='"+foldertree[i].r_object_id+"'>";
+          // spacers...
+          for (var j=0; j<foldertree[i].depth; j++) 
+          {
+            newfolder += "<img src='./wdk/theme/documentum/images/tree/S.gif'>";
+          }
+          if (foldertree[i].expanded) {
+            newfolder += "<img id='plus-"+foldertree[i].r_object_id+"' src='./wdk/theme/documentum/images/tree/Tminus.gif' onclick='collapse(\""+foldertree[i].r_object_id+"\");'>";
+          } else {          
+            var explink = "<img id='plus-"+foldertree[i].r_object_id+"' src='./wdk/theme/documentum/images/tree/Tplus.gif' onclick='expand(\""+foldertree[i].r_object_id+"\");'>";
+            newfolder += explink;
+          }
+          newfolder += "<img src='./wdk/theme/documentum/icons/type/t_dm_folder_16.gif'><span class='treetext'>"+foldertree[i].object_name+"</span></div>";
+          $("#foldertree").append(newfolder);
+        }
+      }
+      
+      
+      
+      
+    </script>
+
+    <script type="text/javascript" src="/webtop2/tableresize.js"></script>
+
+    
+  </head>
+  
+  <body id="expbody">
+    This is my HTML page. |- <span id="userpassbase"></span> <br>
+    <table id="explorerlayout" border="0">
+      <thead><th align="right" id="treecolumn"><span id="treecolumnspan"><img src='./eitherway.gif'></span></th><th></th></thead>
+      <tr><td id="foldertree" ></td><td></td></tr>
+    </table>
+    <script type="text/javascript">
+        // initialize resizeable layout for folder tree
+        $("#expbody").mouseup(columnMouseUp);
+        $("#expbody").mousemove(columnMouseMove);
+        $("#treecolumnspan").css({cursor:"move"});
+        $("#treecolumnspan").mousedown(columnMouseDown);
+        // can't figure out how to jQuery these...offsetWidth isn't working as an attr or as css
+        var column = document.getElementById("treecolumn");
+        if (column.offsetWidth < minWidth) column.style.width = minWidth; else column.style.width = column.offsetWidth;
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,110 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+String html = "";
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+
+IDfSession dctmsess = dctmaccess.accessSession();
+String typeid = id;
+IDfType type = (IDfType)dctmsess.getObject(new DfId(typeid));
+
+IDfType supertype = type;
+
+out.write "SuperTypes: ";
+try {
+    boolean first = true;
+    String temp = "";
+    while (true) {
+        if (first) first = false; else temp = " -> "+temp;
+        temp = "$baselink&id=${supertype.getObjectId().getId()}'>${supertype.getName()}</a>"+temp;
+        supertype = supertype.getSuperType();
+        if (supertype == null) break;
+    }
+    out.write(temp);
+    out.write("<BR>");
+} catch (Exception e) {
+    out.write " No Supertype<br>";         
+}
+
+List children = DctmUtils.execSingleColumnQuery(dctmsess,"SELECT name from dm_type where super_name = '${type.getName()}' ORDER BY name") 
+out.write "Immediate Descendants: ";
+boolean first = true;
+children.each { child ->
+  if (first == true) first = false; else out.write(", ");
+  IDfType childtype = dctmsess.getObjectByQualification("dm_type where name='$child'");
+  out.write("$baselink&id=${childtype.getObjectId().getId()}'>$child</a>");
+  
+}
+out.write("<BR>");
+
+try {
+    Map attrtypes = [ (IDfType.DF_STRING) : "string", (IDfType.DF_BOOLEAN) : "boolean", (IDfType.DF_DOUBLE) : "double", (IDfType.DF_ID) : "dfid", (IDfType.DF_INTEGER) : "integer", (IDfType.DF_TIME) : "datetime" ]; 
+    int valuecount = type.getValueCount("attr_name");
+    List valuelist = new ArrayList(valuecount);
+    for (int i=0; i < valuecount; i++)
+    {        
+        valuelist.add(type.getRepeatingValue("attr_name", i).asString());
+    }
+    Collections.sort(valuelist);
+    String temp = "<hr>Type-specific Attributes:<BR><table><tr><td><b>Attrname</b></td><td><b>Repeats</b></td><td><b>Type</b></td><td><b>Length</b></td><tr>";
+    valuelist.each { attrname ->
+      if (supertype == null || (supertype.findString("attr_name",attrname) == -1)) {
+      temp+= """
+        <tr>
+          <td>$attrname</td>
+          <td>${type.isTypeAttrRepeating(attrname)}</td>
+          <td>${attrtypes.get(type.getTypeAttrDataType(attrname))}</td>
+          <td>${type.getTypeAttrLength(attrname)}</td>
+        <tr>
+      """
+      } 
+    }
+    temp +="</table>"
+    out.write temp
+} catch (DfException e) {
+    out.write " Attribute List Error<br>";         
+}
+
+//all attrs
+out.write """
+<hr>
+<img src='../wdk/theme/documentum/images/tree/Tload.gif' onClick='document.getElementById("trail").style.display = (document.getElementById("trail").style.display=="block"?"none":"block")'>View All Attributes --<BR>
+<div id='trail' style='display:none'>
+"""
+try {
+    Map attrtypes = [ (IDfType.DF_STRING) : "string", (IDfType.DF_BOOLEAN) : "boolean", (IDfType.DF_DOUBLE) : "double", (IDfType.DF_ID) : "dfid", (IDfType.DF_INTEGER) : "integer", (IDfType.DF_TIME) : "datetime" ]; 
+    int valuecount = type.getValueCount("attr_name");
+    List valuelist = new ArrayList(valuecount);
+    for (int i=0; i < valuecount; i++)
+    {        
+        valuelist.add(type.getRepeatingValue("attr_name", i).asString());
+    }
+    Collections.sort(valuelist);
+    String temp = "<hr>Type-specific Attributes:<BR><table><tr><td><b>Attrname</b></td><td><b>Repeats</b></td><td><b>Type</b></td><td><b>Length</b></td><tr>";
+    valuelist.each { attrname ->
+      temp+= """
+        <tr>
+          <td>$attrname</td>
+          <td>${type.isTypeAttrRepeating(attrname)}</td>
+          <td>${attrtypes.get(type.getTypeAttrDataType(attrname))}</td>
+          <td>${type.getTypeAttrLength(attrname)}</td>
+        <tr>
+      """
+    }
+    temp +="</table>"
+    out.write temp
+} catch (DfException e) {
+    out.write "All Attribute List Error<br>";         
+}
+
+out.write """
+</div>
+"""
+
+
+

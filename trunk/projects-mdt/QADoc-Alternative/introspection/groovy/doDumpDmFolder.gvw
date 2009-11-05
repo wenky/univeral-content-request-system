@@ -1,0 +1,102 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+String html = "";
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+
+IDfSession session = dctmaccess.accessSession();
+String folderid = id;
+IDfFolder folder = (IDfFolder)session.getObject(new DfId(folderid));
+        
+// this is SOOOOO 1998 !!!
+
+html += "Folder Name: "+folder.getObjectName()+"<br>";
+html += "Folder Id: "+folderid+"<br><hr>";
+//html += "Path[0]: "+folder.getFolderPath(0) + "<BR>";
+
+try {
+    IDfFolder f = (IDfFolder)dctmaccess.accessSession().getObject(folder.getFolderId(0));
+    html = "";
+    if (f != null) {
+        while (true) {            
+            html = "/${baselink}&id=${f.getObjectId().getId()}'>${f.getObjectName()}</a>"+html;
+            if (f.getFolderPathCount() > 0) {
+                IDfId upid = f.getFolderId(0);
+                if (upid.isNull()) break;
+                f = (IDfFolder)dctmaccess.accessSession().getObject(f.getFolderId(0));
+                if (f==null) break;
+            } else break;
+        }
+    }
+    out.write("Breadcrumb: "+html+"<BR>");
+    html = "";
+} catch (Exception e) { out.write("");}
+
+
+// attached ACL
+try {
+    String acllink = "View ACL "+baselink+"&id="+folder.getACL().getObjectId().getId()+"'>"+folder.getACLName()+"</a><BR>"; 
+    html += acllink;
+} catch (Exception e) {
+    html += " no ACL attached ";                        
+}
+
+//folder (first folder in i_folder attr) of the document
+try {    
+    for (int i=0; i < folder.getFolderPathCount(); i++) {
+        IDfId parentfolderid = folder.getFolderId(0);
+        IDfFolder parentfolder = (IDfFolder)session.getObject(parentfolderid);
+        html += "ParentFolder["+i+"]: "+baselink+"&id="+parentfolderid+"'>(${parentfolder.getObjectId().getId()}) - "+parentfolder.getFolderPath(0)+"</a><BR>";
+    }
+} catch (Exception e) {
+    html += "No parent folders found<BR>";         
+}
+
+
+html += "<hr>Folder Contents:<hr>";
+
+// folder contents - same query that webtop does....
+String dql = "SELECT 1,upper(object_name),r_object_id,object_name,r_object_type,r_lock_owner,owner_name,"+
+                    "r_link_cnt,r_is_virtual_doc,r_content_size,a_content_type,i_is_reference,r_assembled_from_id,"+
+                    "r_has_frzn_assembly,a_compound_architecture,i_is_replica,r_policy_id,title,r_modify_date,thumbnail_url,a_is_hidden,'1' as isfolder "+
+             //"FROM dm_folder WHERE a_is_hidden=false and any i_folder_id='"+folderid+"'"+
+             "FROM dm_folder WHERE any i_folder_id='"+folderid+"'"+
+             "UNION "+
+             "SELECT 2,upper(object_name),r_object_id,object_name,r_object_type,r_lock_owner,owner_name,r_link_cnt,"+
+                    "r_is_virtual_doc,r_content_size,a_content_type,i_is_reference,r_assembled_from_id,r_has_frzn_assembly,"+
+                    "a_compound_architecture,i_is_replica,r_policy_id,title,r_modify_date,thumbnail_url,a_is_hidden,'0' as isfolder " +
+             //"FROM dm_document where a_is_hidden=false and any i_folder_id='"+folderid+"' order by 1,2";
+             "FROM dm_document where any i_folder_id='"+folderid+"' order by 1,2";
+IDfQuery qry = new DfQuery();
+qry.setDQL(dql);
+
+IDfCollection myObj1 = (IDfCollection) qry.execute(session, IDfQuery.DF_READ_QUERY);
+try { 
+    boolean first = true;
+    while (myObj1.next()) 
+    {
+        if (first) first = false; else html += " - ";
+        if (myObj1.getBoolean("a_is_hidden")) {
+            html += "<span style='background-color:#FF6666'>";
+        }
+        //http://hansom5-d6:56880/webtop2/
+        if (myObj1.getInt("isfolder") == 1) html += "<img border=0 width=16 height=16 src='../wdk/theme/documentum/icons/type/t_dm_folder_16.gif'>";
+        else html += "<img border=0 width=16 height=16 src='../wdk/theme/documentum/icons/format/f_text_16.gif'>";
+        html += baselink+"&id="+myObj1.getId("r_object_id").getId()+"'>"+myObj1.getString("object_name")+"</a>";
+        if (myObj1.getBoolean("a_is_hidden")) {
+            html += "</span>";
+        }
+    }
+} finally{ try{myObj1.close();} catch (Exception e){} }
+        
+html += "<hr><img src='../wdk/theme/documentum/images/tree/Tload.gif' " +
+        "onClick='document.getElementById(\"renditions\").style.display = (document.getElementById(\"renditions\").style.display==\"block\"?\"none\":\"block\")'>" +
+        "View linked SysObjects --<BR><div id='renditions' style='display:none'>";
+
+String sysdql = "SELECT r_object_id,object_name,r_object_type,r_lock_owner FROM dm_sysobject where any i_folder_id='"+folderid+"' and r_object_id not in (select r_object_id from dm_folder where any i_folder_id = '"+folderid+"') and r_object_id not in (select r_object_id from dm_document where any i_folder_id = '"+folderid+"')";
+html += GenerateQueryTable.call(dctmaccess,baseurl,credurl,sysdql); 
+html += "</div>";
+
+out.write(html);

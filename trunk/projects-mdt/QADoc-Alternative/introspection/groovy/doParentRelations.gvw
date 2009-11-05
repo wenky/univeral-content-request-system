@@ -1,0 +1,34 @@
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import com.medtronic.ecm.documentum.introspection.*;
+import com.medtronic.ecm.documentum.util.*;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+IDfSession dctmsess = dctmaccess.accessSession();
+String docid = request.getParameter("id");
+IDfSysObject doc = (IDfSysObject)dctmsess.getObject(new DfId(docid));
+String baselink = "<a href='${baseurl}?do=doDumpObjectById.gvw${credurl}";             
+        
+out.write """
+PARENT Relationship list for object...<br>
+Object Name: ${doc.getObjectName()}<br>
+Object ID: ${docid}<br>
+Version: ${doc.getVersionLabels().getImplicitVersionLabel()}<br>
+"""
+String html = "";
+try {
+    String dql = "SELECT r_object_id, parent_id, child_id, relation_name from dm_relation where parent_id = '${docid}' order by r_object_id desc";
+    List results = DctmUtils.execQuery(dctmsess,dql);    
+    html+="<table border=1><tr><td><b>relation id</b></td><td><b>parent docid</b></td><td><b>child docid</b></td><td><b>relation</b></td></tr>";
+    results.each { resultmap -> 
+        String objlink = baselink+"&id="+resultmap.get("r_object_id")+"'>"+resultmap.get("r_object_id")+"</a>"; 
+        String parlink = baselink+"&id="+resultmap.get("parent_id")+"'>"+resultmap.get("parent_id")+"</a>"; 
+        String chlink = baselink + "&id="+resultmap.get("child_id")+"'>"+resultmap.get("child_id")+"</a>"; 
+        html+="<tr><td>"+objlink+"</td><td>"+parlink+"</td><td>"+chlink+"</td><td>"+resultmap.get("relation_name")+"</td></tr>";
+    }
+    html +="</table>";
+} catch (Exception e) {
+    html = "Relationship Lookup Error";
+}
+        
+out.write(html);

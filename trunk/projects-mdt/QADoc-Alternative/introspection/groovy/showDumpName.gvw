@@ -1,0 +1,41 @@
+out.write(com.medtronic.ecm.documentum.introspection.GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+out.write """
+Introspect object - enter object id
+<FORM name='DumpId' action='${baseurl}' method='GET'>
+    <p><table border=0>
+    <tr><td>object id:</td><td><INPUT type='text' name='id'></td></tr>
+    </table></p>
+    ${credhidden}
+    <INPUT type='hidden' name='do' value='doDumpObjectById.gvw'/>
+    <INPUT type='submit' name='go' value='go'/>
+</FORM>
+<HR>
+"""
+
+out.write """
+Introspect object - enter object name (use type widget for objects without object_name)
+<FORM name='DumpDoc' action='${baseurl}' method='GET'>
+    <p><table border=0>
+    <tr><td>objname:</td><td><INPUT type='text' name='name'></td></tr>
+    <tr><td>type:</td><td><INPUT type='text' name='type'></td></tr>
+    </table></p>
+    ${credhidden}
+    <INPUT type='hidden' name='do' value='doDumpObjectByName.gvw'/>
+    <INPUT type='submit' name='go' value='go'/>
+</FORM>
+<HR>
+"""
+
+out.write """
+Introspect object - enter object PATH 
+<FORM name='DumpPath' action='${baseurl}' method='GET'>
+    <p><table border=0>
+    <tr><td>Path:</td><td><INPUT type='text' name='path'></td></tr>
+    </table></p>
+    ${credhidden}
+    <INPUT type='hidden' name='do' value='doDumpObjectByPath.gvw'/>
+    <INPUT type='submit' name='go' value='go'/>
+</FORM>
+<HR>
+"""

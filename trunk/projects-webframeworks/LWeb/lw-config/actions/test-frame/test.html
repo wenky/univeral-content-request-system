@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  function divexec(divid) 
+  {
+    // exec some jquery...
+    $('#'+divid).html("<blink>Hello World From the Server Include Frame!</blink>");
+    $('#'+divid).append($('#somecontent').html());
+  }
+</script>
+
+<div id="somecontent">
+   <br><br>SOMECONTENT<br>
+</div>    
+ 

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+
+   <!-- workflow task scope -->
+   <scope type='qadoc_dm_task'>
+   
+      <component id="taskmanagercontainer" extends="propertysheetcontainer:wdk/config/propertysheetcontainer_component.xml">
+      <!-- component id="taskmanagercontainer" extends="taskmanagercontainer:webcomponent/config/library/workflow/taskmgrcontainer/taskmanagercontainer_component.xml" -->
+      
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This container holds all the pieces of the task manager.
+         </desc>
+      
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='component' required='false'/>
+            <param name='taskmanagerId' required='true'/>
+            <param name='type' required='true'/>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <!-- start>/webcomponent/library/workflow/taskmgrcontainer/taskManagerContainer.jsp</start -->
+            <start>/mrcs/pages/QADocTaskManagerContainer.jsp</start>
+            <!--  mrcsvalidationfailure>/mrcs/pages/MrcsTaskValidationFailure.jsp</mrcsvalidationfailure -->
+            <mrcsvalidationfailure>/mrcs/pages/MrcsTaskManagerContainer.jsp</mrcsvalidationfailure>
+         </pages>
+      
+         <!-- Contained components -->
+         <contains>
+            <!-- component>taskmanager</component -->            
+            <component>taskcomments</component>
+            <component>taskprogress</component>
+         </contains>
+
+         <!--  class>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainer</class -->
+         <class>com.medtronic.documentum.mrcs.client.QADocTaskManager</class>
+         <!--  nlsbundle>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainerNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainerNlsProp</nlsbundle>
+      </component>
+      
+   </scope>
+
+
+   <!-- notification scope -->
+   <scope type='qadoc-dm_notification--disabled'> 
+   
+      <component id="taskmanagercontainer" extends="propertysheetcontainer:wdk/config/propertysheetcontainer_component.xml">
+      <!-- component id="taskmanagercontainer" extends="taskmanagercontainer:webcomponent/config/library/workflow/taskmgrcontainer/taskmanagercontainer_component.xml" -->
+      
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This container holds all the pieces of the task manager.
+         </desc>
+         
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='component' required='false'/>
+            <param name='taskmanagerId' required='true'/>     
+            <param name='type' required='true'/>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <!-- start>/webcomponent/library/workflow/taskmgrcontainer/taskManagerContainer.jsp</start -->
+            <start>/mrcs/pages/MrcsTaskManagerContainer.jsp</start>
+            <mrcsvalidationfailure>/mrcs/pages/MrcsTaskManagerContainer.jsp</mrcsvalidationfailure>
+         </pages>
+      
+         <!-- Contained components -->
+         <contains>
+            <!-- component>taskmanager</component -->
+         </contains>
+
+         <!--  class>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainer</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainer</class>
+         <!--  nlsbundle>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainerNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainerNlsProp</nlsbundle>
+         
+      </component>
+      
+   </scope>
+   
+   <!-- notification with content scope -->
+   <scope type='qadoc-dm_queued--disabled'>
+   
+      <component id="taskmanagercontainer" extends="propertysheetcontainer:wdk/config/propertysheetcontainer_component.xml">
+      <!-- component id="taskmanagercontainer" extends="taskmanagercontainer:webcomponent/config/library/workflow/taskmgrcontainer/taskmanagercontainer_component.xml" -->
+      
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This container holds all the pieces of the task manager.
+         </desc>
+      
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='component' required='false'/>
+            <param name='taskmanagerId' required='true'/>     
+            <param name='type' required='true'/>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <!-- start>/webcomponent/library/workflow/taskmgrcontainer/taskManagerContainer.jsp</start -->
+            <start>/mrcs/pages/MrcsTaskManagerContainer.jsp</start>
+            <!--  mrcsvalidationfailure>/mrcs/pages/MrcsTaskValidationFailure.jsp</mrcsvalidationfailure -->
+            <mrcsvalidationfailure>/mrcs/pages/MrcsTaskManagerContainer.jsp</mrcsvalidationfailure>
+         </pages>
+      
+         <!-- Contained components -->
+         <contains>
+            <!-- component>taskmanager</component -->
+         </contains>
+
+         <!--  class>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainer</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainer</class>
+         <!--  nlsbundle>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainerNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainerNlsProp</nlsbundle>
+      </component>
+      
+   </scope>
+   
+   <!-- router task scope -->
+   <scope type='qadoc-dm_router_task--disabled' >
+   
+      <component id="taskmanagercontainer" extends="propertysheetcontainer:wdk/config/propertysheetcontainer_component.xml">
+      <!-- component id="taskmanagercontainer" extends="taskmanagercontainer:webcomponent/config/library/workflow/taskmgrcontainer/taskmanagercontainer_component.xml" -->
+      
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This container holds all the pieces of the task manager.
+         </desc>
+      
+         <!-- Component Contract -->
+         <params>
+            <param name='objectId' required='true'/>
+            <param name='component' required='false'/>
+            <param name='taskmanagerId' required='true'/>     
+            <param name='type' required='true'/>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <!-- start>/webcomponent/library/workflow/taskmgrcontainer/taskManagerContainer.jsp</start -->
+            <start>/mrcs/pages/MrcsTaskManagerContainer.jsp</start>
+            <!--  mrcsvalidationfailure>/mrcs/pages/MrcsTaskValidationFailure.jsp</mrcsvalidationfailure -->
+            <mrcsvalidationfailure>/mrcs/pages/MrcsTaskManagerContainer.jsp</mrcsvalidationfailure>
+         </pages>
+      
+         <!-- Contained components -->
+         <contains>
+            <!-- component>taskmanager</component -->
+         </contains>
+
+         <!--  class>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainer</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainer</class>
+         <!--  nlsbundle>com.documentum.webcomponent.library.workflow.taskmgrcontainer.TaskMgrContainerNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsTaskMgrContainerNlsProp</nlsbundle>
+      </component>
+      
+   </scope>
+   
+</config>
+

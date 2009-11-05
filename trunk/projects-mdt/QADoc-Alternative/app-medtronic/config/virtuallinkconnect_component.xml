@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.1 $                                           -->
+<!-- Modified on    $Date: 2008/05/14 17:30:29 $                            -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope>
+      <component id="virtuallinkconnect">
+         <desc>
+            Supports virtual links (URL to a single document) by providing 
+            authentication and a list of root paths that are used to resolve 
+            the path in the URL. A virtual link has the syntax 
+            http://host[/docbase:path]/document. 
+         </desc>
+         <params>
+            <param name="redirectUrl" required="true"/>
+            <param name="virtualLinkPath" required="true"/>
+         </params>
+         <pages>
+            <start>/wdk/system/virtuallink/connect.jsp</start>
+         </pages>
+         <class>com.documentum.web.virtuallink.Connect</class>
+         <nlsbundle>com.documentum.web.virtuallink.ConnectNlsProp</nlsbundle>
+         <failoverenabled>true</failoverenabled>
+         <rootpaths>
+           <rootpath>/</rootpath>
+         </rootpaths>
+         <defaultaccounts>
+            <!-- <filter docbase="docbasename">
+               <account>
+               <username>username</username>
+               <new-pw>password</new-pw>
+               <domain/>
+               </account>
+           </filter> -->
+            <!-- default account will be used for all remaining repositories. -->
+               <defaultaccount>
+                  <username>anon_drl</username>
+                  <new-pw>2GvCTi2BxHRVq2AeH5p1Vg==</new-pw>
+                  <domain/>
+               </defaultaccount>
+         </defaultaccounts>
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* redirectUrl                          (Required) URL to be displayed when the 
+                                        object cannot be located in the 
+                                        repository. 
+*/
+/* virtualLinkPath                      (Required) URL to the feature that 
+                                        provides anonymous access, which allows 
+                                        the use of predefined login credentials 
+                                        (per repository) instead of requiring a 
+                                        user to log in using their credentials. 
+*/
+#
+# Elements
+/* <rootpaths>                          Contains one or more <rootpath> 
+                                        elements, which can optionally be 
+                                        enclosed within a <filter> element 
+*/
+/* <filter>                             Optionally wraps a <rootpath> element to 
+                                        make the root path available based on 
+                                        the value of the qualifier. For example, 
+                                        you could make a root path available 
+                                        only to a certain role or repository: 
+                                        <filter role="administrator"> 
+*/
+/* <rootpath>                           The value is an absolute repository path 
+*/
+/* <defaultaccounts>                    Contains anonymous access login 
+                                        information in one or more 
+                                        <defaultaccount> elements 
+*/
+/* <filter docbase='docbasename'>       Optional filter to specify the account 
+                                        for a single repository. Set the 
+                                        repository attribute on this element to 
+                                        the repository name. 
+*/
+/* <defaultaccount>                     Sets up anonymous access for virtual 
+                                        links. 
+*/
+/* <username>                           Name of a user in the target repository 
+*/
+/* <new-pw>                             Password for the anonymous user. Can be 
+                                        encrypted with the Trusted Authenticator 
+                                        Tool. Refer to Web Development Kit and 
+                                        Client Applications Development Guide 
+                                        for instructions. 
+*/
+/* <domain>                             Optional network domain name for login 
+                                        to the repository 
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

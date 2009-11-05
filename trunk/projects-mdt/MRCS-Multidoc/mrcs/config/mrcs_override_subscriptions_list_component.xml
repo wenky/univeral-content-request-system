@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Confidential Property of Medtronic, Inc.                             -->
+<!-- (c) Copyright Medtronic, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a corporate officer.                             -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        Component Library                                      -->
+<!-- Module         Subscription List                                      -->
+<!-- File           subscriptions_list_component.xml                    -->
+<!-- Description    Columned list of subscription                          -->
+<!-- Created on     19 Sept 2001                                         -->
+<!-- Tab width      3                                                      -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- VCS Maintained Data                                                   -->
+<!--                                                                       -->
+<!-- Revision       $Revision: 1.6 $                                          -->
+<!-- Modified on    $Date: 2006/01/12 22:42:52 $                           -->
+<!--                                                                       -->
+<!-- Log at EOF                                                            -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <scope>
+
+      <!-- the list style Subscriptions component -->
+      <component id="subscriptions_classic" extends="subscriptions_classic:webtop/config/subscriptions_classic_component.xml">
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/webtop/classic/subscription/subscriptions.jsp</start>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.documentum.webtop.webcomponent.subscription.SubscriptionsClassicView</class>
+         <nlsbundle>com.documentum.webcomponent.library.subscription.SubscriptionsNlsProp</nlsbundle>
+         
+         <!-- Component specific Configuration -->
+         <helpcontextid>subscriptionclassic</helpcontextid>
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            Subscriptions classic view component: a viewer displaying subscriptions for the current session user.
+         </desc>
+
+         <!-- Component Contract -->
+         <params>
+         </params>
+
+         <!-- Component specific Configuration -->
+
+         <!-- visibility and order of attribute columns -->
+         <!-- NOTE: this component does not support repeating attribute columns -->
+         <columns>
+            <column>
+               <attribute>object_name</attribute>
+               <label><nlsid>MSG_NAME</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>title</attribute>
+               <label><nlsid>MSG_TITLE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>owner_name</attribute>
+               <label><nlsid>MSG_OWNER_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>group_name</attribute>
+               <label><nlsid>MSG_GROUP_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_creator_name</attribute>
+               <label><nlsid>MSG_CREATOR_NAME</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_lock_owner</attribute>
+               <label><nlsid>MSG_LOCK_OWNER</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_object_type</attribute>
+               <label><nlsid>MSG_OBJECT_TYPE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_content_size</attribute>
+               <label><nlsid>MSG_SIZE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>a_content_type</attribute>
+               <label><nlsid>MSG_FORMAT</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_creation_date</attribute>
+               <label><nlsid>MSG_CREATION_DATE</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_modify_date</attribute>
+               <label><nlsid>MSG_MODIFIED_DATE</nlsid></label>
+               <visible>true</visible>
+            </column>
+            <column>
+               <attribute>r_modifier</attribute>
+               <label><nlsid>MSG_MODIFIER</nlsid></label>
+               <visible>false</visible>
+            </column>
+            <column>
+               <attribute>r_access_date</attribute>
+               <label><nlsid>MSG_ACCESS_DATE</nlsid></label>
+               <visible>false</visible>
+            </column>
+         </columns>
+
+         <!-- object type to display by default (e.g. dm_sysobject, dm_document) -->
+         <objecttype>dm_document</objecttype>
+
+         <!-- show folders by default -->
+         <showfolders>true</showfolders>
+
+         <!-- show object type filters -->
+         <showfilters>true</showfilters>
+
+      </component>
+
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_override_subscriptions_list_component.xml,v $
+ Author         $Author: hansom5 $
+ Revision       $Revision: 1.6 $
+ Modified on    $Date: 2006/01/12 22:42:52 $
+
+***********************************************************************
+-->
+
+
+

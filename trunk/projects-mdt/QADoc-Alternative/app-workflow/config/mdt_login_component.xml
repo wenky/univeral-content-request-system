@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<config version='1.0'>
+   <scope>
+
+      <!-- Login component definition -->
+      <component id="login" extends="login:webtop/config/login_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+           QADoc/Medtronic custom login screen
+           - enforce specific/limited docbases to select from
+           - display an application list that the user must select (for 1-1 application role assignment for presets, etc)
+           - do TSG AW pwd encrypt/linkage as well...         
+         </desc>
+
+         <pages>
+            <filter clientenv="not appintg">
+               <start>/app-medtronic/pages/login.jsp</start>
+            </filter>
+            <filter clientenv="appintg">
+               <start>/app-medtronic/pages/appintglogin.jsp</start>
+            </filter>
+         </pages>
+         
+         <!-- docbase this webtop is assigned to (Mdt architecture discourages cross-docbase access) -->
+         <MdtDocbase>mqadoc_test</MdtDocbase>
+         
+         <!-- preference repository context - since pref repository can be a separate, shared docbase, 
+              this provides the current webtop instance's context (i.e. the MdtApplication list) -->
+         <MdtContext>qad_smo</MdtContext>
+         <MdtContextName>QADoc SMO</MdtContextName>
+         <MdtApplistFile>Olympus</MdtApplistFile>
+         
+         <!-- deprecated hardcoded MdtApplication list - we will store and retrieve this using PreferenceRepository -->
+         <!-- MdtApplications>
+           <name>alpha1</name>
+           <name>EOC</name>
+           <name>beta1</name>
+         </MdtApplications -->
+         
+         <!-- Component Behavior -->
+         <!-- class>com.tsgrp.wizardtop.login.Login</class -->
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtLoginWithAppSelection</class>
+         <nlsbundle>com.medtronic.ecm.documentum.core.webtop.LoginWithAppSelectionNlsProperties</nlsbundle>
+      </component>
+   </scope>
+</config>

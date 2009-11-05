@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ematrix>
+  <businessObject>
+    <objectName>DOC-00000015</objectName>
+    <objectType>Equipment Document</objectType>
+    <vaultRef>mqadoc_dev</vaultRef>
+    <owner>
+      <userRef>Hanson, MIchael</userRef>
+    </owner>
+    <policyRef>mdt_qad_smo_qdoc_obsolete</policyRef>
+    <attributeList count="7">
+      <attribute>
+        <name>previousStatus</name>
+        <string>Draft</string>
+      </attribute>
+      <attribute>
+        <name>affectedProducts</name>
+        <string>3M 854A (S-33088) Nasal Spray Solutions</string>
+      </attribute>
+      <attribute>
+        <name>previousOwner</name>
+        <string>Jain, Manish K</string>
+      </attribute>
+      <attribute>
+        <name>folderRelation</name>
+        <string>/Specs and Methods/Spec</string>
+      </attribute>
+      <attribute>
+        <name>previousTitle</name>
+        <string>Test for Automation Project</string>
+      </attribute>
+      <attribute>
+        <name>previousLabel</name>
+        <string>0.0,CURRENT,LATEST</string>
+      </attribute>
+      <attribute>
+        <name>previousName</name>
+        <string>Spec-23-001665</string>
+      </attribute>
+      <emattr>
+        <name>Title</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Cross Reference ID</name>
+        <string>DOC-00000015</string>
+      </emattr>
+      <emattr>
+        <name>Reason for Change</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Released Date</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Language</name>
+        <string>qad_smo</string>
+      </emattr>
+      <emattr>
+        <name>Next Review Date</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Originator</name>
+        <string />
+      </emattr>
+    </attributeList>
+    <objectRevision>1</objectRevision>
+    <revisions>
+      <total>"3"</total>
+      <nextRevision>
+        <businessObjectRef>
+          <objectName>DOC-00000015</objectName>
+          <objectRevision>2</objectRevision>
+          <objectType>Equipment Document</objectType>
+          <vaultRef>mqadoc_dev</vaultRef>
+        </businessObjectRef>
+      </nextRevision>
+    </revisions>
+    <historyList count="6">
+      <history>
+        <event>dm_bp_attach</event>
+        <agent>Business Policy</agent>
+        <stateName />
+        <datetime>2008-10-21T03:07:06Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>In-Progress</stateName>
+        <datetime>2008-10-21T05:27:54Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>In-Approval</stateName>
+        <datetime>2008-10-21T05:27:55Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>Approved</stateName>
+        <datetime>2008-10-21T05:27:56Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>Effective</stateName>
+        <datetime>2008-10-21T05:27:57Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>History</stateName>
+        <datetime>2008-10-21T05:27:58Z</datetime>
+      </history>
+    </historyList>
+    <stateList count="0" />
+  </businessObject>
+  <businessObject>
+    <objectName>DOC-00000015</objectName>
+    <objectType>Equipment Document</objectType>
+    <vaultRef>mqadoc_dev</vaultRef>
+    <owner>
+      <userRef>Hanson, MIchael</userRef>
+    </owner>
+    <policyRef>mdt_qad_smo_qdoc_obsolete</policyRef>
+    <objectRevision>2</objectRevision>
+    <revisions>
+      <total>"3"</total>
+      <previousRevision>
+        <businessObjectRef>
+          <objectName>DOC-00000015</objectName>
+          <objectRevision>1</objectRevision>
+          <objectType>Equipment Document</objectType>
+          <vaultRef>mqadoc_dev</vaultRef>
+        </businessObjectRef>
+      </previousRevision>
+      <nextRevision>
+        <businessObjectRef>
+          <objectName>DOC-00000015</objectName>
+          <objectRevision>3</objectRevision>
+          <objectType>Equipment Document</objectType>
+          <vaultRef>mqadoc_dev</vaultRef>
+        </businessObjectRef>
+      </nextRevision>
+    </revisions>
+    <attributeList count="0">
+      <emattr>
+        <name>Title</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Cross Reference ID</name>
+        <string>DOC-00000015</string>
+      </emattr>
+      <emattr>
+        <name>Reason for Change</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Released Date</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Language</name>
+        <string>qad_smo</string>
+      </emattr>
+      <emattr>
+        <name>Next Review Date</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Originator</name>
+        <string />
+      </emattr>
+    </attributeList>
+    <historyList count="5">
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>In-Progress</stateName>
+        <datetime>2008-10-21T05:27:49Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>In-Approval</stateName>
+        <datetime>2008-10-21T05:27:50Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>Approved</stateName>
+        <datetime>2008-10-21T05:27:52Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>Effective</stateName>
+        <datetime>2008-10-21T05:27:53Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>History</stateName>
+        <datetime>2008-10-21T05:27:54Z</datetime>
+      </history>
+    </historyList>
+    <stateList count="0" />
+  </businessObject>
+  <businessObject>
+    <objectName>DOC-00000015</objectName>
+    <objectType>Equipment Document</objectType>
+    <vaultRef>mqadoc_dev</vaultRef>
+    <owner>
+      <userRef>Hanson, MIchael</userRef>
+    </owner>
+    <policyRef>mdt_qad_smo_qdoc_obsolete</policyRef>
+    <objectRevision>3</objectRevision>
+    <revisions>
+      <total>"3"</total>
+      <previousRevision>
+        <businessObjectRef>
+          <objectName>DOC-00000015</objectName>
+          <objectRevision>2</objectRevision>
+          <objectType>Equipment Document</objectType>
+          <vaultRef>mqadoc_dev</vaultRef>
+        </businessObjectRef>
+      </previousRevision>
+    </revisions>
+    <attributeList count="0">
+      <emattr>
+        <name>Title</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Cross Reference ID</name>
+        <string>DOC-00000015</string>
+      </emattr>
+      <emattr>
+        <name>Reason for Change</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Released Date</name>
+        <string>2008-10-21T03:20:08Z</string>
+      </emattr>
+      <emattr>
+        <name>Language</name>
+        <string>qad_smo</string>
+      </emattr>
+      <emattr>
+        <name>Next Review Date</name>
+        <string />
+      </emattr>
+      <emattr>
+        <name>Originator</name>
+        <string />
+      </emattr>
+    </attributeList>
+    <historyList count="5">
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>Approved</stateName>
+        <datetime>2008-10-21T03:20:48Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>In-Progress</stateName>
+        <datetime>2008-10-21T03:12:02Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>In-Approval</stateName>
+        <datetime>2008-10-21T03:20:08Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>Effective</stateName>
+        <datetime>2008-10-21T05:27:47Z</datetime>
+      </history>
+      <history>
+        <event>dm_bp_promote</event>
+        <agent>Business Policy</agent>
+        <stateName>History</stateName>
+        <datetime>2008-10-21T05:27:48Z</datetime>
+      </history>
+    </historyList>
+    <stateList count="0" />
+  </businessObject>
+</ematrix>

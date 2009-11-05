@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Confidential Property of Documentum, Inc.                             -->
+<!-- (c) Copyright Documentum, Inc. 2001.                                  -->
+<!-- All Rights reserved.                                                  -->
+<!-- May not be used without prior written agreement                       -->
+<!-- signed by a Documentum corporate officer.                             -->
+<!--                                                                       -->
+<!-- Component: inboxclassic                                               -->
+<!-- Scope: None                                                           -->
+
+<!-- Revision    $Revision: 1.1 $ -->
+<!-- Modified on $Date: 2007/01/02 22:22:20 $ -->
+
+<config version='1.0'>
+   <scope>
+   
+      <component id="inboxclassic" extends="inboxclassic:webtop/config/inboxclassic_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            This component allows for listing of the user?s inbox tasks. 
+            It extends inboxlist adding user preference capability. 
+            It has a classic-style layout.
+         </desc>
+         
+         <pages>
+            <start>/webtop/classic/inbox/inbox.jsp</start>
+         </pages>
+
+         <class>com.medtronic.documentum.mrcs.client.MrcsInboxClassic</class>
+
+         <!-- Show attachment names -->
+         <showattachmentinfo>false</showattachmentinfo>
+         
+         <!-- id of the task manager component accessible from inbox -->
+         <taskmanagerid>taskmgrclassic</taskmanagerid>
+         
+         <!-- override show object type filters -->
+         <showfilters>false</showfilters>
+         
+      </component>
+      
+   </scope>
+   
+</config>

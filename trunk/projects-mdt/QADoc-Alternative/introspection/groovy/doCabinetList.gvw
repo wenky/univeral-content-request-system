@@ -1,0 +1,25 @@
+import com.medtronic.ecm.documentum.introspection.*;
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+
+out.write(GroovyIntrospection.include("Menu.gvw",bindingmap));
+
+out.write """	
+<b>Cabinet List:</b><br>
+"""
+
+IDfCollection myObj1 = null;
+try {
+    String dql = "select upper(object_name),r_object_id,object_name,r_object_type,owner_name,i_is_replica,i_is_reference  from dm_cabinet where (is_private=0) and a_is_hidden=false Union select upper(object_name),r_object_id,object_name,r_object_type,owner_name,i_is_replica,i_is_reference  from dm_cabinet where (owner_name=USER) and a_is_hidden=false order by 1";
+    IDfQuery qry = new DfQuery();
+    qry.setDQL(dql);
+    myObj1 = (IDfCollection) qry.execute(dctmaccess.accessSession(), IDfQuery.DF_READ_QUERY);
+    while (myObj1.next()) 
+    {
+        IDfId objid = myObj1.getId("r_object_id");
+        String objname = myObj1.getString("object_name")
+        out.write("<a href='${baseurl}?do=doDumpObjectById.gvw&id=${objid.getId()}${credurl}'>${objname}</a><br>");
+    }    
+} finally {
+    try {myObj1.close()} catch (Exception e){}
+}

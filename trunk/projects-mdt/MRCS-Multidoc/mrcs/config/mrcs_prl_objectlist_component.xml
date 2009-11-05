@@ -1,0 +1,45 @@
+
+<config version='1.0'>
+
+   <!-- this component is the Webtop version of the object list and has unqualified scope -->
+   <scope>
+
+      <!-- the object list component definition -->
+      <component id="prlobjectlist" extends="doclist:webcomponent/config/navigation/doclist/doclist_component.xml">
+
+         <!-- Description (not NLS'd) -->
+         <desc>
+            WebTop Object List component: The WebTop specific version of the doclist
+            component. Extends the webcomponent to provide additional functionality to
+            update the WebTop Browser Tree when navigating into a folder.
+         </desc>
+
+         <!-- the are 4 methods of initialising this component:
+              1. No params  - displays docbase root cabinets
+              2. folderId   - shows the primary location of the specified folder Id
+              3. folderIds  - a list of '.' separated object Ids are used to build
+                              an absolute location to display
+              4. folderPath - displays the specified folder path -->
+         <params>
+            <param name="folderId" required="false"></param>
+            <param name="folderIds" required="false"></param>
+            <param name="folderPath" required="false"></param>
+         </params>
+
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/prlobjectlist/prldoclist_body.jsp</start>
+            <loadfail>/mrcs/pages/prlobjectlist/prlcustom_nodocuments.jsp</loadfail>
+            <thumbnail>/webtop/classic/objectlist/objectlist_thumbnail.jsp</thumbnail>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.PRLObjectList</class>
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>prlobjectlist</helpcontextid>
+
+      </component>
+
+   </scope>
+</config>

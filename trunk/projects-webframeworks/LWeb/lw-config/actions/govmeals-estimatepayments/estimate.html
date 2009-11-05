@@ -1,0 +1,113 @@
+<script type="text/javascript">
+
+  var questions1 = [
+    { fieldLabel: 'How many in your organization', name: 'headcount', allowBlank:false },
+    { fieldLabel: 'Zip code', name: 'zipcode' },
+    { fieldLabel: 'Percentage Mentally Challenged', name: 'numchallenged' },
+    { fieldLabel: 'Percentage Minority', name: 'numminority' }
+  ];  
+  
+  var questions2 = [
+    { fieldLabel: 'How many breakfasts do you serve?', name: 'bcount', allowBlank:false },
+    { fieldLabel: 'How many lunches do you serve?', name: 'lcount' },
+    { fieldLabel: 'How many dinners do you serve?', name: 'dcount' },
+    { fieldLabel: 'Do you participate in afterschool?', xtype: 'radiogroup', 
+        columnWidth: '.25', anchor:'-25',
+        items: [
+          {boxLabel: 'Yes', name: 'rb-auto', inputValue: 'Y', checked: true},
+          {boxLabel: 'No', name: 'rb-auto', inputValue: 'N'}
+        ]
+    }
+  ];  
+
+  var questions3 = [
+    { fieldLabel: 'How much support do you receive from religious institutions?', name: 'religulous', allowBlank:false },
+    { fieldLabel: 'What is your total current budget?', name: 'budget' },
+    { fieldLabel: 'What is the cost of your administrative staff?', name: 'admincost' }
+  ];  
+
+  var card1 = {
+      id:"card-0",
+      labelWidth: 500, 
+      url:'save-form.php',
+      frame:true,
+      title: 'Estimation Questions Page 1 of 3',
+      bodyStyle:'padding:5px 5px 0',
+      width: 700,
+      defaults: {width: 200},
+      defaultType: 'textfield',
+      items: questions1
+  };
+
+  var card2 = {
+        id:"card-1",
+        labelWidth: 500, 
+        url:'save-form.php',
+        frame:true,
+        title: 'Estimation Questions Page 2 of 3',
+        bodyStyle:'padding:5px 5px 0',
+        width: 700,
+        defaults: {width: 200},
+        defaultType: 'textfield',
+        items: questions2 
+
+    };
+
+  var card3 = {
+        id:"card-2",
+        labelWidth: 500, 
+        url:'save-form.php',
+        frame:true,
+        title: 'Estimation Questions Page 3 of 3',
+        bodyStyle:'padding:5px 5px 0',
+        width: 700,
+        defaults: {width: 200},
+        defaultType: 'textfield',
+        items: questions3 
+
+    };
+
+  var cardNav = function(incr){
+        var l = Ext.getCmp('card-wizard-panel').getLayout();
+        var i = l.activeItem.id.split('card-')[1];
+        var next = parseInt(i) + incr;
+        l.setActiveItem(next);
+        Ext.getCmp('card-prev').setDisabled(next==0);
+        Ext.getCmp('card-next').setDisabled(next==2);
+    };
+
+
+  var cardWizardDef = {
+        id:'card-wizard-panel',
+        title: 'Estimation Wizard',
+        layout:'card',
+        activeItem: 0,
+        bodyStyle: 'padding:15px',
+        width: 775,
+        height: 400,
+        defaults: {border:false},
+        bbar: ['->', // some sort of right-justification indicator... 
+        {
+            id: 'card-prev',
+            text: '&laquo; Previous', 
+            handler: cardNav.createDelegate(this, [-1]), // CEM: interesting. is this a lambda?
+            disabled: true
+        },{
+            id: 'card-next',
+            text: 'Next &raquo;', 
+            handler: cardNav.createDelegate(this, [1])
+        }]
+    };
+
+
+  function divexec(divid) 
+  {
+    var cardpanel1 = new Ext.FormPanel(card1);
+    var cardpanel2 = new Ext.FormPanel(card2);
+    var cardpanel3 = new Ext.FormPanel(card3);
+    cardWizardDef.items = [cardpanel1,cardpanel2,cardpanel3];
+    var wizardobj = new Ext.Panel(cardWizardDef);
+    wizardobj.render(divid);    
+  }
+
+</script>

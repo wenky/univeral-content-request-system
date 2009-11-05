@@ -1,0 +1,32 @@
+import com.medtronic.ecm.documentum.introspection.*;
+import com.documentum.fc.client.*;
+import com.documentum.fc.common.*;
+import groovy.lang.*;
+
+
+String id = null;
+String type = request.getParameter("type");
+String name = request.getParameter("name");
+if (type == null || "".equals(type.trim())) {
+    IDfPersistentObject obj = dctmaccess.accessSession().getObjectByQualification("dm_sysobject where object_name = '${name}'");
+    id = obj.getObjectId().getId();
+} else {
+    if ("dm_user".equals(type)) {
+        IDfPersistentObject obj = dctmaccess.accessSession().getObjectByQualification(type+" where user_name = '${name}'");
+        id = obj.getObjectId().getId();        
+    } else if ("dm_group".equals(type)) {
+        IDfPersistentObject obj = dctmaccess.accessSession().getObjectByQualification(type+" where group_name = '${name}'");
+        id = obj.getObjectId().getId();        
+    } else if ("dm_type".equals(type) || "dm_format".equals(type)) {
+        IDfPersistentObject obj = dctmaccess.accessSession().getObjectByQualification(type+" where name = '${name}'");
+        id = obj.getObjectId().getId();        
+    } else {
+        IDfPersistentObject obj = dctmaccess.accessSession().getObjectByQualification(type+" where object_name = '${name}'");
+        id = obj.getObjectId().getId();        
+    }
+}
+
+// reroute to doDumpObjectById
+Binding binding = GroovyIntrospection.createBindingFromMap(bindingmap);
+binding.setVariable("id",id);
+out.write(GroovyIntrospection.callGroovy("doDumpObjectById.gvw",binding));

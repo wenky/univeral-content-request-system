@@ -1,0 +1,300 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/webtop/wdk/theme/documentum/css/dragdrop.css" type="text/css">
+    <link rel="stylesheet" href="/webtop/wdk/theme/documentum/css/richtexteditor.css" type="text/css">
+    <link rel="stylesheet" href="/webtop/wdk/theme/documentum/css/webforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop/wdk/theme/documentum/css/xforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop/webtop/theme/documentum/css/webtop.css" type="text/css">
+    <link rel="stylesheet" href="/webtop/wdk/theme/tahoe/css/webforms.css" type="text/css">
+    <link rel="stylesheet" href="/webtop/webtop/theme/tahoe/css/webtop.css" type="text/css">  
+</head>
+
+<body class="contentBackground" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0">
+
+    <!--  breadcrumb toolbar -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+    <tr>
+        <td class="streamlineheader controlRowSpacing" valign="bottom" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+            <tr>
+                <!-- breadcrumb links -->
+                <td align="left"><span class="defaultBreadcrumbStyle"><a href="#" onclick='' class="defaultBreadcrumbStyle">mrcs : mradmin</a>/<a href="#" onclick='return false;' class="defaultBreadcrumbStyle">Neurological</a>/<a href="#" onclick='return false;' class="defaultBreadcrumbStyle">Core Neuro</a>/<a href="#" onclick='return false;' class="defaultBreadcrumbStyle">BSP - Business Systems Procedures</a>/<a href="#" onclick='return false;' class="defaultBreadcrumbStyle">EHS Documents</a></span></td>
+            </tr>
+            <tr>
+                <!--  current directory name + doclink icon -->
+                <td class="webcomponenttitle" align="left" valign="bottom"><span class="defaultLabelStyle">EHS</span>&nbsp;<span title="Right click to File Bookmark for Link"><a name="StreamlineView_drilldown_bookmark_0" href="/webtop/drl/objectId/0b025b418005f68e" onclick="return false;"><img src="/webtop/wdk/theme/documentum/icons/bookmark/bookmark.gif" alt="Right click to File Bookmark for Link" border="0" height="16" width="16"></a></span></td>
+            </tr>
+            </tbody></table>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+    
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+    <tr>
+        <td valign="top" width="100%">
+            <!--  folder actions menu bar -->
+            <div class="actionslinks controlRowSpacing">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody>
+                <tr>
+                    <td align="left" nowrap="nowrap" valign="top"><span class="drilldownTitle"><span class="defaultLabelStyle">Actions</span>:&nbsp;</span></td>
+                    <td class="actions" align="left" valign="top" width="99%">
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="Properties"><nobr>Properties</nobr></a></div>
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="New Document"><nobr>New Document</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="New Form"><nobr>New Form</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="New Folder"><nobr>New Folder</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="Delete"><nobr>Delete</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="Subscribe"><nobr>Subscribe</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="Import"><nobr>Import</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="Add To Clipboard"><nobr>Add To Clipboard</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><span class="defaultActionLinkStyle" title="Link here"><nobr>Link here</nobr></span></div> 
+                        <div style="display: inline; margin-right: 6px;"><a href="#" onclick='return false;' id="null" class="defaultActionLinkStyle" title="Email as web-link"><nobr>Email as web-link</nobr></a></div> 
+                        <div style="display: inline; margin-right: 6px;"><span class="defaultActionLinkStyle" title="View clipboard"><nobr>View clipboard</nobr></span></div> 
+                    </td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+            
+            <!--  Folders + "items per page" dropdown for folders -->
+            <table class="defaultDatagridStyle" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+            <tr class="pagerBackground">
+                <td class="pager controlRowSpacing" colspan="2" width="100%">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td nowrap="nowrap"><span class="drilldownTitle">Folders</span>&nbsp;&nbsp;</td>
+                        <td align="center" nowrap="nowrap" width="97%"></td>
+                        <td align="right" nowrap="nowrap" valign="middle"><span class="defaultLabelStyle">Items per page:</span>&nbsp;</td>
+                        <td align="right" nowrap="nowrap" valign="middle">
+                            <select name="StreamlineView_foldersizer_0" size="0" class="defaultDataPageSizeStyle" onchange="setKeys(event);__x760conselect(this);">
+                                <option name="StreamlineView_foldersizer_0_10" value="10">10</option>
+                                <option name="StreamlineView_foldersizer_0_50" value="50">50</option>
+                                <option name="StreamlineView_foldersizer_0_100" value="100">100</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </td>
+            </tr>
+            <!--  subfolder list -->
+            <tr>
+                <td class="folderlinks">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr class="contentBackground">
+                        <td>
+                            <table border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td nowrap="nowrap">
+                                    <img class="defaultDocbaseIconStyle" src="/webtop/wdk/theme/documentum/icons/type/t_dm_folder_16.gif" alt="" title="" border="0" height="16" width="16">
+                                    <a name="StreamlineView_lnkFolder_0" title="Effective" href="#" onclick="setKeys(event);__x7619onclick(this);return false;" class="drilldownDirectoryName">Effective</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+
+            <!--  Files/page # of #/items per page/thmbnails/show files  -->
+            <table class="defaultDatagridStyle" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+            <tr>
+                <td class="spacer" height="5">&nbsp;</td>
+            </tr>
+            <tr class="pagerBackground">
+                <td class="controlRowSpacing" width="100%">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td nowrap="nowrap"><span class="drilldownTitle">Files</span>&nbsp;&nbsp;</td>
+                        <!--  Page 1 of 5 control with first, previous, next, and last link images  -->
+                        <td align="center" valign="middle" width="99%">
+                            <table class="defaultDataPagingStyle" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr align="center" height="16" valign="middle">
+                                    <td align="center" valign="middle"><span title="Goto first page"><img src="/webtop/wdk/theme/documentum/images/paging/first.gif" alt="Goto first page"></span></td>
+                                    <td align="center" valign="middle"><span title="Goto previous page"><img src="/webtop/wdk/theme/documentum/images/paging/previous.gif" alt="Goto previous page"></span></td>
+                                    <td nowrap="nowrap" valign="middle"></td><td align="center" nowrap="nowrap" valign="middle">&nbsp;Page&nbsp;</td>
+                                    <td align="center" nowrap="nowrap" valign="middle"><input size="3" maxlength="4" title="Go To Page" name="StreamlineView_docpager_gotoTxt_0" value="1" class="drilldownPager" onkeypress="handlePagerPress(event)" type="text"></td>
+                                    <td align="center" nowrap="nowrap" valign="middle">&nbsp;of&nbsp;5&nbsp;</td>
+                                    <td align="center" valign="middle"><a href="#" onclick='' name="StreamlineView_docpager_next_0"><span title="Goto next page"><img src="/webtop/wdk/theme/documentum/images/paging/next.gif" alt="Goto next page" border="0"></span></a></td>
+                                    <td align="center" valign="middle"><a href="#" onclick='' name="StreamlineView_docpager_last_0"><span title="Goto last page"><img src="/webtop/wdk/theme/documentum/images/paging/last.gif" alt="Goto last page" border="0"></span></a></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <!--  items per page --> 
+                        <td align="right" nowrap="nowrap" valign="middle">&nbsp;<span class="defaultLabelStyle">Items per page:</span>&nbsp;</td>
+                        <td align="right" nowrap="nowrap" valign="middle">
+                            <select name="StreamlineView_docsizer_0" size="0" class="defaultDataPageSizeStyle" onchange="">
+                                <option name="StreamlineView_docsizer_0_10" selected="selected" value="10">10</option>
+                                <option name="StreamlineView_docsizer_0_50" value="50">50</option>
+                                <option name="StreamlineView_docsizer_0_100" value="100">100</option>
+                            </select>&nbsp;
+                        </td>
+                        <!--  thumbnails checkbox -->
+                        <td align="right" nowrap="nowrap">
+                            <input name="StreamlineView_chkthumbs_0" title="Thumbnails" value="" onclick='' type="checkbox">Thumbnails&nbsp;
+                            <select name="StreamlineView_nav_filter_0" size="0" class="defaultDropdownListStyle" onchange="setKeys(event);__x7613onselect(this);">
+                                <option name="StreamlineView_nav_filter_0" value="0" selected="selected">Show Files</option>
+                                <option name="StreamlineView_nav_filter_0" value="1">Show All Objects and Versions</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </td>
+            </tr>
+            <!--  sliver spacer -->
+            <tr><td class="spacer" colspan="2" height="1">&nbsp;</td></tr>
+            <!--  sort by row -->
+            <tr>
+                <td colspan="2">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr class="colHeaderBackground">
+                        <td colspan="20" class="controlRowSpacing" align="left" valign="middle" width="100%">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr valign="middle">
+                                <td>
+                                    <nobr>
+                                        <span class="drilldownTitle">Sort by</span>:&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Name</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Title</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Format</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Size</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Current State</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Version</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Modified</a><span class="pipetextshadow">|<span class="pipetext">|</span></span>&nbsp;
+                                        <a href="#" onclick='' class="defaultDataSortLinkStyle">Lock Owner</a>
+                                    </nobr>
+                                </td>
+                                <td class="colprefsicon"><a href="#" onclick=''><span title="Column Preferences"><img name="StreamlineView_Image_0" alt="Column Preferences" src="/webtop/wdk/theme/documentum/icons/columnprefs_16.gif" border="0" height="11" width="24"></span></a></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!--  begin data rows -->
+                    <tr class="streamlineDatagridRowAltStyle"> <!--  non-shaded background row -->
+                        <td class="streamlinerowspacer">&nbsp;</td>
+                        <td class="spacer" align="right" valign="top"><div class="lockiconemptyspace"></div></td>
+                        <td style="padding-left: 4px;" align="left">
+                            <div class="drilldownFileInfo"></div>
+                            <!--  icon and document name -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                            <tr>
+                                <td class="objectname" nowrap="nowrap">
+                                    <img class="defaultDocbaseIconStyle" src="/webtop/wdk/theme/documentum/icons/format/f_msw8_16.gif" alt="" title="" border="0" height="16" width="16">
+                                    <a name="StreamlineView_doclnk_0" title="EHS1014" href="#" onclick="setKeys(event);__x761conclick(this);return false;" class="defaultLinkStyle">EHS1014</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            <!--  other display fields -->
+                            <nobr><span class="drilldownLabel">Title</span>:&nbsp;<span class="defaultLabelStyle">A Workplace Accident Injury Reduction Program</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Format</span>:&nbsp;<span class="defaultLabelStyle"></span></nobr><nobr><span title="Microsoft Word Document">Microsoft Word D...</span></nobr>&nbsp;&nbsp;
+                            <nobr><span class="drilldownLabel">Size</span>:&nbsp;<span class="defaultLabelStyle">55 KB</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Current State</span>:&nbsp;<span class="defaultLabelStyle">Approved</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Version</span>:&nbsp;<span class="defaultLabelStyle">Approved,CURRENT,3.0</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Modified</span>:&nbsp;<span class="defaultLabelStyle">5/19/07 12:42 AM</span></nobr>
+                        </td>
+                        <!--  properties / blue i icon -->
+                        <td nowrap="nowrap" width="84">
+                            <table style="margin-left: 2px; margin-right: 2px;" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr valign="top">                            
+                                <td><a href="#" onclick=''><span title="Properties"><img name="StreamlineView_propact_0" src="/webtop/webcomponent/theme/documentum/icons/info.gif" class="actionimage" alt="Properties" border="0" height="16" width="16"></span></a></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td align="left" width="60%">
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Annotate"><nobr>Annotate</nobr></a></div> 
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Checkout"><nobr>Checkout</nobr></a></div> 
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Edit"><nobr>Edit</nobr></a></div> 
+                            <div style="display: inline; margin-right: 6px;"><span class="actions" title="Checkin"><nobr>Checkin</nobr></span></div> 
+                            <div style="display: inline; margin-right: 6px;"><span class="actions" title="Cancel Checkout"><nobr>Cancel Checkout</nobr></span></div> 
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Add To Clipboard"><nobr>Add To Clipboard</nobr></a></div>
+                            <a id="null" href="#" onclick='' class="actions" title="More...">More...</a>&nbsp;
+                        </td>
+                    </tr>
+                    
+                    <!-- shaded background data row -->
+                    <tr class="streamlineDatagridRowStyle">
+                        <td class="streamlinerowspacer">&nbsp;</td>
+                        <td class="spacer" align="right" valign="top"><div class="lockiconemptyspace"></div></td>
+                        <td style="padding-left: 4px;" align="left">
+                            <div class="drilldownFileInfo"></div>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                            <tr>
+                                <td class="objectname" nowrap="nowrap">
+                                    <img class="defaultDocbaseIconStyle" src="/webtop/wdk/theme/documentum/icons/format/f_msw8_16.gif" alt="" title="" border="0" height="16" width="16">
+                                    <a name="StreamlineView_doclnk_1" title="EHS1015" href="#" onclick="setKeys(event);__x761donclick(this);return false;" class="defaultLinkStyle">EHS1015</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            
+                            <nobr><span class="drilldownLabel">Title</span>:&nbsp;<span class="defaultLabelStyle">Accident Investigation</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Format</span>:&nbsp;<span class="defaultLabelStyle"></span></nobr><nobr><span title="Microsoft Word Document">Microsoft Word D...</span></nobr>&nbsp;&nbsp;
+                            <nobr><span class="drilldownLabel">Size</span>:&nbsp;<span class="defaultLabelStyle">62 KB</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Current State</span>:&nbsp;<span class="defaultLabelStyle">Effective</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Version</span>:&nbsp;<span class="defaultLabelStyle">Effective,CURRENT,2.0</span>&nbsp;&nbsp;</nobr>
+                            <nobr><span class="drilldownLabel">Modified</span>:&nbsp;<span class="defaultLabelStyle">5/19/07 12:42 AM</span></nobr>
+                        </td>
+                        <td nowrap="nowrap" width="84">
+                            <table style="margin-left: 2px; margin-right: 2px;" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr valign="top">
+                                <td><a href="#" onclick=''><span title="Properties"><img name="StreamlineView_propact_1" src="/webtop/webcomponent/theme/documentum/icons/info.gif" class="actionimage" alt="Properties" border="0" height="16" width="16"></span></a></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                        <td align="left" width="60%">
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Annotate"><nobr>Annotate</nobr></a></div> 
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Checkout"><nobr>Checkout</nobr></a></div> 
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Edit"><nobr>Edit</nobr></a></div> 
+                            <div style="display: inline; margin-right: 6px;"><span class="actions" title="Checkin"><nobr>Checkin</nobr></span></div> 
+                            <div style="display: inline; margin-right: 6px;"><span class="actions" title="Cancel Checkout"><nobr>Cancel Checkout</nobr></span></div> 
+                            <div style="display: inline; margin-right: 6px;"><a href="#" onclick='' id="null" class="actions" title="Add To Clipboard"><nobr>Add To Clipboard</nobr></a></div>
+                            <a id="null" href="#" onclick='' class="actions" title="More...">More...</a>&nbsp;
+                        </td>
+                    </tr>
+
+                    </tbody>
+                    </table>
+                </td>
+            </tr>
+            
+            </tbody>
+            </table>
+
+
+        </td>
+    </tr>
+    </tbody>
+    </table>
+    
+</body>
+</html>

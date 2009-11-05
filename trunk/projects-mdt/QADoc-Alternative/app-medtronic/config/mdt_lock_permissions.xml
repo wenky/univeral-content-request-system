@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+   <!-- scope type="dm_folder,dm_document" -->
+      <component id="permissions" extends="permissions:webcomponent/config/library/permissions/extendedpermissions_component.xml">
+         <class>com.medtronic.ecm.documentum.core.webtop.MdtLockPermissions</class>
+      </component>
+   </scope>
+</config>

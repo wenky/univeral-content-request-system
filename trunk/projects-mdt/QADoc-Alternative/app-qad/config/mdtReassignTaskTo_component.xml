@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--***********************************************************************-->
+<!--                                                                       -->
+<!-- Project        qaodc                                                  -->
+<!-- Module         Reassign Task                                          -->
+<!-- File           mdtReassignTaskTo_component.xml                      -->
+<!-- Description    Tasks To be Reassigned Component Definition                -->
+<!-- Created on     20th May 2008                                          -->
+<!--                                                                       -->
+<!--***********************************************************************-->
+<config version="1.0">
+   <scope >
+      <component id="mdtReassignTaskTo" >
+         <desc>
+         </desc>
+         <!-- Component Layout -->
+         <pages>
+            <start>/app-qad/reassigntask/mdtReassignTaskTo.jsp</start>
+         </pages>
+
+         <class>com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskTo</class>
+         <nlsbundle>com.medtronic.ecm.documentum.qad.reassigntask.MdtReassignTaskToNlsProp</nlsbundle>
+      </component>
+   </scope>
+</config>

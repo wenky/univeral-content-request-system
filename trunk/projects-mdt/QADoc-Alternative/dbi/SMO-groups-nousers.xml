@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<DocbaseItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="docbase_objects.xsd">
+    <Groups>
+    
+        <!--  warning, this will clear out the groups if users have been assigned to them...  -->
+        <Group>
+            <GroupName>mdt_qad_smo_reassign</GroupName>
+            <Description>SMO Reassignment Group</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        <Group>
+            <GroupName>mdtapp_qad_smo</GroupName>
+            <Description>SMO Current Users</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        <Group>
+            <GroupName>mdtallow_qad_smo</GroupName>
+            <Description>SMO Allowed Users</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>            
+        <Group>
+            <GroupName>mdt_qad_smo_users</GroupName>
+            <Description>SMO All Users</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        <Group>
+            <GroupName>mdt_qad_smo_author</GroupName>
+            <Description>SMO Authors</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        <Group>
+            <GroupName>mdt_qad_smo_doc_ctrl</GroupName>
+            <Description>SMO Document Control</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        <Group>
+            <GroupName>mdt_qad_smo_approver</GroupName>
+            <Description>SMO Approvers</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        
+        <Group>
+            <GroupName>mdt_qad_smo_eng_approver</GroupName>
+            <Description>SMO Engineering Approvers</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+
+        <Group>
+            <GroupName>mdt_qad_smo_ra_approver</GroupName>
+            <Description>SMO RA Approvers</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+        
+        <Group>
+            <GroupName>mdt_qad_smo_oper_approver</GroupName>
+            <Description>SMO Operations Approvers</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+
+        <Group>
+            <GroupName>mdt_qad_smo_qa_approver</GroupName>
+            <Description>SMO QA Approvers</Description>
+            <GroupAddress>rs.documentum@medtronic.com</GroupAddress>
+            <Members> 
+            </Members>
+        </Group>
+
+
+        
+    </Groups>
+        
+    <ACLs>                    
+    </ACLs>
+        
+    <Folders>
+    </Folders>
+    
+    <DocbaseObjects>            
+    </DocbaseObjects>
+    
+</DocbaseItems>

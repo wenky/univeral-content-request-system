@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version="1.0">
+   <scope>
+      <component id="mdtnewchangerequestcontainer" extends="propertysheetwizardcontainer:webcomponent/config/library/propertysheetwizardcontainer/propertysheetwizardcontainer_component.xml">
+         <desc>
+            Extends the component propertysheetwizardcontainer and contains 
+            attributes, the component newchangerequest, and permissions. The 
+            component newchangerequest requires a visit. 
+         </desc>
+         <params>
+            <param name="component" required="false"/>
+            <param name="folderId" required="false"/>
+            <param name="objectId" required="false"/>
+            <param name="objectIds" required="false"/>
+            <param name="editAfterCreate" required="false"/>
+            <param name="contentType" required="false"/>
+         </params>
+         <pages>
+            <filter clientenv="not appintg">
+               <start>/webcomponent/library/create/newContainer.jsp</start>
+            </filter>
+            <filter clientenv="appintg">
+               <start>/webcomponent/library/create/appIntgNewContainer.jsp</start>
+            </filter>
+         </pages>
+         <contains>
+            <component requiresVisit="true">mdtnewchangerequest</component>
+            <component requiresVisit="true">attributes</component>
+            <component requiresVisit="true">mdtformdocuments</component>
+            <component requiresVisit="false">permissions</component>
+         </contains>
+         <!-- class>com.documentum.webcomponent.library.create.NewDocContainer</class -->
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtNewApprovalFormContainer</class>
+         <filter clientenv='not appintg'>
+            <nlsbundle>com.documentum.webcomponent.library.create.NewContainerNlsProp</nlsbundle>
+         </filter>
+         <filter clientenv='appintg'>
+            <nlsbundle>com.documentum.webcomponent.library.create.AppIntgNewContainerNlsProp</nlsbundle>
+            <!-- Set "numberedtabs" to true to display each -->
+            <!-- tab's title with a sequential number.      -->
+            <numberedtabs>false</numberedtabs>
+         </filter>
+        <newcomponentname>mdtnewchangerequest</newcomponentname>
+      </component>
+   </scope>
+</config>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Developer's Comments
+# Parameters
+/* component                            (Required) ID of the component displayed 
+*/
+/* contentType                          (Optional) Content type of document 
+                                        being created. 
+*/
+/* editAfterCreate                      (Optional) Boolean: Set to true to open 
+                                        the new document object in edit mode 
+                                        after it has been created. 
+*/
+#
+# Elements
+/* <newcomponentname>                   Specifies the name of the component that 
+                                        will be launched to create the new 
+                                        object 
+*/
+/* <numberedtabs>                       Set to true to display each tab's title
+                                        preceded by a sequential number.
+*/
+#
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

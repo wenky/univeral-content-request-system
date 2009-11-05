@@ -1,0 +1,77 @@
+<html>
+
+    <!--  jquery/ext include -->
+    <script type="text/javascript" src="./jquery-1.2.1-regex.js"></script>
+    <script type="text/javascript" src="./ext-2.0/adapter/jquery/jquery-plugins.js"></script>
+    <script type="text/javascript" src="./ext-2.0/adapter/jquery/ext-jquery-adapter.js"></script>
+    <script type="text/javascript" src="./ext-2.0/ext-all.js"></script>
+    <link rel="stylesheet" type="text/css" href="./ext-2.0/resources/css/ext-all.css">
+    <!--  json4jquery - note: extensive problems with DATETIMEs js "objects" ... -->
+    <script type="text/javascript" src="./json4jquery.js"></script>
+    
+    <script type="text/javascript">
+      var showlogin = false;
+      function handleNoSession()
+      {
+        alert("no session");
+        // activate "lockout" div
+        showlogin = true; // we can't display it yet, since jquery's $.ready hasn't occurred yet, so we set a flag
+      }
+
+      var jqueryready = false;
+      var extready = false;
+      $(document).ready(function() {
+          jqueryready = true;
+          if (jqueryready && extready) readyToGo();
+        });
+        
+        // FYI this is called before jquery's document.ready, but after handleNoSession...
+        Ext.onReady(function() {
+          extready = true;
+          if (jqueryready && extready) readyToGo();
+        });
+
+        function readyToGo() // called when both jquery and ext have called their respective ready functions
+        {
+          // create two new divs on top of everything
+        
+          // show login div/form
+          var loginform = new Ext.form.FormPanel({
+            standardSubmit:true,
+            frame:true,
+            title:'Login',
+            width:350,
+            defaults: {width: 230},
+            defaultType: 'textfield',
+              items:[{fieldLabel:'Username',name:'loginformuser',allowBlank:false},
+                     {fieldLabel:'Password',name:'loginformpass',inputType:'password',allowBlank:false},
+                     //{fieldLabel:'Docbase',name:'loginformbase',inputType:'select'}
+                     //{inputType:'hidden',id:'submitbutton',name:'myhiddenbutton',value:'hiddenvalue'}
+                    ],
+              buttons:[{text:'DoLogin',handler:function(){alert("dologin pressed");}}]
+          });
+          
+          loginform.render('loginform');
+          // get docbase list
+        }
+        
+        function handleNoSession()
+        {
+          alert("nosession");
+        }
+        
+    </script>    
+    
+    <!--  localsession include -->
+    <script type="text/javascript" src="./localsession.js"></script>
+    <!--  trimquery, for the hell of it, include -->
+    <script type="text/javascript" src="./trimpath-query-1.0.38.js"></script>
+
+    <body>
+      
+      <div id="loginform"></div>
+            
+    
+    </body>
+
+</html>

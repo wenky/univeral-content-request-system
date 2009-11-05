@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--***********************************************************************-->
+
+<config version='1.0'>
+   <!-- scope it to mrcs_folder... can't do this since the second component invocation in wizard seems to lose the scope context, and invokes ImportContent not MrcsImportContent -->
+   <!--  scope type='m_mrcs_folder' -->
+   <scope>
+
+      <!-- component definition -->
+      <component id="mrcsimportOLD">
+         
+         <!-- Component Contract -->
+         <params>
+            <!-- objectId provides id of folder for import -->
+            <param name="objectId" required="true"></param>
+            <param name="filenameWithPath" required="true"></param>
+         </params>
+         
+         <!-- Component Layout -->
+         <pages>
+            <start>/mrcs/pages/MrcsImportContent/MrcsImportContent.jsp</start>
+            <xmlappdetect>/mrcs/pages/MrcsImportContent/xmlAppDetect.jsp</xmlappdetect>
+            <!-- custom doctype screens -->
+            <UserSpecified>/mrcs/pages/MrcsImportContent/screenA.jsp</UserSpecified>
+         </pages>
+         
+         <!-- Component Behavior -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsImportContent</class>
+         <!--  nlsbundle>com.documentum.webcomponent.library.importcontent.ImportNlsProp</nlsbundle -->
+         <nlsbundle>com.medtronic.documentum.mrcs.client.MrcsImportContentNlsProp</nlsbundle>
+         
+         <!-- Component specific Configuration -->
+         <helpcontextid>import</helpcontextid>
+         
+         <!-- Preferred format for importing an object. 
+              Number of dm_format objects have similar 'dos_extension's.
+              Add your preferred format name for a dos_extension here, if you prefer to auto-select a 
+              format for a particular dos_extension. 
+              Usage:
+              dos_extension := file extension for the file to be imported.
+              name          := docbase dm_format object's name to auto select when importing a file
+                               with a particular file extension. -->
+         <default_formats>
+         
+            <!-- For files with empty dos_extension -->
+            <format dos_extension=""      name="unknown" />
+            
+            <format dos_extension="ai"    name="illustrator10" />
+            <format dos_extension="au"    name="au" />
+            <format dos_extension="bk"    name="mbook55" />
+            <format dos_extension="doc"   name="msw8" />
+            <format dos_extension="dot"   name="msw8template" />
+            <format dos_extension="fm"    name="mdoc55" />
+            <format dos_extension="htm"   name="html" />
+            <format dos_extension="html"  name="html" />            
+            <format dos_extension="jpg"   name="jpeg" />
+            <format dos_extension="mdb"   name="ms_access8" />
+            <format dos_extension="mif"   name="mif55" />
+            <format dos_extension="mp4"   name="mpeg-4a" />
+            <format dos_extension="ppt"   name="ppt8"/> 
+            <format dos_extension="psd"   name="photoshop6"/> 
+            <format dos_extension="so"    name="sunshrlib"/> 
+            <format dos_extension="txt"   name="crtext"/>
+            <format dos_extension="vsd"   name="vsd4"/> 
+            <format dos_extension="wpd"   name="wp8"/> 
+            <format dos_extension="xls"   name="excel8book"/>              
+            <format dos_extension="zip"   name="zip" /> 
+            
+            <!-- custom setting -->
+            <!-- When importing a file, if you want to auto select a docbase format for your custom file dos extension, 
+                 add it here. eg.
+                 <format dos_extension="foo"   name="crtext" />
+              -->
+         </default_formats>
+              
+      </component>
+      
+   </scope>
+</config>
+
+<!--
+***********************************************************************
+
+ Confidential Property of Medtronic, Inc.
+ c Copyright Medtronic, Inc. 2006.
+ All Rights reserved.
+ May not be used without prior written agreement
+ signed by a corporate officer.
+
+***********************************************************************
+
+ Project        MRCS
+ Version        4.1.1
+ Description
+ Created on
+
+***********************************************************************
+
+ CVS Maintained Data
+
+ Filename       $RCSfile: mrcs_importdocument_component.xml,v $
+ Author         $Author: muellc4 $
+ Revision       $Revision: 1.5 $
+ Modified on    $Date: 2006/08/21 04:54:49 $
+
+***********************************************************************
+-->
+
+
+

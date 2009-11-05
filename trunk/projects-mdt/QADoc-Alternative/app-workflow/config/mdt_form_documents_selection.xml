@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<config version='1.0'>
+   <scope>
+      <component id="mdtformdocumentsselection" extends="objectgrid:/webcomponent/config/navigation/objectgrid/objectgrid_component.xml">
+      
+         <!-- Component Contract -->
+         <params>
+            <param name="objectId" required="true"></param>
+            <param name="objectIds" required="false"></param>
+         </params>
+         
+         <!-- Component Layouts -->
+         <pages>
+            <start>/app-workflow/pages/mdt_form_documents_selection.jsp</start>
+         </pages>
+
+         <!-- Component Behavior -->
+         <class>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtFormDocumentsSelection</class>
+         <nlsbundle>com.medtronic.ecm.documentum.mdtworkflow.webtop.MdtFormDocumentsSelectionNlsProp</nlsbundle>
+         
+      </component>
+   </scope>
+</config>

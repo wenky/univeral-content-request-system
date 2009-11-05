@@ -1,0 +1,58 @@
+
+<script type="text/javascript">
+
+  function divexec(divname) 
+  {    
+    
+    /* //TODO: custom sort (folders first, then docs) */
+    var gridColumns = [
+      {header:"DctmId",width:75,sortable:true,dataIndex:"r_object_id"}, 
+      {header:"Name",width:350,sortable:true,dataIndex:"object_name"}, 
+      {header:"Title",width:200,sortable: true, dataIndex: "title"},
+      {header:"Type",width:100,sortable: true, dataIndex: "r_object_type"},
+      {header:"Fmt",width:25,sortable: true, dataIndex: "r_content_type"},
+      {header:"LockedBy",width:75,sortable: true, dataIndex: "r_lock_owner"},
+      {header:"ModifyDate",width:100,sortable: true, dataIndex: "r_modify_date"}
+    ];
+    
+    var dataFields = [ //TODO: datatype formatting...
+      'topsort',
+      'namesort',
+      'r_object_id',
+      'object_name',
+      'r_object_type',
+      'r_lock_owner',
+      'owner_name',
+      'r_content_size',
+      'a_content_type',
+      'r_policy_id',
+      'title',
+      'r_modify_date',
+      'thumbnail_url',
+      'a_is_hidden',
+      'isfolder'];
+    
+    // this reads a raw "array of arrays" JSON object....
+    var arrrdr = new Ext.data.ArrayReader({}, Ext.data.Record.create(dataFields));
+    
+    var theStore = new Ext.data.Store({
+      /*totalProperty: 'DataCount',*/
+      fields: dataFields,
+      reader: arrrdr,
+      proxy: new Ext.data.HttpProxy({url:'[actions][dctm-filelist][data][filelist]'})
+    });
+
+
+    var gridPanel = new Ext.grid.GridPanel({
+      store: theStore,
+      columns: gridColumns,
+      stripeRows:true,
+      width: 1024, height: 768,
+      title: "Folder Contents"
+    });
+
+    theStore.load({params:{folderspec:'/SMO'}, callback: function(r,options,success){alert("success status "+success+" rows retreived "+r.length);gridPanel.render(divname);}, add :false});
+    
+  }
+  
+</script>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ ******************************************************************************
+ * Copyright 2004. EMC Corporation.  All Rights Reserved.
+ ******************************************************************************
+ *
+ * Project        WDK 5.3
+ * Created on     July 22, 2004
+ * Tab width      3
+ *
+ ******************************************************************************
+ *
+ * PVCS Maintained Data
+ *
+ * Revision       $Revision: 1.2 $
+ * Modified on    $Date: 2006/09/12 18:16:08 $
+ *
+ ******************************************************************************
+-->
+<config version='1.0'>
+   <scope>
+      <component id="mrcsimportcontainer" extends="combocontainer:wdk/config/combocontainer_component.xml">
+         <ucfrequired/>
+         <!-- Component Contract -->
+         <params>
+            <param name='component' required='true'></param>
+            <param name='componentArgs' required='true'></param>
+            <param name='filePath' required='false'></param>
+            <param name='parentPath' required='false'></param>
+            <param name='isDirectory' required='false'></param>
+         </params>
+         <pages>
+            <!--  fileselection>/webcomponent/library/contenttransfer/importcontent/fileselection.jsp</fileselection -->
+            <fileselection>/mrcs/pages/MrcsImportContent/fileselectionUCF.jsp</fileselection>
+            <folderselection>/webcomponent/library/contenttransfer/importcontent/folderselection.jsp</folderselection>
+            <filter clientenv='not appintg'>
+               <!-- containerstart>/webcomponent/library/contenttransfer/importcontent/importcontainer.jsp</containerstart -->
+               <containerstart>/mrcs/pages/MrcsImportContent/MrcsImportContainerUCF.jsp</containerstart>
+            </filter>
+            <filter clientenv='appintg'>
+               <containerstart>/webcomponent/library/contenttransfer/importcontent/appintgimportcontainer.jsp</containerstart>
+            </filter>
+         </pages>
+         <!--  class>com.documentum.webcomponent.library.contenttransfer.importcontent.UcfImportContainer</class -->
+         <class>com.medtronic.documentum.mrcs.client.MrcsImportContainerUCF</class>
+         <nlsbundle> 
+            com.documentum.webcomponent.library.contenttransfer.importcontent.ImportContentContainerNlsProp</nlsbundle>
+         <service>
+            <service-class>com.documentum.web.contentxfer.impl.ImportService</service-class>
+            <transport-class>com.documentum.web.contentxfer.ucf.UcfContentTransport</transport-class>
+         </service>
+
+         <!-- 
+         Maximum allowed number of import files in one operation. The number of files that
+         can be accomodated in one operation is dependent on the max heap settings of the app server
+         -->
+         <max-import-file-count>1000</max-import-file-count>
+   
+         <!-- Binding component version -->
+         <bindingcomponentversion>latest</bindingcomponentversion>
+
+         <!-- Component specific Configuration -->
+         <helpcontextid>import</helpcontextid>
+
+      </component>
+   </scope>
+</config>
