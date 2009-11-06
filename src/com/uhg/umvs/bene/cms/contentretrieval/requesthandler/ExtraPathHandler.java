@@ -1,5 +1,7 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requesthandler;
 
+import static com.uhg.umvs.bene.cms.contentretrieval.util.Lg.inf;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +31,7 @@ public class ExtraPathHandler implements ContentRequestHandler
             throw new RuntimeException("ExtraPathHandler: Error getting item key from url extrapath "+extrapath+" for matching prefix "+sourceprefix,e);
         }
         
+        inf("Request Match: handling item %s from sourceprefix %s",item,sourceprefix);
         contentsource.getContent(item, req, resp);
         
         // no match
