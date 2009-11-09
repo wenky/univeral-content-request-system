@@ -34,17 +34,38 @@ import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
 //   -- MBean is configured in server/default/deploy/jboss-portal.sar/portal-cms.sar/META-INF/jboss-service.xml 
 
 
-
 public class JBossCMSSource implements ContentSource
 {
     String cmsServiceObjectName = "portal:service=CMS";
     public void setCmsServiceObjectName(String cmsServiceObjectName){this.cmsServiceObjectName = cmsServiceObjectName;}
+    
+    CMS getCMSServiceReference()
+    {
+        try {
+            MBeanServer mbeanServer = MBeanServerLocator.locateJBoss();
+            CMS CMSService = (CMS)MBeanProxy.get(CMS.class, new ObjectName(cmsServiceObjectName), mbeanServer);
+            return CMSService;
+        } catch (MBeanProxyCreationException createerror) {
+            throw new RuntimeException("JBossCMSSource:: could not create proxy/facade for CMS portal service name 'portal:service=CMS'",createerror);
+        } catch (MalformedObjectNameException badname) {
+            throw new RuntimeException("JBossCMSSource:: CMS portal service name 'portal:service=CMS' is malformed",badname);
+        }        
+    }
 
+    public boolean hasContent(String contentItem, HttpServletRequest request)
+    {
+        CMS CMSService = getCMSServiceReference();
+        
+        Command existsCMD = CMSService.getCommandFactory().createItemExistsCommand(contentItem);
+        Boolean exists = (Boolean)CMSService.execute(existsCMD);
+        return exists.booleanValue();        
+    }
+    
     public void getContent(String contentItem, HttpServletRequest request, HttpServletResponse resp)
     {
         try { 
-            MBeanServer mbeanServer = MBeanServerLocator.locateJBoss();
-            CMS CMSService = (CMS)MBeanProxy.get(CMS.class, new ObjectName(cmsServiceObjectName), mbeanServer);
+            CMS CMSService = getCMSServiceReference();
+            
             Command getCMD = CMSService.getCommandFactory().createFileGetCommand(contentItem, new Locale(CMSService.getDefaultLocale()));
             File file = (File)CMSService.execute(getCMD);
             Content content = file.getContent();
@@ -62,10 +83,6 @@ public class JBossCMSSource implements ContentSource
             
         } catch (IOException ioe) {
             throw new RuntimeException("JBossCMSSource:: IO exception reading stream for item "+contentItem,ioe);
-        } catch (MBeanProxyCreationException createerror) {
-            throw new RuntimeException("JBossCMSSource:: could not create proxy/facade for CMS portal service name 'portal:service=CMS'",createerror);
-        } catch (MalformedObjectNameException badname) {
-            throw new RuntimeException("JBossCMSSource:: CMS portal service name 'portal:service=CMS' is malformed",badname);
         }
         
         

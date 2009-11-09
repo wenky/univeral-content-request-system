@@ -52,6 +52,38 @@ public class JCRSource implements ContentSource
     String mimeproperty = null;
     public void setMimeTypeProperty(String propname){this.mimeproperty = propname;}
 
+    
+    public boolean hasContent(String contentItem, HttpServletRequest request)
+    {
+        String itempath = basepath + contentItem + contentnode;        
+        Session session = null;
+        try {
+            session = contentrepository.login(credentials, workspace);
+        } catch (NoSuchWorkspaceException nowse) {
+            throw new RuntimeException("JCRSource: login attempt failed due to unknown workspace "+workspace,nowse);            
+        } catch (LoginException le) {
+            throw new RuntimeException("JCRSource: login attempt threw LoginException, check configured credentials",le);                        
+        } catch (RepositoryException re) {
+            throw new RuntimeException("JCRSource: login attempt threw RepositoryException",re);                        
+        }        
+        
+        try { 
+            Item item = session.getItem(itempath);
+            if (item == null)
+            {
+                return false;
+            }
+        } catch (PathNotFoundException badpath) {
+            return false;    
+        } catch (RepositoryException re) {
+            throw new RuntimeException("JCRSource: item lookup of "+itempath+" threw RepositoryException",re);                        
+        }
+        
+        return true;
+        
+    }
+
+    
     public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
     {
         String itempath = basepath + contentItem + contentnode;        

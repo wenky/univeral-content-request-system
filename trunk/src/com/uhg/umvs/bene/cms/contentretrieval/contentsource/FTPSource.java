@@ -32,37 +32,66 @@ public class FTPSource implements ContentSource
     String basepath = "";
     public void setBasePath(String path){this.basepath = path;}
     
+    FTPClient getConnectedClient() 
+    {
+        FTPClient ftp = null;
+        
+        // if we need a real production version of this, we should do connection pooling...as if we'd ever really use FTP for high-availability...
+        try { 
+            ftp = new FTPClient();
+            ftp.connect(server);
+            int reply = ftp.getReplyCode();
+            if (!FTPReply.isPositiveCompletion(reply)) {
+                ftp.disconnect();
+                throw new RuntimeException("FTPSource: FTP connection attempt was not replied properly");
+            }
+            
+            if (!ftp.login(username, password))
+            {
+                ftp.logout();
+                throw new RuntimeException("FTPSource: invalid credentials");
+            }
+            
+        } catch (SocketException se) {
+            throw new RuntimeException("FTPSource: FTP connection attempt resulted in SocketException");            
+        } catch (IOException ioe) {
+            throw new RuntimeException("FTPSource: FTP connection attempt resulted in IOException");                        
+        }
+        
+        return ftp;
+    }
+    
+    
+    public boolean hasContent(String contentItem, HttpServletRequest request)
+    {
+        String itempath = basepath+contentItem;
+        
+        FTPClient ftp = getConnectedClient();
+        
+        try { 
+            String itemstatus = ftp.getStatus(itempath);
+            String modtime = ftp.getModificationTime(itempath);
+            String replystring = ftp.getReplyString();
+            //FTPFile[] filelist = ftp.listFiles(itempath);
+            if (modtime == null) { return false; }            
+        } catch (IOException ioe) {
+            throw new RuntimeException("FTPSource: FTP exists check resulted in IOException");                                                
+        } finally {
+            if (ftp.isConnected()) {
+                try{ftp.disconnect();}catch(IOException ioe){};
+            }
+        }
+        return true;
+    }
     
 
     public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
     {
         String itempath = basepath+contentItem;
         
-        FTPClient ftp = null;
-        
-        try { 
-            ftp = new FTPClient();
-            ftp.connect(server);
-
-            int reply = ftp.getReplyCode();
-            if (!FTPReply.isPositiveCompletion(reply)) {
-                ftp.disconnect();
-                throw new RuntimeException("FTPSource: connection attempt was not replied properly");
-            }
-        } catch (SocketException se) {
-            throw new RuntimeException("FTPSource: connection attempt resulted in SocketException");            
-        } catch (IOException ioe) {
-            throw new RuntimeException("FTPSource: connection attempt resulted in IOException");                        
-        }
-        
+        FTPClient ftp = getConnectedClient();
         
         try {
-        
-            if (!ftp.login(username, password))
-            {
-                ftp.logout();
-                throw new RuntimeException("FTPSource: invalid credentials");
-            }
             
             // why not ftp.setFileTransferType()??
             ftp.setFileType(FTP.BINARY_FILE_TYPE);
