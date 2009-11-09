@@ -22,6 +22,14 @@ public class FileSystemSource implements ContentSource
     String baseroot;
     public void setBaseroot(String baseroot) { this.baseroot = baseroot; }
 
+    public boolean hasContent(String contentItem, HttpServletRequest request)
+    {
+        String filepath = baseroot + contentItem;
+        File thefile = new File(filepath);
+        return thefile.exists();        
+    }
+
+    
     public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
     {
         // form filename from baseroot

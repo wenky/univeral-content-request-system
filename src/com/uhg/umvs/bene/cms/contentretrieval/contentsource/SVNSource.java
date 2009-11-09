@@ -39,6 +39,39 @@ public class SVNSource implements ContentSource
     String basepath = "";
     public void setBasepath(String basepath){this.basepath = basepath;}
 
+    public boolean hasContent(String contentItem, HttpServletRequest request)
+    {
+        DAVRepositoryFactory.setup();
+        
+        String itempath = basepath + contentItem;
+        
+        SVNRepository repository = null;
+
+        try {
+            repository = SVNRepositoryFactory.create( SVNURL.parseURIEncoded( repositoryurl ) );
+        } catch (SVNException svne) {
+            throw new RuntimeException("SVNSource: SVN error in getting repository reference for repo url "+repositoryurl);            
+        }
+        ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager( username , password );
+        repository.setAuthenticationManager( authManager );
+        
+        SVNNodeKind nodeKind = null;
+        
+        try {
+            nodeKind = repository.checkPath( itempath , -1 );
+        } catch (SVNException svne) {
+            return false;            
+        }
+        
+        if ( nodeKind == SVNNodeKind.NONE ) {
+            return false;
+        } else if ( nodeKind == SVNNodeKind.DIR ) {
+            throw new RuntimeException("SVNSource: The entry at '" + repositoryurl + "' is a directory while a file was expected." );
+        }
+        
+        return true;
+        
+    }
     
     
     public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
