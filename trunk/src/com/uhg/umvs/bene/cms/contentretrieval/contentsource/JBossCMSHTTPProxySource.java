@@ -7,6 +7,7 @@ package com.uhg.umvs.bene.cms.contentretrieval.contentsource;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -18,7 +19,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.hsqldb.lib.StringUtil;
 
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentSource;
 
 public class JBossCMSHTTPProxySource implements ContentSource
 {
@@ -44,7 +45,10 @@ public class JBossCMSHTTPProxySource implements ContentSource
             URLConnection urlc = null;
             try {                
                 urlc = theurl.openConnection();
-                urlc.setRequestProperty("checkexists", "true");                
+                if (urlc instanceof HttpURLConnection) {
+                    HttpURLConnection httpconn = (HttpURLConnection)urlc;
+                    httpconn.addRequestProperty("checkexists", "true");
+                }
             } catch (MalformedURLException e) {     
                 throw new RuntimeException("JBossCMSHTTPProxySource: bad content request url "+newurl,e);
             }

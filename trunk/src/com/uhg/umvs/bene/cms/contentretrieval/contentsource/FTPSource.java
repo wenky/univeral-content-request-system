@@ -12,7 +12,7 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentSource;
 
 // get content from an FTP server. need to configure a server. optionally provide username, password, 
 // and base path on the remote FTP filesystem from which to grab the resource 
