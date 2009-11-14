@@ -1,0 +1,10 @@
+<!-- This is an XStream serialized map -->
+<map>
+  <entry><string>Retriever</string><string>com.uhg.umvs.bene.cms.contentretrieval.taglib.retriever.URLRetriever</string></entry>
+  <entry>
+    <string>RetrieverConfig</string>
+    <map>
+      <entry><string>BaseURL</string><string>http://localhost:8080/tbp</string></entry>
+    </map>
+  </entry>
+</map>
