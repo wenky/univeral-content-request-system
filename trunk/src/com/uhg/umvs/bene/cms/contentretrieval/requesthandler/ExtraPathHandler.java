@@ -5,8 +5,8 @@ import static com.uhg.umvs.bene.cms.contentretrieval.util.Lg.inf;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentRequestHandler;
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentRequestHandler;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentSource;
 
 public class ExtraPathHandler implements ContentRequestHandler
 {

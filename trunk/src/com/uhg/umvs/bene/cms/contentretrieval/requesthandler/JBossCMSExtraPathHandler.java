@@ -1,14 +1,16 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requesthandler;
 
 import static com.uhg.umvs.bene.cms.contentretrieval.util.Lg.inf;
+import static com.uhg.umvs.bene.cms.contentretrieval.util.Lg.trc;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentRequestHandler;
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentRequestHandler;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentSource;
 
 public class JBossCMSExtraPathHandler implements ContentRequestHandler
 {
@@ -22,6 +24,9 @@ public class JBossCMSExtraPathHandler implements ContentRequestHandler
     {
         // check for checkexists request property
         String headerexists = req.getHeader("checkexists");
+        
+        if (inf())try{Enumeration<String> hdrs=req.getHeaderNames();while(hdrs.hasMoreElements()) {String h = hdrs.nextElement(); inf("hdr: "+h+" val: "+req.getHeader(h)); }}catch(Exception e){}
+        
         String attrexists = (String)req.getAttribute("checkexists");
         
         
