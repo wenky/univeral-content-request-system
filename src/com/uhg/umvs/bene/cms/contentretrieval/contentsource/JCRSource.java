@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentSource;
 
 // gets content from a JCR content repository, likely a Jackrabbit one
 // need to configure the Repository, credentials, and workspace name

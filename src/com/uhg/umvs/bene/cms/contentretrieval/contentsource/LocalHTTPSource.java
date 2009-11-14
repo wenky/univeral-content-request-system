@@ -18,7 +18,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.hsqldb.lib.StringUtil;
 
-import com.uhg.umvs.bene.cms.contentretrieval.common.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.interfaces.ContentSource;
 
 public class LocalHTTPSource implements ContentSource
 {
