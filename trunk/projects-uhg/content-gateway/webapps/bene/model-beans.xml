@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="registrationModelAccessor" class="com.uhg.umvs.bene.web.common.ScopedAttributeAccessorImpl">
+		<property name="scopeType" value="FLOW" />
+		<property name="attributeName">
+			<idref bean="registrationModel" />
+		</property>
+	</bean>
+
+	<bean id="registrationModel" class="com.uhg.umvs.bene.web.registration.RegistrationModelImpl" scope="prototype">
+	</bean>
+
+</beans>
+
+
+

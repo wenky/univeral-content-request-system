@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="registrationHelper" name="registrationValidatorHelper"
+		parent="baseHelper" class="com.uhg.umvs.bene.web.registration.RegistrationHelperImpl">
+		<property name="eligibilityService" ref="eligibilityService"/>
+		<property name="emailService" ref="emailService" />
+		<property name="emailMessageTemplate" ref="registrationTemplate" />
+		<property name="securityService" ref="securityService" />
+		<property name="referenceService" ref="referenceService" />		
+	</bean>
+	
+</beans>
+
+
+

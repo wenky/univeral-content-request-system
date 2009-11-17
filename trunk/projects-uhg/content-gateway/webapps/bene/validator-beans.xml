@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="registrationValidator" class="com.uhg.umvs.bene.web.registration.RegistrationValidatorImpl">
+		<property name="helper" ref="registrationValidatorHelper" />
+		<property name="accountValidator" ref="registrationAccountValidator" />
+		<property name="accountConfirmationValidator" ref="registrationAccountConfirmationValidator" />
+		<property name="demographicsValidator" ref="registrationDemographicsValidator" />
+	</bean>
+
+	<bean id="registrationAccountValidator" parent="baseJsr303Validator">
+		<property name="groups" value="com.uhg.umvs.bene.web.registration.RegistrationValidator.Account" />
+	</bean>
+
+	<bean id="registrationAccountConfirmationValidator" parent="baseJsr303Validator">
+		<property name="groups" value="com.uhg.umvs.bene.web.registration.RegistrationValidator.AccountConfirmation" />
+	</bean>
+
+	<bean id="registrationDemographicsValidator" parent="baseJsr303Validator">
+		<property name="groups" value="com.uhg.umvs.bene.web.registration.RegistrationValidator.Demographics" />
+	</bean>
+
+</beans>
+
+
+
