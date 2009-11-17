@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+		http://www.springframework.org/schema/webflow 
+		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+  start-state="initialize">
+
+  <view-state id="displayPreamble" view="registration/preamble">
+    <transition on="cancel" to="cancel"/>
+    <transition on="example" to="example"/>
+    <transition on="start" to="startRegistration"/>
+  </view-state>
+
+  <view-state id="displayExample" view="registration/example">
+    <transition on="cancel" to="cancel"/>
+    <transition on="previous" to="initialize"/>
+    <transition on="start" to="startRegistration"/>
+  </view-state>
+
+  <view-state id="displayDemographics" view="registration/demographics">
+    <transition on="cancel" to="cancel"/>
+    <transition on="next" to="demographics">
+      <evaluate expression="registrationAction.bindAndValidate">
+        <attribute name="validatorMethod" value="validateDemographics"/>
+		<attribute name="includeModel" value="true" />
+      </evaluate>
+    </transition>
+    <transition on="previous" to="initialize"/>
+  </view-state>
+
+  <view-state id="displayThankyou" view="registration/registered">
+    <transition on="next" to="registered"/>
+  </view-state>
+
+  <view-state id="displayDemographicsConfirmation" view="registration/demographics-confirmation">
+    <transition on="cancel" to="cancel"/>
+    <transition on="next" to="demographicsConfirmation"/>
+    <transition on="previous" to="startRegistration"/>
+  </view-state>
+
+  <view-state id="displayAccount" view="registration/account">
+    <transition on="cancel" to="cancel"/>
+    <transition on="next" to="account">
+      <evaluate expression="registrationAction.bindAndValidate">
+        <attribute name="validatorMethod" value="validateAccount"/>
+		<attribute name="includeModel" value="true" />
+      </evaluate>
+    </transition>
+    <transition on="previous" to="startRegistration"/>
+  </view-state>
+
+  <view-state id="displayAccountConfirmation" view="registration/account-confirmation">
+    <transition on="cancel" to="cancel"/>
+    <transition on="next" to="submitRegistration">
+      <evaluate expression="registrationAction.bindAndValidate">
+        <attribute name="validatorMethod" value="validateAccountConfirmation"/>
+		<attribute name="includeModel" value="true" />
+      </evaluate>
+    </transition>    
+    <transition on="previous" to="demographics"/>
+  </view-state>
+
+  <action-state id="initialize">
+    <evaluate expression="registrationAction.initialize" />
+    <transition on="success" to="displayPreamble" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="cancel">
+    <evaluate expression="registrationAction.cancel" />
+    <transition on="success" to="cancelled" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="example">
+    <evaluate expression="registrationAction.example" />
+    <transition on="success" to="displayExample" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="startRegistration">
+    <evaluate expression="registrationAction.startRegistration" />
+    <transition on="success" to="displayDemographics" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="demographics">
+    <evaluate expression="registrationAction.demographics" />
+    <transition on="success" to="displayDemographicsConfirmation" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="demographicsConfirmation">
+    <evaluate expression="registrationAction.demographicsConfirmation" />
+    <transition on="success" to="displayAccount" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="account">
+    <evaluate expression="registrationAction.account" />
+    <transition on="success" to="displayAccountConfirmation" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <action-state id="submitRegistration">
+    <evaluate expression="registrationAction.submitRegistration" />
+    <transition on="success" to="displayThankyou" />
+    <transition on="error" to="error"/>
+  </action-state>
+
+  <end-state id="cancelled"/>
+  
+  <end-state id="error"/>
+  
+  <end-state id="registered"/>
+  
+</flow>
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- OOTB Spring messages
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	    <property name="basenames">
+            <list>
+                <value>classpath:/messages/common-messages</value>
+                <value>classpath:/messages/registration-messages</value>
+            </list>
+	    </property>
+    </bean>
+    -->
+
+    <!--  Classpath-based messages
+    <bean id="messageSource" class="com.uhg.umvs.bene.cms.contentretrieval.messages.ProxiedSpringMessageSource">
+	    <property name="messageService" ref="classpathMessageService"/>
+    </bean>
+    
+    <bean id="classpathMessageService" class="com.uhg.umvs.bene.cms.contentretrieval.messages.ClasspathMessageLookupService">
+    	<property name="bundlePaths">
+    		<list>
+    			<value>messages.common-messages</value>
+    			<value>messages.registration-messages</value>
+    		</list>
+    	</property>
+    </bean>
+    -->
+
+    <!-- simple URL-based lookups  -->    
+    <bean id="messageSource" class="com.uhg.umvs.bene.cms.contentretrieval.messages.ProxiedSpringMessageSource">
+	    <property name="messageService" ref="URLMessageService"/>
+    </bean>
+    
+    <bean id="URLMessageService" class="com.uhg.umvs.bene.cms.contentretrieval.messages.URLMessageLookupService">
+        <property name="baseURL" value="http://localhost:8080/tbp"/>
+    	<property name="bundlePaths">
+    		<list>
+    			<value>/messages/common-messages</value>
+    			<value>/messages/registration-messages</value>
+    		</list>
+    	</property>
+    </bean>
+    
+
+</beans>
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- classpath Velocity loader
+	<bean id="registrationTemplate" class="com.uhg.umvs.bene.service.email.MessageTemplateImpl">
+		<property name="bodyTemplateResourceLocation"
+			value="/conf/velocity/email/registration/confirmation-body.vm" />
+		<property name="from" value="noreply@umvs.uhc.com" />
+		<property name="name" value="registration" />
+		<property name="subjectTemplate"
+			value="Thank you, ${firstName}, for registering with the TriCare Beneficiary Portal." />
+	</bean>
+    -->
+
+	<bean id="registrationTemplate" class="com.uhg.umvs.bene.service.email.MessageTemplateImpl">
+		<property name="bodyTemplateResourceLocation"
+			value="/velocity/email/registration/confirmation-body.vm" /> <!-- hard-relative link added to URLResourceLoader's base url -->
+		<property name="from" value="noreply@umvs.uhc.com" />
+		<property name="name" value="registration" />
+		<property name="subjectTemplate"
+			value="Thank you, ${firstName}, for registering with the TriCare Beneficiary Portal." />
+	</bean>
+
+    
+</beans>

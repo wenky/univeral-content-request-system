@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="registrationAction" parent="baseAction"
+		class="com.uhg.umvs.bene.web.registration.RegistrationActionImpl">
+		<property name="formObjectName" value="registrationForm" />
+		<property name="formObjectClass" value="com.uhg.umvs.bene.web.registration.RegistrationFormImpl" />
+		<property name="modelAccessor" ref="registrationModelAccessor" />
+		<property name="validator" ref="registrationValidator" />
+		<property name="helper" ref="registrationHelper" />
+	</bean>
+
+</beans>
+
+
+

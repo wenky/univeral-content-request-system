@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!--  Classpath loader
+  <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+    <property name="velocityProperties">
+      <props>
+        <prop key="resource.loader">class</prop>
+        <prop key="class.resource.loader.class">org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader</prop>
+      </props>
+    </property>
+  </bean>
+  -->
+
+  <!--  URL loader -->
+  <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+    <property name="velocityProperties">
+      <props>
+        <prop key="resource.loader">url</prop>
+        <prop key="url.resource.loader.class">org.apache.velocity.runtime.resource.loader.URLResourceLoader</prop>
+        <prop key="url.resource.loader.root">http://localhost:8080/tbp</prop>
+        <prop key="url.resource.loader.cache">true</prop>
+        <prop key="url.resource.loader.modificationCheckInterval">60</prop>
+      </props>
+    </property>
+  </bean>
+
+</beans>
