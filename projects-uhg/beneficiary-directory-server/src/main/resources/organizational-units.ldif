@@ -1,0 +1,19 @@
+dn: ou=People,dc=uhc,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: People
+entrydn: ou=people,dc=uhc,dc=com
+hasSubordinates: TRUE
+
+dn: ou=Admin,dc=uhc,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: Admin
+entrydn: ou=admin,dc=uhc,dc=com
+hasSubordinates: TRUE
+
+dn: ou=Groups, dc=uhc,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: Groups
+entrydn: ou=groups,dc=uhc,dc=com
