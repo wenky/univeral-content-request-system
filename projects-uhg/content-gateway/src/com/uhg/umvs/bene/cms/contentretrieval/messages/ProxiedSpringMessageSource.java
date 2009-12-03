@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import org.springframework.context.support.AbstractMessageSource;
 
+import com.uhg.umvs.bene.cms.contentretrieval.messages.interfaces.MessageLookupService;
+
 public class ProxiedSpringMessageSource extends AbstractMessageSource
 {
     // to (theoretically) help with AOP caching, we proxy this with a simpler bean interface...
