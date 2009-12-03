@@ -1,0 +1,101 @@
+dn: uid=admin,ou=People,dc=uhc,dc=com
+objectClass: person
+objectClass: benePerson
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+benebirthdate: 19800101
+benesecurityquestion: fake question
+benesecurityquestionresponse: fake response
+benesponsorssn: 111-22-3333
+benessn: 999-88-7777
+givenName: Portal
+cn: admin
+sn: Admin
+uid: admin
+userPassword:: e1NIQX0wRFBpS3VOSXJyVm1EOElVQ3V3MWhReE5xWmM9
+
+dn: uid=testuser1,ou=People,dc=uhc,dc=com
+objectClass: person
+objectClass: organizationalPerson
+objectClass: benePerson
+objectClass: inetOrgPerson
+objectClass: top
+benebirthdate: 19800101
+benesecurityquestion: fake question
+benesecurityquestionresponse: fake response
+benesponsorssn: 333-22-1111
+benessn: 333-22-1111
+givenName: Test1
+cn: testuser1
+sn: User1
+uid: testuser1
+userPassword:: e1NIQX00NHJTRkpROXF0SFdUQkF2cnNLZDVLL3AyajA9
+
+dn: uid=testuser2,ou=People,dc=uhc,dc=com
+objectClass: person
+objectClass: benePerson
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+benebirthdate: 19800202
+benesecurityquestion: fake question
+benesecurityquestionresponse: fake response
+benesponsorssn: 333-22-1111
+benessn: 333-22-1112
+givenName: Test2
+cn: testuser2
+sn: User2
+uid: testuser2
+userPassword:: e1NIQX1LcVlLai9mODFIUFRJZUFVYXYyZUp0ODVVVWM9
+
+dn: uid=testuser3,ou=People,dc=uhc,dc=com
+objectClass: person
+objectClass: benePerson
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+benebirthdate: 19800303
+benesecurityquestion: fake question
+benesecurityquestionresponse: fake response
+benesponsorssn: 333-22-1111
+benessn: 333-22-1113
+givenName: Test3
+cn: testuser3
+sn: User3
+uid: testuser3
+userPassword:: e1NIQX1FUm5QMDM3aVJ6VitBMG9JMkVUdW9sOXYwZzg9
+
+dn: uid=testuser4,ou=People,dc=uhc,dc=com
+objectClass: person
+objectClass: benePerson
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+benebirthdate: 19800404
+benesecurityquestion: fake question
+benesecurityquestionresponse: fake response
+benesponsorssn: 333-22-1111
+benessn: 333-22-1114
+givenName: Test4
+cn: testuser4
+sn: User4
+uid: testuser4
+userPassword:: e1NIQX1vZGRZVGFyS1J6alVtYTF3Z29ockFSRnlkZGc9
+
+dn: uid=testuser5,ou=People,dc=uhc,dc=com
+objectClass: person
+objectClass: benePerson
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: top
+benebirthdate: 19800505
+benesecurityquestion: fake question
+benesecurityquestionresponse: fake response
+benesponsorssn: 333-22-1111
+benessn: 333-22-1115
+cn: testuser5
+givenName: Test5
+sn: User5
+uid: testuser5
+userPassword:: e1NIQX03YnFWWFE2aFg5NzA5aGNtNzVmbHIxQjBNTUE9

@@ -1,0 +1,28 @@
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2009-10-01T14:37:06.291
+dn: ou=People,dc=uhc,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: People
+entrydn: ou=people,dc=uhc,dc=com
+hasSubordinates: TRUE
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2009-10-01T14:37:06.291
+dn: ou=Admin,dc=uhc,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: Admin
+entrydn: ou=admin,dc=uhc,dc=com
+hasSubordinates: TRUE
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2009-10-01T14:37:06.307
+dn: ou=Groups, dc=uhc,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: Groups
+entrydn: ou=groups,dc=uhc,dc=com
