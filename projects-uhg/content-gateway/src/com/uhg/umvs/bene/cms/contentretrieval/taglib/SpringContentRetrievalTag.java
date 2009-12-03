@@ -24,7 +24,7 @@ public class SpringContentRetrievalTag implements Tag
     public void setItem(String s) { item = s;}
 
     
-    protected static String springBeanName = "TBP_CRS_Taglib_ContentRetriever";
+    protected static String springBeanName = "TBP-CRS-Taglib-ContentRetriever";
     protected static ContentRetriever contentRetriever = null;
     
     public void loadConfig()
