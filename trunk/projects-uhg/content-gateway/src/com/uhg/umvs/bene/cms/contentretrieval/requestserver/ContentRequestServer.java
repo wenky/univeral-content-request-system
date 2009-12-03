@@ -1,14 +1,13 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver;
 
 import static com.uhg.umvs.bene.cms.contentretrieval.util.Lg.err;
-
-
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.*;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentRequestHandler;
 
 
 public class ContentRequestServer

@@ -1,10 +1,10 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server.requesthandler;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver.requesthandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentRequestHandler;
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentRequestHandler;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 
 // implements a basic fall-through: we ask the source if it can find the content. 

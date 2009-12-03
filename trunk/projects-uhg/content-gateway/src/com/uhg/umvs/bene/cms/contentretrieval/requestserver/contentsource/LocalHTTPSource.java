@@ -1,4 +1,4 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server.contentsource;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
 // grab content from an http server or some other URL-connectable resource.
 // - useful for passthrus, as was the case with the Jackrabbit JCR jars conflicting with the jBOSS CMS jars

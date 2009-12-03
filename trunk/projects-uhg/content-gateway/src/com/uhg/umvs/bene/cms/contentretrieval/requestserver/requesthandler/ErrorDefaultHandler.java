@@ -1,4 +1,4 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server.requesthandler;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver.requesthandler;
 
 import hidden.org.codehaus.plexus.util.IOUtil;
 
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentRequestHandler;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentRequestHandler;
 
 
 // intended to serve as the error or default handler, but can also serve as a mime-specific hardcoded handler, or perhaps for testing
