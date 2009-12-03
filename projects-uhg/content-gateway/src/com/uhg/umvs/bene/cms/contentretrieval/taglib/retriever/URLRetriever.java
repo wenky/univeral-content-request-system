@@ -18,19 +18,14 @@ import com.uhg.umvs.bene.cms.contentretrieval.taglib.interfaces.ContentRetriever
 public class URLRetriever implements ContentRetriever
 {
     String baseURL = null;
-    
-    public void init(Map config)
-    {
-        // get base url from
-        baseURL = (String)config.get("BaseURL");
-    }
-    
-    // kinda pointless, but for ease of extension/customization of behavior...
+    public void setBaseURL(String baseurl) { baseURL = baseurl; }
+   
+        
+    // kinda pointless for now, but for ease of extension/customization of behavior...
     String getItemURL(String item, PageContext pagecontext, Tag taginstance)
     {
         return baseURL + item;
     }
-    
 
     public void getContent(String item, PageContext pagecontext, Tag taginstance)
     {
@@ -51,10 +46,13 @@ public class URLRetriever implements ContentRetriever
             in.close();
             
         } catch (IOException e) {
-            throw new RuntimeException("ContentRetrievalTag-URLRetriever: IO error retrievign content from content requesturl "+itemurl,e);
+            throw new RuntimeException("ContentRetrievalTag-URLRetriever: IO error retrieving content from content requesturl "+itemurl,e);
         }
-
     }
 
+    // for non-spring initialization
+    Map configMap = null;    
+    public void setConfiguration(Map config) {configMap = config;}
+    public void init() { baseURL = (String)configMap.get("BaseURL"); }
 
 }
