@@ -3,8 +3,6 @@ package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.StringWriter;
 import java.util.Locale;
 
 import javax.management.MBeanServer;
@@ -22,7 +20,7 @@ import org.jboss.portal.cms.Command;
 import org.jboss.portal.cms.model.Content;
 import org.jboss.portal.cms.model.File;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // gets content from the JBoss CMS (a Jackrabbit CMS). Should be run from a webapp inside default/deploy/portal-server.sar/portal-cms.sar
 // otherwise the command factory doesn't seem to work very well...

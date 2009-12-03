@@ -18,7 +18,7 @@ import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // SVN accessor, need to provide repository url, possibly the password and username and base path in the source tree to act as root.
 
