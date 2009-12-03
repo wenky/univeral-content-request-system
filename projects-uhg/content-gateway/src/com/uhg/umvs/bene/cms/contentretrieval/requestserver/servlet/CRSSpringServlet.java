@@ -1,4 +1,4 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server.servlet;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver.servlet;
 
 import java.io.IOException;
 

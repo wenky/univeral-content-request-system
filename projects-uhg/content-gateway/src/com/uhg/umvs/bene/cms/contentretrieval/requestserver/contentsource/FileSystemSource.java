@@ -1,10 +1,9 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server.contentsource;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // gets resource/content item relative to a configured path on the local filesystem
 // - should be usable against Vignette Deployment Agent-placed content 

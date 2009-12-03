@@ -1,4 +1,4 @@
-package com.uhg.umvs.bene.cms.contentretrieval.server.contentsource;
+package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
