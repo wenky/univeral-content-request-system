@@ -17,7 +17,7 @@ import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentRequestServer
 /**
  * servlet accessing spring-managed/initialized Content Request Server
  */
-public class CRSSpringServlet extends HttpServlet {
+public class SpringContentRequestServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     public static final String CRS_BEAN_NAME = "CRS_BEAN_NAME";
