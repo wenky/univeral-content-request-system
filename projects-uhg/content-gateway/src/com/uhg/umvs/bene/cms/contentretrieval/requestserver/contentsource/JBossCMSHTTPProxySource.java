@@ -19,7 +19,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.hsqldb.lib.StringUtil;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 public class JBossCMSHTTPProxySource implements ContentSource
 {

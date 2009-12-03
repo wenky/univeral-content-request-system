@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.ContentRequestServer;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentRequestServer;
 
 /**
  * servlet accessing spring-managed/initialized Content Request Server

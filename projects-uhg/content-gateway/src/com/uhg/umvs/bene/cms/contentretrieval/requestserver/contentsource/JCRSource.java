@@ -3,7 +3,6 @@ package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 import javax.jcr.Credentials;
 import javax.jcr.Item;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
-import com.uhg.umvs.bene.cms.contentretrieval.server.interfaces.ContentSource;
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // gets content from a JCR content repository, likely a Jackrabbit one
 // need to configure the Repository, credentials, and workspace name
