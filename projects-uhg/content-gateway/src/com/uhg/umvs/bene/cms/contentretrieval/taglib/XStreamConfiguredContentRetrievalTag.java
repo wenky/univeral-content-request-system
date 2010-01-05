@@ -9,6 +9,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
+import org.apache.commons.io.IOUtils;
+
 import com.thoughtworks.xstream.XStream;
 import com.uhg.umvs.bene.cms.contentretrieval.taglib.interfaces.ContentRetriever;
 
@@ -60,7 +62,14 @@ public class XStreamConfiguredContentRetrievalTag implements Tag
     {
         // lazyload, since J2EE has no obvious hooks for this
         if (contentRetriever == null) {loadConfig();}
-        contentRetriever.getContent(item, pc, this);
+        
+        try { 
+            InputStream is = contentRetriever.getContent(item, pc, this);
+            IOUtils.copy(is, pc.getResponse().getOutputStream());
+        } catch (IOException ioe) {
+            throw new JspException("CMS retrieval error of item "+item,ioe);
+        }
+        
         return SKIP_BODY;
     }
     

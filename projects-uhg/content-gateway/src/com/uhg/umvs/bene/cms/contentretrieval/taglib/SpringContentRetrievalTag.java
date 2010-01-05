@@ -1,10 +1,14 @@
 package com.uhg.umvs.bene.cms.contentretrieval.taglib;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.ServletContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -24,7 +28,7 @@ public class SpringContentRetrievalTag implements Tag
     public void setItem(String s) { item = s;}
 
     
-    protected static String springBeanName = "TBP-CRS-Taglib-ContentRetriever";
+    protected static final String springBeanName = "TBP-CMS-Taglib-ContentRetriever";
     protected static ContentRetriever contentRetriever = null;
     
     public void loadConfig()
@@ -42,7 +46,14 @@ public class SpringContentRetrievalTag implements Tag
         if (contentRetriever == null) {
             loadConfig();
         }
-        contentRetriever.getContent(item, pc, this);
+
+        try { 
+            InputStream is = contentRetriever.getContent(item, pc, this);
+            IOUtils.copy(is, pc.getResponse().getOutputStream());
+        } catch (IOException ioe) {
+            throw new JspException("CMS retrieval error of item "+item,ioe);
+        }
+        
         return SKIP_BODY;
     }
     

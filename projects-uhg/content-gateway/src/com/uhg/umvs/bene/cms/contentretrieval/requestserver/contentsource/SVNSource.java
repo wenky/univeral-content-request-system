@@ -1,11 +1,9 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNNodeKind;
@@ -18,6 +16,7 @@ import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // SVN accessor, need to provide repository url, possibly the password and username and base path in the source tree to act as root.
@@ -72,8 +71,10 @@ public class SVNSource implements ContentSource
     }
     
     
-    public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
+    public ContentResponse getContent(String contentItem, HttpServletRequest req)
     {
+        ContentResponse response = new ContentResponse();
+        
         DAVRepositoryFactory.setup();
         
         String itempath = basepath + contentItem;
@@ -112,16 +113,13 @@ public class SVNSource implements ContentSource
         }
 
         String mimeType = props.getStringValue(SVNProperty.MIME_TYPE);
-        resp.setContentType(mimeType);
-        try {
-            OutputStream bufout = resp.getOutputStream();
-            baos.writeTo(bufout);
-            bufout.flush();
-            bufout.close();
-            baos.close();
-        } catch (IOException ioe) {
-            throw new RuntimeException("SVNSource: IO exception writing file contents "+itempath+" from repo "+repositoryurl);            
-        }
+        response.setMimetype(mimeType);
+
+        ByteArrayInputStream inputstream = new ByteArrayInputStream(baos.toByteArray());
+        response.setContent(inputstream);
+        
+        return response;
+            
         
     }
 

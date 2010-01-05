@@ -1,8 +1,7 @@
 package com.uhg.umvs.bene.cms.contentretrieval.taglib.retriever;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -10,8 +9,6 @@ import java.util.Map;
 
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
-
-import org.apache.commons.io.IOUtils;
 
 import com.uhg.umvs.bene.cms.contentretrieval.taglib.interfaces.ContentRetriever;
 
@@ -27,7 +24,7 @@ public class URLRetriever implements ContentRetriever
         return baseURL + item;
     }
 
-    public void getContent(String item, PageContext pagecontext, Tag taginstance)
+    public InputStream getContent(String item, PageContext pagecontext, Tag taginstance)
     {
         String itemurl = getItemURL(item,pagecontext,taginstance);
         try {
@@ -40,10 +37,7 @@ public class URLRetriever implements ContentRetriever
             } catch (MalformedURLException e) {     
                 throw new RuntimeException("ContentRetrievalTag-URLRetriever: bad content request url "+url,e);
             }
-            BufferedReader in = new BufferedReader(new InputStreamReader(urlc.getInputStream()));             
-            IOUtils.copy(in, pagecontext.getOut());
-            pagecontext.getOut().flush();
-            in.close();
+            return urlc.getInputStream();             
             
         } catch (IOException e) {
             throw new RuntimeException("ContentRetrievalTag-URLRetriever: IO error retrieving content from content requesturl "+itemurl,e);

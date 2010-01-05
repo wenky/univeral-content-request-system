@@ -1,7 +1,8 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 
 
 public interface ContentSource
@@ -9,5 +10,5 @@ public interface ContentSource
 
     public boolean hasContent(String contentItem, HttpServletRequest request);
 
-    public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp);
+    public ContentResponse getContent(String contentItem, HttpServletRequest req);
 }

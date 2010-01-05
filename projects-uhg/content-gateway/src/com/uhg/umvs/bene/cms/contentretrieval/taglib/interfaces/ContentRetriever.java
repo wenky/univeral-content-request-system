@@ -1,5 +1,6 @@
 package com.uhg.umvs.bene.cms.contentretrieval.taglib.interfaces;
 
+import java.io.InputStream;
 import java.util.Map;
 
 import javax.servlet.jsp.PageContext;
@@ -11,5 +12,5 @@ public interface ContentRetriever
     public void init();
     public void setConfiguration(Map config);
         
-    public void getContent(String item, PageContext pagecontext, Tag tag);
+    public InputStream getContent(String item, PageContext pagecontext, Tag tag);
 }

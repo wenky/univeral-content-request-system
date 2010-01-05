@@ -7,10 +7,8 @@ import java.io.IOException;
 
 import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
-
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // gets resource/content item relative to a configured path on the local filesystem
@@ -29,8 +27,10 @@ public class FileSystemSource implements ContentSource
     }
 
     
-    public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
+    public ContentResponse getContent(String contentItem, HttpServletRequest req)
     {
+        ContentResponse response = new ContentResponse();
+        
         // form filename from baseroot
         String filepath = baseroot + contentItem;
         File thefile = new File(filepath);
@@ -43,15 +43,17 @@ public class FileSystemSource implements ContentSource
             String mimetype = determineMimeType(thefile);            
             // write file to response
             //byteArrayStream.writeTo(response.getOutputStream())
-            try { 
+            try {
+                response.setMimetype(mimetype);
                 BufferedInputStream fis = new BufferedInputStream(new FileInputStream(thefile));
-                IOUtils.copy(fis, resp.getOutputStream());
-                resp.getOutputStream().flush();
-                fis.close();
+                response.setContent(fis);
             } catch (IOException ioe) {
                 throw new RuntimeException("FSSource: Error reading file "+filepath+" to http response",ioe);
             }
+            
         }
+        
+        return response;
         
     }
     

@@ -1,7 +1,6 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
 import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 
@@ -9,9 +8,7 @@ import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
 import org.jboss.mx.util.MBeanProxy;
 import org.jboss.mx.util.MBeanProxyCreationException;
 import org.jboss.mx.util.MBeanServerLocator;
@@ -20,6 +17,7 @@ import org.jboss.portal.cms.Command;
 import org.jboss.portal.cms.model.Content;
 import org.jboss.portal.cms.model.File;
 
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // gets content from the JBoss CMS (a Jackrabbit CMS). Should be run from a webapp inside default/deploy/portal-server.sar/portal-cms.sar
@@ -59,30 +57,23 @@ public class JBossCMSSource implements ContentSource
         return exists.booleanValue();        
     }
     
-    public void getContent(String contentItem, HttpServletRequest request, HttpServletResponse resp)
+    public ContentResponse getContent(String contentItem, HttpServletRequest request)
     {
-        try { 
-            CMS CMSService = getCMSServiceReference();
-            
-            Command getCMD = CMSService.getCommandFactory().createFileGetCommand(contentItem, new Locale(CMSService.getDefaultLocale()));
-            File file = (File)CMSService.execute(getCMD);
-            Content content = file.getContent();
-            String mimeType = content.getMimeType();
-            if (mimeType != null) {
-                resp.setContentType(mimeType);
-            }
-            
-            
-            InputStream contentstream = new BufferedInputStream(content.getStream());
-            
-            IOUtils.copy(contentstream, resp.getOutputStream());
-            resp.getOutputStream().flush();
-            contentstream.close();
-            
-        } catch (IOException ioe) {
-            throw new RuntimeException("JBossCMSSource:: IO exception reading stream for item "+contentItem,ioe);
-        }
+        ContentResponse response = new ContentResponse();
         
+        CMS CMSService = getCMSServiceReference();
+        
+        Command getCMD = CMSService.getCommandFactory().createFileGetCommand(contentItem, new Locale(CMSService.getDefaultLocale()));
+        File file = (File)CMSService.execute(getCMD);
+        Content content = file.getContent();
+        String mimeType = content.getMimeType();
+        if (mimeType != null) {
+            response.setMimetype(mimeType);
+        }
+                    
+        InputStream contentstream = new BufferedInputStream(content.getStream());
+        response.setContent(contentstream);
+        return response;
         
     }
 

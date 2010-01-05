@@ -1,7 +1,6 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
 import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 import javax.jcr.Credentials;
@@ -16,10 +15,8 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.ValueFormatException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
-
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // gets content from a JCR content repository, likely a Jackrabbit one
@@ -83,10 +80,13 @@ public class JCRSource implements ContentSource
     }
 
     
-    public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
+    public ContentResponse getContent(String contentItem, HttpServletRequest req)
     {
+        ContentResponse response = new ContentResponse();
+        
         String itempath = basepath + contentItem + contentnode;        
         Session session = null;
+        
         try {
             session = contentrepository.login(credentials, workspace);
         } catch (NoSuchWorkspaceException nowse) {
@@ -119,7 +119,7 @@ public class JCRSource implements ContentSource
                         Property mimepropitem = node.getProperty(mimeproperty);
                         String mimetype = mimepropitem.getString();
                         if (mimetype != null) {
-                            resp.setContentType(mimetype);
+                            response.setMimetype(mimetype);
                         }
                     }
                 } catch (PathNotFoundException badpath) {
@@ -150,19 +150,14 @@ public class JCRSource implements ContentSource
         InputStream contentstream;
         try {
             contentstream = new BufferedInputStream(propitem.getStream());
+            response.setContent(contentstream);
         } catch (ValueFormatException vfe) {
             throw new RuntimeException("JCRSource: error in getting input stream from "+itempath,vfe);                                    
         } catch (RepositoryException re) {
             throw new RuntimeException("JCRSource: getting input stream for "+itempath+" threw RepositoryException",re);                        
         } 
-        try { 
-            IOUtils.copy(contentstream, resp.getOutputStream());
-            resp.getOutputStream().flush();       
-            contentstream.close();
-        } catch (IOException ioe) {
-            throw new RuntimeException("JCRSource: IOException writing "+itempath+" to response",ioe);                        
-            
-        }
+        
+        return response;
     }
 
 }

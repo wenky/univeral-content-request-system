@@ -2,9 +2,14 @@ package com.uhg.umvs.bene.cms.contentretrieval.requestserver.requesthandler;
 
 import static com.uhg.umvs.bene.cms.contentretrieval.util.Lg.inf;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
+
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentRequestHandler;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
@@ -32,7 +37,17 @@ public class ExtraPathHandler implements ContentRequestHandler
         }
         
         inf("Request Match: handling item %s from sourceprefix %s",item,sourceprefix);
-        contentsource.getContent(item, req, resp);
+        ContentResponse response = contentsource.getContent(extrapath, req);
+        
+        try {
+            if (response.getMimetype() != null) {
+                resp.setContentType(response.getMimetype());
+            }
+            IOUtils.copy(response.getContent(), resp.getOutputStream());
+        } catch (IOException ioe) {
+            throw new RuntimeException("IOException writing content response to HTTP Response",ioe);
+        }
+        
         
         // no match
         return false;

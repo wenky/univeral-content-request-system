@@ -1,17 +1,17 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requestserver.contentsource;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.SocketException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
 // get content from an FTP server. need to configure a server. optionally provide username, password, 
@@ -85,7 +85,7 @@ public class FTPSource implements ContentSource
     }
     
 
-    public void getContent(String contentItem, HttpServletRequest req, HttpServletResponse resp)
+    public ContentResponse getContent(String contentItem, HttpServletRequest req)
     {
         String itempath = basepath+contentItem;
         
@@ -102,11 +102,15 @@ public class FTPSource implements ContentSource
             String replystring = ftp.getReplyString();
             
             //resp.setContentType("text/html");
-            OutputStream output = resp.getOutputStream();
-            baos.writeTo(output);
-            output.flush();
-            baos.close();
+            // convert BAOS to inputstream
+            ByteArrayInputStream inputstream = new ByteArrayInputStream(baos.toByteArray());
+            
+            ContentResponse response = new ContentResponse();
+            response.setContent(inputstream);
+            
             ftp.logout();
+            
+            return response;
             
         } catch (IOException ioe) {
             throw new RuntimeException("FTPSource: FTP retrieval attempt resulted in IOException");                                                
