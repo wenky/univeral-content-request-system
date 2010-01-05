@@ -1,8 +1,13 @@
 package com.uhg.umvs.bene.cms.contentretrieval.requestserver.requesthandler;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
+
+import com.uhg.umvs.bene.cms.contentretrieval.requestserver.ContentResponse;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentRequestHandler;
 import com.uhg.umvs.bene.cms.contentretrieval.requestserver.interfaces.ContentSource;
 
@@ -22,7 +27,16 @@ public class FallThroughHandler implements ContentRequestHandler
         String extrapath = req.getPathInfo();
         
         if (contentsource.hasContent(extrapath, req)) {
-            contentsource.getContent(extrapath, req, resp);
+            ContentResponse response = contentsource.getContent(extrapath, req);
+            
+            try {
+                if (response.getMimetype() != null) {
+                    resp.setContentType(response.getMimetype());
+                }
+                IOUtils.copy(response.getContent(), resp.getOutputStream());
+            } catch (IOException ioe) {
+                throw new RuntimeException("IOException writing content response to HTTP Response",ioe);
+            }
             return true;
         }
         
