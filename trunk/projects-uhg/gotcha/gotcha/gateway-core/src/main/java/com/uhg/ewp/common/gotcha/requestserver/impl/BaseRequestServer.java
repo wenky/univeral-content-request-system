@@ -1,0 +1,56 @@
+package com.uhg.ewp.common.gotcha.requestserver.impl;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.uhg.ewp.common.gotcha.requesthandler.idef.ContentRequestHandler;
+import com.uhg.ewp.common.gotcha.requestserver.idef.ContentRequestServer;
+import com.uhg.ewp.common.gotcha.util.log.Lg;
+
+
+public class BaseRequestServer implements ContentRequestServer
+{
+    List<ContentRequestHandler> m_sourceHandlers = null;    
+    public void setSourceHandlers(List<ContentRequestHandler> sourceHandlers) {m_sourceHandlers = sourceHandlers;}
+    
+    ContentRequestHandler m_defaultHandler = null;
+    public void setDefaultHandler(ContentRequestHandler defaulthandler) { m_defaultHandler = defaulthandler; }
+
+    ContentRequestHandler m_errorHandler = null;
+    public void setErrorHandler(ContentRequestHandler errorhandler) { m_errorHandler = errorhandler; }
+
+
+    /* (non-Javadoc)
+     * @see com.uhg.umvs.bene.cms.contentretrieval.requestserver.RequestServer#processContentRequest(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
+    public void processContentRequest(HttpServletRequest req, HttpServletResponse resp)
+    {
+        // threadlocal the req/resp?
+        // iterate through source handlers
+        try {
+            boolean handled = false;
+            for (ContentRequestHandler handler : m_sourceHandlers) {
+                handled = handler.handleRequest(req, resp);
+                if (handled) {
+                    // stop iteration thru sources
+                    break;
+                }
+            }
+            if (!handled && m_defaultHandler != null) {
+                // return a "not found"/"not handled" text or mime-appropriate response if we can determine the desired mime type
+                m_defaultHandler.handleRequest(req, resp);
+            }
+        } catch (Exception e) {
+            try { 
+                if (m_errorHandler != null) {
+                    // attempt to handle the error with an error text or mime-appropriate response if we can determine the desired mime type
+                    m_errorHandler.handleRequest(req, resp);
+                }
+            } catch (Exception ee) {/* well, we tried...*/}
+            if(Lg.err())Lg.err("Error in handling request %s",req.getRequestURL().toString());
+        }
+    }
+
+}

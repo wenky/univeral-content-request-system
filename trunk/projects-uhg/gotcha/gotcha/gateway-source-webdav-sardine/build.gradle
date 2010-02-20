@@ -1,0 +1,64 @@
+/**
+
+GRADLE build for the Sardine WebDAV ContentSource
+
+*/
+
+usePlugin 'java'
+
+sourceCompatibility = 1.5
+basefolder = "gateway-source-webdav-sardine"
+archivesBaseName = "GOTCHA-$basefolder"
+version = '1.0'
+manifest.mainAttributes(
+    'Implementation-Title': archivesBaseName,
+    'Implementation-Version': version
+)
+
+// use local simple lib directory as repo...
+repositories {
+    flatDir(dirs: file("../artifacts/lib/$basefolder"))
+    flatDir(dirs: file("../artifacts/lib/gateway-core"))
+    flatDir(dirs: file("../artifacts/built/gateway-core-$version"))
+}
+
+// using artifact-only notation due to descriptor-less local flatdir "repository"
+dependencies {
+    compile (
+        "uhg:GOTCHA-gateway-core-1.0@jar",
+        "googlecode:sardine-73@jar"
+    )
+    //testCompile group:'junit',name:'junit',version:'4.+'
+}
+
+// override main java source location
+sourceSets {
+    main {
+        java { srcDir '../../src/sources/webdav-sardine' }
+    }
+}
+
+// output statuses
+compileJava.doLast { println "compile didWork = ${compileJava.didWork}" }
+compileTestJava.doLast { println "compileTest didWork = ${compileTestJava.didWork}" }
+
+
+// project info task
+
+task projectinfo << {
+    allprojects {
+        println "project path $path"
+        println "  project name = $name"
+        println "  project dir = '${rootProject.relativePath(projectDir)}'"
+        println "  build file = '${rootProject.relativePath(buildFile)}'"
+        println "  build dir = '${rootProject.relativePath(buildDir)}'"
+    }
+}
+
+// "upload" finished product to the artifacts "repo"
+
+uploadArchives {
+    repositories {
+       flatDir(dirs: file("../artifacts/built/$basefolder-$version/"))
+    }
+}

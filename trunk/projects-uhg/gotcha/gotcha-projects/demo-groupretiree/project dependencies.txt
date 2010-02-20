@@ -1,0 +1,2 @@
+Requires:
+- gateway-core
