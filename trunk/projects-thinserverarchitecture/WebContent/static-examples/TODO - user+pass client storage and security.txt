@@ -6,3 +6,4 @@ Threats:
 - dopplegangers: even if encrypted, user/pass combo can be passed as part of a request to pretend they are part of it
 - solution: include IP address in user/pass encryption, must match actual. Does that help? yes if the credential-IP combo is pk encrypted by client.
 - services should generally https everything anyway...
+
