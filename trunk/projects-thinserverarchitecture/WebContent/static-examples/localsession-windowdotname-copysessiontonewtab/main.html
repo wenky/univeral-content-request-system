@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript" src="json2.js"></script>
+    <script type="text/javascript">
+      var windowname = "supermainwindow"+Math.random((new Date()).getSeconds());
+      function initWindowName()
+      {          
+          alert("preinit window.name: "+window.name);
+          alert("windowname: "+windowname);          
+          window.name = windowname+"{}";
+      }
+    
+      function setWindowNameValue(key,value)
+      {
+          var winname = window.name;
+          alert("pre-parsed winname: "+winname);
+          winname = winname.substr(winname.indexOf('{'));
+          alert("parsed winname: "+winname);
+          var contents = JSON.parse(winname);
+          contents[key] = value;
+          var tostr = JSON.stringify(contents);
+          alert("tostr: "+tostr);
+          window.name = windowname+tostr;
+          alert("win.name: "+window.name);
+
+          var alink = document.getElementById("thediv");
+          alink.innerHTML = "<a id='newtablink' href='next.html?winname="+windowname+"'>newtab link</a>";          
+          
+      }
+
+      // initialize window.name with empty JSON object
+      initWindowName();
+    </script>
+</head>
+<body>
+  <a href="#" onClick="setWindowNameValue('theKey','theValue'); return false;">set key-value, dont open me in a new window/tab</a><br>
+  <div id="thediv">--</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+    <script type="text/javascript">
+      function onInit() {
+          // attempt to get base window name from ? args
+          var winloc = window.location;
+          alert("winloc: "+winloc.href);
+          var url = decodeurl(winloc.href);
+          var winname = url.httpargs["winname"];
+          alert("winname: "+winname);
+          //alert("opener name: "+opener.name); // doesn't work with offclicking, only with window.open...
+      }
+
+      function decodeurl(url)
+      {
+          var decoded = {};
+          var qsidx = url.indexOf("?");
+          alert("qsidx: "+qsidx);
+          if (qsidx != -1) {
+              decoded.main = url.substring(0,qsidx);
+              decoded.querystring = url.substr(qsidx+1);
+              alert("qs: "+decoded.querystring);
+              decoded.httpargs = {};
+              if (decoded.querystring.indexOf("&") == -1) {
+                  var keyval = decoded.querystring.split("=");
+                  var key = keyval[0];
+                  var val = keyval[1];
+                  key = unescape(key);
+                  val = unescape(val);
+                  decoded.httpargs[key] = val;                  
+              } else {
+	              var args = decoded.querystring.split("&");
+	              for (var arg=0; arg < args.lenth; arg++) {
+	                  var keyval = args[arg].split("=");
+	                  var key = keyval[0];
+	                  var val = keyval[1];
+	                  key = unescape(key);
+	                  val = unescape(val);
+	                  // TODO: multivalue keys
+	                  decoded.httpargs[key] = val;
+	              }
+              }
+          } else {
+              decoded.main = url;
+          }
+          // TODO: protocol, server, port, path, #hash from main
+          return decoded;
+      }
+  
+      onInit();
+    </script>
+
+</head>
+<body>
+</body>
+</html>

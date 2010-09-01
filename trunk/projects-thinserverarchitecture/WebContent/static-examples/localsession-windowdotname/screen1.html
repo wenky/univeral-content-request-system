@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script type="text/javascript" src="json2.js"></script>
+    <script type="text/javascript">
+      function initWindowName()
+      {
+          alert("preinit window.name: "+window.name);
+          window.name = "{}";          
+      }
+    
+      function setWindowNameValue(key,value)
+      {
+          var contents = JSON.parse(window.name);
+          contents[key] = value;
+          var tostr = JSON.stringify(contents);
+          alert("tostr: "+tostr);
+          window.name = tostr;
+          alert("win.name: "+window.name);
+      }
+
+      // initialize window.name with empty JSON object
+      initWindowName();
+      
+    </script>
+  </head>  
+  <body>
+    	<a href="screen3.html" onClick="setWindowNameValue('aKey','aValue'); return false;">set key-value</a><br>
+    	<a href="screen2.html">goto screen2.html to see if the key-value persists across page reqs</a><br>
+  </body>
+</html>
