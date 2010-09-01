@@ -1,0 +1,14 @@
+So basically this is a failure.
+
+Unless window.open opens the new tab filling in the window.opener reference, there's no way 
+to ref back to the original window to copy it's session with window.name.
+
+The localsession java applet could do it since it can see everyone's sessions.
+
+So "subapp" / new tabs would need to have all the necessary info from the current session encoded on the GET url. 
+
+A post request of the localsession contents could be passed through the server and the localsession included in the
+generated content of the new page. 
+
+Some interesting beginnings to parsing urls into the querystring, httpargs, etc. though. Would like a better library
+from the intarweb somewhere.

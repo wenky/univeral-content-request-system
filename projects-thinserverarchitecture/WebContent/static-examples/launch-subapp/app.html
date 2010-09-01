@@ -1,0 +1,16 @@
+<html>
+    <script type="text/javascript">
+
+      function doLocal(divid,value)
+      {
+          var thediv = document.getElementById(divid);
+          thediv.innerHTML = value;
+      }      
+	</script>
+
+  <body>
+    <a href="subapp.html" onClick="doLocal('thediv','VValue'); return false;">use me to open new tab/window for subapp, or click me to doLocal(VValue)</a>
+    <div id="thediv">
+    </div>    
+  </body>
+</html>

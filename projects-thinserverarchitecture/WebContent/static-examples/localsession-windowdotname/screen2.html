@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script type="text/javascript" src="json2.js"></script>
+    <script type="text/javascript">
+      function getValue(key)
+      {
+          alert("2 winname: "+window.name);
+          var contents = JSON.parse(window.name);
+          alert("three key: "+key+" val: "+contents[key]);
+          return contents[key];
+      }
+
+      function setDiv(divid,key)
+      {
+          alert("1");
+          var thediv = document.getElementById(divid);
+          thediv.innerHTML = getValue(key);
+      }
+      
+	</script>
+  </head>
+  <body>
+    <a onclick="setDiv('thediv','aKey');">set the div</a><br>
+    <div id="thediv"></div>
+  </body>
+ </html>        

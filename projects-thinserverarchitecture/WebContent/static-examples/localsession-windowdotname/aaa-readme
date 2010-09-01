@@ -1,0 +1,3 @@
+this demonstrates using window.name and the json lib to store data in a local session using the window.name property
+- values persist across click navigations
+- values do not persist if a href navigations are opened in a new window. 

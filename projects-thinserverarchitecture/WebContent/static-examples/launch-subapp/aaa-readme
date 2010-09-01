@@ -1,0 +1,11 @@
+This demonstrates an href example that does different things depending on if clicked or if opened in a new window:
+
+If clicked:
+- javascript function is invoked
+- href is NOT navigated to
+- key to stopping href navigation is the return false
+
+If opened in a new tab/window:
+- subapp.html is opened in the new tab
+- javascript function is NOT invoked
+
