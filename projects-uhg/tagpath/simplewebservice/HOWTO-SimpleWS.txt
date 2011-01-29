@@ -1,0 +1,21 @@
+Simple web service: an attempt to do WS simply without unnecessary abstraction models.
+
+Basic idea: 
+  RequestGenerator impl creates web service message string
+  SimpleWebService impl invokes the webservice ususally with HttpClient
+  ResponseParser impl parses the response stream
+  
+Typical steps:
+  - use SOAPUI to get a typical request xml and response xml
+    - for unsigned WESB SOAP, you'll need the action   
+  - create a MVEL template text file for the request xml
+  - write a response parser, usually extends one of the XPath base ones that does the muckity muck of 
+    parsing the response, I usually use a sequence of XPaths once the initial XPath navigation has been done
+  - write a test to do an invoke
+  - write formal unit tests of the RequestGenerator and ResponseParsers using known working response sample
+  - configure spring beans for Spring webservice 
+    - request generator
+    - response parser
+    - security conf/tokens/etc (depends on simple ws impl type)
+    - UUID generation (depends on simple ws impl type)
+  
