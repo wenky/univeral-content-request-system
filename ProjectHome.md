@@ -1,0 +1,1 @@
+provides abstraction/facade/ common server for accessing content. Behind the server, content requests are mapped to heterogeneous sources (FTP servers, WebDAV, filesystems, version control systems, Documentum/Stellent/Sharepoint, etc).
